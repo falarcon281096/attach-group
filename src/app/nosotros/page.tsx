@@ -10,48 +10,48 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
       {/* Header */}
-      <header className="relative z-20">
+      <header className="bg-white relative z-20">
         <div className="ml-15 flex items-center justify-between border-l-2 border-white/30 py-6">
           {/* Logo - Izquierda */}
           <div className="flex items-center ml-15">
-            <div className="w-40 h-8 bg-white/20 rounded flex items-center justify-center">
+            <div className="w-40 h-8 bg-[#1840E2]/50 rounded flex items-center justify-center">
               <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
             </div>
           </div>
 
           {/* Navigation - Centro */}
-          <nav className="hidden lg:flex items-center space-x-8 justify-center">
+          <nav className="hidden lg:flex items-center space-x-8 justify-center text-[#1840E2]">
             <Link
               href="/nosotros"
-              className="text-white hover:text-white/80 font-bold transition-colors"
+              className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors"
             >
               Nosotros
             </Link>
             <div className="relative group">
-              <button className="text-white hover:text-white/80 font-bold transition-colors flex items-center">
+              <button className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors flex items-center">
                 Soluciones
                 <span className="ml-1 text-sm">+</span>
               </button>
             </div>
             <Link
               href="/casos"
-              className="text-white hover:text-white/80 font-bold transition-colors"
+              className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors"
             >
               Casos de éxito
             </Link>
             <Link
               href="/cultura"
-              className="text-white hover:text-white/80 font-bold transition-colors"
+              className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors"
             >
               Cultura
             </Link>
           </nav>
 
           {/* Botón Contáctanos - Derecha */}
-          <div className="flex items-center justify-end mr-30">
+          <div className="flex items-center justify-end bg-linear-to-r from-[#1e3fda] to-[#58308c] rounded-lg mr-30">
             <Link
               href="/contacto"
-              className="bg-white text-[#6e4490] px-6 py-4 rounded-lg font-extrabold hover:bg-white/90 transition-colors"
+              className="px-6 py-4 font-semibold transition-colors"
             >
               Contáctanos
             </Link>
@@ -67,24 +67,16 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <div className="relative z-10">
+      <div className="relative z-10 bg-white">
         <div className="ml-15 border-l-2 border-b-2 border-white/30 rounded-bl-[50px] pt-20 pb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
             {/* Content */}
-            <div className="text-white">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
-                Tecnología y estrategia para llevar tu negocio al siguiente nivel
+            <div>
+              <p className="text-[#1840E2] font-thin text-4xl lg:text-6xl">Somos</p>
+              <h1 className="font-extrabold text-4xl lg:text-6xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
+                Attach Group
               </h1>
-              <p className="text-2xl text-white mb-8 max-w-lg">
-                Transformamos tus desafíos en oportunidades de crecimiento. Combinamos visión estratégica y
-                soluciones tecnológicas para impulsar resultados reales y medibles.
-              </p>
-              <button className="bg-white text-[#1840e2] px-10 py-4 rounded-lg font-extrabold text-lg hover:bg-white/90 inline-flex items-center">
-                Saber más
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
+              <p className="text-[#464646] mt-10 text-2xl">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</p>
             </div>
 
             {/* Image placeholder - where the person and city image goes */}
