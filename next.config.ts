@@ -1,20 +1,10 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  // Configuración para exportación estática
-  output: 'export',
+const nextConfig = {
   trailingSlash: true,
-  
-  // BasePath para el servidor
   basePath: '/attach-group',
-  
-  // Configuración de imágenes para exportación estática
   images: {
     domains: ['localhost'],
-    unoptimized: true
+    unoptimized: true,
   },
-  
-  // Deshabilitar server-side features para static export
   eslint: {
     ignoreDuringBuilds: true,
   },
