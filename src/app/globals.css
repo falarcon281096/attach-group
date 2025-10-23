@@ -19,8 +19,221 @@
   }
 }
 
+
+
+@font-face {
+    font-family: 'graphikblack';
+    src: url('/fonts/graphik-black-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikblack_italic';
+    src: url('/fonts/graphik-blackitalic-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikbold';
+    src: url('/fonts/graphik-bold-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikbold_italic';
+    src: url('/fonts/graphik-bolditalic-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikextralight';
+    src: url('/fonts/graphik-extralight-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-extralight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikextralight_italic';
+    src: url('/fonts/graphik-extralightitalic-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-extralightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphiklight';
+    src: url('/fonts/graphik-light-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphiklight_italic';
+    src: url('/fonts/graphik-lightitalic-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikmedium';
+    src: url('/fonts/graphik-medium-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikmedium_italic';
+    src: url('/fonts/graphik-mediumitalic-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'graphikregular';
+    src: url('/fonts/graphik-regular-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikitalic';
+    src: url('/fonts/graphik-regularitalic-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-regularitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphiksemibold';
+    src: url('/fonts/graphik-semibold-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphiksemibold_italic';
+    src: url('/fonts/graphik-semibolditalic-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-semibolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphiksuper';
+    src: url('/fonts/graphik-super-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-super-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphiksuper_italic';
+    src: url('/fonts/graphik-superitalic-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-superitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikthin';
+    src: url('/fonts/graphik-thin-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphikthin_italic';
+    src: url('/fonts/graphik-thinitalic-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-thinitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "graphikregular";
 }
