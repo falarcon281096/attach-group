@@ -480,14 +480,20 @@ export default function Home() {
           </div>
           {/* Logo y Social Links */}
           <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
-            <div className="p-8">
-              <span className="font-bold">ATTACH+ GROUP</span>
-            </div>
+          <a href="/attach-group" className="ml-15 py-8">
+            <Image className="" src="/attach-group/images/general/Logo_Attach_Group_Blue.png" alt="Logo Attach" width={180} height={50} />
+          </a>
             <div className="p-8">
               <div className="flex justify-end gap-4">
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
+                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                <Image className="" src="/attach-group/images/general/socialicon_linkden.png" alt="Logo Attach" width={180} height={50} />
+                </a>
+                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                <Image className="" src="/attach-group/images/general/socialicon_ig.png" alt="Logo Attach" width={180} height={50} />
+                </a>
+                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                <Image className="" style={{ marginTop: '4px' }} src="/attach-group/images/general/socialicon_yt.png" alt="Logo Attach" width={180} height={50} />
+                </a>
               </div>
             </div>
           </div>

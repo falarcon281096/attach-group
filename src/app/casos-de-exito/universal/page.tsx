@@ -12,20 +12,16 @@ export default function Home() {
 
   const stats = [
     {
-      value: "+45%",
-      text: "YoY en tasa de conversión web.",
+      value: "100%",
+      text: "de notas clasificadas automáticamente, lo que garantiza segmentación inmediata para anunciantes.",
     },
     {
-      value: "+89%",
-      text: "En ratio de contactabilidad en anuncios de pauta digital.",
+      value: "0%",
+      text: "horas-hombre invertidas, liberando al equipo editorial para enfocarse en contenido de valor.",
     },
     {
-      value: "6.73%",
-      text: "De conversión en campañas pagas durante los últimos 18 meses",
-    },
-    {
-      value: "Rendimiento técnico sobresaliente",
-      text: "con puntajes cercanos al máximo en desktop y óptimos en mobile (Google Page Speed).",
+      value: "Escalabilidad y eficiencia",
+      text: "en costos de procesamiento, permitiendo sostener el crecimiento digital de El Universal.",
     },
   ];
   return (
@@ -94,12 +90,12 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
               {/* Content */}
               <div className="text-white">
-                <p className="text-5xl">Optimización web</p>
+                <p className="text-5xl">Clasificación inteligente de contenido:</p>
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
-                  que impulsa la conversión
+                  el salto de El Universal con IA generativa
                 </h1>
                 <p className="text-2xl text-white mb-8 max-w-lg">
-                  DepoSeguro es la primera cadena de self-storage en Perú, especializada en el alquiler de depósitos y almacenes en Lima desde 1m². Brinda soluciones tanto para empresas como para personas naturales, y se destaca por su enfoque en seguridad —con videovigilancia y control de humedad— y por ofrecer total flexibilidad en tiempos y tamaños de renta.
+                  Con más de un siglo de historia, El Universal es uno de los periódicos más influyentes de México y un referente regional por su cobertura política, económica y cultural. Su reputación se basa en la rigurosidad editorial y en la confianza de sus lectores, valores que ha sabido mantener mientras avanza hacia lo digital.
                 </p>
               </div>
 
@@ -117,18 +113,15 @@ export default function Home() {
             <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+45%</p>
-                <p className="mt-2 text-[1.35rem]">en tasa de conversión web (YoY)</p>
+                <p className="font-bold text-4xl lg:text-5xl">Eficiencia total</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+89%</p>
-                <p className="mt-2 text-[1.35rem]">en contactabilidad promedio en anuncios digitales</p>
+                <p className="font-bold text-4xl lg:text-5xl">Segmentación precisa</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-
-                <p className="mt-2 text-[1.35rem]">Rendimientos cercanos al puntaje máximo en Google PageSpeed y óptimos en mobile.</p>
+                <p className="font-bold text-4xl lg:text-5xl">Escalabilidad con ahorro</p>
               </div>
             </div>
           </section>
@@ -143,8 +136,9 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               El reto
             </h3>
-            <p className="tex-xl text-gray-400">DepoSeguro buscaba optimizar su sitio web para que dejara de ser solo un punto de contacto digital y se convirtiera en un canal estratégico para generar leads y potenciar su crecimiento comercial.</p>
-            <p className="tex-xl text-gray-400">El desafío implicaba mejorar la experiencia de usuario, rediseñar la arquitectura tecnológica y elevar el rendimiento en velocidad, SEO y conversión, asegurando una transición fluida y sin interrupciones operativas.</p>
+            <p className="tex-xl text-gray-400">El Universal publica cientos de notas periodísticas al día y debía clasificarlas en categorías publicitarias (taxonomías) para garantizar una segmentación efectiva a sus anunciantes.
+            </p><p className="tex-xl text-gray-400">Hacerlo de forma manual resultaba lento y demandaba demasiado esfuerzo del equipo editorial. La empresa necesitaba una solución rápida, precisa y totalmente automática, capaz de asegurar la categorización correcta de cada nota sin invertir horas-hombre.
+            </p>
           </div>
           <div className="relative">
             <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
@@ -161,16 +155,45 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Estrategia
             </h3>
-            <p className="tex-xl text-gray-400">Desarrollamos una estrategia integral basada en cuatro pilares clave: diseño y experiencia de usuario, infraestructura tecnológica, escalabilidad y posicionamiento digital.</p>
-            <p className="tex-xl text-gray-400"><b>1. Diagnóstico profundo y definición de objetivos:</b><br />
-              Auditoría completa del sitio anterior —usabilidad, velocidad, arquitectura y SEO— complementada con investigación de usuarios y benchmarking competitivo. Esto nos permitió definir funcionalidades clave, flujos eficientes y KPIs alineados al negocio.</p>
-            <p className="tex-xl text-gray-400"><b>2. Diseño UX/UI y desarrollo web optimizado:</b><br />
-              Diseñamos una experiencia centrada en el usuario, con enfoque mobile-first, interfaces intuitivas y navegación clara. El desarrollo fue realizado en WordPress utilizando tecnologías avanzadas, priorizando velocidad, seguridad y escalabilidad, y aplicando prácticas que aseguran un alto rendimiento en Google Page Speed.</p>
-            <p className="tex-xl text-gray-400"><b>3. SEO técnico y migración a Google Cloud Platform (GCP):</b><br />
-              Construimos el sitio con una estructura semántica y URLs optimizadas desde su base. Además, migramos la infraestructura a GCP para garantizar disponibilidad, monitoreo continuo y capacidad de escalar de manera flexible según demanda.</p>
-            <p className="tex-xl text-gray-400"><b>4. Lanzamiento controlado y mejora continua:</b><br />
-              Realizamos pruebas exhaustivas antes del lanzamiento, seguimiento post-live y optimizaciones basadas en métricas reales de uso, conversión y posicionamiento. También brindamos soporte continuo con actualizaciones, mantenimiento y mejoras evolutivas.</p>
+            <p className="tex-xl text-gray-400">
+              Para abordar este reto, aplicamos nuestro enfoque experto y metodológico:
+            </p>
+
+            <p className="tex-xl text-gray-400">
+              <b>1. Entendimiento de la problemática:</b><br />
+              Reuniones con el equipo técnico del cliente permitieron mapear el flujo actual y validar que la IA generativa podía resolver el caso con la precisión y escala requeridas.
+            </p>
+
+            <p className="tex-xl text-gray-400">
+              <b>2. Uso de infraestructura en la nube:</b><br />
+              La solución se construyó con dos servicios clave de Google Cloud.
+            </p>
+
+            <p className="tex-xl text-gray-400">
+              <b>- BigQuery Notebooks: </b>Permitió automatizar procesos mediante código directamente en la misma base de datos, sin necesidad de mover la información a otras herramientas.
+            </p>
+
+            <p className="tex-xl text-gray-400">
+              <b>- Gemini (IA generativa):</b>analizó cada nota como si fuera un lector humano y la clasificó en la taxonomía correcta sin perder contexto.
+              El hecho de trabajar directamente en la base de datos no solo agilizó el flujo, sino que también redujo significativamente los costos de procesamiento, logrando una solución rápida y eficiente.             </p>
+
+
+            <p className="tex-xl text-gray-400">
+              <b>3. Análisis de contenido con IA generativa:</b><br />
+              BigQuery permite enviar instrucciones escritas (prompts) directamente a la base de datos para que Gemini analice las notas. Gracias a esto, el modelo entiende el contenido completo de cada artículo y lo clasifica automáticamente en la categoría publicitaria correcta (taxonomías).
+            </p>
+
+            <p className="tex-xl text-gray-400">
+              <b>4. Integración y pruebas iterativas: </b><br />
+              Se realizaron pruebas para afinar los prompts y mejorar la precisión de la clasificación. Además, se implementaron guardrails (filtros de seguridad) que actúan como límites para la IA, evitando que el sistema clasifique notas en categorías de industrias no autorizadas por el diario. Esto permitió reducir riesgos y asegurar que la segmentación se mantuviera dentro de los lineamientos comerciales de El Universal.
+            </p>
+
+            <p className="tex-xl text-gray-400">
+              <b>5. Despliegue y automatización</b><br />
+              Se configuró un Scheduler (programador de tareas automáticas) para ejecutar el notebook de forma periódica, automatizando por completo el análisis y la clasificación de contenido. Así, el proceso corre de manera constante, sin intervención manual y con resultados inmediatos.
+            </p>
           </div>
+
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
@@ -180,22 +203,22 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Resultados
             </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
-            {stats.map((item, i) => (
-              <div
-                key={i}
-                className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-              >
-                <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                  <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                  <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                    {item.text}
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
+              {stats.map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
+                >
+                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
+                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
+                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
+                      {item.text}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-            
+              ))}
+            </div>
+
           </div>
         </div>
 
