@@ -213,17 +213,17 @@ export default function Home() {
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
 
           {/* Carlo R.*/}
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-          <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-            Resultados
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {stats.map((item, i) => (
-              <div
-                key={i}
-                className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
-              >
-                <div className="
+          <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
+            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+              Resultados
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {stats.map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+                >
+                  <div className="
   relative
   border-l 
   border-[#1840E2]/40
@@ -235,17 +235,17 @@ export default function Home() {
   before:h-13
   before:bg-[#1840E2] 
   flex flex-col gap-2 pl-5">
-                  <h2 className="text-5xl font-bold text-[#1840E2]">{item.value}</h2>
-                  <p className="text-gray-500 leading-relaxed text-xl md:text-base">
-                    {item.text}
-                  </p>
+                    <h2 className="text-5xl font-bold text-[#1840E2]">{item.value}</h2>
+                    <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+                      {item.text}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-          
+
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
@@ -255,7 +255,7 @@ export default function Home() {
             <h4 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Resultados de Awareness
             </h4>
-             
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
               {stats.map((item, i) => (
                 <div
@@ -278,7 +278,7 @@ export default function Home() {
             <h4 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Resultados de Consideración
             </h4>
-             
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
               {stats2.map((item, i) => (
                 <div
@@ -300,7 +300,7 @@ export default function Home() {
             <h4 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Resultados de Conversión
             </h4>
-             
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
               {stats3.map((item, i) => (
                 <div
@@ -318,10 +318,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
       </section>
-
-
 
       {/* CTA Talk Us */}
       <section className="pb-17 pr-30">
