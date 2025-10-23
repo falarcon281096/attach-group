@@ -1,6 +1,6 @@
 const nextConfig = {
   trailingSlash: true,
-  basePath: '/attach-group',
+  basePath: '',
   images: {
     domains: ['via.placeholder.com'],
     remotePatterns: [

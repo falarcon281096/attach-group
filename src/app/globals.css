@@ -18,9 +18,218 @@
     --foreground: #ededed;
   }
 }
+@font-face {
+    font-family: 'graphik_trialblack_italic';
+    src: url('/fonts/graphik-blackitalic-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-blackitalic-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialblack';
+    src: url('/fonts/graphik-black-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-black-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialbold_italic';
+    src: url('/fonts/graphik-bolditalic-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-bolditalic-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialbold';
+    src: url('/fonts/graphik-bold-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-bold-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialXLtIt';
+    src: url('/fonts/graphik-extralightitalic-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-extralightitalic-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialextralight';
+    src: url('/fonts/graphik-extralight-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-extralight-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_triallight_italic';
+    src: url('/fonts/graphik-lightitalic-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-lightitalic-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_triallight';
+    src: url('/fonts/graphik-light-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-light-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialmedium_italic';
+    src: url('/fonts/graphik-mediumitalic-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-mediumitalic-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialmedium';
+    src: url('/fonts/graphik-medium-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-medium-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_regular_trialregular';
+    src: url('/fonts/graphik-regular-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-regular-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'graphik_trialregular_italic';
+    src: url('/fonts/graphik-regularitalic-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-regularitalic-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialsemibold_italic';
+    src: url('/fonts/graphik-semibolditalic-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-semibolditalic-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialsemibold';
+    src: url('/fonts/graphik-semibold-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-semibold-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialsuper_italic';
+    src: url('/fonts/graphik-superitalic-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-superitalic-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialsuper';
+    src: url('/fonts/graphik-super-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-super-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialthin_italic';
+    src: url('/fonts/graphik-thinitalic-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-thinitalic-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'graphik_trialthin';
+    src: url('/fonts/graphik-thin-trial-webfont.woff2') format('woff2'),
+         url('/fonts/graphik-thin-trial-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "graphik_regular_trialregular";
 }
