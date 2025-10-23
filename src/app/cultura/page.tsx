@@ -9,10 +9,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
-      <div className="atm-initial bg-gradient-to-b from-[#FFFFFF] to-[#F7F7F7]">
+      <div className="atm-initial bg-white">
+
         {/* Header */}
         <header className="relative z-20">
-          <div className="ml-15 flex items-center justify-between border-l-2 border-[#1e3fda]/20 py-6">
+          <div className="ml-15 flex items-center justify-between py-6">
             {/* Logo - Izquierda */}
             <a href="/attach-group" className="flex items-center ml-15">
               <div className="w-40 h-8 bg-[#1840E2]/50 rounded flex items-center justify-center">
@@ -67,114 +68,69 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Hero Section */}
-        <div className="z-10 pb-20">
-          <div className="ml-15 border-l-2 border-b-2 border-[#1e3fda]/20 rounded-bl-[50px] pt-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
-              {/* Content */}
-              <div>
-                <p className="text-[#1840E2] font-thin text-4xl lg:text-6xl">Somos</p>
-                <h1 className="font-extrabold text-4xl lg:text-6xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
-                  Attach Group
-                </h1>
-                <p className="text-[#464646] mt-10 text-2xl">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</p>
-              </div>
+        {/*Oficinas Section*/}
+        <div className="flex gap-20 ml-30 py-30 justify-items-stretch">
 
-              {/* Image placeholder - where the person and city image goes */}
-              <div className="">
-                <div className="bg-black/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
-                  <span className="text-white/60 text-lg">Banner Image Placeholder</span>
-                </div>
-              </div>
-            </div>
+          <div className="text-5xl font-extrabold leading-snug">
+            <span className="bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">Donde las ideas,</span><br />
+            <span className="bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">la data y</span>
+            <span className="font-thin text-[#58308c] italic underline decoration-[#58308c]"> las personas evolucionan</span><br />
+            <span className="bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">juntas</span>
           </div>
-        </div>
-
-        {/*Indicadores*/}
-        <section className="">
-          <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
-            {/* Indicador 1 */}
-            <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
-              <p className="font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">+200</p>
-              <p className="text-gray-400 mt-2 text-[1.35rem]">Proyectos realizados</p>
-            </div>
-            {/* Indicador 2 */}
-            <div className="relative px-6 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
-              <p className="font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">+22</p>
-              <p className="text-gray-400 mt-2 text-[1.35rem]">Años de experiencia</p>
-            </div>
-            {/* Indicador 3 */}
-            <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
-              <p className="font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">+100</p>
-              <p className="text-gray-400 mt-2 text-[1.35rem]">Colaboradores en disdtintas especialidades</p>
-            </div>
-            {/* Indicador 4 */}
-            <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
-              <p className="font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">3</p>
-              <p className="text-gray-400 mt-2 text-[1.35rem]">Oficinas en Latam</p>
-            </div>
+          <div className="relative">
+            <span className="block w-[50rem] h-[9rem] bg-gray-200 rounded-md"></span>
           </div>
-        </section>
 
-        {/* Services Section */}
-        <div className="py-20">
-          <div className="mx-30">
-            {/* Header */}
-            <div className="mb-10 text-center ">
-              <h2 className="font-bold mb-6 font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
-                Tres partners. Una visión compartida
-              </h2>
-            </div>
-
-            {/* Services Cards */}
-            <div className="grid lg:grid-cols-3 gap-12">
-              {/* Card 1: Inteligencia Artificial */}
-              <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
-                {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-3xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
-                </div>
-
-                {/* Content Section */}
-                <div className="p-8 text-gray-600">
-                  <p className="text-[1.3rem] mb-6">
-                    Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 2: Publicidad Programática */}
-              <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
-                {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-3xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
-                </div>
-
-                {/* Content Section */}
-                <div className="p-8 text-gray-600">
-                  <p className="text-[1.3rem] mb-6">
-                    Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 3: Medios On y Off */}
-              <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
-                {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-3xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
-                </div>
-
-                {/* Content Section */}
-                <div className="p-8 text-gray-600">
-                  <p className="text-[1.3rem] mb-6">
-                    Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
-      <div className="atm-content bg-gradient-to-b from-[#FFFFFF] to-[#F7F7F7] rounded-b-[3rem]">
+      <div className="atm-content relative bg-white">
+        <div className="mx-15 border-l-2 border-[#1e3fda]/20">
+        <div className="flex flex-row gap-10">
+          {/* Image placeholder - where the person and city image goes */}
+            <div className="bg-black/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
+              <span className="text-white/60 text-lg">Banner Image Placeholder</span>
+            </div>
+
+          {/* Content */}
+          <div>
+            <p className="text-[#1840E2] text-4xl lg:text-4xl">Nos inspira resolver desafíos, <strong>aprender constantemente y crecer</strong> en un entorno colaborativo.</p>
+
+            <p className="text-[#1840E2] text-4xl lg:text-4xl">No solo hablamos de resultados: <strong>los generamos.</strong></p>
+          </div>
+        </div>
+
+        <div className="mx-15 flex flex-row gap-10">
+          {/* Content */}
+          <div>
+            <p className="text-[#1840E2] 
+            font-bold text-4xl lg:text-4xl">Innovar. Colaborar. Evolucionar juntos.</p>
+
+            <p className="text-gray-500 text-xl lg:text-xl">Porque la forma en que trabajamos es tan importante como lo que hacemos.</p>
+          </div>
+
+          {/* Image placeholder - where the person and city image goes */}
+            <div className="bg-black/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
+              <span className="text-white/60 text-lg">Banner Image Placeholder</span>
+            </div>
+        </div>
+
+        <div className="flex flex-row gap-10">
+          {/* Image placeholder - where the person and city image goes */}
+            <div className="bg-black/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
+              <span className="text-white/60 text-lg">Banner Image Placeholder</span>
+            </div>
+
+          {/* Content */}
+          <div>
+            <p className="text-[#1840E2] text-4xl lg:text-4xl">Nos inspira resolver desafíos, <strong>aprender constantemente y crecer</strong> en un entorno colaborativo.</p>
+
+            <p className="text-[#1840E2] text-4xl lg:text-4xl">No solo hablamos de resultados: <strong>los generamos.</strong></p>
+          </div>
+        </div>
+
+        </div>
+
         {/*Lideres Section*/}
         <div className="py-20">
           <h2 className="mx-30 text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
@@ -254,21 +210,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-
-        </div>
-
-        {/*Oficinas Section*/}
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-          {/* Carlo R.*/}
-          <div className="w-1/2">
-          <h2 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-            Oficinas en tres países. Alcance más allá de fronteras
-          </h2>
-          <p className="tex-xl text-gray-400 border-1 px-3 py-2 w-45 rounded-[50px]">Perú - México - USA</p>
-          </div>
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-          </div>
 
         </div>
       </div>

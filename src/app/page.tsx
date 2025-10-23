@@ -13,11 +13,11 @@ export default function Home() {
       <header className="relative z-20">
         <div className="ml-15 flex items-center justify-between border-l-2 border-white/30 py-6">
           {/* Logo - Izquierda */}
-          <div className="flex items-center ml-15">
+          <a href="/attach-group" className="flex items-center ml-15">
             <div className="w-40 h-8 bg-white/20 rounded flex items-center justify-center">
               <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
             </div>
-          </div>
+          </a>
 
           {/* Navigation - Centro */}
           <nav className="hidden lg:flex items-center space-x-8 justify-center">
@@ -34,7 +34,7 @@ export default function Home() {
               </button>
             </div>
             <Link
-              href="/casos"
+              href="/casos-de-exito"
               className="text-white hover:text-white/80 font-bold transition-colors"
             >
               Casos de éxito
