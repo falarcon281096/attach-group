@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
 
@@ -57,10 +58,8 @@ export default function Home() {
         <header className="bg-linear-to-r from-[#1e3fda] to-[#58308c] relative z-20">
           <div className="ml-15 flex items-center justify-between border-white/30 py-6">
             {/* Logo - Izquierda */}
-            <a href="/attach-group" className="flex items-center ml-15">
-              <div className="w-40 h-8 bg-white/20 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
-              </div>
+            <a href="/attach-group" className="ml-15">
+              <Image className="" src="/attach-group/images/general/Logo_Attach_Group.png" alt="Logo Attach" width={160} height={50} quality={100} />
             </a>
 
             {/* Navigation - Centro */}
@@ -214,12 +213,37 @@ export default function Home() {
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
 
           {/* Carlo R.*/}
-          <div className="w-1/2">
-            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-              Resultados
-            </h3>
-             <p className="text-gray-500">Cualquier nuevo partido o modificación en las cuotas se refleja automáticamente en los anuncios, eliminando por completo la necesidad de las revisiones manuales que afectan su competitividad.</p>
+        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
+          <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+            Resultados
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {stats.map((item, i) => (
+              <div
+                key={i}
+                className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+              >
+                <div className="
+  relative
+  border-l 
+  border-[#1840E2]/40
+  before:content-['']
+  before:absolute
+  before:left-0
+  before:top-0
+  before:w-[2px]
+  before:h-13
+  before:bg-[#1840E2] 
+  flex flex-col gap-2 pl-5">
+                  <h2 className="text-5xl font-bold text-[#1840E2]">{item.value}</h2>
+                  <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
 
           
         </div>
@@ -270,10 +294,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
           </div>
-
-
 
           <div className="w-1/2">
             <h4 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
@@ -295,11 +316,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
           </div>
-          
-
-          
         </div>
 
       </section>
@@ -322,7 +339,7 @@ export default function Home() {
 
 
       {/* Footer */}
-      <div className="bg-[#F7F7F7] py-20">
+      <div className="bg-white py-20">
         <div className="mx-30">
           {/* Branches Cards */}
           <div className="grid lg:grid-cols-3 gap-12 text-gray-500">
@@ -355,14 +372,20 @@ export default function Home() {
           </div>
           {/* Logo y Social Links */}
           <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
-            <div className="p-8">
-              <span className="font-bold">ATTACH+ GROUP</span>
-            </div>
+            <a href="/attach-group" className="ml-15 py-8">
+              <Image className="" src="/attach-group/images/general/Logo_Attach_Group_Blue.png" alt="Logo Attach" width={180} height={50} />
+            </a>
             <div className="p-8">
               <div className="flex justify-end gap-4">
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
+                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image className="" src="/attach-group/images/general/socialicon_linkden.png" alt="Logo Attach" width={180} height={50} />
+                </a>
+                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image className="" src="/attach-group/images/general/socialicon_ig.png" alt="Logo Attach" width={180} height={50} />
+                </a>
+                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image className="" style={{ marginTop: '4px' }} src="/attach-group/images/general/socialicon_yt.png" alt="Logo Attach" width={180} height={50} />
+                </a>
               </div>
             </div>
           </div>

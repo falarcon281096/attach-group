@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-
+import Image from "next/image";
 export default function Home() {
 
   const getImageUrl = (image: string | { src: string }): string => {
@@ -32,14 +31,13 @@ export default function Home() {
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
       <div className="bg-white">
         {/* Header */}
-        <header className="bg-linear-to-r from-[#1e3fda] to-[#58308c] relative z-20">
-          <div className="ml-15 flex items-center justify-between border-white/30 py-6">
+        <header className="bg-linear-to-r from-[#1e3fda] to-[#5C3087] relative z-20">
+          <div className="ml-15 flex items-center justify-between py-6">
             {/* Logo - Izquierda */}
-            <a href="/attach-group" className="flex items-center ml-15">
-              <div className="w-40 h-8 bg-white/20 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
-              </div>
+            <a href="/attach-group" className="ml-15">
+              <Image className="" src="/attach-group/images/general/Logo_Attach_Group.png" alt="Logo Attach" width={160} height={50} quality={100} />
             </a>
+
 
             {/* Navigation - Centro */}
             <nav className="hidden lg:flex items-center space-x-8 justify-center">
@@ -87,7 +85,6 @@ export default function Home() {
             </button>
           </div>
         </header>
-
         {/* Hero Section */}
         <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c]  rounded-b-[50px] relative z-10">
           <div className="rounded-b-[50px]  ml-15 pt-20 pb-16">
@@ -104,10 +101,18 @@ export default function Home() {
               </div>
 
               {/* Image placeholder - where the person and city image goes */}
-              <div className="relative">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
-                  <span className="text-white/60 text-lg">Banner Image Placeholder</span>
-                </div>
+              <div className="relative 
+                    before:absolute before:inset-0 
+                    before:bg-[url('/attach-group/images/general/attach_cross_white.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-30
+                    before:h-30
+                    before:-translate-x-1/2
+                    before:top-100">
+                <Image className="w-full rounded-l-[4rem]" src="/attach-group/images/casos-de-exito/apuesta-total-2025/portada.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
               </div>
             </div>
           </div>
@@ -148,17 +153,38 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               El reto
             </h3>
-            <p className="tex-xl text-gray-400">En el dinámico mundo de las apuestas deportivas, cada segundo cuenta. Apuesta Total enfrentaba el desafío de mantener actualizados, en tiempo real, los anuncios de sus cuotas deportivas en Meta. Los procesos manuales de revisión y publicación generaban demoras críticas y limitaban la competitividad y rentabilidad de las campañas, especialmente durante eventos en vivo donde cada punto puede cambiarlo todo.</p>
+            <p className="tex-xl text-gray-400">En el dinámico mundo de las apuestas deportivas, cada segundo cuenta. Apuesta Total enfrentaba el desafío de mantener actualizados, en tiempo real, los anuncios de sus cuotas deportivas en Meta.</p>
+            <p className="tex-xl mt-2 text-gray-400">Los procesos manuales de revisión y publicación generaban demoras críticas y limitaban la competitividad y rentabilidad de las campañas, especialmente durante eventos en vivo donde cada punto puede cambiarlo todo.</p>
           </div>
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/attach-group/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-1/5
+                    before:top-45">
+            <Image className="w-full" src="/attach-group/images/casos-de-exito/apuesta-total-2025/el_reto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/attach-group/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-[-36rem]
+                    before:top-105">
+            <Image className="w-full" src="/attach-group/images/casos-de-exito/apuesta-total-2025/estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">
@@ -169,47 +195,53 @@ export default function Home() {
               <b>Automatización con CLO (Catalog Live Odds)</b><br />
               Se implementó Catalog Live Odds, un Alpha de Meta, que permitió conectar en tiempo real la base de datos de cuotas y partidos de Apuesta Total con sus campañas digitales.
             </p>
-            
+
             <p className="tex-xl text-gray-400">
               <b>Creación de Catálogo Dinámico</b><br />
               Se desarrolló un catálogo de apuestas dinámicas que actualiza información clave (equipos, torneos, cuotas) de forma instantánea.
             </p>
-            
+
             <p className="tex-xl text-gray-400">
               <b>Generación de Banners Dinámicos</b><br />
-              Se diseñaron plantillas para imágenes y videos, automatizando la creación de más de 15,000 banners mensuales para más de 200 partidos, eliminando revisiones 
+              Se diseñaron plantillas para imágenes y videos, automatizando la creación de más de 15,000 banners mensuales para más de 200 partidos, eliminando revisiones
             </p>
-            
+
             <p className="tex-xl text-gray-400">
               <b>Sincronización Total y Escalabilidad</b><br />
               Cualquier cambio en partidos o cuotas se refleja automáticamente en los anuncios, garantizando mensajes actualizados y relevantes para los usuarios en el momento justo.
             </p>
-            </div>
+          </div>
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-
-          {/* Carlo R.*/}
-          <div className="w-1/2">
-            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-              Resultados
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
-              {stats.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-                >
-                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                      {item.text}
-                    </p>
-                  </div>
+          <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+            Resultados
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {stats.map((item, i) => (
+              <div
+                key={i}
+                className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+              >
+                <div className="
+  relative
+  border-l 
+  border-[#1840E2]/40
+  before:content-['']
+  before:absolute
+  before:left-0
+  before:top-0
+  before:w-[2px]
+  before:h-13
+  before:bg-[#1840E2] 
+  flex flex-col gap-2 pl-5">
+                  <h2 className="text-5xl font-bold text-[#1840E2]">{item.value}</h2>
+                  <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+                    {item.text}
+                  </p>
                 </div>
-              ))}
-            </div>
-
+              </div>
+            ))}
           </div>
         </div>
 
@@ -220,7 +252,7 @@ export default function Home() {
       {/* CTA Talk Us */}
       <section className="pb-17 pr-30">
         <div className="flex flex-col gap-10 pl-30 pt-20 pb-17 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-5xl">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl pr-5">
             Desarrollemos algo
             increíble juntos.
           </h2>
@@ -233,7 +265,8 @@ export default function Home() {
 
 
       {/* Footer */}
-      <div className="bg-[#F7F7F7] py-20">
+      {/* Footer */}
+      <div className="bg-white py-20">
         <div className="mx-30">
           {/* Branches Cards */}
           <div className="grid lg:grid-cols-3 gap-12 text-gray-500">
@@ -266,14 +299,20 @@ export default function Home() {
           </div>
           {/* Logo y Social Links */}
           <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
-            <div className="p-8">
-              <span className="font-bold">ATTACH+ GROUP</span>
-            </div>
+            <a href="/attach-group" className="ml-15 py-8">
+              <Image className="" src="/attach-group/images/general/Logo_Attach_Group_Blue.png" alt="Logo Attach" width={180} height={50} />
+            </a>
             <div className="p-8">
               <div className="flex justify-end gap-4">
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
+                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image className="" src="/attach-group/images/general/socialicon_linkden.png" alt="Logo Attach" width={180} height={50} />
+                </a>
+                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image className="" src="/attach-group/images/general/socialicon_ig.png" alt="Logo Attach" width={180} height={50} />
+                </a>
+                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image className="" style={{ marginTop: '4px' }} src="/attach-group/images/general/socialicon_yt.png" alt="Logo Attach" width={180} height={50} />
+                </a>
               </div>
             </div>
           </div>
