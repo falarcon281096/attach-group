@@ -29,21 +29,21 @@ export default function Home() {
       image: demoImage,
     },
     {
-      link: '/casos-de-exito/deposeguro',
+      link: '/casos-de-exito/apuesta-total-ads',
       id: 'apuesta-t-paid',
       title: 'Apuesta Total',
       tag: 'Paid Media',
       image: demoImage,
     },
     {
-      link: '/casos-de-exito/deposeguro',
+      link: '/casos-de-exito/apuesta-total-2025',
       id: 'apuesta-t-catalogo',
       title: 'Apuesta Total',
       tag: 'Catálogo dinámico',
       image: demoImage,
     },
     {
-      link: '/casos-de-exito/deposeguro',
+      link: '/casos-de-exito/cayetano',
       id: 'cayetano-heredia',
       title: 'Universidad Cayetano Heredia',
       tag: 'Sitio Web e Infraestructura',
@@ -136,21 +136,21 @@ export default function Home() {
       {/* Grid Casos de exito */}
       <section className="bg-white rounded-b-[50px] pb-17 pl-10">
         <div className="pl-20 pr-30 py-17 border-l-2 border-b-2 border-[#1e3fda] rounded-bl-[50px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {dataCases.map((c) => (
-              <Link
-                key={c.id}
-                className="cursor-pointer bg-white p-5 rounded-lg flex flex-col h-120 justify-end"
-                style={{
-                  backgroundImage: `url(${typeof c.image === 'string' ? c.image : c.image.src})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-                href={c.link}
-              >
-                <h3 className="text-3xl text-gray font-bold">{c.title}</h3>
-                <p className="text-1xl text-white font-bold">{c.tag}</p>
-              </Link>
-            ))}
+          {dataCases.map((c) => (
+            <Link
+              key={c.id}
+              className="cursor-pointer bg-white p-5 rounded-lg flex flex-col h-120 justify-end"
+              style={{
+                backgroundImage: `url(${typeof c.image === 'string' ? c.image : c.image.src})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+              href={c.link}
+            >
+              <h3 className="text-3xl text-gray font-bold">{c.title}</h3>
+              <p className="text-1xl text-white font-bold">{c.tag}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -166,8 +166,6 @@ export default function Home() {
           </button>
         </div>
       </section>
-
-
       {/* Footer */}
       <div className="bg-[#F7F7F7] py-20">
         <div className="mx-30">

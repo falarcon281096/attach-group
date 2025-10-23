@@ -247,8 +247,6 @@ export default function Home() {
 
       </section>
 
-
-
       {/* CTA Talk Us */}
       <section className="pb-17 pr-30">
         <div className="flex flex-col gap-10 pl-30 pt-20 pb-17 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">

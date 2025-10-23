@@ -223,17 +223,17 @@ export default function Home() {
                   className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
                 >
                   <div className="
-  relative
-  border-l 
-  border-[#1840E2]/40
-  before:content-['']
-  before:absolute
-  before:left-0
-  before:top-0
-  before:w-[2px]
-  before:h-13
-  before:bg-[#1840E2] 
-  flex flex-col gap-2 pl-5">
+                      relative
+                      border-l 
+                      border-[#1840E2]/40
+                      before:content-['']
+                      before:absolute
+                      before:left-0
+                      before:top-0
+                      before:w-[2px]
+                      before:h-13
+                      before:bg-[#1840E2] 
+                      flex flex-col gap-2 pl-5">
                     <h2 className="text-5xl font-bold text-[#1840E2]">{item.value}</h2>
                     <p className="text-gray-500 leading-relaxed text-xl md:text-base">
                       {item.text}
