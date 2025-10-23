@@ -1,0 +1,450 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import Image from "next/image";
+
+interface HeaderProps {
+  variant?: 'default' | 'white-bg';
+}
+
+export default function Header({ variant = 'default' }: HeaderProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSolutionsDropdownOpen, setIsSolutionsDropdownOpen] = useState(false);
+
+  const isWhiteBg = variant === 'white-bg';
+
+  return (
+    <header className="relative z-20">
+      <div className={`ml-15 flex items-center justify-between py-6 ${
+        isWhiteBg ? 'border-l-2 border-[#1e3fda]/20' : 'border-l-2 border-white/30'
+      }`}>
+        {/* Logo - Izquierda */}
+        <Link href="/" className="ml-15">
+          {isWhiteBg ? (
+            <Image 
+              className="" 
+              src="/images/general/Logo_Attach_Group_Blue.png" 
+              alt="Logo Attach" 
+              width={160} 
+              height={32} 
+            />
+          ) : (
+            <Image 
+              className="" 
+              src="/images/general/Logo_Attach_Group.png" 
+              alt="Logo Attach" 
+              width={160} 
+              height={32} 
+            />
+          )}
+        </Link>
+
+        {/* Navigation - Centro */}
+        <nav className="hidden lg:flex items-center space-x-8 justify-center">
+          <Link
+            href="/nosotros"
+            className={`hover:opacity-80 font-bold transition-all duration-300 ${
+              isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
+            }`}
+          >
+            Nosotros
+          </Link>
+          
+          {/* Dropdown Soluciones */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsSolutionsDropdownOpen(true)}
+            onMouseLeave={() => setIsSolutionsDropdownOpen(false)}
+          >
+            <button className={`hover:opacity-80 font-bold transition-all duration-300 ease-in-out flex items-center ${
+              isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
+            }`}>
+              Soluciones
+              <span className={`ml-1 text-sm transition-transform duration-300 ${
+                isSolutionsDropdownOpen ? 'rotate-180' : ''
+              }`}>+</span>
+            </button>
+            
+            {/* Puente invisible para evitar que se oculte el dropdown */}
+            <div className="absolute top-full left-0 right-0 h-3 bg-transparent"></div>
+            
+            {/* Dropdown Menu */}
+            <div className={`absolute top-full left-1/2 transform -translate-x-1/2 w-[558px] bg-white rounded-2xl border border-gray-100 z-50 transition-all duration-300 ease-in-out ${
+              isSolutionsDropdownOpen 
+                ? 'opacity-100 translate-y-0 visible' 
+                : 'opacity-0 -translate-y-2 invisible'
+            }`}
+            style={{
+              marginTop: '12px',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 25px -5px rgba(0, 0, 0, 0.1)'
+            }}>
+              <div className="p-6">
+                <div className="grid grid-cols-2 gap-8 relative">
+                  {/* Nuestras marcas - Columna Izquierda */}
+                  <div className="pr-4">
+                    <h3 className="text-lg font-bold text-[#1e3fda] mb-6">Nuestras marcas</h3>
+                    <div className="">
+                      {/* Galileo IA */}
+                      <Link href="/galileo-ia" className="group cursor-pointer">
+                        <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
+                          <div className="flex-1">
+                            <div className="mb-2">
+                              <Image 
+                                src="/images/menu/GalileoIA Logo-color.png" 
+                                alt="Galileo IA" 
+                                width={120} 
+                                height={32}
+                                className="h-6 w-auto"
+                              />
+                            </div>
+                            <p className="text-gray-600 text-xs">Impulsa tu negocio con IA.</p>
+                          </div>
+                          <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
+                            <Image 
+                              src="/images/menu/arrow_right_alt.png" 
+                              alt="Arrow" 
+                              width={20} 
+                              height={20}
+                              className="w-5"
+                            />
+                          </div>
+                        </div>
+                      </Link>
+                      
+                      <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
+                      
+                      {/* AthenaAds */}
+                      <Link href="/athena-ads" className="group cursor-pointer">
+                        <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
+                          <div className="flex-1">
+                            <div className="mb-2">
+                              <Image 
+                                src="/images/menu/AthenaAds Logo-color.png" 
+                                alt="AthenaAds" 
+                                width={120} 
+                                height={32}
+                                className="h-7 w-auto"
+                              />
+                            </div>
+                            <p className="text-gray-600 text-xs">Publicidad programática.</p>
+                          </div>
+                          <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
+                            <Image 
+                              src="/images/menu/arrow_right_alt.png" 
+                              alt="Arrow" 
+                              width={20} 
+                              height={20}
+                              className="w-5"
+                            />
+                          </div>
+                        </div>
+                      </Link>
+                      
+                      <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
+                      
+                      {/* ATTACH MEDIA */}
+                      <Link href="/attach-media" className="group cursor-pointer">
+                        <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
+                          <div className="flex-1">
+                            <div className="mb-2">
+                              <Image 
+                                src="/images/menu/Attach-Media-Logo-color.png" 
+                                alt="Attach Media" 
+                                width={140} 
+                                height={32}
+                                className="h-4 w-auto"
+                              />
+                            </div>
+                            <p className="text-gray-600 text-xs">Data que transforma.</p>
+                          </div>
+                          <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
+                            <Image 
+                              src="/images/menu/arrow_right_alt.png" 
+                              alt="Arrow" 
+                              width={20} 
+                              height={20}
+                              className="w-5"
+                            />
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* División vertical */}
+                  <div className="absolute left-1/2 top-0 bottom-0 w-px" style={{ backgroundColor: '#9faef0' }}></div>
+
+                  {/* Nuestras soluciones - Columna Derecha */}
+                  <div className="pl-4">
+                    <h3 className="text-lg font-bold text-[#1e3fda] mb-6">Nuestras soluciones</h3>
+                    <div className="">
+                      {/* PRISMA */}
+                      <div className="group cursor-pointer">
+                        <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
+                          <div className="flex-1">
+                            <div className="mb-2">
+                              <Image 
+                                src="/images/menu/Prisma-Logo-color.png" 
+                                alt="PRISMA" 
+                                width={100} 
+                                height={32}
+                                className="h-6 w-auto"
+                              />
+                            </div>
+                            <p className="text-gray-600 text-xs">IA para marcas.</p>
+                          </div>
+                          <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
+                            <Image 
+                              src="/images/menu/arrow_right_alt.png" 
+                              alt="Arrow" 
+                              width={20} 
+                              height={20}
+                              className="w-5"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
+                      
+                      {/* PROSPECT/A */}
+                      <div className="group cursor-pointer">
+                        <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
+                          <div className="flex-1">
+                            <div className="mb-2">
+                              <Image 
+                                src="/images/menu/ProspectIA-Logo-color.png" 
+                                alt="PROSPECT/A" 
+                                width={120} 
+                                height={32}
+                                className="h-6 w-auto"
+                              />
+                            </div>
+                            <p className="text-gray-600 text-xs">IA para leads de alto valor.</p>
+                          </div>
+                          <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
+                            <Image 
+                              src="/images/menu/arrow_right_alt.png" 
+                              alt="Arrow" 
+                              width={20} 
+                              height={20}
+                              className="w-5"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Link
+            href="/casos-de-exito"
+            className={`hover:opacity-80 font-bold transition-all duration-300 ${
+              isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
+            }`}
+          >
+            Casos de éxito
+          </Link>
+          <Link
+            href="/cultura"
+            className={`hover:opacity-80 font-bold transition-all duration-300 ${
+              isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
+            }`}
+          >
+            Cultura
+          </Link>
+        </nav>
+
+        {/* Botón Contáctanos - Derecha */}
+        <div className="flex items-center justify-end mr-30">
+          <Link
+            href="/contacto"
+            className={`px-6 py-4 rounded-lg font-extrabold hover:opacity-90 transition-all duration-300 transform hover:scale-105 ${
+              isWhiteBg 
+                ? 'bg-gradient-to-r from-[#1e3fda] to-[#58308c] text-white' 
+                : 'bg-white text-[#6e4490]'
+            }`}
+          >
+            Contáctanos
+          </Link>
+        </div>
+
+        {/* Mobile menu button */}
+        <button 
+          className={`lg:hidden transition-all duration-300 ${isWhiteBg ? 'text-[#1e3fda]' : 'text-white'}`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 z-50 bg-white animate-in slide-in-from-top duration-300">
+          {/* Header móvil con logo y X */}
+          <div className="bg-gradient-to-r from-[#1e3fda] to-[#58308c] px-4 py-4 flex items-center justify-between">
+            <Image 
+              src="/images/general/Logo_Attach_Group.png" 
+              alt="Attach Group" 
+              width={120} 
+              height={30}
+              className="h-8 w-auto"
+            />
+            <button 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-white text-2xl font-light hover:opacity-80 transition-opacity pr-2"
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Contenido del menú con scroll suave */}
+          <nav className="flex flex-col px-6 py-6 space-y-6 overflow-y-auto">
+            <Link
+              href="/nosotros"
+              className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Nosotros
+            </Link>
+            
+            {/* Soluciones con dropdown mejorado */}
+            <div className="pb-4 border-b border-gray-200">
+              <button 
+                onClick={() => setIsSolutionsDropdownOpen(!isSolutionsDropdownOpen)}
+                className="flex items-center justify-between w-full text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200"
+              >
+                <span>Soluciones +</span>
+                <svg 
+                  className={`w-5 h-5 transform transition-transform duration-300 ${
+                    isSolutionsDropdownOpen ? 'rotate-180' : ''
+                  }`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {/* Dropdown Content con animación */}
+              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                isSolutionsDropdownOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <div className="mt-4 space-y-6">
+                  {/* Nuestras marcas */}
+                  <div>
+                    <h3 className="text-[#1e3fda] text-lg font-bold mb-4">Nuestras marcas</h3>
+                    <div className="space-y-4">
+                      {/* Galileo IA */}
+                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <Image 
+                          src="/images/menu/GalileoIA Logo-color.png" 
+                          alt="Galileo IA" 
+                          width={80} 
+                          height={24}
+                          className="h-6 w-auto mb-2"
+                        />
+                        <p className="text-gray-600 text-sm">Impulsa tu negocio con IA.</p>
+                      </div>
+                      <hr className="border-gray-200 my-3" />
+                      
+                      {/* AthenaAds */}
+                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <Image 
+                          src="/images/menu/AthenaAds Logo-color.png" 
+                          alt="AthenaAds" 
+                          width={80} 
+                          height={24}
+                          className="h-6 w-auto mb-2"
+                        />
+                        <p className="text-gray-600 text-sm">Publicidad programática.</p>
+                      </div>
+                      <hr className="border-gray-200 my-3" />
+                      
+                      {/* Attach Media */}
+                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <Image 
+                          src="/images/menu/Attach-Media-Logo-color.png" 
+                          alt="Attach Media" 
+                          width={90} 
+                          height={24}
+                          className="h-6 w-auto mb-2"
+                        />
+                        <p className="text-gray-600 text-sm">Data que transforma.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Nuestras soluciones */}
+                  <div>
+                    <h3 className="text-[#1e3fda] text-lg font-bold mb-4">Nuestras soluciones</h3>
+                    <div className="space-y-4">
+                      {/* PRISMA */}
+                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <Image 
+                          src="/images/menu/Prisma-Logo-color.png" 
+                          alt="PRISMA" 
+                          width={70} 
+                          height={24}
+                          className="h-6 w-auto mb-2"
+                        />
+                        <p className="text-gray-600 text-sm">IA para marcas.</p>
+                      </div>
+                      <hr className="border-gray-200 my-3" />
+                      
+                      {/* PROSPECT/A */}
+                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                        <Image 
+                          src="/images/menu/ProspectIA-Logo-color.png" 
+                          alt="PROSPECT/A" 
+                          width={80} 
+                          height={24}
+                          className="h-6 w-auto mb-2"
+                        />
+                        <p className="text-gray-600 text-sm">IA para leads de alto valor.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <Link
+              href="/casos-de-exito"
+              className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Casos de éxito
+            </Link>
+            
+            <Link
+              href="/cultura"
+              className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Cultura
+            </Link>
+
+            {/* Botón Contáctanos mejorado */}
+            <div className="pt-4">
+              <Link
+                href="/contacto"
+                className="block text-center bg-gradient-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-lg font-bold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contáctanos
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
