@@ -2,8 +2,13 @@ const nextConfig = {
   trailingSlash: true,
   basePath: '/attach-group',
   images: {
-    domains: ['localhost'],
-    unoptimized: true,
+    domains: ['via.placeholder.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
+    ],
   },
   eslint: {
     ignoreDuringBuilds: true,
