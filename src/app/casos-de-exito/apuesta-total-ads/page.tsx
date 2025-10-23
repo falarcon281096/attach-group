@@ -12,20 +12,24 @@ export default function Home() {
 
   const stats = [
     {
-      value: "+45%",
-      text: "YoY en tasa de conversión web.",
+      value: "+170%",
+      text: "Incremento en el volumen de recargas durante el piloto.",
     },
     {
-      value: "+89%",
-      text: "En ratio de contactabilidad en anuncios de pauta digital.",
+      value: "+700%",
+      text: "Mejora progresiva en el valor promedio por recarga",
     },
     {
-      value: "6.73%",
-      text: "De conversión en campañas pagas durante los últimos 18 meses",
+      value: "",
+      text: "Identificación de los contextos deportivos con mayor impacto en intención de compra.",
     },
     {
-      value: "Rendimiento técnico sobresaliente",
-      text: "con puntajes cercanos al máximo en desktop y óptimos en mobile (Google Page Speed).",
+      value: "",
+      text: "Validación del uso de audiencias basadas en intención transaccional como modelo escalable para performance digital.",
+    },
+    {
+      value: "",
+      text: "Estrategia lista para evolucionar hacia campañas always-on de adquisición y retención.",
     },
   ];
   return (
@@ -94,12 +98,12 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
               {/* Content */}
               <div className="text-white">
-                <p className="text-5xl">Optimización web</p>
+                <p className="text-5xl">De la intención a la acción:</p>
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
-                  que impulsa la conversión
+                  programática que impulsa el número y valor de recargas
                 </h1>
                 <p className="text-2xl text-white mb-8 max-w-lg">
-                  DepoSeguro es la primera cadena de self-storage en Perú, especializada en el alquiler de depósitos y almacenes en Lima desde 1m². Brinda soluciones tanto para empresas como para personas naturales, y se destaca por su enfoque en seguridad —con videovigilancia y control de humedad— y por ofrecer total flexibilidad en tiempos y tamaños de renta.
+                  Apuesta Total es una empresa peruana líder en el sector de entretenimiento, dedicada a la comercialización de apuestas deportivas, juegos virtuales, casino y bingo, operando tanto en canales online como en más de 500 puntos de venta físicos a nivel nacional. Su objetivo es brindar una experiencia de juego responsable, accesible y confiable, posicionándose como la principal casa de apuestas del Perú.
                 </p>
               </div>
 
@@ -117,18 +121,23 @@ export default function Home() {
             <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+45%</p>
-                <p className="mt-2 text-[1.35rem]">en tasa de conversión web (YoY)</p>
+                <p className="font-bold text-4xl lg:text-5xl">+170%</p>
+                <p className="mt-2 text-[1.35rem]">en volumen de recargas</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+89%</p>
-                <p className="mt-2 text-[1.35rem]">en contactabilidad promedio en anuncios digitales</p>
+                <p className="font-bold text-4xl lg:text-5xl">+700%</p>
+                <p className="mt-2 text-[1.35rem]">en valor promedio de recarga</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-
-                <p className="mt-2 text-[1.35rem]">Rendimientos cercanos al puntaje máximo en Google PageSpeed y óptimos en mobile.</p>
+                <p className="font-bold text-4xl lg:text-5xl">Audiencias con intención de compra </p>
+                <p className="mt-2 text-[1.35rem]">activadas con Smart Audience.</p>
+              </div>
+              {/* Indicador 4 */}
+              <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
+                <p className="font-bold text-4xl lg:text-5xl">Creatividades adaptativas</p>
+                <p className="mt-2 text-[1.35rem]">según contexto deportivo</p>
               </div>
             </div>
           </section>
@@ -143,8 +152,9 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               El reto
             </h3>
-            <p className="tex-xl text-gray-400">DepoSeguro buscaba optimizar su sitio web para que dejara de ser solo un punto de contacto digital y se convirtiera en un canal estratégico para generar leads y potenciar su crecimiento comercial.</p>
-            <p className="tex-xl text-gray-400">El desafío implicaba mejorar la experiencia de usuario, rediseñar la arquitectura tecnológica y elevar el rendimiento en velocidad, SEO y conversión, asegurando una transición fluida y sin interrupciones operativas.</p>
+            <p className="tex-xl text-gray-400">El principal desafío consistía en identificar una plataforma y un tipo de audiencia capaz de generar un incremento sostenido en las recargas, priorizando la calidad del tráfico sobre el volumen.
+Apuesta Total buscaba una estrategia digital que combinara eficiencia en costo, escalabilidad y optimización basada en datos reales de comportamiento transaccional.
+</p>
           </div>
           <div className="relative">
             <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
@@ -161,16 +171,35 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Estrategia
             </h3>
-            <p className="tex-xl text-gray-400">Desarrollamos una estrategia integral basada en cuatro pilares clave: diseño y experiencia de usuario, infraestructura tecnológica, escalabilidad y posicionamiento digital.</p>
-            <p className="tex-xl text-gray-400"><b>1. Diagnóstico profundo y definición de objetivos:</b><br />
-              Auditoría completa del sitio anterior —usabilidad, velocidad, arquitectura y SEO— complementada con investigación de usuarios y benchmarking competitivo. Esto nos permitió definir funcionalidades clave, flujos eficientes y KPIs alineados al negocio.</p>
-            <p className="tex-xl text-gray-400"><b>2. Diseño UX/UI y desarrollo web optimizado:</b><br />
-              Diseñamos una experiencia centrada en el usuario, con enfoque mobile-first, interfaces intuitivas y navegación clara. El desarrollo fue realizado en WordPress utilizando tecnologías avanzadas, priorizando velocidad, seguridad y escalabilidad, y aplicando prácticas que aseguran un alto rendimiento en Google Page Speed.</p>
-            <p className="tex-xl text-gray-400"><b>3. SEO técnico y migración a Google Cloud Platform (GCP):</b><br />
-              Construimos el sitio con una estructura semántica y URLs optimizadas desde su base. Además, migramos la infraestructura a GCP para garantizar disponibilidad, monitoreo continuo y capacidad de escalar de manera flexible según demanda.</p>
-            <p className="tex-xl text-gray-400"><b>4. Lanzamiento controlado y mejora continua:</b><br />
-              Realizamos pruebas exhaustivas antes del lanzamiento, seguimiento post-live y optimizaciones basadas en métricas reales de uso, conversión y posicionamiento. También brindamos soporte continuo con actualizaciones, mantenimiento y mejoras evolutivas.</p>
-          </div>
+            <p className="tex-xl text-gray-400">
+              <b>Selección de plataforma con audiencias de intención de compra</b><br />
+              Athena Ads implementó un piloto de cuatro semanas en una plataforma especializada en audiencias con intención de compra.
+A diferencia de otras soluciones tradicionales basadas en intereses o contextos, esta permitía identificar usuarios propensos a realizar transacciones en línea, lo que la hacía ideal para el modelo de negocio de Apuesta Total.
+
+            </p>
+            
+            <p className="tex-xl text-gray-400">
+              <b>Configuración avanzada con Smart Audience</b><br />
+              Se utilizó la funcionalidad Smart Audience, un tipo de segmentación avanzada que combina distintos intereses y comportamientos de compra de los usuarios en función de la URL de destino definida por campaña y del píxel de conversión configurado para medir el evento de recargas.
+Gracias a esta configuración, el algoritmo pudo aprender automáticamente qué perfiles tenían mayor propensión a realizar recargas, optimizando el alcance hacia audiencias con mayor probabilidad de conversión y retroalimentando la plataforma con datos reales de comportamiento.
+A diferencia de la segmentación tradicional, donde se seleccionan intereses específicos por campaña, Smart Audience automatiza y mejora la precisión de la segmentación a partir del aprendizaje continuo del sistema.
+
+            </p>
+            
+            <p className="tex-xl text-gray-400">
+              <b>Creatividades responsive y contexto deportivo</b><br />
+              Se activaron formatos responsive ads, que adaptaban su diseño y mensaje según el espacio disponible y el contexto del sitio web.
+Además, se realizaron test A/B entre creatividades genéricas y otras inspiradas en eventos deportivos de alta relevancia, para identificar los momentos con mayor intención de recarga.
+ 
+            </p>
+            
+            <p className="tex-xl text-gray-400">
+              <b>Optimización de inversión y aprendizaje progresivo</b><br />
+              Inicialmente, el foco estuvo en la acumulación de datos y el entrenamiento del algoritmo. Luego, la plataforma comenzó a optimizar automáticamente hacia audiencias de mejor rendimiento, logrando un incremento significativo en recargas con el mismo presupuesto.
+Posteriormente, al combinar insights de comportamiento y coyuntura deportiva, se logró también aumentar el valor promedio de cada recarga.
+
+            </p>
+            </div>
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
@@ -180,22 +209,22 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Resultados
             </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
-            {stats.map((item, i) => (
-              <div
-                key={i}
-                className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-              >
-                <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                  <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                  <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                    {item.text}
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
+              {stats.map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
+                >
+                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
+                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
+                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
+                      {item.text}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-            
+              ))}
+            </div>
+
           </div>
         </div>
 

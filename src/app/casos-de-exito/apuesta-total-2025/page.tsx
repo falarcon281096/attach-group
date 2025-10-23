@@ -12,20 +12,20 @@ export default function Home() {
 
   const stats = [
     {
-      value: "+45%",
-      text: "YoY en tasa de conversión web.",
+      value: "50%",
+      text: "de reducción en Costo por Recarga (de S/0.24 a S/0.12)",
     },
     {
-      value: "+89%",
-      text: "En ratio de contactabilidad en anuncios de pauta digital.",
+      value: "12%",
+      text: "de reducción en Costo por Apuesta",
     },
     {
-      value: "6.73%",
-      text: "De conversión en campañas pagas durante los últimos 18 meses",
+      value: "42%",
+      text: "menos en Costo por Mil Impresiones (CPM) y Costo Por Clic (CPC)",
     },
     {
-      value: "Rendimiento técnico sobresaliente",
-      text: "con puntajes cercanos al máximo en desktop y óptimos en mobile (Google Page Speed).",
+      value: "Más de 255,000",
+      text: "apuestas y 95,000 recargas generadas durante el periodo",
     },
   ];
   return (
@@ -94,12 +94,12 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
               {/* Content */}
               <div className="text-white">
-                <p className="text-5xl">Optimización web</p>
+                <p className="text-5xl">En tiempo real</p>
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
-                  que impulsa la conversión
+                  para creer y ganar
                 </h1>
                 <p className="text-2xl text-white mb-8 max-w-lg">
-                  DepoSeguro es la primera cadena de self-storage en Perú, especializada en el alquiler de depósitos y almacenes en Lima desde 1m². Brinda soluciones tanto para empresas como para personas naturales, y se destaca por su enfoque en seguridad —con videovigilancia y control de humedad— y por ofrecer total flexibilidad en tiempos y tamaños de renta.
+                  Apuesta Total es una empresa peruana líder en el sector de entretenimiento, dedicada a la comercialización de apuestas deportivas, juegos virtuales, casino y bingo, operando tanto en canales online como en más de 500 puntos de venta físicos a nivel nacional. Su objetivo es brindar una experiencia de juego responsable, accesible y confiable, posicionándose como una de las principales casas de apuestas del Perú.
                 </p>
               </div>
 
@@ -117,18 +117,23 @@ export default function Home() {
             <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+45%</p>
-                <p className="mt-2 text-[1.35rem]">en tasa de conversión web (YoY)</p>
+                <p className="font-bold text-4xl lg:text-5xl">50%</p>
+                <p className="mt-2 text-[1.35rem]">menos Costo por Recarga</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+89%</p>
-                <p className="mt-2 text-[1.35rem]">en contactabilidad promedio en anuncios digitales</p>
+                <p className="font-bold text-4xl lg:text-5xl">12%</p>
+                <p className="mt-2 text-[1.35rem]">menos Costo por Apuesta</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-
-                <p className="mt-2 text-[1.35rem]">Rendimientos cercanos al puntaje máximo en Google PageSpeed y óptimos en mobile.</p>
+                <p className="font-bold text-4xl lg:text-5xl">42%</p>
+                <p className="mt-2 text-[1.35rem]">de ahorro en CPM y CPC</p>
+              </div>
+              {/* Indicador 4 */}
+              <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
+                <p className="font-bold text-4xl lg:text-5xl">+255,000 apuestas</p>
+                <p className="mt-2 text-[1.35rem]">y 95,000 recargas impulsadas con anuncios dinámicos y cuotas en tiempo real.</p>
               </div>
             </div>
           </section>
@@ -143,8 +148,7 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               El reto
             </h3>
-            <p className="tex-xl text-gray-400">DepoSeguro buscaba optimizar su sitio web para que dejara de ser solo un punto de contacto digital y se convirtiera en un canal estratégico para generar leads y potenciar su crecimiento comercial.</p>
-            <p className="tex-xl text-gray-400">El desafío implicaba mejorar la experiencia de usuario, rediseñar la arquitectura tecnológica y elevar el rendimiento en velocidad, SEO y conversión, asegurando una transición fluida y sin interrupciones operativas.</p>
+            <p className="tex-xl text-gray-400">En el dinámico mundo de las apuestas deportivas, cada segundo cuenta. Apuesta Total enfrentaba el desafío de mantener actualizados, en tiempo real, los anuncios de sus cuotas deportivas en Meta. Los procesos manuales de revisión y publicación generaban demoras críticas y limitaban la competitividad y rentabilidad de las campañas, especialmente durante eventos en vivo donde cada punto puede cambiarlo todo.</p>
           </div>
           <div className="relative">
             <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
@@ -161,16 +165,26 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Estrategia
             </h3>
-            <p className="tex-xl text-gray-400">Desarrollamos una estrategia integral basada en cuatro pilares clave: diseño y experiencia de usuario, infraestructura tecnológica, escalabilidad y posicionamiento digital.</p>
-            <p className="tex-xl text-gray-400"><b>1. Diagnóstico profundo y definición de objetivos:</b><br />
-              Auditoría completa del sitio anterior —usabilidad, velocidad, arquitectura y SEO— complementada con investigación de usuarios y benchmarking competitivo. Esto nos permitió definir funcionalidades clave, flujos eficientes y KPIs alineados al negocio.</p>
-            <p className="tex-xl text-gray-400"><b>2. Diseño UX/UI y desarrollo web optimizado:</b><br />
-              Diseñamos una experiencia centrada en el usuario, con enfoque mobile-first, interfaces intuitivas y navegación clara. El desarrollo fue realizado en WordPress utilizando tecnologías avanzadas, priorizando velocidad, seguridad y escalabilidad, y aplicando prácticas que aseguran un alto rendimiento en Google Page Speed.</p>
-            <p className="tex-xl text-gray-400"><b>3. SEO técnico y migración a Google Cloud Platform (GCP):</b><br />
-              Construimos el sitio con una estructura semántica y URLs optimizadas desde su base. Además, migramos la infraestructura a GCP para garantizar disponibilidad, monitoreo continuo y capacidad de escalar de manera flexible según demanda.</p>
-            <p className="tex-xl text-gray-400"><b>4. Lanzamiento controlado y mejora continua:</b><br />
-              Realizamos pruebas exhaustivas antes del lanzamiento, seguimiento post-live y optimizaciones basadas en métricas reales de uso, conversión y posicionamiento. También brindamos soporte continuo con actualizaciones, mantenimiento y mejoras evolutivas.</p>
-          </div>
+            <p className="tex-xl text-gray-400">
+              <b>Automatización con CLO (Catalog Live Odds)</b><br />
+              Se implementó Catalog Live Odds, un Alpha de Meta, que permitió conectar en tiempo real la base de datos de cuotas y partidos de Apuesta Total con sus campañas digitales.
+            </p>
+            
+            <p className="tex-xl text-gray-400">
+              <b>Creación de Catálogo Dinámico</b><br />
+              Se desarrolló un catálogo de apuestas dinámicas que actualiza información clave (equipos, torneos, cuotas) de forma instantánea.
+            </p>
+            
+            <p className="tex-xl text-gray-400">
+              <b>Generación de Banners Dinámicos</b><br />
+              Se diseñaron plantillas para imágenes y videos, automatizando la creación de más de 15,000 banners mensuales para más de 200 partidos, eliminando revisiones 
+            </p>
+            
+            <p className="tex-xl text-gray-400">
+              <b>Sincronización Total y Escalabilidad</b><br />
+              Cualquier cambio en partidos o cuotas se refleja automáticamente en los anuncios, garantizando mensajes actualizados y relevantes para los usuarios en el momento justo.
+            </p>
+            </div>
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
@@ -180,22 +194,22 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Resultados
             </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
-            {stats.map((item, i) => (
-              <div
-                key={i}
-                className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-              >
-                <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                  <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                  <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                    {item.text}
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
+              {stats.map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
+                >
+                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
+                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
+                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
+                      {item.text}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-            
+              ))}
+            </div>
+
           </div>
         </div>
 
