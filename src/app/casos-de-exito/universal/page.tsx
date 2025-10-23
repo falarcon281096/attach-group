@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-
+import ResultsSection from "../../../components/ResultsSection";
 
 export default function Home() {
 
@@ -102,10 +102,18 @@ export default function Home() {
               </div>
 
               {/* Image placeholder - where the person and city image goes */}
-              <div className="relative">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
-                  <span className="text-white/60 text-lg">Banner Image Placeholder</span>
-                </div>
+              <div className="relative 
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_white.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-30
+                    before:h-30
+                    before:-translate-x-1/2
+                    before:top-100">
+                <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/eluniversal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
               </div>
             </div>
           </div>
@@ -142,15 +150,35 @@ export default function Home() {
             </p><p className="tex-xl text-gray-400">Hacerlo de forma manual resultaba lento y demandaba demasiado esfuerzo del equipo editorial. La empresa necesitaba una solución rápida, precisa y totalmente automática, capaz de asegurar la categorización correcta de cada nota sin invertir horas-hombre.
             </p>
           </div>
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-1/5
+                    before:top-45">
+            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/el_reto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-[-36rem]
+                    before:top-105">
+            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">
@@ -198,31 +226,7 @@ export default function Home() {
 
         </div>
 
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-
-          {/* Carlo R.*/}
-          <div className="w-1/2">
-            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-              Resultados
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
-              {stats.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-                >
-                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </div>
+<ResultsSection stats={stats} />
 
       </section>
 

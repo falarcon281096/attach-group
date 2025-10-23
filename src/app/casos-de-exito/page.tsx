@@ -1,53 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import demoImage from '../../../public/images/casos-de-exito/demo_caso_de_exito.png';
-
 
 export default function Home() {
   const dataCases = [
     {
       link: '/casos-de-exito/deposeguro',
-      id: 'caja-arequipa',
-      title: 'Caja Arequipa',
-      tag: 'Paid Media',
-      image: demoImage,
-    },
-    {
-      link: '/casos-de-exito/deposeguro',
-      id: 'la-fiduciara',
-      title: 'La Fiduciara',
-      tag: 'Sitio Web e Infraestructura',
-      image: demoImage,
-    },
-    {
-      link: '/casos-de-exito/deposeguro',
       id: 'deposeguro',
       title: 'Deposeguro',
       tag: 'Sitio Web',
-      image: demoImage,
-    },
-    {
-      link: '/casos-de-exito/apuesta-total-ads',
-      id: 'apuesta-t-paid',
-      title: 'Apuesta Total',
-      tag: 'Paid Media',
-      image: demoImage,
+      image: '/images/casos-de-exito/deposeguro.png',
     },
     {
       link: '/casos-de-exito/apuesta-total-2025',
       id: 'apuesta-t-catalogo',
       title: 'Apuesta Total',
       tag: 'Catálogo dinámico',
-      image: demoImage,
+      image: '/images/casos-de-exito/apuestatotal.png',
     },
     {
       link: '/casos-de-exito/cayetano',
       id: 'cayetano-heredia',
       title: 'Universidad Cayetano Heredia',
       tag: 'Sitio Web e Infraestructura',
-      image: demoImage,
+      image: '/images/casos-de-exito/cayetano.png',
+    },
+    {
+      link: '/casos-de-exito/universal',
+      id: 'universal',
+      title: 'El Universal',
+      tag: 'Paid Media',
+      image: '/images/casos-de-exito/eluniversal.png',
+    },
+    {
+      link: '/casos-de-exito/universal-2',
+      id: 'universal-2',
+      title: 'El universal 2',
+      tag: 'Galileo',
+      image: '/images/casos-de-exito/eluniversal.png',
+    },
+    {
+      link: '/casos-de-exito/apuesta-total-ads',
+      id: 'apuesta-t-paid',
+      title: 'Apuesta Total',
+      tag: 'Paid Media',
+      image: '/images/casos-de-exito/apuestatotal.png',
     },
   ];
 
@@ -139,16 +136,17 @@ export default function Home() {
           {dataCases.map((c) => (
             <Link
               key={c.id}
-              className="cursor-pointer bg-white p-5 rounded-lg flex flex-col h-120 justify-end"
+              className="relative cursor-pointer bg-white p-5 rounded-lg flex flex-col h-120 justify-end"
               style={{
-                backgroundImage: `url(${typeof c.image === 'string' ? c.image : c.image.src})`,
+                backgroundImage: `url(${c.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
               href={c.link}
             >
-              <h3 className="text-3xl text-gray font-bold">{c.title}</h3>
-              <p className="text-1xl text-white font-bold">{c.tag}</p>
+              <div className="absolute rounded-[10px] inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+              <h3 className="relative z-10 text-3xl text-white font-bold">{c.title}</h3>
+              <p className="relative z-10 text-1xl text-white font-semibold">{c.tag}</p>
             </Link>
           ))}
         </div>
