@@ -8,36 +8,42 @@ import demoImage from '../../../public/images/casos-de-exito/demo_caso_de_exito.
 export default function Home() {
   const dataCases = [
     {
+      link: '/casos-de-exito/deposeguro',
       id: 'caja-arequipa',
       title: 'Caja Arequipa',
       tag: 'Paid Media',
       image: demoImage,
     },
     {
+      link: '/casos-de-exito/deposeguro',
       id: 'la-fiduciara',
       title: 'La Fiduciara',
       tag: 'Sitio Web e Infraestructura',
       image: demoImage,
     },
     {
+      link: '/casos-de-exito/deposeguro',
       id: 'deposeguro',
       title: 'Deposeguro',
       tag: 'Sitio Web',
       image: demoImage,
     },
     {
+      link: '/casos-de-exito/deposeguro',
       id: 'apuesta-t-paid',
       title: 'Apuesta Total',
       tag: 'Paid Media',
       image: demoImage,
     },
     {
+      link: '/casos-de-exito/deposeguro',
       id: 'apuesta-t-catalogo',
       title: 'Apuesta Total',
       tag: 'Catálogo dinámico',
       image: demoImage,
     },
     {
+      link: '/casos-de-exito/deposeguro',
       id: 'cayetano-heredia',
       title: 'Universidad Cayetano Heredia',
       tag: 'Sitio Web e Infraestructura',
@@ -131,7 +137,7 @@ export default function Home() {
       <section className="bg-white rounded-b-[50px] pb-17 pl-10">
         <div className="pl-20 pr-30 py-17 border-l-2 border-b-2 border-[#1e3fda] rounded-bl-[50px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {dataCases.map((c) => (
-              <a
+              <Link
                 key={c.id}
                 className="cursor-pointer bg-white p-5 rounded-lg flex flex-col h-120 justify-end"
                 style={{
@@ -139,11 +145,11 @@ export default function Home() {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
-                href="#"
+                href={c.link}
               >
                 <h3 className="text-3xl text-gray font-bold">{c.title}</h3>
                 <p className="text-1xl text-white font-bold">{c.tag}</p>
-              </a>
+              </Link>
             ))}
         </div>
       </section>

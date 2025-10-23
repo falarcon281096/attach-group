@@ -85,133 +85,130 @@ export default function Home() {
       </div>
 
       <div className="atm-content relative bg-white">
-        <div className="mx-15 border-l-2 border-[#1e3fda]/20">
-        <div className="flex flex-row gap-10">
-          {/* Image placeholder - where the person and city image goes */}
+        <div className="mx-15 border-l-2 border-[#1e3fda]/50">
+          <div className="pr-15 flex flex-row gap-10">
+            {/* Image placeholder - where the person and city image goes */}
             <div className="bg-black/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
               <span className="text-white/60 text-lg">Banner Image Placeholder</span>
             </div>
 
-          {/* Content */}
-          <div>
-            <p className="text-[#1840E2] text-4xl lg:text-4xl">Nos inspira resolver desafíos, <strong>aprender constantemente y crecer</strong> en un entorno colaborativo.</p>
+            {/* Content */}
+            <div>
+              <p className="text-[#1840E2] text-4xl lg:text-4xl">Nos inspira resolver desafíos, <strong>aprender constantemente y crecer</strong> en un entorno colaborativo.</p>
 
-            <p className="text-[#1840E2] text-4xl lg:text-4xl">No solo hablamos de resultados: <strong>los generamos.</strong></p>
-          </div>
-        </div>
-
-        <div className="mx-15 flex flex-row gap-10">
-          {/* Content */}
-          <div>
-            <p className="text-[#1840E2] 
-            font-bold text-4xl lg:text-4xl">Innovar. Colaborar. Evolucionar juntos.</p>
-
-            <p className="text-gray-500 text-xl lg:text-xl">Porque la forma en que trabajamos es tan importante como lo que hacemos.</p>
+              <p className="text-[#1840E2] text-4xl lg:text-4xl">No solo hablamos de resultados: <strong>los generamos.</strong></p>
+            </div>
           </div>
 
-          {/* Image placeholder - where the person and city image goes */}
+          <div className="pl-15 flex flex-row gap-10">
+            {/* Content */}
+            <div className="flex flex-col gap-4 justify-center">
+              <h4 className="text-[#1840E2] 
+            font-bold text-4xl lg:text-4xl">Innovar. Colaborar. Evolucionar juntos.</h4>
+
+              <p className="text-gray-500 text-xl lg:text-xl">Porque la forma en que trabajamos es tan importante como lo que hacemos.</p>
+              <div className="border-1 px-8 py-2 rounded-xl px-4 py-2">
+                <p className="bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">Mindset innovador. Para generar imapcto real y sostenible</p>
+              </div>
+
+              <div className="border-1 px-8 py-2 rounded-xl ml-10 px-4 py-2">
+                <p className="bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">Aprendizaje compartido. Talentos, ideas y experiencias</p>
+              </div>
+
+            </div>
+
+            {/* Image placeholder - where the person and city image goes */}
             <div className="bg-black/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
               <span className="text-white/60 text-lg">Banner Image Placeholder</span>
             </div>
-        </div>
+          </div>
 
-        <div className="flex flex-row gap-10">
-          {/* Image placeholder - where the person and city image goes */}
+          <div className="pr-15 flex flex-row gap-10">
+            {/* Image placeholder - where the person and city image goes */}
             <div className="bg-black/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
               <span className="text-white/60 text-lg">Banner Image Placeholder</span>
             </div>
+            {/* Content */}
+            <div className="flex flex-col gap-4 justify-center">
+              <h4 className="text-[#1840E2] 
+            font-bold text-4xl lg:text-4xl">Nuestro propósito</h4>
 
-          {/* Content */}
-          <div>
-            <p className="text-[#1840E2] text-4xl lg:text-4xl">Nos inspira resolver desafíos, <strong>aprender constantemente y crecer</strong> en un entorno colaborativo.</p>
+              <p className="text-gray-500 text-xl lg:text-xl">Resolvemos problermas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto: para así impulsar las ecnomoías y comunidades donde operamos</p>
 
-            <p className="text-[#1840E2] text-4xl lg:text-4xl">No solo hablamos de resultados: <strong>los generamos.</strong></p>
+            </div>
           </div>
+
+
+                {/* Services Section */}
+      <div className="py-20">
+        <div className="mx-30">
+          {/* Header */}
+          <div className="mb-10">
+            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+              Un solo grupo, múltiples <br></br> respuestas
+            </h2>
+            <p className="text-xl text-white">
+              Cada uno de nuestros servicios está respaldado por un partner especializado. Descubre quién lo hace posible.
+            </p>
+          </div>
+
+
         </div>
 
+        
+      </div>
+
+
         </div>
 
-        {/*Lideres Section*/}
-        <div className="py-20">
-          <h2 className="mx-30 text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-            Quiénes lideran el camino
-          </h2>
-          <section className="py-16">
-            <div className="mx-30">
-              <div className="flex flex-wrap justify-center gap-10">
-                {/* Carlo R.*/}
-                <div className="relative">
-                  <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-                  <div className="absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-3">
-                    <p className="text-lg font-semibold text-gray-500">Carlo Rodriguez</p>
-                    <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">CEO Attach</p>
-                  </div>
-                </div>
 
+          {/* Programas Cards */}
+          <h4 className="mx-30 text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+            Nuestros mentores
+          </h4>
+          <div className="mx-30 grid lg:grid-cols-3 gap-12">
+            {/* Card 1: Inteligencia Artificial */}
+            <div className="border-2 border-gray-200 rounded-3xl">
+              {/* Logo Section */}
+              <div className="bg-linear-to-br rounded-3xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
+              </div>
 
-                {/*Fernando S.*/}
-                <div className="relative">
-                  <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-                  <div className="absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-3">
-                    <p className="text-lg font-semibold text-gray-500">Fernando Salazar</p>
-                    <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">COO Attach</p>
-                  </div>
-                </div>
+              {/* Content Section */}
+              <div className="p-7">
+                <p className="text-xl text-gray-500">
+                  Crecemos aprendiendo de quienes nos inspiran. Promovemos el desarrollo profesional y personal
+                </p>
               </div>
             </div>
-          </section>
 
-        </div>
+            {/* Card 2: Publicidad Programática */}
+            <div className="border-2 border-gray-200 rounded-3xl">
+              {/* Logo Section */}
+              <div className="bg-linear-to-br rounded-3xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
+              </div>
 
-        {/*Clientes Section*/}
-        <div className="py-20">
-          <h2 className="mx-30 text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-            Algunos de nuestros clientes
-          </h2>
-
-          <section className="py-16">
-            <div className="mx-30">
-              <div className="flex flex-wrap justify-center gap-10">
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+              {/* Content Section */}
+              <div className="p-7">
+                <p className="text-xl text-gray-500">
+                  Crecemos aprendiendo de quienes nos inspiran. Promovemos el desarrollo profesional y personal
+                </p>
               </div>
             </div>
-          </section>
 
-        </div>
+            {/* Card 3: Medios On y Off */}
+            <div className="border-2 border-gray-200 rounded-3xl">
+              {/* Logo Section */}
+              <div className="bg-linear-to-br rounded-3xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
+              </div>
+
+              {/* Content Section */}
+              <div className="p-7">
+                <p className="text-xl text-gray-500">
+                  Crecemos aprendiendo de quienes nos inspiran. Promovemos el desarrollo profesional y personal
+                </p>
+              </div>
+            </div>
+          </div>
       </div>
       {/* CTA Talk Us */}
       <section className="pb-17 pr-30">
@@ -225,8 +222,6 @@ export default function Home() {
           </button>
         </div>
       </section>
-
-
 
       {/* Footer */}
       <div className="bg-[#F7F7F7] py-20">
