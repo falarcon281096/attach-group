@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   // Estado para manejar el caso activo
@@ -13,11 +14,10 @@ export default function Home() {
       <header className="relative z-20">
         <div className="ml-15 flex items-center justify-between border-l-2 border-white/30 py-6">
           {/* Logo - Izquierda */}
-          <a href="/attach-group" className="flex items-center ml-15">
-            <div className="w-40 h-8 bg-white/20 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
-            </div>
+          <a href="/attach-group" className="ml-15">
+            <Image className="" src="/attach-group/images/general/Logo_Attach_Group.png" alt="Logo Attach" width={160} height={32} />
           </a>
+
 
           {/* Navigation - Centro */}
           <nav className="hidden lg:flex items-center space-x-8 justify-center">
@@ -88,10 +88,18 @@ export default function Home() {
             </div>
 
             {/* Image placeholder - where the person and city image goes */}
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
-                <span className="text-white/60 text-lg">Banner Image Placeholder</span>
-              </div>
+            <div className="relative 
+                    before:absolute before:inset-0 
+                    before:bg-[url('/attach-group/images/general/attach_cross_white.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-30
+                    before:h-30
+                    before:-translate-x-1/2
+                    before:top-100">
+              <Image className="w-full rounded-l-[4rem]" src="/attach-group/images/home/portada.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
             </div>
           </div>
         </div>
@@ -113,9 +121,10 @@ export default function Home() {
           {/* Services Cards */}
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Card 1: Inteligencia Artificial */}
-            <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
-              <div className="bg-linear-to-br rounded-3xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
+              <div className="bg-linear-to-br rounded-2xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
+                <Image className="w-65" src="/attach-group/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
               </div>
 
               {/* Content Section */}
@@ -133,9 +142,10 @@ export default function Home() {
             </div>
 
             {/* Card 2: Publicidad Programática */}
-            <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
-              <div className="bg-linear-to-br rounded-3xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
+              <div className="bg-linear-to-br rounded-2xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
+                <Image className="w-65" src="/attach-group/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
               </div>
 
               {/* Content Section */}
@@ -153,9 +163,10 @@ export default function Home() {
             </div>
 
             {/* Card 3: Medios On y Off */}
-            <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
-              <div className="bg-linear-to-br rounded-3xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
+              <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
+                <Image className="w-55" src="/attach-group/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
               </div>
 
               {/* Content Section */}
@@ -180,7 +191,7 @@ export default function Home() {
         <div className="mx-30">
           {/* Header */}
           <div className="mb-16">
-            <h2 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6" style={{ filter: 'drop-shadow(0 8px 12px rgba(30, 63, 218, 0.15)) drop-shadow(0 0 25px rgba(30, 63, 218, 0.3))' }}>
+            <h2 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Potenciamos marcas <br></br>para el futuro
             </h2>
             <p className="text-xl text-gray-600">
@@ -196,7 +207,7 @@ export default function Home() {
               <div className="mb-8">
                 <button
                   onClick={() => setActiveCase('caja-arequipa')}
-                  className="flex items-center mb-4 w-full text-left"
+                  className="cursor-pointer flex items-center mb-4 w-full text-left"
                 >
                   {activeCase === 'caja-arequipa' && (
                     <svg className="w-8 h-8 text-gray-800 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -227,7 +238,7 @@ export default function Home() {
               <div className="mb-8">
                 <button
                   onClick={() => setActiveCase('deposeguro')}
-                  className="flex items-center w-full text-left"
+                  className="cursor-pointer flex items-center w-full text-left"
                 >
                   {activeCase === 'deposeguro' && (
                     <svg className="w-8 h-8 text-gray-800 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -258,7 +269,7 @@ export default function Home() {
               <div className="mb-12">
                 <button
                   onClick={() => setActiveCase('apuesta-total')}
-                  className="flex items-center w-full text-left"
+                  className="cursor-pointer flex items-center w-full text-left"
                 >
                   {activeCase === 'apuesta-total' && (
                     <svg className="w-8 h-8 text-gray-800 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -297,26 +308,59 @@ export default function Home() {
             </div>
 
             {/* Right Content - Dynamic Image */}
-            <div className="relative">
               {/* Main Image */}
-              <div className="relative transition-all duration-500 ease-in-out">
+              <div className="flex justify-end relative transition-all duration-500 ease-in-out
+                    relative 
+                    before:absolute before:inset-0 
+                    before:bg-[url('/attach-group/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-30
+                    before:h-30
+                    before:-translate-x-[0.3rem]
+                    before:top-80
+                    before:bg-[length:100%_100%]">
                 {/* Image Placeholder */}
-                <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-                  <span className="text-gray-500 text-lg">
-                    {activeCase === 'caja-arequipa' && 'Imagen Caja Arequipa'}
-                    {activeCase === 'deposeguro' && 'Imagen Deposeguro'}
-                    {activeCase === 'apuesta-total' && 'Imagen Apuesta Total'}
-                  </span>
-                </div>
+                  <Image
+                    className="w-[90%] rounded-tl-[40px] rounded-br-[40px]"
+                    src={
+                      activeCase === 'caja-arequipa' ? "/attach-group/images/home/caja_arequipa.png" :
+                        activeCase === 'deposeguro' ? "/attach-group/images/home/deposeguro.png" :
+                          activeCase === 'apuesta-total' ? "/attach-group/images/home/apuesta_total.png" :
+                            "/attach-group/images/home/caja_arequipa.png"
+                    }
+                    alt={
+                      activeCase === 'caja-arequipa' ? "Caja Arequipa" :
+                        activeCase === 'deposeguro' ? "Deposeguro" :
+                          activeCase === 'apuesta-total' ? "Apuesta Total" :
+                            "Caso de éxito"
+                    }
+                    width={1800}
+                    height={1800}
+                  />
               </div>
-            </div>
           </div>
         </div>
       </div>
 
       {/* Awards Section */}
-      <div className="bg-white pt-10 border-b border-gray-300">
-        <div className="mx-30 px-15 py-20 bg-gray-100 rounded-tl-[50px] rounded-br-[50px]">
+      <div className="bg-white pt-10">
+        <div className="
+        relative 
+        before:absolute before:inset-0 
+        before:bg-[url('/attach-group/images/general/attach_cross_blue_to_purple.png')]
+        before:bg-no-repeat
+        before:bg-center
+        before:content-['']
+        before:bg-[length:100%_100%]
+        before:w-12
+        before:h-12
+        before:-translate-x-1/2
+        before:top-30
+        before:bg-[length:100%_100%]
+        mx-30 px-15 py-15 bg-gray-100 rounded-tl-[50px] rounded-br-[50px]">
           <div className="flex items-center">
             {/* Left Content */}
             <div className="flex items-center mr-16">
@@ -330,21 +374,12 @@ export default function Home() {
             </div>
 
             {/* Right Content - Awards Logos */}
-            <div className="flex items-center gap-8 w-full">
-              {/* Logo Placeholder 1 */}
-              <div className="flex-1 bg-white rounded-lg p-6 shadow-sm h-20 flex items-center justify-center">
-                <span className="text-gray-400 text-sm">Logo Premio 1</span>
-              </div>
+            <div className="flex justify-evenly items-center gap-8 w-full">
+                <Image className="w-[30%] h-[10%] object-cover" src="/attach-group/images/home/peru-service.png" alt="Logo Attach" width={160} height={32}/>
 
-              {/* Logo Placeholder 2 */}
-              <div className="flex-1 bg-white rounded-lg p-6 shadow-sm h-20 flex items-center justify-center">
-                <span className="text-gray-400 text-sm">Logo Premio 2</span>
-              </div>
+                <Image className="w-[10%] h-[10%] object-cover" src="/attach-group/images/home/ecommerce-award.png" alt="Logo Attach" width={160} height={32}/>
 
-              {/* Logo Placeholder 3 */}
-              <div className="flex-1 bg-white rounded-lg p-6 shadow-sm h-20 flex items-center justify-center">
-                <span className="text-gray-400 text-sm">Logo Premio 3</span>
-              </div>
+                <Image className="w-[17%] h-[10%] object-cover" src="/attach-group/images/home/iabperu.png" alt="Logo Attach" width={160} height={32}/>
             </div>
           </div>
         </div>
@@ -352,37 +387,49 @@ export default function Home() {
 
       {/*Partner Section*/}
       <div className="bg-white rounded-b-[3rem] py-20">
-        <h2 className="mx-30 text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6" style={{ filter: 'drop-shadow(0 8px 12px rgba(30, 63, 218, 0.15)) drop-shadow(0 0 25px rgba(30, 63, 218, 0.3))' }}>
+        <div className="mx-30 px-25">
+        <h2 className="px-30 text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6" style={{ filter: 'drop-shadow(22px 13px 107.3px rgba(24, 64, 226, 0.5))' }}>
           Somos partners de las mejores plataformas tecnológicas
         </h2>
 
         <section className="bg-gradient-to-b from-white to-[#f8f9fb] py-16">
-          <div className="mx-30">
-            <div className="flex flex-wrap justify-center gap-10">
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-20">
               {/* Google Marketing Platform */}
-              <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/attach-group/images/home/attach_partner_1.png" alt="Logo Attach" width={160} height={32}/>
+              </div>
               {/* Google Cloud */}
-              <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+              <div className="block w-[15rem] flex justify-center">
+              <Image className="w-[13rem]" src="/attach-group/images/home/attach_partner_2.png" alt="Logo Attach" width={160} height={32}/>
+              </div>
 
               {/* Google Partner */}
-              <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+              <div className="block w-[15rem] flex justify-center">
+              <Image className="w-[9rem]" src="/attach-group/images/home/attach_partner_3.png" alt="Logo Attach" width={160} height={32}/>
+              </div>
 
               {/* Meta Business Partner */}
-              <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+              <div className="block w-[15rem] flex justify-center">
+              <Image className="w-[7rem]" src="/attach-group/images/home/attach_partner_4.png" alt="Logo Attach" width={160} height={32}/>
+              </div>
 
               {/* VWO */}
-              <span className="block w-[20rem] h-[9rem] bg-gray-200 rounded-md"></span>
+              <div className="block w-[15rem] flex justify-center">
+              <Image className="w-[8rem]" src="/attach-group/images/home/attach_partner_5.png" alt="Logo Attach" width={160} height={32}/>
+              </div>
 
               {/* Convert */}
-              <span className="block w-[20rem] h-[9rem] bg-gray-200 rounded-md"></span>
+              <div className="block w-[15rem] flex justify-center">
+              <Image className="w-[11rem]" src="/attach-group/images/home/attach_partner_6.png" alt="Logo Attach" width={160} height={32}/>
+              </div>
 
               {/* Google Display & Video 360 */}
-              <span className="block w-[20rem] h-[9rem] bg-gray-200 rounded-md"></span>
+              <div className="block w-[15rem] flex justify-center">
+              <Image className="w-[12rem]" src="/attach-group/images/home/attach_partner_7.png" alt="Logo Attach" width={160} height={32}/>
+              </div>
             </div>
-          </div>
         </section>
-
+</div>
       </div>
 
       {/* CTA Talk Us */}
