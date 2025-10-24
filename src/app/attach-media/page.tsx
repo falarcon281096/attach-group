@@ -1,67 +1,15 @@
 "use client";
 
 import Image from 'next/image';
-import Link from 'next/link';
 import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
 export default function AttachMediaPage() {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Header*/}
-      <header className="relative z-20 bg-linear-to-r from-[#2f7de1] to-[#25bbcd]">
-        <div className="ml-4 md:ml-15 flex items-center justify-between py-4 md:py-6">
-          {/* Logo - Izquierda */}
-          <a href="/attach-group" className="ml-4 md:ml-15">
-            <Image className="" src="/attach-group/images/general/Logo_Attach_Group.png" alt="Logo Attach" width={160} height={32} />
-          </a>
-
-          {/* Navigation - Centro */}
-          <nav className="hidden lg:flex items-center space-x-8 justify-center">
-            <Link
-              href="/nosotros"
-              className="text-white/70 hover:text-white/90 font-bold transition-colors"
-            >
-              Nosotros
-            </Link>
-            <div className="relative group">
-              <button className="text-white font-bold transition-colors flex items-center">
-                <span className="underline">Soluciones</span>
-                <span className="ml-1 text-sm">+</span>
-              </button>
-            </div>
-            <Link
-              href="/casos-de-exito"
-              className="text-white/70 hover:text-white/90 font-bold transition-colors"
-            >
-              Casos de éxito
-            </Link>
-            <Link
-              href="/cultura"
-              className="text-white/70 hover:text-white/90 font-bold transition-colors"
-            >
-              Cultura
-            </Link>
-          </nav>
-
-          {/* Botón Contáctanos - Derecha */}
-          <div className="flex items-center justify-end mr-30">
-            <Link
-              href="/contacto"
-              className="bg-white text-[#25bbcd] px-6 py-4 rounded-lg font-extrabold hover:bg-white/90 transition-colors"
-            >
-              Contáctanos
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <button className="lg:hidden text-white">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </header>
-
+      <Header />
+      
       {/* Hero Section */}
       <div className="relative rounded-b-4xl z-10 bg-linear-to-r from-[#2f7de1] to-[#25bbcd]">
         <div className="px-6 md:px-30 pt-10 md:pt-20 pb-10 md:pb-16">
@@ -71,7 +19,7 @@ export default function AttachMediaPage() {
               {/* Logo Attach Media */}
               <div className="mb-6 md:mb-8">
                 <Image 
-                  src="/attach-group/images/general/attachmedia_logo.png" 
+                  src="/images/general/attachmedia_logo.png" 
                   alt="Attach Media" 
                   width={380} 
                   height={90} 
@@ -168,7 +116,7 @@ export default function AttachMediaPage() {
             {/* Imagen de fondo */}
             <div className="relative h-48 md:h-64 lg:h-80">
               <Image 
-                src="/attach-group/images/soluciones/attach-media/equipo-hibrido.png" 
+                src="/images/soluciones/attach-media/equipo-hibrido.png" 
                 alt="Equipo híbrido trabajando con IA" 
                 width={1200} 
                 height={400}
@@ -209,7 +157,7 @@ export default function AttachMediaPage() {
             {/* Imagen de fondo */}
             <div className="relative h-48 md:h-64 lg:h-80">
               <Image 
-                src="/attach-group/images/soluciones/attach-media/estructura-metodologias.png" 
+                src="/images/soluciones/attach-media/estructura-metodologias.png" 
                 alt="Estructura y metodologías propias" 
                 width={1200} 
                 height={400}
@@ -262,7 +210,7 @@ export default function AttachMediaPage() {
               {/* Left Content - Image */}
               <div className="relative">
                 <Image 
-                  src="/attach-group/images/soluciones/attach-media/ia-creativity.png" 
+                  src="/images/soluciones/attach-media/ia-creativity.png" 
                   alt="IA Creativity - Mujer con proyecciones digitales" 
                   width={600} 
                   height={400}
@@ -331,7 +279,7 @@ export default function AttachMediaPage() {
               {/* Right Content - Image */}
               <div className="relative">
                 <Image 
-                  src="/attach-group/images/soluciones/attach-media/influencer-marketing.png"
+                  src="/images/soluciones/attach-media/influencer-marketing.png"
                   alt="Influencer Marketing"
                   width={600}
                   height={400}
@@ -352,7 +300,7 @@ export default function AttachMediaPage() {
               {/* Left Content - Image */}
               <div className="relative">
                 <Image 
-                  src="/attach-group/images/soluciones/attach-media/seo-geo.png"
+                  src="/images/soluciones/attach-media/seo-geo.png"
                   alt="SEO y GEO"
                   width={600}
                   height={400}
@@ -393,7 +341,7 @@ export default function AttachMediaPage() {
               {/* Right Content - Image */}
               <div className="relative">
                 <Image 
-                  src="/attach-group/images/soluciones/attach-media/analytics-growth.png"
+                  src="/images/soluciones/attach-media/analytics-growth.png"
                   alt="Analytics and Growth"
                   width={600}
                   height={400}
@@ -414,7 +362,7 @@ export default function AttachMediaPage() {
               {/* Left Content - Image */}
               <div className="relative">
                 <Image 
-                  src="/attach-group/images/soluciones/attach-media/ui-ux.png"
+                  src="/images/soluciones/attach-media/ui-ux.png"
                   alt="UX/UI and Development"
                   width={600}
                   height={400}

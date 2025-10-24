@@ -28,7 +28,7 @@ export default function Home() {
 
               {/* Image placeholder - where the person and city image goes */}
               <div className="">
-                  <Image src="/attach-group/images/nosotros/foto-grupal-attach.png" className="w-full" alt="icon Galileo IA" width={684} height={580} />
+                  <Image src="/images/nosotros/foto-grupal-attach.png" className="w-full" alt="icon Galileo IA" width={684} height={580} />
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function Home() {
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-3xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
-                  <Image src="/attach-group/images/nosotros/logo-galilea.png" alt="icon Galileo IA" width={279} height={74} />
+                  <Image src="/images/nosotros/logo-galilea.png" alt="icon Galileo IA" width={279} height={74} />
                 </div>
 
                 {/* Content Section */}
@@ -91,7 +91,7 @@ export default function Home() {
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-3xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
-                  <Image src="/attach-group/images/nosotros/logo-athenaAds.png" alt="icon AthenaAds" width={300} height={83} />
+                  <Image src="/images/nosotros/logo-athenaAds.png" alt="icon AthenaAds" width={300} height={83} />
                 </div>
 
                 {/* Content Section */}
@@ -106,7 +106,7 @@ export default function Home() {
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-3xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
-                  <Image src="/attach-group/images/nosotros/logo-attach-media.png" alt="icon Attach Media" width={239} height={96} />
+                  <Image src="/images/nosotros/logo-attach-media.png" alt="icon Attach Media" width={239} height={96} />
                 </div>
 
                 {/* Content Section */}
@@ -132,7 +132,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-10">
                 {/* Carlo R.*/}
                 <div className="relative">
-                  <Image src="/attach-group/images/nosotros/CarloRodriguez.jpg" alt="Carlo Rodriguez" width={361} height={423} />
+                  <Image src="/images/nosotros/CarloRodriguez.jpg" alt="Carlo Rodriguez" width={361} height={423} />
                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Carlo Rodriguez</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">CEO Attach</p>
@@ -142,7 +142,7 @@ export default function Home() {
 
                 {/*Fernando S.*/}
                 <div className="relative">
-                  <Image src="/attach-group/images/nosotros/fernando-salazar.jpg" alt="Fernando Salazar" width={361} height={423} />
+                  <Image src="/images/nosotros/fernando-salazar.jpg" alt="Fernando Salazar" width={361} height={423} />
                    <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Fernando Salazar</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">COO Attach</p>
@@ -162,7 +162,7 @@ export default function Home() {
 
           <section className="py-16">
             <div className="">
-              <Image className="w-full" src="/attach-group/images/nosotros/clientes-desktop.png" alt="clientes" width={1296} height={747} />
+              <Image className="w-full" src="/images/nosotros/clientes-desktop.png" alt="clientes" width={1296} height={747} />
             </div>
           </section>
 
@@ -178,7 +178,7 @@ export default function Home() {
           <p className="tex-xl text-gray-400 border-1 px-3 py-2 w-45 rounded-[50px]">Perú - México - USA</p>
           </div>
           <div className="relative">
-            <Image src="/attach-group/images/nosotros/mapa-atatch.png" alt="Mapa Attach" width={486} height={550} />
+            <Image src="/images/nosotros/mapa-atatch.png" alt="Mapa Attach" width={486} height={550} />
           </div>
 
         </div>
