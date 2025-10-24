@@ -1,11 +1,110 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { FormEvent, ChangeEvent, useState } from "react";
 
 export default function Home() {
   // Estado para manejar el caso activo
   const [activeCase, setActiveCase] = useState('caja-arequipa');
+  type FormData = {
+    fullName: string;
+    company: string;
+    email: string;
+    phone: string;
+    message: string;
+  };
+
+  type FormErrors = Partial<Record<keyof FormData, string>>;
+
+  const initialFormState: FormData = {
+    fullName: "",
+    company: "",
+    email: "",
+    phone: "",
+    message: "",
+  };
+
+  const [formData, setFormData] = useState<FormData>(initialFormState);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success">("idle");
+
+  const handleInputChange =
+    (field: keyof FormData) =>
+    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData((prev) => ({ ...prev, [field]: event.target.value }));
+      if (errors[field]) {
+        setErrors((prev) => {
+          const next = { ...prev };
+          delete next[field];
+          return next;
+        });
+      }
+      if (submitStatus !== "idle") {
+        setSubmitStatus("idle");
+      }
+    };
+
+  const validateForm = (): FormErrors => {
+    const newErrors: FormErrors = {};
+    const trimmedFullName = formData.fullName.trim();
+    const trimmedCompany = formData.company.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedPhone = formData.phone.trim();
+    const trimmedMessage = formData.message.trim();
+
+    if (!trimmedFullName) {
+      newErrors.fullName = "Por favor ingresa tu nombre completo.";
+    } else if (trimmedFullName.length < 2 || trimmedFullName.length > 120) {
+      newErrors.fullName = "El nombre debe tener entre 2 y 120 caracteres.";
+    }
+
+    if (!trimmedCompany) {
+      newErrors.company = "La compañía es obligatoria.";
+    } else if (trimmedCompany.length < 2 || trimmedCompany.length > 120) {
+      newErrors.company = "La compañía debe tener entre 2 y 120 caracteres.";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!trimmedEmail) {
+      newErrors.email = "El correo es obligatorio.";
+    } else if (!emailRegex.test(trimmedEmail)) {
+      newErrors.email = "Ingresa un correo válido.";
+    } else if (trimmedEmail.length > 160) {
+      newErrors.email = "El correo no debe exceder 160 caracteres.";
+    }
+
+    const phoneRegex = /^[0-9+\-\s]{6,20}$/;
+    if (!trimmedPhone) {
+      newErrors.phone = "El teléfono es obligatorio.";
+    } else if (!phoneRegex.test(trimmedPhone)) {
+      newErrors.phone =
+        "Ingresa un teléfono válido (solo números, espacios, + o -, entre 6 y 20 caracteres).";
+    }
+
+    if (!trimmedMessage) {
+      newErrors.message = "Cuéntanos cómo podemos ayudarte.";
+    } else if (trimmedMessage.length < 10 || trimmedMessage.length > 1500) {
+      newErrors.message =
+        "El mensaje debe tener entre 10 y 1500 caracteres.";
+    }
+
+    return newErrors;
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const validationErrors = validateForm();
+    const hasErrors = Object.keys(validationErrors).length > 0;
+    if (hasErrors) {
+      setErrors(validationErrors);
+      setSubmitStatus("idle");
+      return;
+    }
+
+    setErrors({});
+    setSubmitStatus("success");
+    setFormData(initialFormState);
+  };
 
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
@@ -97,12 +196,108 @@ export default function Home() {
           <h4 className="text-5xl font-bold mb-6">Cuéntanos sobre tu proyecto</h4>
           <p className="text-xl mb-6">Completa el formulario y pronto estaremos en contacto contigo.</p>
           </div>
-          <form className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-2/3">
-            <input type="text" placeholder="Nombres y apellidos" className="p-4 border border-gray-300 rounded-xl w-full outline-none bg-white/25 font-semibold" />
-            <input type="email" placeholder="Email corporativo" className="p-4 border border-gray-300 rounded-xl w-full outline-none bg-white/25 font-semibold" />
-            <input type="text" placeholder="Compañía" className="p-4 border border-gray-300 rounded-xl w-full outline-none bg-white/25 font-semibold" />
-            <input type="tel" placeholder="Teléfono" className="p-4 border border-gray-300 rounded-xl w-full outline-none bg-white/25 font-semibold" />
-            <textarea placeholder="¿Cómo podemos ayudarte?" className="p-4 border border-gray-300 rounded-xl w-full col-span-1 lg:col-span-2 h-32 outline-none bg-white/25 font-semibold"></textarea>
+          <form
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-2/3"
+            onSubmit={handleSubmit}
+            noValidate
+          >
+            <div className="flex flex-col">
+              <input
+                type="text"
+                placeholder="Nombres y apellidos"
+                className={`p-4 border rounded-xl w-full outline-none bg-white/25 font-semibold ${
+                  errors.fullName ? "border-red-500" : "border-gray-300"
+                }`}
+                value={formData.fullName}
+                onChange={handleInputChange("fullName")}
+                aria-invalid={errors.fullName ? "true" : "false"}
+                maxLength={120}
+                minLength={2}
+                name="fullName"
+                required
+              />
+              {errors.fullName && (
+                <p className="text-sm text-white mt-2">{errors.fullName}</p>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <input
+                type="email"
+                placeholder="Email corporativo"
+                className={`p-4 border rounded-xl w-full outline-none bg-white/25 font-semibold ${
+                  errors.email ? "border-red-500" : "border-gray-300"
+                }`}
+                value={formData.email}
+                onChange={handleInputChange("email")}
+                aria-invalid={errors.email ? "true" : "false"}
+                maxLength={160}
+                name="email"
+                required
+              />
+              {errors.email && (
+                <p className="text-sm text-white mt-2">{errors.email}</p>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <input
+                type="text"
+                placeholder="Compañía"
+                className={`p-4 border rounded-xl w-full outline-none bg-white/25 font-semibold ${
+                  errors.company ? "border-red-500" : "border-gray-300"
+                }`}
+                value={formData.company}
+                onChange={handleInputChange("company")}
+                aria-invalid={errors.company ? "true" : "false"}
+                maxLength={120}
+                minLength={2}
+                name="company"
+                required
+              />
+              {errors.company && (
+                <p className="text-sm text-white mt-2">{errors.company}</p>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <input
+                type="tel"
+                placeholder="Teléfono"
+                className={`p-4 border rounded-xl w-full outline-none bg-white/25 font-semibold ${
+                  errors.phone ? "border-red-500" : "border-gray-300"
+                }`}
+                value={formData.phone}
+                onChange={handleInputChange("phone")}
+                aria-invalid={errors.phone ? "true" : "false"}
+                pattern="^[0-9+\-\s]{6,20}$"
+                name="phone"
+                required
+              />
+              {errors.phone && (
+                <p className="text-sm text-white mt-2">{errors.phone}</p>
+              )}
+            </div>
+            <div className="flex flex-col col-span-1 lg:col-span-2">
+              <textarea
+                placeholder="¿Cómo podemos ayudarte?"
+                className={`p-4 border rounded-xl w-full h-32 outline-none bg-white/25 font-semibold ${
+                  errors.message ? "border-red-500" : "border-gray-300"
+                }`}
+                value={formData.message}
+                onChange={handleInputChange("message")}
+                aria-invalid={errors.message ? "true" : "false"}
+                minLength={10}
+                maxLength={1500}
+                name="message"
+                required
+              />
+              {errors.message && (
+                <p className="text-sm text-white mt-2">{errors.message}</p>
+              )}
+            </div>
+            {submitStatus === "success" && (
+              <p className="col-span-1 lg:col-span-2 text-white text-sm font-semibold">
+                Gracias por contactarnos. Te responderemos pronto.
+              </p>
+            )}
             <button type="submit" className="bg-white text-[#1840e2] px-6 py-4 rounded-xl font-semibold col-span-1 lg:col-span-2 w-1/3">
               Enviar
             </button>
