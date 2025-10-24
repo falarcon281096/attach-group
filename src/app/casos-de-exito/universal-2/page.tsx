@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import ResultsSection from "../../../components/ResultsSection";
 
 export default function Home() {
 
@@ -14,15 +15,15 @@ export default function Home() {
   const stats = [
     {
       value: "",
-      text: "de notas clasificadas automáticamente, lo que garantiza segmentación inmediata para anunciantes.",
+      text: "De notas clasificadas automáticamente, lo que garantiza segmentación inmediata para anunciantes.",
     },
     {
       value: "0%",
-      text: "horas-hombre invertidas, liberando al equipo editorial para enfocarse en contenido de valor.",
+      text: "Horas-hombre invertidas, liberando al equipo editorial para enfocarse en contenido de valor.",
     },
     {
       value: "Escalabilidad y eficiencia",
-      text: "en costos de procesamiento, permitiendo sostener el crecimiento digital de El Universal.",
+      text: "En costos de procesamiento, permitiendo sostener el crecimiento digital de El Universal.",
     },
   ];
   return (
@@ -95,17 +96,25 @@ export default function Home() {
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   a su experiencia digital
                 </h1>
-                <p className="text-2xl text-white mb-8 max-w-lg">
+                <p className="text-xl text-white mb-8 max-w-lg">
                   Con más de un siglo de historia, El Universal es uno de los periódicos más influyentes de México y un referente regional por su cobertura política, económica y cultural. Su reputación se basa en la rigurosidad editorial y en la confianza de sus lectores, valores que ha sabido mantener mientras avanza hacia lo digital.
                 </p>
               </div>
 
               {/* Image placeholder - where the person and city image goes */}
-              <div className="relative">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
-                  <span className="text-white/60 text-lg">Banner Image Placeholder</span>
-                </div>
-              </div>
+                  <div className="relative 
+                        before:absolute before:inset-0 
+                        before:bg-[url('/images/general/attach_cross_white.png')]
+                        before:bg-no-repeat
+                        before:bg-center
+                        before:content-['']
+                        before:bg-[length:100%_100%]
+                        before:w-30
+                        before:h-30
+                        before:-translate-x-1/2
+                        before:top-100">
+                    <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/eluniversal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
+                  </div>
             </div>
           </div>
 
@@ -114,19 +123,19 @@ export default function Home() {
             <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Chatbot conversacional en español</p>
+                <p className="font-bold text-4xl lg:text-4xl">Chatbot conversacional en español</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Benchmark de 7 modelos de lenguaje</p>
+                <p className="font-bold text-4xl lg:text-4xl">Benchmark de 7 modelos de lenguaje</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">UX del Prototipo end-to-end</p>
+                <p className="font-bold text-4xl lg:text-4xl">UX del Prototipo end-to-end</p>
               </div>
               {/* Indicador 4 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Hand-off técnico completo</p>
+                <p className="font-bold text-4xl lg:text-4xl">Hand-off técnico completo</p>
               </div>
             </div>
           </section>
@@ -143,15 +152,35 @@ export default function Home() {
             </h3>
             <p className="tex-xl text-gray-400">El desafío planteado era claro: crear una interfaz conversacional impulsada por un LLM que permitiera a los lectores conversar en español sobre las noticias en tiempo real. La innovación debía estar al servicio de la audiencia, pero sin comprometer la precisión editorial ni la confianza que la marca ha construido a lo largo de décadas.</p>
           </div>
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-1/5
+                    before:top-45">
+            <Image className="w-full" src="/images/casos-de-exito/universal-2/eluniversal_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-[-36rem]
+                    before:top-105">
+            <Image className="w-full" src="/images/casos-de-exito/universal-2/eluniversal_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">
@@ -180,22 +209,7 @@ export default function Home() {
 
         </div>
 
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-
-          {/* Carlo R.*/}
-          <div className="w-1/2">
-            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-              Resultados
-            </h3>
-            <p className="text-gray-500">El proceso permitió a El Universal contar con una base sólida para transformar su relación con los lectores:</p>
-<p className="text-gray-500">- Mapeo de principales formatos de respuestas.</p>
-<p className="text-gray-500">- Diseño de un sistema visual accesible y responsive.</p>
-<p className="text-gray-500">- Prototipo funcional de la experiencia de chat en Figma.</p>
-<p className="text-gray-500">- Hand-off técnico detallado para implementación.</p>
-
-            
-          </div>
-        </div>
+<ResultsSection stats={stats} />
 
       </section>
 

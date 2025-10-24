@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import ResultsSection from "../../../components/ResultsSection";
 
 export default function Home() {
 
@@ -101,7 +102,7 @@ export default function Home() {
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   programática que impulsa el número y valor de recargas
                 </h1>
-                <p className="text-2xl text-white mb-8 max-w-lg">
+                <p className="text-xl text-white mb-8 max-w-lg">
                   Apuesta Total es una empresa peruana líder en el sector de entretenimiento, dedicada a la comercialización de apuestas deportivas, juegos virtuales, casino y bingo, operando tanto en canales online como en más de 500 puntos de venta físicos a nivel nacional. Su objetivo es brindar una experiencia de juego responsable, accesible y confiable, posicionándose como la principal casa de apuestas del Perú.
                 </p>
               </div>
@@ -109,7 +110,7 @@ export default function Home() {
               {/* Image placeholder - where the person and city image goes */}
               <div className="relative 
                     before:absolute before:inset-0 
-                    before:bg-[url('/attach-group/images/general/attach_cross_white.png')]
+                    before:bg-[url('/images/general/attach_cross_white.png')]
                     before:bg-no-repeat
                     before:bg-center
                     before:content-['']
@@ -118,7 +119,7 @@ export default function Home() {
                     before:h-30
                     before:-translate-x-1/2
                     before:top-100">
-                <Image className="w-full rounded-l-[4rem]" src="/attach-group/images/casos-de-exito/apuesta-total-2025/portada.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
+                <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/apuestatotal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
               </div>
             </div>
           </div>
@@ -128,23 +129,23 @@ export default function Home() {
             <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+170%</p>
-                <p className="mt-2 text-[1.35rem]">en volumen de recargas</p>
+                <p className="font-bold text-4xl lg:text-4xl">+170%</p>
+                <p className="mt-2 text-xl">en volumen de recargas</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+700%</p>
-                <p className="mt-2 text-[1.35rem]">en valor promedio de recarga</p>
+                <p className="font-bold text-4xl lg:text-4xl">+700%</p>
+                <p className="mt-2 text-xl">en valor promedio de recarga</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Audiencias con intención de compra </p>
-                <p className="mt-2 text-[1.35rem]">activadas con Smart Audience.</p>
+                <p className="font-bold text-4xl lg:text-4xl">Audiencias con intención de compra </p>
+                <p className="mt-2 text-xl">activadas con Smart Audience.</p>
               </div>
               {/* Indicador 4 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Creatividades adaptativas</p>
-                <p className="mt-2 text-[1.35rem]">según contexto deportivo</p>
+                <p className="font-bold text-4xl lg:text-4xl">Creatividades adaptativas</p>
+                <p className="mt-2 text-xl">según contexto deportivo</p>
               </div>
             </div>
           </section>
@@ -163,15 +164,35 @@ export default function Home() {
               Apuesta Total buscaba una estrategia digital que combinara eficiencia en costo, escalabilidad y optimización basada en datos reales de comportamiento transaccional.
             </p>
           </div>
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-1/5
+                    before:top-45">
+            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/el_reto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-[-36rem]
+                    before:top-105">
+            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">
@@ -209,41 +230,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-
-          {/* Carlo R.*/}
-          <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-              Resultados
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {stats.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
-                >
-                  <div className="
-                      relative
-                      border-l 
-                      border-[#1840E2]/40
-                      before:content-['']
-                      before:absolute
-                      before:left-0
-                      before:top-0
-                      before:w-[2px]
-                      before:h-13
-                      before:bg-[#1840E2] 
-                      flex flex-col gap-2 pl-5">
-                    <h2 className="text-5xl font-bold text-[#1840E2]">{item.value}</h2>
-                    <p className="text-gray-500 leading-relaxed text-xl md:text-base">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+       <ResultsSection stats={stats} />
 
       </section>
 

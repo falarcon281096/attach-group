@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
+import ResultsSection from "../../../components/ResultsSection";
 
 export default function Home() {
 
@@ -35,7 +37,7 @@ export default function Home() {
         <header className="bg-linear-to-r from-[#1e3fda] to-[#58308c] relative z-20">
           <div className="ml-15 flex items-center justify-between border-white/30 py-6">
             {/* Logo - Izquierda */}
-            <a href="/attach-group" className="flex items-center ml-15">
+            <a href="" className="flex items-center ml-15">
               <div className="w-40 h-8 bg-white/20 rounded flex items-center justify-center">
                 <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
               </div>
@@ -98,37 +100,45 @@ export default function Home() {
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   que impulsa la conversión
                 </h1>
-                <p className="text-2xl text-white mb-8 max-w-lg">
+                <p className="text-xl text-white mb-8 max-w-lg">
                   DepoSeguro es la primera cadena de self-storage en Perú, especializada en el alquiler de depósitos y almacenes en Lima desde 1m². Brinda soluciones tanto para empresas como para personas naturales, y se destaca por su enfoque en seguridad —con videovigilancia y control de humedad— y por ofrecer total flexibilidad en tiempos y tamaños de renta.
                 </p>
               </div>
 
               {/* Image placeholder - where the person and city image goes */}
-              <div className="relative">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
-                  <span className="text-white/60 text-lg">Banner Image Placeholder</span>
-                </div>
+              <div className="relative 
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_white.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-30
+                    before:h-30
+                    before:-translate-x-1/2
+                    before:top-100">
+                <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/deposeguro.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
               </div>
             </div>
           </div>
 
           {/*Indicadores*/}
           <section className="">
-            <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
+            <div className="mx-30 py-16 grid lg:grid-cols-3 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
                 <p className="font-bold text-4xl lg:text-5xl">+45%</p>
-                <p className="mt-2 text-[1.35rem]">en tasa de conversión web (YoY)</p>
+                <p className="mt-2 text-xl">en tasa de conversión web (YoY)</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
                 <p className="font-bold text-4xl lg:text-5xl">+89%</p>
-                <p className="mt-2 text-[1.35rem]">en contactabilidad promedio en anuncios digitales</p>
+                <p className="mt-2 text-xl">en contactabilidad promedio en anuncios digitales</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
 
-                <p className="mt-2 text-[1.35rem]">Rendimientos cercanos al puntaje máximo en Google PageSpeed y óptimos en mobile.</p>
+                <p className="mt-2 text-xl">Rendimientos cercanos al puntaje máximo en Google PageSpeed y óptimos en mobile.</p>
               </div>
             </div>
           </section>
@@ -146,15 +156,35 @@ export default function Home() {
             <p className="tex-xl text-gray-400">DepoSeguro buscaba optimizar su sitio web para que dejara de ser solo un punto de contacto digital y se convirtiera en un canal estratégico para generar leads y potenciar su crecimiento comercial.</p>
             <p className="tex-xl text-gray-400">El desafío implicaba mejorar la experiencia de usuario, rediseñar la arquitectura tecnológica y elevar el rendimiento en velocidad, SEO y conversión, asegurando una transición fluida y sin interrupciones operativas.</p>
           </div>
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-1/5
+                    before:top-45">
+            <Image className="w-full" src="/images/casos-de-exito/deposeguro/deposeguro_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
 
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-          <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+          <div className="flex justify-end relative w-[50%]
+                    before:absolute before:inset-0 
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-no-repeat
+                    before:bg-center
+                    before:content-['']
+                    before:bg-[length:100%_100%]
+                    before:w-15
+                    before:h-15
+                    before:-translate-x-[-36rem]
+                    before:top-105">
+            <Image className="w-full" src="/images/casos-de-exito/deposeguro/deposeguro_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">
@@ -172,33 +202,7 @@ export default function Home() {
               Realizamos pruebas exhaustivas antes del lanzamiento, seguimiento post-live y optimizaciones basadas en métricas reales de uso, conversión y posicionamiento. También brindamos soporte continuo con actualizaciones, mantenimiento y mejoras evolutivas.</p>
           </div>
         </div>
-
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-
-          {/* Carlo R.*/}
-          <div className="w-1/2">
-            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-              Resultados
-            </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
-            {stats.map((item, i) => (
-              <div
-                key={i}
-                className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-              >
-                <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                  <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                  <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                    {item.text}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-            
-          </div>
-        </div>
-
+<ResultsSection stats={stats} />
       </section>
 
 
