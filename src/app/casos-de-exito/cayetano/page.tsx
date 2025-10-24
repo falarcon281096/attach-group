@@ -192,7 +192,7 @@ export default function Home() {
                     before:h-15
                     before:-translate-x-1/5
                     before:top-45">
-            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/el_reto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full" src="/images/casos-de-exito/cayetano/cayetano_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
@@ -209,7 +209,7 @@ export default function Home() {
                     before:h-15
                     before:-translate-x-[-36rem]
                     before:top-105">
-            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full" src="/images/casos-de-exito/cayetano/cayetano_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">
@@ -239,8 +239,6 @@ export default function Home() {
           </div>
         </div>
 
-<ResultsSection stats={stats} />
-
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
 
           {/* Carlo R.*/}
@@ -251,17 +249,28 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
               {stats.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-                >
-                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
+          <div
+            key={i}
+            className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+          >
+            <div className="
+                relative
+                border-l 
+                border-[#1840E2]/40
+                before:content-['']
+                before:absolute
+                before:left-0
+                before:top-0
+                before:w-[2px]
+                before:h-13
+                before:bg-[#1840E2] 
+                flex flex-col gap-2 pl-5">
+              <h2 className="text-3xl font-bold text-[#1840E2]">{item.value}</h2>
+              <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+                {item.text}
+              </p>
+            </div>
+          </div>
               ))}
             </div>
 
@@ -274,17 +283,28 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
               {stats2.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-                >
-                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
+          <div
+            key={i}
+            className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+          >
+            <div className="
+                relative
+                border-l 
+                border-[#1840E2]/40
+                before:content-['']
+                before:absolute
+                before:left-0
+                before:top-0
+                before:w-[2px]
+                before:h-13
+                before:bg-[#1840E2] 
+                flex flex-col gap-2 pl-5">
+              <h2 className="text-3xl font-bold text-[#1840E2]">{item.value}</h2>
+              <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+                {item.text}
+              </p>
+            </div>
+          </div>
               ))}
             </div>
           </div>
@@ -296,17 +316,28 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
               {stats3.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-                >
-                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
+          <div
+            key={i}
+            className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+          >
+            <div className="
+                relative
+                border-l 
+                border-[#1840E2]/40
+                before:content-['']
+                before:absolute
+                before:left-0
+                before:top-0
+                before:w-[2px]
+                before:h-13
+                before:bg-[#1840E2] 
+                flex flex-col gap-2 pl-5">
+              <h2 className="text-3xl font-bold text-[#1840E2]">{item.value}</h2>
+              <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+                {item.text}
+              </p>
+            </div>
+          </div>
               ))}
             </div>
           </div>

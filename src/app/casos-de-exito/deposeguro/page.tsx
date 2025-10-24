@@ -184,7 +184,7 @@ export default function Home() {
                     before:h-15
                     before:-translate-x-[-36rem]
                     before:top-105">
-            <Image className="w-full" src="/images/casos-de-exito/deposeguro/deposeguro_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full" src="/images/casos-de-exito/deposeguro/deposeguro_laestrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">
