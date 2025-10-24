@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import demoImage from '../../../public/images/casos-de-exito/demo_caso_de_exito.png';
+import Header from "../../components/Header";
+import Image from "next/image";
 
 
 export default function Home() {
@@ -12,107 +12,48 @@ export default function Home() {
       id: 'caja-arequipa',
       title: 'Caja Arequipa',
       tag: 'Paid Media',
-      image: demoImage,
+      image: '/attach-group/images/casos-de-exito/demo_caso_de_exito.png',
     },
     {
       link: '/casos-de-exito/deposeguro',
       id: 'la-fiduciara',
       title: 'La Fiduciara',
       tag: 'Sitio Web e Infraestructura',
-      image: demoImage,
+      image: '/attach-group/images/casos-de-exito/demo_caso_de_exito.png',
     },
     {
       link: '/casos-de-exito/deposeguro',
       id: 'deposeguro',
       title: 'Deposeguro',
       tag: 'Sitio Web',
-      image: demoImage,
+      image: '/attach-group/images/casos-de-exito/demo_caso_de_exito.png',
     },
     {
       link: '/casos-de-exito/apuesta-total-ads',
       id: 'apuesta-t-paid',
       title: 'Apuesta Total',
       tag: 'Paid Media',
-      image: demoImage,
+      image: '/attach-group/images/casos-de-exito/demo_caso_de_exito.png',
     },
     {
       link: '/casos-de-exito/apuesta-total-2025',
       id: 'apuesta-t-catalogo',
       title: 'Apuesta Total',
       tag: 'Catálogo dinámico',
-      image: demoImage,
+      image: '/attach-group/images/casos-de-exito/demo_caso_de_exito.png',
     },
     {
       link: '/casos-de-exito/cayetano',
       id: 'cayetano-heredia',
       title: 'Universidad Cayetano Heredia',
       tag: 'Sitio Web e Infraestructura',
-      image: demoImage,
+      image: '/attach-group/images/casos-de-exito/demo_caso_de_exito.png',
     },
   ];
 
-  const getImageUrl = (image: string | { src: string }): string => {
-    return typeof image === 'string' ? image : image.src;
-  };
-
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
-      {/* Header */}
-      <header className="relative z-20">
-        <div className="ml-15 flex items-center justify-between border-white/30 py-6">
-          {/* Logo - Izquierda */}
-          <a href="/attach-group" className="flex items-center ml-15">
-            <div className="w-40 h-8 bg-white/20 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
-            </div>
-          </a>
-
-          {/* Navigation - Centro */}
-          <nav className="hidden lg:flex items-center space-x-8 justify-center">
-            <Link
-              href="/nosotros"
-              className="text-white hover:text-white/80 font-bold transition-colors"
-            >
-              Nosotros
-            </Link>
-            <div className="relative group">
-              <button className="text-white hover:text-white/80 font-bold transition-colors flex items-center">
-                Soluciones
-                <span className="ml-1 text-sm">+</span>
-              </button>
-            </div>
-            <Link
-              href="/casos-de-exito"
-              className="text-white hover:text-white/80 font-bold transition-colors"
-            >
-              Casos de éxito
-            </Link>
-            <Link
-              href="/cultura"
-              className="text-white hover:text-white/80 font-bold transition-colors"
-            >
-              Cultura
-            </Link>
-          </nav>
-
-          {/* Botón Contáctanos - Derecha */}
-          <div className="flex items-center justify-end mr-30">
-            <Link
-              href="/contacto"
-              className="bg-white text-[#6e4490] px-6 py-4 rounded-lg font-extrabold hover:bg-white/90 transition-colors"
-            >
-              Contáctanos
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <button className="lg:hidden text-white">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <div className="mx-30 py-25">
@@ -141,7 +82,7 @@ export default function Home() {
               key={c.id}
               className="cursor-pointer bg-white p-5 rounded-lg flex flex-col h-120 justify-end"
               style={{
-                backgroundImage: `url(${typeof c.image === 'string' ? c.image : c.image.src})`,
+                backgroundImage: `url(${c.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
@@ -167,7 +108,7 @@ export default function Home() {
         </div>
       </section>
       {/* Footer */}
-      <div className="bg-[#F7F7F7] py-20">
+      <div className="py-20 bg-[#F7F7F7]">
         <div className="mx-30">
           {/* Branches Cards */}
           <div className="grid lg:grid-cols-3 gap-12 text-gray-500">
@@ -198,16 +139,48 @@ export default function Home() {
               <p><span className="font-bold">E-mail:</span> usa@attach.group</p>
             </div>
           </div>
+
           {/* Logo y Social Links */}
           <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
-            <div className="p-8">
-              <span className="font-bold">ATTACH+ GROUP</span>
-            </div>
+            <Link href="/" className="ml-15 py-8">
+              <Image 
+                className="" 
+                src="/attach-group/images/general/Logo_Attach_Group_Blue.png" 
+                alt="Logo Attach" 
+                width={180} 
+                height={50} 
+              />
+            </Link>
             <div className="p-8">
               <div className="flex justify-end gap-4">
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    src="/attach-group/images/general/socialicon_linkden.png" 
+                    alt="LinkedIn" 
+                    width={180} 
+                    height={50} 
+                  />
+                </a>
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    src="/attach-group/images/general/socialicon_ig.png" 
+                    alt="Instagram" 
+                    width={180} 
+                    height={50} 
+                  />
+                </a>
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    style={{ marginTop: '4px' }} 
+                    src="/attach-group/images/general/socialicon_yt.png" 
+                    alt="YouTube" 
+                    width={180} 
+                    height={50} 
+                  />
+                </a>
               </div>
             </div>
           </div>

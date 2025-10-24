@@ -1,8 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import Header from "../components/Header";
+
 
 export default function Home() {
   // Estado para manejar el caso activo
@@ -10,61 +12,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
-      {/* Header */}
-      <header className="relative z-20">
-        <div className="ml-15 flex items-center justify-between border-l-2 border-white/30 py-6">
-          {/* Logo - Izquierda */}
-          <a href="/attach-group" className="ml-15">
-            <Image className="" src="/attach-group/images/general/Logo_Attach_Group.png" alt="Logo Attach" width={160} height={32} />
-          </a>
-
-
-          {/* Navigation - Centro */}
-          <nav className="hidden lg:flex items-center space-x-8 justify-center">
-            <Link
-              href="/nosotros"
-              className="text-white hover:text-white/80 font-bold transition-colors"
-            >
-              Nosotros
-            </Link>
-            <div className="relative group">
-              <button className="text-white hover:text-white/80 font-bold transition-colors flex items-center">
-                Soluciones
-                <span className="ml-1 text-sm">+</span>
-              </button>
-            </div>
-            <Link
-              href="/casos-de-exito"
-              className="text-white hover:text-white/80 font-bold transition-colors"
-            >
-              Casos de éxito
-            </Link>
-            <Link
-              href="/cultura"
-              className="text-white hover:text-white/80 font-bold transition-colors"
-            >
-              Cultura
-            </Link>
-          </nav>
-
-          {/* Botón Contáctanos - Derecha */}
-          <div className="flex items-center justify-end mr-30">
-            <Link
-              href="/contacto"
-              className="bg-white text-[#6e4490] px-6 py-4 rounded-lg font-extrabold hover:bg-white/90 transition-colors"
-            >
-              Contáctanos
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <button className="lg:hidden text-white">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <div className="relative z-10">
@@ -447,7 +395,7 @@ export default function Home() {
 
 
       {/* Footer */}
-      <div className="bg-white py-20">
+      <div className="py-20 bg-white">
         <div className="mx-30">
           {/* Branches Cards */}
           <div className="grid lg:grid-cols-3 gap-12 text-gray-500">
@@ -478,21 +426,47 @@ export default function Home() {
               <p><span className="font-bold">E-mail:</span> usa@attach.group</p>
             </div>
           </div>
+
           {/* Logo y Social Links */}
           <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
-          <a href="/attach-group" className="ml-15 py-8">
-            <Image className="" src="/attach-group/images/general/Logo_Attach_Group_Blue.png" alt="Logo Attach" width={180} height={50} />
-          </a>
+            <Link href="/" className="ml-15 py-8">
+              <Image 
+                className="" 
+                src="/attach-group/images/general/Logo_Attach_Group_Blue.png" 
+                alt="Logo Attach" 
+                width={180} 
+                height={50} 
+              />
+            </Link>
             <div className="p-8">
               <div className="flex justify-end gap-4">
-                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                <Image className="" src="/attach-group/images/general/socialicon_linkden.png" alt="Logo Attach" width={180} height={50} />
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    src="/attach-group/images/general/socialicon_linkden.png" 
+                    alt="LinkedIn" 
+                    width={180} 
+                    height={50} 
+                  />
                 </a>
-                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                <Image className="" src="/attach-group/images/general/socialicon_ig.png" alt="Logo Attach" width={180} height={50} />
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    src="/attach-group/images/general/socialicon_ig.png" 
+                    alt="Instagram" 
+                    width={180} 
+                    height={50} 
+                  />
                 </a>
-                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                <Image className="" style={{ marginTop: '4px' }} src="/attach-group/images/general/socialicon_yt.png" alt="Logo Attach" width={180} height={50} />
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    style={{ marginTop: '4px' }} 
+                    src="/attach-group/images/general/socialicon_yt.png" 
+                    alt="YouTube" 
+                    width={180} 
+                    height={50} 
+                  />
                 </a>
               </div>
             </div>
