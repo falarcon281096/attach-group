@@ -526,6 +526,52 @@ export default function Home() {
                 </div>
             </section>
 
+            <section
+                className="py-20 px-6 md:px-12 lg:px-24 text-left"
+                style={{
+                    background: "var(--new-colors-galileo-ia-2, #FFC351)",
+                }}
+            >
+                <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                    {/* Columna izquierda */}
+                    <div>
+                        <h2 className="text-white text-[40px] md:text-[48px] font-semibold leading-[110%] mb-8">
+                            Asociarse con <br />
+                            <span className="opacity-90">Galileo IA</span> significa:
+                        </h2>
+                    </div>
+
+                    {/* Columna derecha */}
+                    <div className="flex flex-col gap-5">
+                        {[
+                            "Convertir datos en decisiones estratégicas",
+                            "Aumentar la competitividad en tu operación diaria",
+                            "Anticipar riesgos y descubrir oportunidades de mejora",
+                            "Automatizar tareas y procesos para ahorrar tiempo y costos",
+                        ].map((item, i) => (
+                            <p
+                                key={i}
+                                className="relative bg-white text-[#333] text-[16px] md:text-[18px] leading-[26px] py-4 pl-10 pr-6 rounded-full shadow-sm whitespace-nowrap transition-all duration-300"
+                                style={{
+                                    marginLeft: i * 25 + "px", // escalera
+                                    width: "85%", // controla el largo del bloque
+                                    maxWidth: "720px", // límite máximo para pantallas grandes
+                                }}
+                            >
+                                <span
+                                    className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full"
+                                    style={{
+                                        background:
+                                            "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
+                                    }}
+                                ></span>
+                                {item}
+                            </p>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* === SECTION 2: Descubre cómo aplicar IA === */}
             <section
                 className="py-24 px-6 md:px-12 lg:px-24 text-left text-white"
