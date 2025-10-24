@@ -20,10 +20,10 @@ export default function Header({ variant = 'default', showBorder = true }: Heade
 
   const getBackgroundGradient = () => {
     if (isWhiteBg) return 'bg-white';
-    if (isGalileo) return 'bg-[linear-gradient(281.83deg,_rgb(255,195,81)_0%,_rgb(255,63,115)_100%)]';
+    if (isGalileo) return 'bg-gradient-to-r from-[#FF3F73] to-[#FFC351]';
     if (isAthena) return 'bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3]';
     if (isAttachmedia) return 'bg-linear-to-r from-[#2f7de1] to-[#25bbcd]';
-    return 'bg-gradient-to-r from-[#1e3fda] to-[#6e4490]';
+    return 'bg-gradient-to-r from-[#1e3fda] to-[#58308c]';
   };
 
   const getButtonGradient = () => {

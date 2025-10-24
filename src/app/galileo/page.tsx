@@ -15,10 +15,7 @@ export default function Home() {
             {/* Hero Section */}
             <div className="relative z-10 bg-white">
                 <div
-                    className="border-0 rounded-bl-[40px] pt-12 pb-12 px-6 sm:px-10 md:px-16 lg:pt-20 lg:pb-16"
-                    style={{
-                        background: "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
-                    }}
+                    className="border-0 rounded-bl-[40px] pt-12 pb-12 px-6 sm:px-10 md:px-16 lg:pt-20 lg:pb-16 bg-gradient-to-r from-[#FF3F73] to-[#FFC351]"
                 >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-7xl mx-auto">
                         {/* === Bloque Izquierdo === */}
