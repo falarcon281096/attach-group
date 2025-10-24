@@ -16,7 +16,7 @@ export default function Home() {
                 <div className="ml-15 flex items-center justify-between border-l-2 border-white/30 py-6">
                     {/* Logo - Izquierda */}
                     <a href="/attach-group" className="ml-15">
-                        <Image className="" src="/attach-group/images/general/Logo_Attach_Group.png" alt="Logo Attach" width={160} height={32} />
+                        <Image className="" src="/images/general/Logo_Attach_Group.png" alt="Logo Attach" width={160} height={32} />
                     </a>
 
 
@@ -68,7 +68,7 @@ export default function Home() {
             </header>
 
             {/* Hero Section */}
-            <div className="relative z-10">
+            <div className="relative z-10 bg-white">
                 <div
                     className="border-0 rounded-bl-[40px] pt-12 pb-12 px-6 sm:px-10 md:px-16 lg:pt-20 lg:pb-16"
                     style={{
@@ -80,7 +80,7 @@ export default function Home() {
                         <div className="text-white flex flex-col justify-center relative">
                             <Image
                                 className="mb-6 w-[220px] sm:w-[260px] md:w-[300px] lg:w-[393px] h-auto"
-                                src="/attach-group/images/galileo/galileo.png"
+                                src="/images/galileo/galileo.png"
                                 alt="Logo Galileo"
                                 width={393}
                                 height={105}
@@ -176,7 +176,7 @@ export default function Home() {
                         {/* Tarjeta 1 */}
                         <article className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden">
                             <Image
-                                src="/attach-group/images/galileo/imagen-1-galileo.jpg"
+                                src="/images/galileo/imagen-1-galileo.jpg"
                                 alt="PRISMA"
                                 width={900}
                                 height={600}
@@ -185,7 +185,7 @@ export default function Home() {
                             <div className="p-6 text-center">
                                 <div className="flex justify-center items-center mb-6">
                                     <Image
-                                        src="/attach-group/images/galileo/logo-prisma.png"
+                                        src="/images/galileo/logo-prisma.png"
                                         alt="PROSPECTA"
                                         width={0}
                                         height={0}
@@ -228,7 +228,7 @@ export default function Home() {
                         {/* Tarjeta 2 */}
                         <article className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden">
                             <Image
-                                src="/attach-group/images/galileo/imagen-2-galileo.jpg"
+                                src="/images/galileo/imagen-2-galileo.jpg"
                                 alt="PROSPECTA"
                                 width={900}
                                 height={600}
@@ -237,7 +237,7 @@ export default function Home() {
                             <div className="p-6 text-center">
                                 <div className="flex justify-center items-center mb-6">
                                     <Image
-                                        src="/attach-group/images/galileo/logo-prospecta.png"
+                                        src="/images/galileo/logo-prospecta.png"
                                         alt="PROSPECTA"
                                         width={0}
                                         height={0}
@@ -321,7 +321,7 @@ export default function Home() {
                         }}
                     >
                         <Image
-                            src="/attach-group/images/galileo/svg_1_galileo.svg"
+                            src="/images/galileo/svg_1_galileo.svg"
                             alt="Identificación de problemas y objetivos"
                             width={80}
                             height={80}
@@ -341,7 +341,7 @@ export default function Home() {
                         }}
                     >
                         <Image
-                            src="/attach-group/images/galileo/svg_2_galileo.svg"
+                            src="/images/galileo/svg_2_galileo.svg"
                             alt="Propuesta de soluciones"
                             width={80}
                             height={80}
@@ -361,7 +361,7 @@ export default function Home() {
                         }}
                     >
                         <Image
-                            src="/attach-group/images/galileo/svg_3_galileo.svg"
+                            src="/images/galileo/svg_3_galileo.svg"
                             alt="Diseño del prototipo"
                             width={80}
                             height={80}
@@ -381,7 +381,7 @@ export default function Home() {
                         }}
                     >
                         <Image
-                            src="/attach-group/images/galileo/svg_4_galileo.svg"
+                            src="/images/galileo/svg_4_galileo.svg"
                             alt="Entrenamiento y optimización"
                             width={80}
                             height={80}
@@ -401,7 +401,7 @@ export default function Home() {
                         }}
                     >
                         <Image
-                            src="/attach-group/images/galileo/svg_5_galileo.svg"
+                            src="/images/galileo/svg_5_galileo.svg"
                             alt="Implementación"
                             width={80}
                             height={80}
@@ -421,7 +421,7 @@ export default function Home() {
                         }}
                     >
                         <Image
-                            src="/attach-group/images/galileo/svg_6_galileo.svg"
+                            src="/images/galileo/svg_6_galileo.svg"
                             alt="Medición de impacto y escalamiento"
                             width={80}
                             height={80}
@@ -467,7 +467,7 @@ export default function Home() {
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block"
                     >
                         <Image
-                            src="/attach-group/images/galileo/cayetano.png"
+                            src="/images/galileo/cayetano.png"
                             alt="Universidad Cayetano Heredia"
                             fill
                             className="object-cover w-full h-full"
@@ -488,7 +488,7 @@ export default function Home() {
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block"
                     >
                         <Image
-                            src="/attach-group/images/galileo/el_universo.png"
+                            src="/images/galileo/el_universo.png"
                             alt="El Universal México"
                             fill
                             className="object-cover w-full h-full"
@@ -509,7 +509,7 @@ export default function Home() {
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block"
                     >
                         <Image
-                            src="/attach-group/images/galileo/apuesta_total.png"
+                            src="/images/galileo/apuesta_total.png"
                             alt="Apuesta Total"
                             fill
                             className="object-cover w-full h-full"
@@ -601,18 +601,18 @@ export default function Home() {
                     {/* Logo y Social Links */}
                     <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
                         <a href="/attach-group" className="ml-15 py-8">
-                            <Image className="" src="/attach-group/images/general/Logo_Attach_Group_Blue.png" alt="Logo Attach" width={180} height={50} />
+                            <Image className="" src="/images/general/Logo_Attach_Group_Blue.png" alt="Logo Attach" width={180} height={50} />
                         </a>
                         <div className="p-8">
                             <div className="flex justify-end gap-4">
                                 <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                                    <Image className="" src="/attach-group/images/general/socialicon_linkden.png" alt="Logo Attach" width={180} height={50} />
+                                    <Image className="" src="/images/general/socialicon_linkden.png" alt="Logo Attach" width={180} height={50} />
                                 </a>
                                 <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                                    <Image className="" src="/attach-group/images/general/socialicon_ig.png" alt="Logo Attach" width={180} height={50} />
+                                    <Image className="" src="/images/general/socialicon_ig.png" alt="Logo Attach" width={180} height={50} />
                                 </a>
                                 <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                                    <Image className="" style={{ marginTop: '4px' }} src="/attach-group/images/general/socialicon_yt.png" alt="Logo Attach" width={180} height={50} />
+                                    <Image className="" style={{ marginTop: '4px' }} src="/images/general/socialicon_yt.png" alt="Logo Attach" width={180} height={50} />
                                 </a>
                             </div>
                         </div>
