@@ -105,7 +105,7 @@ export default function Home() {
                 <h3 className="text-4xl font-bold text-[#1e3fda] mb-6">
                   Inteligencia <br/> Artificial
                 </h3>
-                <Link href="/athena-ads/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
+                <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
                   Conoce más
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -126,7 +126,7 @@ export default function Home() {
                 <h3 className="text-4xl font-bold text-[#1e3fda] mb-6">
                   Publicidad Programática
                 </h3>
-                <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
+                <Link href="/athena-ads/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
                   Conoce más
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -476,7 +476,7 @@ export default function Home() {
             </Link>
             <div className="p-8">
               <div className="flex justify-end gap-4">
-                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                <a href="https://www.linkedin.com/company/attach-consultores/" target="_blank" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                   <Image 
                     className="" 
                     src="/images/general/socialicon_linkden.png" 
@@ -485,7 +485,7 @@ export default function Home() {
                     height={50} 
                   />
                 </a>
-                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                <a href="https://www.instagram.com/attach.consultores/" target="_blank" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                   <Image 
                     className="" 
                     src="/images/general/socialicon_ig.png" 
@@ -494,7 +494,7 @@ export default function Home() {
                     height={50} 
                   />
                 </a>
-                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                <a href="https://www.youtube.com/@attach.consultores" target="_blank" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                   <Image 
                     className="" 
                     style={{ marginTop: '4px' }} 
