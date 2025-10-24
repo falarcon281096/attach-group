@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, ChangeEvent, useState } from "react";
+import { FormEvent, ChangeEvent, useState, useRef, useEffect } from "react";
 
 export default function Home() {
   // Estado para manejar el caso activo
@@ -26,7 +26,9 @@ export default function Home() {
 
   const [formData, setFormData] = useState<FormData>(initialFormState);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success">("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "success">("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const submissionAbortRef = useRef<AbortController | null>(null);
 
   const handleInputChange =
     (field: keyof FormData) =>
@@ -39,8 +41,11 @@ export default function Home() {
           return next;
         });
       }
-      if (submitStatus !== "idle") {
+      if (submitStatus === "success") {
         setSubmitStatus("idle");
+      }
+      if (submitError) {
+        setSubmitError(null);
       }
     };
 
@@ -91,7 +96,7 @@ export default function Home() {
     return newErrors;
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationErrors = validateForm();
     const hasErrors = Object.keys(validationErrors).length > 0;
@@ -102,9 +107,73 @@ export default function Home() {
     }
 
     setErrors({});
-    setSubmitStatus("success");
-    setFormData(initialFormState);
+    setSubmitError(null);
+    setSubmitStatus("sending");
+
+    if (submissionAbortRef.current) {
+      submissionAbortRef.current.abort();
+    }
+
+    const controller = new AbortController();
+    submissionAbortRef.current = controller;
+
+    const payload = new FormData();
+    payload.append("fullName", formData.fullName.trim());
+    payload.append("company", formData.company.trim());
+    payload.append("email", formData.email.trim());
+    payload.append("phone", formData.phone.trim());
+    payload.append("message", formData.message.trim());
+
+    try {
+      const response = await fetch(
+        "https://us-east1-attach-group-web.cloudfunctions.net/attach-form-hub-fn/attach-group-contact-form",
+        {
+          method: "POST",
+          body: payload,
+          signal: controller.signal,
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      const result: unknown = await response.json();
+      const isSuccess =
+        typeof result === "object" &&
+        result !== null &&
+        "success" in result &&
+        typeof (result as { success?: unknown }).success === "boolean" &&
+        (result as { success: boolean }).success;
+
+      if (isSuccess) {
+        setFormData(initialFormState);
+        setSubmitStatus("success");
+        setSubmitError(null);
+      } else {
+        setSubmitStatus("idle");
+        setSubmitError("No pudimos enviar tu mensaje. Inténtalo nuevamente en unos minutos.");
+      }
+    } catch (error) {
+      if ((error as DOMException)?.name === "AbortError") {
+        return;
+      }
+      setSubmitStatus("idle");
+      setSubmitError("Ocurrió un problema al enviar tu mensaje. Inténtalo nuevamente.");
+    } finally {
+      if (submissionAbortRef.current === controller) {
+        submissionAbortRef.current = null;
+      }
+    }
   };
+
+  useEffect(() => {
+    return () => {
+      if (submissionAbortRef.current) {
+        submissionAbortRef.current.abort();
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
@@ -199,6 +268,7 @@ export default function Home() {
           <form
             className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-2/3"
             onSubmit={handleSubmit}
+            encType="multipart/form-data"
             noValidate
           >
             <div className="flex flex-col">
@@ -215,6 +285,7 @@ export default function Home() {
                 minLength={2}
                 name="fullName"
                 required
+                disabled={submitStatus === "sending"}
               />
               {errors.fullName && (
                 <p className="text-sm text-white mt-2">{errors.fullName}</p>
@@ -233,6 +304,7 @@ export default function Home() {
                 maxLength={160}
                 name="email"
                 required
+                disabled={submitStatus === "sending"}
               />
               {errors.email && (
                 <p className="text-sm text-white mt-2">{errors.email}</p>
@@ -252,6 +324,7 @@ export default function Home() {
                 minLength={2}
                 name="company"
                 required
+                disabled={submitStatus === "sending"}
               />
               {errors.company && (
                 <p className="text-sm text-white mt-2">{errors.company}</p>
@@ -270,6 +343,7 @@ export default function Home() {
                 pattern="^[0-9+\-\s]{6,20}$"
                 name="phone"
                 required
+                disabled={submitStatus === "sending"}
               />
               {errors.phone && (
                 <p className="text-sm text-white mt-2">{errors.phone}</p>
@@ -288,18 +362,33 @@ export default function Home() {
                 maxLength={1500}
                 name="message"
                 required
+                disabled={submitStatus === "sending"}
               />
               {errors.message && (
                 <p className="text-sm text-white mt-2">{errors.message}</p>
               )}
             </div>
+            {submitStatus === "sending" && (
+              <p className="col-span-1 lg:col-span-2 text-white text-sm font-semibold">
+                Estamos enviando tu mensaje. Por favor espera...
+              </p>
+            )}
+            {submitError && (
+              <p className="col-span-1 lg:col-span-2 text-red-100 text-sm font-semibold">
+                {submitError}
+              </p>
+            )}
             {submitStatus === "success" && (
               <p className="col-span-1 lg:col-span-2 text-white text-sm font-semibold">
                 Gracias por contactarnos. Te responderemos pronto.
               </p>
             )}
-            <button type="submit" className="bg-white text-[#1840e2] px-6 py-4 rounded-xl font-semibold col-span-1 lg:col-span-2 w-1/3">
-              Enviar
+            <button
+              type="submit"
+              className="bg-white text-[#1840e2] px-6 py-4 rounded-xl font-semibold col-span-1 lg:col-span-2 w-1/3 disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={submitStatus === "sending"}
+            >
+              {submitStatus === "sending" ? "Enviando..." : "Enviar"}
             </button>
           </form>
           </div>
