@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="text-gray-500 grid grid-cols-2 gap-5 mt-5 lg:mt-0 py-5 px-7 lg:gap-12">
           <Link href="/" className="mt-1 px-0 md:py-8 w-30 lg:w-auto">
             <Image 
-              src="/attach-group/images/general/Logo_Attach_Group_Blue.png" 
+              src="/images/general/Logo_Attach_Group_Blue.png" 
               alt="Logo Attach" 
               width={180} 
               height={50} 
@@ -42,7 +42,7 @@ export default function Footer() {
             <div className="flex justify-end gap-2 lg:gap-4">
               <a href="https://www.instagram.com/attach.consultores/" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                 <Image 
-                  src="/attach-group/images/general/socialicon_linkden.png" 
+                  src="/images/general/socialicon_linkden.png" 
                   alt="LinkedIn" 
                   width={180} 
                   height={50} 
@@ -50,7 +50,7 @@ export default function Footer() {
               </a>
               <a href="https://pe.linkedin.com/company/attach-consultores" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                 <Image 
-                  src="/attach-group/images/general/socialicon_ig.png" 
+                  src="/images/general/socialicon_ig.png" 
                   alt="Instagram" 
                   width={180} 
                   height={50} 
@@ -59,7 +59,7 @@ export default function Footer() {
               <a href="https://www.youtube.com/c/attachmedia" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                 <Image 
                   style={{ marginTop: '4px' }} 
-                  src="/attach-group/images/general/socialicon_yt.png" 
+                  src="/images/general/socialicon_yt.png" 
                   alt="YouTube" 
                   width={180} 
                   height={50} 
