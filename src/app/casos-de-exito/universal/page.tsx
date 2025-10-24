@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import Image from "next/image";
 import ResultsSection from "../../../components/ResultsSection";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 
 export default function Home() {
 
@@ -30,61 +31,7 @@ export default function Home() {
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
       <div className="bg-white">
         {/* Header */}
-        <header className="bg-linear-to-r from-[#1e3fda] to-[#58308c] relative z-20">
-          <div className="ml-15 flex items-center justify-between border-white/30 py-6">
-            {/* Logo - Izquierda */}
-            <a href="/attach-group" className="flex items-center ml-15">
-              <div className="w-40 h-8 bg-white/20 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
-              </div>
-            </a>
-
-            {/* Navigation - Centro */}
-            <nav className="hidden lg:flex items-center space-x-8 justify-center">
-              <Link
-                href="/nosotros"
-                className="text-white hover:text-white/80 font-bold transition-colors"
-              >
-                Nosotros
-              </Link>
-              <div className="relative group">
-                <button className="text-white hover:text-white/80 font-bold transition-colors flex items-center">
-                  Soluciones
-                  <span className="ml-1 text-sm">+</span>
-                </button>
-              </div>
-              <Link
-                href="/casos-de-exito"
-                className="text-white hover:text-white/80 font-bold transition-colors"
-              >
-                Casos de éxito
-              </Link>
-              <Link
-                href="/cultura"
-                className="text-white hover:text-white/80 font-bold transition-colors"
-              >
-                Cultura
-              </Link>
-            </nav>
-
-            {/* Botón Contáctanos - Derecha */}
-            <div className="flex items-center justify-end mr-30">
-              <Link
-                href="/contacto"
-                className="bg-white text-[#6e4490] px-6 py-4 rounded-lg font-extrabold hover:bg-white/90 transition-colors"
-              >
-                Contáctanos
-              </Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <button className="lg:hidden text-white">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </header>
+        <Header />
 
         {/* Hero Section */}
         <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c]  rounded-b-[50px] relative z-10">
@@ -161,7 +108,7 @@ export default function Home() {
                     before:h-15
                     before:-translate-x-1/5
                     before:top-45">
-            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/el_reto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full" src="/images/casos-de-exito/universal/universal_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
@@ -178,7 +125,7 @@ export default function Home() {
                     before:h-15
                     before:-translate-x-[-36rem]
                     before:top-105">
-            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full" src="/images/casos-de-exito/universal/universal_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">
@@ -248,58 +195,7 @@ export default function Home() {
 
 
       {/* Footer */}
-      <div className="bg-white py-20">
-        <div className="mx-30">
-          {/* Branches Cards */}
-          <div className="grid lg:grid-cols-3 gap-12 text-gray-500">
-            {/* Perú */}
-            <div className="p-8">
-              <p className="text-3xl font-bold">
-                Perú
-              </p>
-              <p><span className="font-bold">Dirección:</span> Av. Javier Prado Este 492 - Oficina 1202</p>
-              <p><span className="font-bold">E-mail:</span> peru@attach.group</p>
-            </div>
-
-            {/* México */}
-            <div className="p-8">
-              <p className="text-3xl font-bold ">
-                México
-              </p>
-              <p><span className="font-bold">Dirección:</span> Torre Reforma, Piso 14, Av. Paseo de la Reforma 483, Col. Cuauhtémoc, CP 06500</p>
-              <p><span className="font-bold">E-mail:</span> mexico@attach.group</p>
-            </div>
-
-            {/* USA */}
-            <div className="p-8">
-              <p className="text-3xl font-bold">
-                USA
-              </p>
-              <p><span className="font-bold">Address:</span> 201 South Biscayne Blvd, Miami, FL 33131</p>
-              <p><span className="font-bold">E-mail:</span> usa@attach.group</p>
-            </div>
-          </div>
-          {/* Logo y Social Links */}
-          <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
-            <a href="/attach-group" className="ml-15 py-8">
-              <Image className="" src="/attach-group/images/general/Logo_Attach_Group_Blue.png" alt="Logo Attach" width={180} height={50} />
-            </a>
-            <div className="p-8">
-              <div className="flex justify-end gap-4">
-                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                  <Image className="" src="/attach-group/images/general/socialicon_linkden.png" alt="Logo Attach" width={180} height={50} />
-                </a>
-                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                  <Image className="" src="/attach-group/images/general/socialicon_ig.png" alt="Logo Attach" width={180} height={50} />
-                </a>
-                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                  <Image className="" style={{ marginTop: '4px' }} src="/attach-group/images/general/socialicon_yt.png" alt="Logo Attach" width={180} height={50} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }

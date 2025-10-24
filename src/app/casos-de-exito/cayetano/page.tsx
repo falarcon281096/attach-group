@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import Image from "next/image";
 import ResultsSection from "../../../components/ResultsSection";
 
@@ -56,59 +58,7 @@ export default function Home() {
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
       <div className="bg-white">
         {/* Header */}
-        <header className="bg-linear-to-r from-[#1e3fda] to-[#58308c] relative z-20">
-          <div className="ml-15 flex items-center justify-between border-white/30 py-6">
-            {/* Logo - Izquierda */}
-            <a href="/attach-group" className="ml-15">
-              <Image className="" src="/attach-group/images/general/Logo_Attach_Group.png" alt="Logo Attach" width={160} height={50} quality={100} />
-            </a>
-
-            {/* Navigation - Centro */}
-            <nav className="hidden lg:flex items-center space-x-8 justify-center">
-              <Link
-                href="/nosotros"
-                className="text-white hover:text-white/80 font-bold transition-colors"
-              >
-                Nosotros
-              </Link>
-              <div className="relative group">
-                <button className="text-white hover:text-white/80 font-bold transition-colors flex items-center">
-                  Soluciones
-                  <span className="ml-1 text-sm">+</span>
-                </button>
-              </div>
-              <Link
-                href="/casos-de-exito"
-                className="text-white hover:text-white/80 font-bold transition-colors"
-              >
-                Casos de éxito
-              </Link>
-              <Link
-                href="/cultura"
-                className="text-white hover:text-white/80 font-bold transition-colors"
-              >
-                Cultura
-              </Link>
-            </nav>
-
-            {/* Botón Contáctanos - Derecha */}
-            <div className="flex items-center justify-end mr-30">
-              <Link
-                href="/contacto"
-                className="bg-white text-[#6e4490] px-6 py-4 rounded-lg font-extrabold hover:bg-white/90 transition-colors"
-              >
-                Contáctanos
-              </Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <button className="lg:hidden text-white">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </header>
+        <Header />
 
         {/* Hero Section */}
         <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c]  rounded-b-[50px] relative z-10">
@@ -192,7 +142,7 @@ export default function Home() {
                     before:h-15
                     before:-translate-x-1/5
                     before:top-45">
-            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/el_reto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full" src="/images/casos-de-exito/cayetano/cayetano_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
@@ -209,7 +159,7 @@ export default function Home() {
                     before:h-15
                     before:-translate-x-[-36rem]
                     before:top-105">
-            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full" src="/images/casos-de-exito/cayetano/cayetano_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">
@@ -239,8 +189,6 @@ export default function Home() {
           </div>
         </div>
 
-<ResultsSection stats={stats} />
-
         <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
 
           {/* Carlo R.*/}
@@ -251,17 +199,28 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
               {stats.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-                >
-                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
+          <div
+            key={i}
+            className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+          >
+            <div className="
+                relative
+                border-l 
+                border-[#1840E2]/40
+                before:content-['']
+                before:absolute
+                before:left-0
+                before:top-0
+                before:w-[2px]
+                before:h-13
+                before:bg-[#1840E2] 
+                flex flex-col gap-2 pl-5">
+              <h2 className="text-3xl font-bold text-[#1840E2]">{item.value}</h2>
+              <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+                {item.text}
+              </p>
+            </div>
+          </div>
               ))}
             </div>
 
@@ -274,17 +233,28 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
               {stats2.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-                >
-                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
+          <div
+            key={i}
+            className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+          >
+            <div className="
+                relative
+                border-l 
+                border-[#1840E2]/40
+                before:content-['']
+                before:absolute
+                before:left-0
+                before:top-0
+                before:w-[2px]
+                before:h-13
+                before:bg-[#1840E2] 
+                flex flex-col gap-2 pl-5">
+              <h2 className="text-3xl font-bold text-[#1840E2]">{item.value}</h2>
+              <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+                {item.text}
+              </p>
+            </div>
+          </div>
               ))}
             </div>
           </div>
@@ -296,17 +266,28 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
               {stats3.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 "
-                >
-                  <div className="border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white flex flex-col gap-2">
-                    <h2 className="text-5xl font-bold text-blue-600">{item.value}</h2>
-                    <p className="text-gray-600 leading-relaxed text-xl md:text-base">
-                      {item.text}
-                    </p>
-                  </div>
-                </div>
+          <div
+            key={i}
+            className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+          >
+            <div className="
+                relative
+                border-l 
+                border-[#1840E2]/40
+                before:content-['']
+                before:absolute
+                before:left-0
+                before:top-0
+                before:w-[2px]
+                before:h-13
+                before:bg-[#1840E2] 
+                flex flex-col gap-2 pl-5">
+              <h2 className="text-3xl font-bold text-[#1840E2]">{item.value}</h2>
+              <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+                {item.text}
+              </p>
+            </div>
+          </div>
               ))}
             </div>
           </div>
@@ -329,58 +310,7 @@ export default function Home() {
 
 
       {/* Footer */}
-      <div className="bg-white py-20">
-        <div className="mx-30">
-          {/* Branches Cards */}
-          <div className="grid lg:grid-cols-3 gap-12 text-gray-500">
-            {/* Perú */}
-            <div className="p-8">
-              <p className="text-3xl font-bold">
-                Perú
-              </p>
-              <p><span className="font-bold">Dirección:</span> Av. Javier Prado Este 492 - Oficina 1202</p>
-              <p><span className="font-bold">E-mail:</span> peru@attach.group</p>
-            </div>
-
-            {/* México */}
-            <div className="p-8">
-              <p className="text-3xl font-bold ">
-                México
-              </p>
-              <p><span className="font-bold">Dirección:</span> Torre Reforma, Piso 14, Av. Paseo de la Reforma 483, Col. Cuauhtémoc, CP 06500</p>
-              <p><span className="font-bold">E-mail:</span> mexico@attach.group</p>
-            </div>
-
-            {/* USA */}
-            <div className="p-8">
-              <p className="text-3xl font-bold">
-                USA
-              </p>
-              <p><span className="font-bold">Address:</span> 201 South Biscayne Blvd, Miami, FL 33131</p>
-              <p><span className="font-bold">E-mail:</span> usa@attach.group</p>
-            </div>
-          </div>
-          {/* Logo y Social Links */}
-          <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
-            <a href="/attach-group" className="ml-15 py-8">
-              <Image className="" src="/attach-group/images/general/Logo_Attach_Group_Blue.png" alt="Logo Attach" width={180} height={50} />
-            </a>
-            <div className="p-8">
-              <div className="flex justify-end gap-4">
-                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                  <Image className="" src="/attach-group/images/general/socialicon_linkden.png" alt="Logo Attach" width={180} height={50} />
-                </a>
-                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                  <Image className="" src="/attach-group/images/general/socialicon_ig.png" alt="Logo Attach" width={180} height={50} />
-                </a>
-                <a href="" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
-                  <Image className="" style={{ marginTop: '4px' }} src="/attach-group/images/general/socialicon_yt.png" alt="Logo Attach" width={180} height={50} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }

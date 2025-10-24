@@ -15,7 +15,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
   const isWhiteBg = variant === 'white-bg';
 
   return (
-    <header className={`fixed lg:static top-0 left-0 right-0 z-50 lg:shadow-none min-h-[80px] lg:min-h-0 ${isWhiteBg ? 'bg-white' : 'bg-gradient-to-r from-[#6e4490] to-[#1e3fda]'}`}>
+    <header className={`fixed lg:static top-0 left-0 right-0 z-50 lg:shadow-none min-h-[80px] lg:min-h-0 ${isWhiteBg ? 'bg-white' : 'bg-gradient-to-r from-[#1e3fda] to-[#6e4490]'}`}>
       <div className={`w-full px-3 lg:px-4 lg:ml-15 flex items-center justify-between py-5 lg:py-4 ${
         isWhiteBg ? 'lg:border-l-2 border-[#1e3fda]/20' : 'lg:border-l-2 border-white/30'
       }`}>
@@ -115,7 +115,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                       <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
                       
                       {/* AthenaAds */}
-                      <Link href="/athenas-ads" className="group cursor-pointer">
+                      <Link href="/athena-ads" className="group cursor-pointer">
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1">
                             <div className="mb-2">
