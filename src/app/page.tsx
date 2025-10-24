@@ -59,14 +59,14 @@ export default function Home() {
               <div
                 className="relative lg:mt-0 pl-12 sm:px-10 lg:px-0 
                   before:absolute
-                  before:bg-[url('/attach-group/images/general/attach_cross_white.png')]
+                  before:bg-[url('/images/general/attach_cross_white.png')]
                   before:bg-no-repeat before:bg-center before:content-['']
                   before:bg-[length:80%_80%] before:w-20 before:h-20 before:-translate-x-1/2 before:bottom-[10%] before:left-12
                   lg:before:bg-[length:100%_100%] lg:before:w-30 lg:before:h-30 lg:before:-translate-x-1/2 lg:before:left-0"
               >
                 <Image
                   className="w-full rounded-l-2xl lg:rounded-l-[4rem]"
-                  src="/attach-group/images/home/portada.png"
+                  src="/images/home/portada.png"
                   alt="Home caminando hacia un portal con el logo de Attach"
                   width={1200}
                   height={1000}
@@ -97,7 +97,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
               <div className="bg-linear-to-br rounded-2xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
-                <Image className="w-65" src="/attach-group/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
+                <Image className="w-65" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
               </div>
 
               {/* Content Section */}
@@ -118,7 +118,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
               <div className="bg-linear-to-br rounded-2xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
-                <Image className="w-65" src="/attach-group/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
+                <Image className="w-65" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
               </div>
 
               {/* Content Section */}
@@ -139,7 +139,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
               <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
-                <Image className="w-55" src="/attach-group/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
+                <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
               </div>
 
               {/* Content Section */}
@@ -285,7 +285,7 @@ export default function Home() {
               <div className="flex justify-end relative transition-all duration-500 ease-in-out
                     relative 
                     before:absolute
-                    before:bg-[url('/attach-group/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
                     before:bg-no-repeat
                     before:bg-center
                     before:content-['']
@@ -302,10 +302,10 @@ export default function Home() {
                   <Image
                     className="w-[90%] rounded-tl-[40px] rounded-br-[40px]"
                     src={
-                      activeCase === 'caja-arequipa' ? "/attach-group/images/home/caja_arequipa.png" :
-                        activeCase === 'deposeguro' ? "/attach-group/images/home/deposeguro.png" :
-                          activeCase === 'apuesta-total' ? "/attach-group/images/home/apuesta_total.png" :
-                            "/attach-group/images/home/caja_arequipa.png"
+                      activeCase === 'caja-arequipa' ? "/images/home/caja_arequipa.png" :
+                        activeCase === 'deposeguro' ? "/images/home/deposeguro.png" :
+                          activeCase === 'apuesta-total' ? "/images/home/apuesta_total.png" :
+                            "/images/home/caja_arequipa.png"
                     }
                     alt={
                       activeCase === 'caja-arequipa' ? "Caja Arequipa" :
@@ -327,7 +327,7 @@ export default function Home() {
             <div className="
               relative 
               before:absolute
-              before:bg-[url('/attach-group/images/general/attach_cross_blue_to_purple.png')]
+              before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
               before:bg-no-repeat
               before:bg-center
               before:content-['']
@@ -358,11 +358,11 @@ export default function Home() {
 
                   {/* Right Content - Awards Logos */}
                   <div className="flex flex-col lg:flex-row justify-evenly items-center gap-8 w-full">
-                      <Image className="w-100 h-auto lg:w-[30%] lg:h-[10%] object-cover" src="/attach-group/images/home/peru-service.png" alt="Logo Attach" width={160} height={32}/>
+                      <Image className="w-100 h-auto lg:w-[30%] lg:h-[10%] object-cover" src="/images/home/peru-service.png" alt="Logo Attach" width={160} height={32}/>
 
-                      <Image className="w-[50%] h-auto lg:w-[10%] lg-h-[10%] object-cover" src="/attach-group/images/home/ecommerce-award.png" alt="Logo Attach" width={160} height={32}/>
+                      <Image className="w-[50%] h-auto lg:w-[10%] lg-h-[10%] object-cover" src="/images/home/ecommerce-award.png" alt="Logo Attach" width={160} height={32}/>
 
-                      <Image className="w-[70%] h-auto lg:w-[17%] lg:h-[10%] object-cover" src="/attach-group/images/home/iabperu.png" alt="Logo Attach" width={160} height={32}/>
+                      <Image className="w-[70%] h-auto lg:w-[17%] lg:h-[10%] object-cover" src="/images/home/iabperu.png" alt="Logo Attach" width={160} height={32}/>
                   </div>
                 </div>
               </div>
@@ -380,36 +380,36 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-x-10 lg:gap-y-20">
               {/* Google Marketing Platform */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/attach-group/images/home/attach_partner_1.png" alt="Logo Attach" width={160} height={32}/>
+                <Image className="w-[12rem]" src="/images/home/attach_partner_1.png" alt="Logo Attach" width={160} height={32}/>
               </div>
               {/* Google Cloud */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[13rem]" src="/attach-group/images/home/attach_partner_2.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[13rem]" src="/images/home/attach_partner_2.png" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* Google Partner */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[9rem]" src="/attach-group/images/home/attach_partner_3.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[9rem]" src="/images/home/attach_partner_3.png" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* Meta Business Partner */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[7rem]" src="/attach-group/images/home/attach_partner_4.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[7rem]" src="/images/home/attach_partner_4.png" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* VWO */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[8rem]" src="/attach-group/images/home/attach_partner_5.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[8rem]" src="/images/home/attach_partner_5.png" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* Convert */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[11rem]" src="/attach-group/images/home/attach_partner_6.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[11rem]" src="/images/home/attach_partner_6.png" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* Google Display & Video 360 */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[12rem]" src="/attach-group/images/home/attach_partner_7.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[12rem]" src="/images/home/attach_partner_7.png" alt="Logo Attach" width={160} height={32}/>
               </div>
             </div>
         </section>
@@ -468,7 +468,7 @@ export default function Home() {
             <Link href="/" className="ml-15 py-8">
               <Image 
                 className="" 
-                src="/attach-group/images/general/Logo_Attach_Group_Blue.png" 
+                src="/images/general/Logo_Attach_Group_Blue.png" 
                 alt="Logo Attach" 
                 width={180} 
                 height={50} 
@@ -479,7 +479,7 @@ export default function Home() {
                 <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                   <Image 
                     className="" 
-                    src="/attach-group/images/general/socialicon_linkden.png" 
+                    src="/images/general/socialicon_linkden.png" 
                     alt="LinkedIn" 
                     width={180} 
                     height={50} 
@@ -488,7 +488,7 @@ export default function Home() {
                 <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                   <Image 
                     className="" 
-                    src="/attach-group/images/general/socialicon_ig.png" 
+                    src="/images/general/socialicon_ig.png" 
                     alt="Instagram" 
                     width={180} 
                     height={50} 
@@ -498,7 +498,7 @@ export default function Home() {
                   <Image 
                     className="" 
                     style={{ marginTop: '4px' }} 
-                    src="/attach-group/images/general/socialicon_yt.png" 
+                    src="/images/general/socialicon_yt.png" 
                     alt="YouTube" 
                     width={180} 
                     height={50} 
