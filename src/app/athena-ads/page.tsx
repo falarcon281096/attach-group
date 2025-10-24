@@ -74,7 +74,7 @@ export default function AthenaAds() {
             <div className="text-white space-y-4 md:space-y-6">
               <div>
                 <Image
-                  src="/attach-group/images/general/athenaads_logo.png"
+                  src="/images/general/athenaads_logo.png"
                   alt="Athena Ads Logo"
                   width={695}
                   height={319}
@@ -142,7 +142,7 @@ export default function AthenaAds() {
             <div className="md:col-span-1 bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl">
               <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-48 md:h-80 mb-3 md:mb-4 overflow-hidden">
                 <Image
-                  src="/attach-group/images/athena-ads/01.jpg"
+                  src="/images/athena-ads/01.jpg"
                   alt="Phone ID Audiences"
                   fill
                   className="object-cover"
@@ -162,7 +162,7 @@ export default function AthenaAds() {
             <div className="md:col-span-2 bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl">
               <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-48 md:h-80 mb-3 md:mb-4 overflow-hidden">
                 <Image
-                  src="/attach-group/images/athena-ads/02.png"
+                  src="/images/athena-ads/02.png"
                   alt="Digital out of home by User Movility"
                   fill
                   className="object-cover"
@@ -190,7 +190,7 @@ export default function AthenaAds() {
             <div className="bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl">
               <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-48 md:h-80 mb-3 md:mb-4 overflow-hidden">
                 <Image
-                  src="/attach-group/images/athena-ads/03.png"
+                  src="/images/athena-ads/03.png"
                   alt="Connected TV"
                   fill
                   className="object-cover"
@@ -210,7 +210,7 @@ export default function AthenaAds() {
             <div className="bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl">
               <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-48 md:h-80 mb-3 md:mb-4 overflow-hidden">
                 <Image
-                  src="/attach-group/images/athena-ads/04.png"
+                  src="/images/athena-ads/04.png"
                   alt="Digital Screens"
                   fill
                   className="object-cover"
@@ -230,7 +230,7 @@ export default function AthenaAds() {
             <div className="bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl">
               <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-48 md:h-80 mb-3 md:mb-4 overflow-hidden">
                 <Image
-                  src="/attach-group/images/athena-ads/05.jpg"
+                  src="/images/athena-ads/05.jpg"
                   alt="Gaming"
                   fill
                   className="object-cover"
@@ -269,7 +269,7 @@ export default function AthenaAds() {
                 {/* Card 1 - Audiencia */}
                 <div className="relative rounded-2xl md:rounded-3xl overflow-hidden h-60 md:h-80 flex items-end justify-center">
                   <Image
-                    src="/attach-group/images/athena-ads/05-06.jpg"
+                    src="/images/athena-ads/05-06.jpg"
                     alt="Audiencia"
                     fill
                     className="object-cover"
@@ -282,7 +282,7 @@ export default function AthenaAds() {
                 {/* Card 2 - Ecosistema de medios */}
                 <div className="relative rounded-2xl md:rounded-3xl overflow-hidden h-60 md:h-80 flex items-end justify-center">
                   <Image
-                    src="/attach-group/images/athena-ads/06.png"
+                    src="/images/athena-ads/06.png"
                     alt="Ecosistema de medios"
                     fill
                     className="object-cover"
@@ -295,7 +295,7 @@ export default function AthenaAds() {
                 {/* Card 3 - Formato */}
                 <div className="relative rounded-2xl md:rounded-3xl overflow-hidden h-60 md:h-80 flex items-end justify-center sm:col-span-2 md:col-span-1">
                   <Image
-                    src="/attach-group/images/athena-ads/07.png"
+                    src="/images/athena-ads/07.png"
                     alt="Formato"
                     fill
                     className="object-cover"
@@ -629,7 +629,7 @@ export default function AthenaAds() {
               <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px]">
                 <div className="flex-1 relative h-60 md:h-68 overflow-hidden rounded">
                   <Image
-                    src="/attach-group/images/athena-ads/08.png"
+                    src="/images/athena-ads/08.png"
                     alt="Social Extender 1"
                     fill
                     className="object-cover"
@@ -637,7 +637,7 @@ export default function AthenaAds() {
                 </div>
                 <div className="flex-1 relative h-60 md:h-68 overflow-hidden rounded">
                   <Image
-                    src="/attach-group/images/athena-ads/09.jpg"
+                    src="/images/athena-ads/09.jpg"
                     alt="Social Extender 2"
                     fill
                     className="object-cover"
@@ -659,7 +659,7 @@ export default function AthenaAds() {
               <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px]">
                 <div className="flex-1 relative h-60 md:h-68 overflow-hidden rounded">
                   <Image
-                    src="/attach-group/images/athena-ads/10.jpg"
+                    src="/images/athena-ads/10.jpg"
                     alt="Rich Media 1"
                     fill
                     className="object-cover"
@@ -667,7 +667,7 @@ export default function AthenaAds() {
                 </div>
                 <div className="flex-1 relative h-60 md:h-68 overflow-hidden rounded">
                   <Image
-                    src="/attach-group/images/athena-ads/11.jpg"
+                    src="/images/athena-ads/11.jpg"
                     alt="Rich Media 2"
                     fill
                     className="object-cover"
@@ -689,7 +689,7 @@ export default function AthenaAds() {
               <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px]">
                 <div className="flex-1 relative h-60 md:h-68 overflow-hidden rounded">
                   <Image
-                    src="/attach-group/images/athena-ads/12.jpg"
+                    src="/images/athena-ads/12.jpg"
                     alt="Tap to Map 1"
                     fill
                     className="object-cover"
@@ -697,7 +697,7 @@ export default function AthenaAds() {
                 </div>
                 <div className="flex-1 relative h-60 md:h-68 overflow-hidden rounded">
                   <Image
-                    src="/attach-group/images/athena-ads/13.jpg"
+                    src="/images/athena-ads/13.jpg"
                     alt="Tap to Map 2"
                     fill
                     className="object-cover"
@@ -733,7 +733,7 @@ export default function AthenaAds() {
             {/* Card 1 - Apuesta Total */}
             <Link href="/casos-de-exito/apuesta-total-ads" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
               <Image
-                src="/attach-group/images/athena-ads/14.png"
+                src="/images/athena-ads/14.png"
                 alt="Caso de éxito"
                 fill
                 className="object-cover"
@@ -751,7 +751,7 @@ export default function AthenaAds() {
             {/* Card 2 - El Universal */}
             <Link href="/casos-de-exito/universal" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
               <Image
-                src="/attach-group/images/athena-ads/15.png"
+                src="/images/athena-ads/15.png"
                 alt="Caso de éxito"
                 fill
                 className="object-cover"
@@ -769,7 +769,7 @@ export default function AthenaAds() {
             {/* Card 3 - UPCH/Cayetano */}
             <Link href="/casos-de-exito/cayetano" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
               <Image
-                src="/attach-group/images/athena-ads/16.png"
+                src="/images/athena-ads/16.png"
                 alt="Caso de éxito"
                 fill
                 className="object-cover"
