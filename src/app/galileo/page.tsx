@@ -532,7 +532,7 @@ export default function Home() {
                     background: "var(--new-colors-galileo-ia-2, #FFC351)",
                 }}
             >
-                <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                     {/* Columna izquierda */}
                     <div>
                         <h2 className="text-white text-[40px] md:text-[48px] font-semibold leading-[110%] mb-8">
@@ -542,7 +542,7 @@ export default function Home() {
                     </div>
 
                     {/* Columna derecha */}
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-5 items-start">
                         {[
                             "Convertir datos en decisiones estratégicas",
                             "Aumentar la competitividad en tu operación diaria",
@@ -551,11 +551,9 @@ export default function Home() {
                         ].map((item, i) => (
                             <p
                                 key={i}
-                                className="relative bg-white text-[#333] text-[16px] md:text-[18px] leading-[26px] py-4 pl-10 pr-6 rounded-full shadow-sm whitespace-nowrap transition-all duration-300"
+                                className="relative bg-white text-[#333] text-[16px] md:text-[18px] leading-[26px] py-4 pl-10 pr-6 rounded-full shadow-sm transition-all duration-300 w-full md:w-[85%] max-w-[880px]"
                                 style={{
-                                    marginLeft: i * 25 + "px", // escalera
-                                    width: "85%", // controla el largo del bloque
-                                    maxWidth: "720px", // límite máximo para pantallas grandes
+                                    marginLeft: window.innerWidth >= 768 ? `${i * 30}px` : "0px", // solo escalera en desktop
                                 }}
                             >
                                 <span
