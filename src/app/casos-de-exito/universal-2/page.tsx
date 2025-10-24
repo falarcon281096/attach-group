@@ -96,7 +96,7 @@ export default function Home() {
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   a su experiencia digital
                 </h1>
-                <p className="text-2xl text-white mb-8 max-w-lg">
+                <p className="text-xl text-white mb-8 max-w-lg">
                   Con más de un siglo de historia, El Universal es uno de los periódicos más influyentes de México y un referente regional por su cobertura política, económica y cultural. Su reputación se basa en la rigurosidad editorial y en la confianza de sus lectores, valores que ha sabido mantener mientras avanza hacia lo digital.
                 </p>
               </div>
@@ -123,19 +123,19 @@ export default function Home() {
             <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Chatbot conversacional en español</p>
+                <p className="font-bold text-4xl lg:text-4xl">Chatbot conversacional en español</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Benchmark de 7 modelos de lenguaje</p>
+                <p className="font-bold text-4xl lg:text-4xl">Benchmark de 7 modelos de lenguaje</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">UX del Prototipo end-to-end</p>
+                <p className="font-bold text-4xl lg:text-4xl">UX del Prototipo end-to-end</p>
               </div>
               {/* Indicador 4 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Hand-off técnico completo</p>
+                <p className="font-bold text-4xl lg:text-4xl">Hand-off técnico completo</p>
               </div>
             </div>
           </section>
@@ -163,7 +163,7 @@ export default function Home() {
                     before:h-15
                     before:-translate-x-1/5
                     before:top-45">
-            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/el_reto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full" src="/images/casos-de-exito/universal-2/eluniversal_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
@@ -180,7 +180,7 @@ export default function Home() {
                     before:h-15
                     before:-translate-x-[-36rem]
                     before:top-105">
-            <Image className="w-full" src="/images/casos-de-exito/apuesta-total-2025/estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full" src="/images/casos-de-exito/universal-2/eluniversal_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="w-1/2">

@@ -96,7 +96,7 @@ export default function Home() {
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   el salto de El Universal con IA generativa
                 </h1>
-                <p className="text-2xl text-white mb-8 max-w-lg">
+                <p className="text-xl text-white mb-8 max-w-lg">
                   Con más de un siglo de historia, El Universal es uno de los periódicos más influyentes de México y un referente regional por su cobertura política, económica y cultural. Su reputación se basa en la rigurosidad editorial y en la confianza de sus lectores, valores que ha sabido mantener mientras avanza hacia lo digital.
                 </p>
               </div>
@@ -120,18 +120,18 @@ export default function Home() {
 
           {/*Indicadores*/}
           <section className="">
-            <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
+            <div className="mx-30 py-16 grid lg:grid-cols-3 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Eficiencia total</p>
+                <p className="font-bold text-4xl lg:text-4xl">Eficiencia total</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Segmentación precisa</p>
+                <p className="font-bold text-4xl lg:text-4xl">Segmentación precisa</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Escalabilidad con ahorro</p>
+                <p className="font-bold text-4xl lg:text-4xl">Escalabilidad con ahorro</p>
               </div>
             </div>
           </section>

@@ -102,7 +102,7 @@ export default function Home() {
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   programática que impulsa el número y valor de recargas
                 </h1>
-                <p className="text-2xl text-white mb-8 max-w-lg">
+                <p className="text-xl text-white mb-8 max-w-lg">
                   Apuesta Total es una empresa peruana líder en el sector de entretenimiento, dedicada a la comercialización de apuestas deportivas, juegos virtuales, casino y bingo, operando tanto en canales online como en más de 500 puntos de venta físicos a nivel nacional. Su objetivo es brindar una experiencia de juego responsable, accesible y confiable, posicionándose como la principal casa de apuestas del Perú.
                 </p>
               </div>
@@ -129,23 +129,23 @@ export default function Home() {
             <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+170%</p>
-                <p className="mt-2 text-[1.35rem]">en volumen de recargas</p>
+                <p className="font-bold text-4xl lg:text-4xl">+170%</p>
+                <p className="mt-2 text-xl">en volumen de recargas</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+700%</p>
-                <p className="mt-2 text-[1.35rem]">en valor promedio de recarga</p>
+                <p className="font-bold text-4xl lg:text-4xl">+700%</p>
+                <p className="mt-2 text-xl">en valor promedio de recarga</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Audiencias con intención de compra </p>
-                <p className="mt-2 text-[1.35rem]">activadas con Smart Audience.</p>
+                <p className="font-bold text-4xl lg:text-4xl">Audiencias con intención de compra </p>
+                <p className="mt-2 text-xl">activadas con Smart Audience.</p>
               </div>
               {/* Indicador 4 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">Creatividades adaptativas</p>
-                <p className="mt-2 text-[1.35rem]">según contexto deportivo</p>
+                <p className="font-bold text-4xl lg:text-4xl">Creatividades adaptativas</p>
+                <p className="mt-2 text-xl">según contexto deportivo</p>
               </div>
             </div>
           </section>

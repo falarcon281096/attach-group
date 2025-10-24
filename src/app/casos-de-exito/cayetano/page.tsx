@@ -120,7 +120,7 @@ export default function Home() {
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   y el éxito de la admisión 2025-01
                 </h1>
-                <p className="text-2xl text-white mb-8 max-w-lg">
+                <p className="text-xl text-white mb-8 max-w-lg">
                   La Universidad Peruana Cayetano Heredia (UPCH) es una institución líder en educación superior en el Perú, reconocida por su excelencia académica, especialmente en las áreas de salud, ciencia e investigación. A lo largo de los años, ha consolidado su prestigio formando profesionales altamente capacitados e influyentes en el país y la región.
                 </p>
               </div>
@@ -147,23 +147,23 @@ export default function Home() {
             <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+82%</p>
-                <p className="mt-2 text-[1.35rem]">de incremento en alcance</p>
+                <p className="font-bold text-4xl lg:text-4xl">+82%</p>
+                <p className="mt-2 text-xl">de incremento en alcance</p>
               </div>
               {/* Indicador 2 */}
               <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+430%</p>
-                <p className="mt-2 text-[1.35rem]">más clics</p>
+                <p className="font-bold text-4xl lg:text-4xl">+430%</p>
+                <p className="mt-2 text-xl">más clics</p>
               </div>
               {/* Indicador 3 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">+320%</p>
-                <p className="mt-2 text-[1.35rem]">más visualizaciones de video</p>
+                <p className="font-bold text-4xl lg:text-4xl">+320%</p>
+                <p className="mt-2 text-xl">más visualizaciones de video</p>
               </div>
               {/* Indicador 4 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-5xl">29%</p>
-                <p className="mt-2 text-[1.35rem]">de reducción en CPL</p>
+                <p className="font-bold text-4xl lg:text-4xl">29%</p>
+                <p className="mt-2 text-xl">de reducción en CPL</p>
               </div>
             </div>
           </section>
