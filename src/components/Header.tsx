@@ -86,7 +86,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                     <h3 className="text-lg font-bold text-[#1e3fda] mb-6">Nuestras marcas</h3>
                     <div className="">
                       {/* Galileo IA */}
-                      <Link href="/galileo-ia" className="group cursor-pointer">
+                      <Link href="/galileo" className="group cursor-pointer">
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1">
                             <div className="mb-2">
