@@ -115,11 +115,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                       <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
                       
                       {/* AthenaAds */}
-<<<<<<< HEAD
-                      <Link href="/athena-ads" className="group cursor-pointer">
-=======
                       <Link href="/athenas-ads" className="group cursor-pointer">
->>>>>>> origin/victor-fix-mobile
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1">
                             <div className="mb-2">

@@ -96,7 +96,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
               {/* Content */}
               <div className="text-white">
-                <p className="text-5xl">Optimización web</p>
+                <p className="text-5xl font-800" style={{fontWeight:'100'}}>Optimización web</p>
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   que impulsa la conversión
                 </h1>
