@@ -1,0 +1,60 @@
+.card-lideres__content {
+    background-color: #F7F7F7;
+    right: 0;
+    left: 0;
+    margin: 0 50px;
+    text-align: center;
+    padding-top: 32px;
+    clip-path: polygon(100% 32%, 100% 0%, 100% 110%, 0% 100%, 0% 0%);
+    margin-bottom: -1rem;
+}
+
+.section-oficinas {
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 768px) {
+    .hero > div {
+        margin-left: 1.5rem !important;
+        border: none;
+    }
+
+    .hero > div > div {
+        margin-left: 0 !important;
+    }
+
+    .servicios > div {
+        margin-right: 1.5rem !important;
+        margin-left: 1.5rem !important;
+    }
+
+    .lideres,
+    .clientes,
+    .section-oficinas {
+        margin-right: 1.5rem !important;
+        margin-left: 1.5rem !important;
+    }
+
+    .section-oficinas {
+        flex-wrap: wrap;
+    }
+
+    .section-oficinas > div {
+        width: 100% !important;
+    }
+
+    .section-oficinas > div:first-of-type {
+        order: 1 !important;
+    }
+
+    .cta-talkus {
+        padding-right: 0 !important;
+    }
+
+    .cta-talkus > div {
+        border: none !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
