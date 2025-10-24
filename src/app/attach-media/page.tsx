@@ -97,7 +97,7 @@ export default function AttachMediaPage() {
                 <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 relative shadow-lg rounded-lg">
                   <div className="absolute top-40 -left-6 hidden md:block">
                     <Image 
-                      src="/attach-group/images/general/attach_cross_blue.svg" 
+                      src="/images/general/attach_cross_blue.svg" 
                       alt="Plus" 
                       width={44} 
                       height={44} 
@@ -112,7 +112,7 @@ export default function AttachMediaPage() {
                 <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 relative shadow-lg rounded-lg">
                   <div className="absolute bottom-6 right-[-20] hidden md:block">
                     <Image 
-                      src="/attach-group/images/general/attach_cross_blue.svg" 
+                      src="/images/general/attach_cross_blue.svg" 
                       alt="Plus" 
                       width={44} 
                       height={44} 
@@ -270,7 +270,7 @@ export default function AttachMediaPage() {
                 {/* Cruz azul decorativa */}
                 <div className="absolute top-45 right-[4] hidden md:block">
                   <Image 
-                    src="/attach-group/images/general/attach_cross_blue.svg" 
+                    src="/images/general/attach_cross_blue.svg" 
                     alt="Plus" 
                     width={32} 
                     height={32} 
@@ -429,6 +429,86 @@ export default function AttachMediaPage() {
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                   Creamos y desarrollamos experiencias digitales centradas en el usuario, que equilibran estética, funcionalidad y conversión. Nos encargamos desde los wireframes hasta el producto final: creamos sitios hyper escalables, alineados con tu marca y orientados a resultados.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Section */}
+      <div className="py-20 bg-white">
+        <div className="mx-30">
+          {/* Branches Cards */}
+          <div className="grid lg:grid-cols-3 gap-12 text-gray-500">
+            {/* Perú */}
+            <div className="p-8">
+              <p className="text-3xl font-bold">
+                Perú
+              </p>
+              <p><span className="font-bold">Dirección:</span> Av. Javier Prado Este 492 - Oficina 1202</p>
+              <p><span className="font-bold">E-mail:</span> peru@attach.group</p>
+            </div>
+
+            {/* México */}
+            <div className="p-8">
+              <p className="text-3xl font-bold ">
+                México
+              </p>
+              <p><span className="font-bold">Dirección:</span> Torre Reforma, Piso 14, Av. Paseo de la Reforma 483, Col. Cuauhtémoc, CP 06500</p>
+              <p><span className="font-bold">E-mail:</span> mexico@attach.group</p>
+            </div>
+
+            {/* USA */}
+            <div className="p-8">
+              <p className="text-3xl font-bold">
+                USA
+              </p>
+              <p><span className="font-bold">Address:</span> 201 South Biscayne Blvd, Miami, FL 33131</p>
+              <p><span className="font-bold">E-mail:</span> usa@attach.group</p>
+            </div>
+          </div>
+
+          {/* Logo y Social Links */}
+          <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
+            <Link href="/" className="ml-15 py-8">
+              <Image 
+                className="" 
+                src="/attach-group/images/general/Logo_Attach_Group_Blue.png" 
+                alt="Logo Attach" 
+                width={180} 
+                height={50} 
+              />
+            </Link>
+            <div className="p-8">
+              <div className="flex justify-end gap-4">
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    src="/attach-group/images/general/socialicon_linkden.png" 
+                    alt="LinkedIn" 
+                    width={180} 
+                    height={50} 
+                  />
+                </a>
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    src="/attach-group/images/general/socialicon_ig.png" 
+                    alt="Instagram" 
+                    width={180} 
+                    height={50} 
+                  />
+                </a>
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    style={{ marginTop: '4px' }} 
+                    src="/attach-group/images/general/socialicon_yt.png" 
+                    alt="YouTube" 
+                    width={180} 
+                    height={50} 
+                  />
+                </a>
               </div>
             </div>
           </div>
