@@ -67,7 +67,7 @@ export default function AthenaAds() {
           font-family: 'Graphik', sans-serif;
         }
       `}</style>
-      <Header />
+      <Header variant="athena" showBorder={false}/>
       <div className="min-h-screen athena-ads-page" style={{ backgroundColor: 'rgba(161, 224, 94, 0.05)' }}>
         {/* Hero Section */}
         <section className="min-h-[95vh] bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] rounded-b-[30px] md:rounded-b-[50px] flex items-center pt-32 pb-8 md:py-12 lg:py-0">

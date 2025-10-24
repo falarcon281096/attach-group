@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
             {/* Header */}
-            <Header />
+            <Header variant="galileo" showBorder={false}/>
 
             {/* Hero Section */}
             <div className="relative z-10 bg-white">

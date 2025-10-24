@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
-      <Header />
+      <Header showBorder={false}/>
 
       {/* Hero Section */}
       <div className="mx-5 lg:mx-30 py-25">

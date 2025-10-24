@@ -5,37 +5,64 @@ import { useState } from "react";
 import Image from "next/image";
 
 interface HeaderProps {
-  variant?: 'default' | 'white-bg';
+  variant?: 'default' | 'white-bg' | 'galileo' | 'athena' | 'attachmedia';
+  showBorder?: boolean;
 }
 
-export default function Header({ variant = 'default' }: HeaderProps) {
+export default function Header({ variant = 'default', showBorder = true }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsDropdownOpen, setIsSolutionsDropdownOpen] = useState(false);
 
   const isWhiteBg = variant === 'white-bg';
+  const isGalileo = variant === 'galileo';
+  const isAthena = variant === 'athena';
+  const isAttachmedia = variant === 'attachmedia';
+
+  const getBackgroundGradient = () => {
+    if (isWhiteBg) return 'bg-white';
+    if (isGalileo) return 'bg-[linear-gradient(281.83deg,_rgb(255,195,81)_0%,_rgb(255,63,115)_100%)]';
+    if (isAthena) return 'bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3]';
+    if (isAttachmedia) return 'bg-linear-to-r from-[#2f7de1] to-[#25bbcd]';
+    return 'bg-gradient-to-r from-[#1e3fda] to-[#6e4490]';
+  };
+
+  const getButtonGradient = () => {
+    if (isGalileo) return 'bg-gradient-to-r from-[#0066cc] to-[#004499]';
+    if (isAthena) return 'bg-gradient-to-r from-[#f7931e] to-[#e6851a]';
+    if (isAttachmedia) return 'bg-gradient-to-r from-[#1e3a8a] to-[#1e40af]';
+    return 'bg-gradient-to-r from-[#1e3fda] to-[#58308c]';
+  };
+
+  const getButtonTextColor = () => {
+    if (isAttachmedia) return 'text-[#00B0C8]';
+    if (isAthena) return 'text-[#00CED3]';
+    if (isGalileo) return 'text-[#FFC351]';
+    return isWhiteBg ? 'text-white' : 'text-[#6e4490]';
+  };
 
   return (
-    <header className={`fixed lg:static top-0 left-0 right-0 z-50 lg:shadow-none min-h-[80px] lg:min-h-0 ${isWhiteBg ? 'bg-white' : 'bg-gradient-to-r from-[#1e3fda] to-[#6e4490]'}`}>
-      <div className={`w-full px-3 lg:px-4 lg:ml-15 flex items-center justify-between py-5 lg:py-4 ${
-        isWhiteBg ? 'lg:border-l-2 border-[#1e3fda]/20' : 'lg:border-l-2 border-white/30'
-      }`}>
+    <header className={`fixed lg:static top-0 left-0 right-0 z-50 lg:shadow-none min-h-[80px] lg:min-h-0 ${getBackgroundGradient()}`}>
+      <div className={`w-full px-3 lg:px-4 lg:ml-15 flex items-center justify-between py-5 lg:py-4 ${showBorder
+        ? (isWhiteBg ? 'lg:border-l-2 border-[#1e3fda]/20' : 'lg:border-l-2 border-white/30')
+        : ''
+        }`}>
         {/* Logo - Izquierda */}
-  <Link href="/" className="ml-0 lg:ml-15">
+        <Link href="/" className="ml-0 lg:ml-15">
           {isWhiteBg ? (
-            <Image 
-              className="w-[120px] lg:w-[160px]" 
-              src="/images/general/Logo_Attach_Group_Blue.png" 
-              alt="Logo Attach" 
-              width={120} 
-              height={24} 
+            <Image
+              className="w-[120px] lg:w-[160px]"
+              src="/images/general/Logo_Attach_Group_Blue.png"
+              alt="Logo Attach"
+              width={120}
+              height={24}
             />
           ) : (
-            <Image 
-              className="w-[120px] lg:w-[160px]" 
-              src="/images/general/Logo_Attach_Group.png" 
-              alt="Logo Attach" 
-              width={120} 
-              height={24} 
+            <Image
+              className="w-[120px] lg:w-[160px]"
+              src="/images/general/Logo_Attach_Group.png"
+              alt="Logo Attach"
+              width={120}
+              height={24}
             />
           )}
         </Link>
@@ -44,41 +71,37 @@ export default function Header({ variant = 'default' }: HeaderProps) {
         <nav className="hidden lg:flex items-center space-x-8 justify-center">
           <Link
             href="/nosotros"
-            className={`hover:opacity-80 font-bold transition-all duration-300 ${
-              isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
-            }`}
+            className={`hover:opacity-80 font-bold transition-all duration-300 ${isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
+              }`}
           >
             Nosotros
           </Link>
-          
+
           {/* Dropdown Soluciones */}
-          <div 
+          <div
             className="relative"
             onMouseEnter={() => setIsSolutionsDropdownOpen(true)}
             onMouseLeave={() => setIsSolutionsDropdownOpen(false)}
           >
-            <button className={`hover:opacity-80 font-bold transition-all duration-300 ease-in-out flex items-center ${
-              isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
-            }`}>
+            <button className={`hover:opacity-80 font-bold transition-all duration-300 ease-in-out flex items-center ${isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
+              }`}>
               Soluciones
-              <span className={`ml-1 text-sm transition-transform duration-300 ${
-                isSolutionsDropdownOpen ? 'rotate-180' : ''
-              }`}>+</span>
+              <span className={`ml-1 text-sm transition-transform duration-300 ${isSolutionsDropdownOpen ? 'rotate-180' : ''
+                }`}>+</span>
             </button>
-            
+
             {/* Puente invisible para evitar que se oculte el dropdown */}
             <div className="absolute top-full left-0 right-0 h-3 bg-transparent"></div>
-            
+
             {/* Dropdown Menu */}
-            <div className={`absolute top-full left-1/2 transform -translate-x-1/2 w-[620px] bg-white rounded-2xl border border-gray-100 z-50 transition-all duration-300 ease-in-out ${
-              isSolutionsDropdownOpen 
-                ? 'opacity-100 translate-y-0 visible' 
-                : 'opacity-0 -translate-y-2 invisible'
-            }`}
-            style={{
-              marginTop: '12px',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 25px -5px rgba(0, 0, 0, 0.1)'
-            }}>
+            <div className={`absolute top-full left-1/2 transform -translate-x-1/2 w-[620px] bg-white rounded-2xl border border-gray-100 z-50 transition-all duration-300 ease-in-out ${isSolutionsDropdownOpen
+              ? 'opacity-100 translate-y-0 visible'
+              : 'opacity-0 -translate-y-2 invisible'
+              }`}
+              style={{
+                marginTop: '12px',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 25px -5px rgba(0, 0, 0, 0.1)'
+              }}>
               <div className="p-6">
                 <div className="grid grid-cols-2 gap-6 relative">
                   {/* Nuestras marcas - Columna Izquierda */}
@@ -90,10 +113,10 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1">
                             <div className="mb-2">
-                              <Image 
-                                src="/images/menu/GalileoIA Logo-color.png" 
-                                alt="Galileo IA" 
-                                width={120} 
+                              <Image
+                                src="/images/menu/GalileoIA Logo-color.png"
+                                alt="Galileo IA"
+                                width={120}
                                 height={32}
                                 className="h-6 w-auto"
                               />
@@ -101,28 +124,28 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                             <p className="text-gray-600 text-xs">Impulsa tu negocio con IA.</p>
                           </div>
                           <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
-                            <Image 
-                              src="/images/menu/arrow_right_alt.png" 
-                              alt="Arrow" 
-                              width={20} 
+                            <Image
+                              src="/images/menu/arrow_right_alt.png"
+                              alt="Arrow"
+                              width={20}
                               height={20}
                               className="w-5"
                             />
                           </div>
                         </div>
                       </Link>
-                      
+
                       <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
-                      
+
                       {/* AthenaAds */}
                       <Link href="/athena-ads" className="group cursor-pointer">
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1">
                             <div className="mb-2">
-                              <Image 
-                                src="/images/menu/AthenaAds Logo-color.png" 
-                                alt="AthenaAds" 
-                                width={120} 
+                              <Image
+                                src="/images/menu/AthenaAds Logo-color.png"
+                                alt="AthenaAds"
+                                width={120}
                                 height={32}
                                 className="h-7 w-auto"
                               />
@@ -130,28 +153,28 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                             <p className="text-gray-600 text-xs">Publicidad programática.</p>
                           </div>
                           <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
-                            <Image 
-                              src="/images/menu/arrow_right_alt.png" 
-                              alt="Arrow" 
-                              width={20} 
+                            <Image
+                              src="/images/menu/arrow_right_alt.png"
+                              alt="Arrow"
+                              width={20}
                               height={20}
                               className="w-5"
                             />
                           </div>
                         </div>
                       </Link>
-                      
+
                       <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
-                      
+
                       {/* ATTACH MEDIA */}
                       <Link href="/attach-media" className="group cursor-pointer">
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1">
                             <div className="mb-2">
-                              <Image 
-                                src="/images/menu/Attach-Media-Logo-color.png" 
-                                alt="Attach Media" 
-                                width={140} 
+                              <Image
+                                src="/images/menu/Attach-Media-Logo-color.png"
+                                alt="Attach Media"
+                                width={140}
                                 height={32}
                                 className="h-4 w-auto"
                               />
@@ -159,10 +182,10 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                             <p className="text-gray-600 text-xs">Data que transforma.</p>
                           </div>
                           <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
-                            <Image 
-                              src="/images/menu/arrow_right_alt.png" 
-                              alt="Arrow" 
-                              width={20} 
+                            <Image
+                              src="/images/menu/arrow_right_alt.png"
+                              alt="Arrow"
+                              width={20}
                               height={20}
                               className="w-5"
                             />
@@ -184,10 +207,10 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1 relative">
                             <div className="mb-2">
-                              <Image 
-                                src="/images/menu/Prisma-Logo-color.png" 
-                                alt="PRISMA" 
-                                width={100} 
+                              <Image
+                                src="/images/menu/Prisma-Logo-color.png"
+                                alt="PRISMA"
+                                width={100}
                                 height={32}
                                 className="h-6 w-auto"
                               />
@@ -199,18 +222,18 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                           </div>
                         </div>
                       </div>
-                      
+
                       <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
-                      
+
                       {/* PROSPECT/A */}
                       <div className="group">
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1 relative">
                             <div className="mb-2">
-                              <Image 
-                                src="/images/menu/ProspectIA-Logo-color.png" 
-                                alt="PROSPECT/A" 
-                                width={120} 
+                              <Image
+                                src="/images/menu/ProspectIA-Logo-color.png"
+                                alt="PROSPECT/A"
+                                width={120}
                                 height={32}
                                 className="h-6 w-auto"
                               />
@@ -231,17 +254,15 @@ export default function Header({ variant = 'default' }: HeaderProps) {
 
           <Link
             href="/casos-de-exito"
-            className={`hover:opacity-80 font-bold transition-all duration-300 ${
-              isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
-            }`}
+            className={`hover:opacity-80 font-bold transition-all duration-300 ${isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
+              }`}
           >
             Casos de éxito
           </Link>
           <Link
             href="/cultura"
-            className={`hover:opacity-80 font-bold transition-all duration-300 ${
-              isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
-            }`}
+            className={`hover:opacity-80 font-bold transition-all duration-300 ${isWhiteBg ? 'text-[#1e3fda]' : 'text-white'
+              }`}
           >
             Cultura
           </Link>
@@ -251,11 +272,10 @@ export default function Header({ variant = 'default' }: HeaderProps) {
         <div className="flex-1 flex items-center justify-center lg:justify-end lg:flex-none lg:mr-30">
           <Link
             href="/contacto"
-            className={`px-3 py-2 lg:px-6 lg:py-3 rounded-lg text-sm lg:text-base font-extrabold hover:opacity-90 transition-all duration-300 transform hover:scale-105 ${
-              isWhiteBg 
-                ? 'bg-gradient-to-r from-[#1e3fda] to-[#58308c] text-white' 
-                : 'bg-white text-[#6e4490]'
-            }`}
+            className={`px-3 py-2 lg:px-6 lg:py-3 rounded-lg text-sm lg:text-base font-extrabold hover:opacity-90 transition-all duration-300 transform hover:scale-105 ${isWhiteBg
+                ? `${getButtonGradient()} ${getButtonTextColor()}`
+                : `bg-white ${getButtonTextColor()}`
+              }`}
             aria-label="Contáctanos"
           >
             Contáctanos
@@ -263,7 +283,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
         </div>
 
         {/* Mobile menu button */}
-        <button 
+        <button
           className={`lg:hidden transition-all duration-300 ml-3 ${isWhiteBg ? 'text-[#1e3fda]' : 'text-white'}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
@@ -284,150 +304,148 @@ export default function Header({ variant = 'default' }: HeaderProps) {
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 z-40 pointer-events-none">
           <div className="bg-white mt-20 h-[calc(100vh-5rem)] pointer-events-auto animate-in slide-in-from-top duration-300">
-          {/* Contenido del menú */}
+            {/* Contenido del menú */}
             <nav className="flex flex-col px-6 py-6 space-y-6 h-full overflow-y-auto">
-            <Link
-              href="/nosotros"
-              className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Nosotros
-            </Link>
-            
-            {/* Soluciones con dropdown mejorado */}
-            <div className="pb-4 border-b border-gray-200">
-              <button 
-                onClick={() => setIsSolutionsDropdownOpen(!isSolutionsDropdownOpen)}
-                className="flex items-center justify-between w-full text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200"
+              <Link
+                href="/nosotros"
+                className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                <span>Soluciones +</span>
-                <svg 
-                  className={`w-5 h-5 transform transition-transform duration-300 ${
-                    isSolutionsDropdownOpen ? 'rotate-180' : ''
-                  }`} 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {/* Dropdown Content con animación */}
-              <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                isSolutionsDropdownOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-              }`}>
-                <div className="mt-4 space-y-6">
-                  {/* Nuestras marcas */}
-                  <div>
-                    <h3 className="text-[#1e3fda] text-lg font-bold mb-4">Nuestras marcas</h3>
-                    <div className="space-y-4">
-                      {/* Galileo IA */}
-                      <Link href="/galileo" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Image 
-                          src="/images/menu/GalileoIA Logo-color.png" 
-                          alt="Galileo IA" 
-                          width={80} 
-                          height={24}
-                          className="h-6 w-auto mb-2"
-                        />
-                        <p className="text-gray-600 text-sm">Impulsa tu negocio con IA.</p>
-                      </Link>
-                      <hr className="border-gray-200 my-3" />
-                      
-                      {/* AthenaAds */}
-                      <Link href="/athenas-ads" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Image 
-                          src="/images/menu/AthenaAds Logo-color.png" 
-                          alt="AthenaAds" 
-                          width={80} 
-                          height={24}
-                          className="h-7 w-auto mb-2"
-                        />
-                        <p className="text-gray-600 text-sm">Publicidad programática.</p>
-                      </Link>
-                      <hr className="border-gray-200 my-3" />
-                      
-                      {/* Attach Media */}
-                      <Link href="/attach-media" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Image 
-                          src="/images/menu/Attach-Media-Logo-color.png" 
-                          alt="Attach Media" 
-                          width={90} 
-                          height={24}
-                          className="h-5 w-auto mb-2"
-                        />
-                        <p className="text-gray-600 text-sm">Data que transforma.</p>
-                      </Link>
-                    </div>
-                  </div>
+                Nosotros
+              </Link>
 
-                  {/* Nuestras soluciones */}
-                  <div>
-                    <h3 className="text-[#1e3fda] text-lg font-bold mb-4">Nuestras soluciones</h3>
-                    <div className="space-y-4">
-                      {/* PRISMA */}
-                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors relative">
-                        <Image 
-                          src="/images/menu/Prisma-Logo-color.png" 
-                          alt="PRISMA" 
-                          width={70} 
-                          height={24}
-                          className="h-6 w-auto mb-2"
-                        />
-                        <span className="absolute top-3 right-3 bg-gray-200 text-gray-700 text-xs rounded font-medium leading-[100%] pt-[5px] pb-[3px] px-[8px]">
-                          Próximamente
-                        </span>
-                        <p className="text-gray-600 text-sm">IA para marcas.</p>
+              {/* Soluciones con dropdown mejorado */}
+              <div className="pb-4 border-b border-gray-200">
+                <button
+                  onClick={() => setIsSolutionsDropdownOpen(!isSolutionsDropdownOpen)}
+                  className="flex items-center justify-between w-full text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200"
+                >
+                  <span>Soluciones +</span>
+                  <svg
+                    className={`w-5 h-5 transform transition-transform duration-300 ${isSolutionsDropdownOpen ? 'rotate-180' : ''
+                      }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {/* Dropdown Content con animación */}
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isSolutionsDropdownOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+                  }`}>
+                  <div className="mt-4 space-y-6">
+                    {/* Nuestras marcas */}
+                    <div>
+                      <h3 className="text-[#1e3fda] text-lg font-bold mb-4">Nuestras marcas</h3>
+                      <div className="space-y-4">
+                        {/* Galileo IA */}
+                        <Link href="/galileo" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          <Image
+                            src="/images/menu/GalileoIA Logo-color.png"
+                            alt="Galileo IA"
+                            width={80}
+                            height={24}
+                            className="h-6 w-auto mb-2"
+                          />
+                          <p className="text-gray-600 text-sm">Impulsa tu negocio con IA.</p>
+                        </Link>
+                        <hr className="border-gray-200 my-3" />
+
+                        {/* AthenaAds */}
+                        <Link href="/athenas-ads" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          <Image
+                            src="/images/menu/AthenaAds Logo-color.png"
+                            alt="AthenaAds"
+                            width={80}
+                            height={24}
+                            className="h-7 w-auto mb-2"
+                          />
+                          <p className="text-gray-600 text-sm">Publicidad programática.</p>
+                        </Link>
+                        <hr className="border-gray-200 my-3" />
+
+                        {/* Attach Media */}
+                        <Link href="/attach-media" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                          <Image
+                            src="/images/menu/Attach-Media-Logo-color.png"
+                            alt="Attach Media"
+                            width={90}
+                            height={24}
+                            className="h-5 w-auto mb-2"
+                          />
+                          <p className="text-gray-600 text-sm">Data que transforma.</p>
+                        </Link>
                       </div>
-                      <hr className="border-gray-200 my-3" />
-                      
-                      {/* PROSPECT/A */}
-                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors relative">
-                        <Image 
-                          src="/images/menu/ProspectIA-Logo-color.png" 
-                          alt="PROSPECT/A" 
-                          width={80} 
-                          height={24}
-                          className="h-6 w-auto mb-2"
-                        />
-                        <span className="absolute top-3 right-3 bg-gray-200 text-gray-700 text-xs rounded font-medium leading-[100%] pt-[5px] pb-[3px] px-[8px]">
-                          Próximamente
-                        </span>
-                        <p className="text-gray-600 text-sm">IA para leads de alto valor.</p>
+                    </div>
+
+                    {/* Nuestras soluciones */}
+                    <div>
+                      <h3 className="text-[#1e3fda] text-lg font-bold mb-4">Nuestras soluciones</h3>
+                      <div className="space-y-4">
+                        {/* PRISMA */}
+                        <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors relative">
+                          <Image
+                            src="/images/menu/Prisma-Logo-color.png"
+                            alt="PRISMA"
+                            width={70}
+                            height={24}
+                            className="h-6 w-auto mb-2"
+                          />
+                          <span className="absolute top-3 right-3 bg-gray-200 text-gray-700 text-xs rounded font-medium leading-[100%] pt-[5px] pb-[3px] px-[8px]">
+                            Próximamente
+                          </span>
+                          <p className="text-gray-600 text-sm">IA para marcas.</p>
+                        </div>
+                        <hr className="border-gray-200 my-3" />
+
+                        {/* PROSPECT/A */}
+                        <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors relative">
+                          <Image
+                            src="/images/menu/ProspectIA-Logo-color.png"
+                            alt="PROSPECT/A"
+                            width={80}
+                            height={24}
+                            className="h-6 w-auto mb-2"
+                          />
+                          <span className="absolute top-3 right-3 bg-gray-200 text-gray-700 text-xs rounded font-medium leading-[100%] pt-[5px] pb-[3px] px-[8px]">
+                            Próximamente
+                          </span>
+                          <p className="text-gray-600 text-sm">IA para leads de alto valor.</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <Link
-              href="/casos-de-exito"
-              className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Casos de éxito
-            </Link>
-            
-            <Link
-              href="/cultura"
-              className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Cultura
-            </Link>
-
-            {/* Botón Contáctanos mejorado */}
-            <div className="pt-4">
               <Link
-                href="/contacto"
-                className="block text-center bg-gradient-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-lg font-bold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                href="/casos-de-exito"
+                className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Contáctanos
+                Casos de éxito
               </Link>
-            </div>
+
+              <Link
+                href="/cultura"
+                className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Cultura
+              </Link>
+
+              {/* Botón Contáctanos mejorado */}
+              <div className="pt-4">
+                <Link
+                  href="/contacto"
+                  className={`block text-center text-white px-8 py-4 rounded-lg font-bold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg ${getButtonGradient()}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contáctanos
+                </Link>
+              </div>
             </nav>
           </div>
         </div>

@@ -8,7 +8,7 @@ export default function AttachMediaPage() {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Header*/}
-      <Header />
+      <Header variant="attachmedia" showBorder={false}/>
       
       {/* Hero Section */}
       <div className="relative rounded-b-4xl z-10 bg-linear-to-r from-[#2f7de1] to-[#25bbcd]">

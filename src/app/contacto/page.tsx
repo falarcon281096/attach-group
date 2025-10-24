@@ -2,12 +2,10 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Link from "next/link";
 import { FormEvent, ChangeEvent, useState, useRef, useEffect } from "react";
 
 export default function Home() {
   // Estado para manejar el caso activo
-  const [activeCase, setActiveCase] = useState('caja-arequipa');
   type FormData = {
     fullName: string;
     company: string;
@@ -181,7 +179,7 @@ export default function Home() {
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
       <div className="atm-initial bg-white">
         {/* Header */}
-        <Header />
+        <Header showBorder={false}/>
       </div>
 
       <div className="atm-content pb-30 bg-white">

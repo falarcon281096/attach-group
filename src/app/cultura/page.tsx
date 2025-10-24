@@ -11,7 +11,7 @@ export default function Home() {
     <div className='min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden'>
       <div className='atm-initial bg-white'>
         {/* Header */}
-        <Header variant='white-bg'/>
+        <Header showBorder={false} variant='white-bg'/>
 
         {/*Oficinas Section*/}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 py-20 justify-items-stretch '>
