@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function Home() {
   // Estado para manejar el caso activo
@@ -13,61 +15,7 @@ export default function Home() {
       <div className="atm-initial bg-white">
 
         {/* Header */}
-        <header className="relative z-20">
-          <div className="ml-15 flex items-center justify-between py-6">
-            {/* Logo - Izquierda */}
-            <a href="/attach-group" className="flex items-center ml-15">
-              <div className="w-40 h-8 bg-[#1840E2]/50 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
-              </div>
-            </a>
-
-            {/* Navigation - Centro */}
-            <nav className="hidden lg:flex items-center space-x-8 justify-center text-[#1840E2]">
-              <Link
-                href="/nosotros"
-                className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors"
-              >
-                Nosotros
-              </Link>
-              <div className="relative group">
-                <button className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors flex items-center">
-                  Soluciones
-                  <span className="ml-1 text-sm">+</span>
-                </button>
-              </div>
-              <Link
-                href="/casos-de-exito"
-                className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors"
-              >
-                Casos de éxito
-              </Link>
-              <Link
-                href="/cultura"
-                className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors"
-              >
-                Cultura
-              </Link>
-            </nav>
-
-            {/* Botón Contáctanos - Derecha */}
-            <div className="flex items-center justify-end bg-linear-to-r from-[#1e3fda] to-[#58308c] rounded-lg mr-30">
-              <Link
-                href="/contacto"
-                className="px-6 py-4 font-semibold transition-colors"
-              >
-                Contáctanos
-              </Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <button className="lg:hidden text-white">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </header>
+        <Header />
 
         {/*Oficinas Section*/}
         <div className="flex gap-20 ml-30 py-30 justify-items-stretch">
@@ -114,7 +62,7 @@ export default function Home() {
           <div className="pl-15 flex flex-row gap-10">
             {/* Content */}
             <div className="flex flex-col gap-4 justify-center">
-              
+
 
             </div>
 
@@ -137,7 +85,7 @@ export default function Home() {
           </div>
           <div className="border-1 px-8 py-2 rounded-xl ml-10 px-4 py-2">
             <p className="bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">Aprendizaje compartido. Talentos, ideas y experiencias</p>
-          </div>  
+          </div>
         </div>
         <div className="flex-[5] relative h-[400px]">
           <Image
@@ -174,11 +122,11 @@ export default function Home() {
           <div className="border-2 border-gray-200 rounded-3xl">
             <div className="rounded-3xl from-red-400 pb-1">
               <Image
-              src="/attach-group/images/cultura/programa-1.png"
-              alt="programa-1"
-              width={400}
-              height={600}
-            />
+                src="/attach-group/images/cultura/programa-1.png"
+                alt="programa-1"
+                width={400}
+                height={600}
+              />
             </div>
             <div className="p-7">
               <p className="text-xl text-gray-500">
@@ -190,11 +138,11 @@ export default function Home() {
           <div className="border-2 border-gray-200 rounded-3xl">
             <div className="rounded-3xl from-red-400 pb-1">
               <Image
-              src="/attach-group/images/cultura/programa-2.png"
-              alt="programa-2"
-              width={400}
-              height={600}
-            />
+                src="/attach-group/images/cultura/programa-2.png"
+                alt="programa-2"
+                width={400}
+                height={600}
+              />
             </div>
             <div className="p-7">
               <p className="text-xl text-gray-500">
@@ -206,11 +154,11 @@ export default function Home() {
           <div className="border-2 border-gray-200 rounded-3xl">
             <div className="rounded-3xl from-red-400 pb-1">
               <Image
-              src="/attach-group/images/cultura/programa-3.png"
-              alt="programa-3"
-              width={400}
-              height={600}
-            />
+                src="/attach-group/images/cultura/programa-3.png"
+                alt="programa-3"
+                width={400}
+                height={600}
+              />
             </div>
             <div className="p-7">
               <p className="text-xl text-gray-500">
@@ -234,52 +182,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <div className="bg-[#F7F7F7] py-20">
-        <div className="mx-30">
-          {/* Branches Cards */}
-          <div className="grid lg:grid-cols-3 gap-12 text-gray-500">
-            {/* Perú */}
-            <div className="p-8">
-              <p className="text-3xl font-bold">
-                Perú
-              </p>
-              <p><span className="font-bold">Dirección:</span> Av. Javier Prado Este 492 - Oficina 1202</p>
-              <p><span className="font-bold">E-mail:</span> peru@attach.group</p>
-            </div>
-
-            {/* México */}
-            <div className="p-8">
-              <p className="text-3xl font-bold ">
-                México
-              </p>
-              <p><span className="font-bold">Dirección:</span> Torre Reforma, Piso 14, Av. Paseo de la Reforma 483, Col. Cuauhtémoc, CP 06500</p>
-              <p><span className="font-bold">E-mail:</span> mexico@attach.group</p>
-            </div>
-
-            {/* USA */}
-            <div className="p-8">
-              <p className="text-3xl font-bold">
-                USA
-              </p>
-              <p><span className="font-bold">Address:</span> 201 South Biscayne Blvd, Miami, FL 33131</p>
-              <p><span className="font-bold">E-mail:</span> usa@attach.group</p>
-            </div>
-          </div>
-          {/* Logo y Social Links */}
-          <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
-            <div className="p-8">
-              <span className="font-bold">ATTACH+ GROUP</span>
-            </div>
-            <div className="p-8">
-              <div className="flex justify-end gap-4">
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }
