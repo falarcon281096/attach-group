@@ -15,27 +15,27 @@ export default function Header({ variant = 'default' }: HeaderProps) {
   const isWhiteBg = variant === 'white-bg';
 
   return (
-    <header className="relative z-20">
-      <div className={`ml-15 flex items-center justify-between py-6 ${
-        isWhiteBg ? 'border-l-2 border-[#1e3fda]/20' : 'border-l-2 border-white/30'
+    <header className={`fixed lg:static top-0 left-0 right-0 z-50 lg:shadow-none min-h-[80px] lg:min-h-0 ${isWhiteBg ? 'bg-white' : 'bg-gradient-to-r from-[#6e4490] to-[#1e3fda]'}`}>
+      <div className={`w-full px-3 lg:px-4 lg:ml-15 flex items-center justify-between py-5 lg:py-4 ${
+        isWhiteBg ? 'lg:border-l-2 border-[#1e3fda]/20' : 'lg:border-l-2 border-white/30'
       }`}>
         {/* Logo - Izquierda */}
-        <Link href="/" className="ml-15">
+  <Link href="/" className="ml-0 lg:ml-15">
           {isWhiteBg ? (
             <Image 
-              className="" 
+              className="w-[120px] lg:w-[160px]" 
               src="/images/general/Logo_Attach_Group_Blue.png" 
               alt="Logo Attach" 
-              width={160} 
-              height={32} 
+              width={120} 
+              height={24} 
             />
           ) : (
             <Image 
-              className="" 
+              className="w-[120px] lg:w-[160px]" 
               src="/images/general/Logo_Attach_Group.png" 
               alt="Logo Attach" 
-              width={160} 
-              height={32} 
+              width={120} 
+              height={24} 
             />
           )}
         </Link>
@@ -70,7 +70,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
             <div className="absolute top-full left-0 right-0 h-3 bg-transparent"></div>
             
             {/* Dropdown Menu */}
-            <div className={`absolute top-full left-1/2 transform -translate-x-1/2 w-[558px] bg-white rounded-2xl border border-gray-100 z-50 transition-all duration-300 ease-in-out ${
+            <div className={`absolute top-full left-1/2 transform -translate-x-1/2 w-[620px] bg-white rounded-2xl border border-gray-100 z-50 transition-all duration-300 ease-in-out ${
               isSolutionsDropdownOpen 
                 ? 'opacity-100 translate-y-0 visible' 
                 : 'opacity-0 -translate-y-2 invisible'
@@ -80,7 +80,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 25px -5px rgba(0, 0, 0, 0.1)'
             }}>
               <div className="p-6">
-                <div className="grid grid-cols-2 gap-8 relative">
+                <div className="grid grid-cols-2 gap-6 relative">
                   {/* Nuestras marcas - Columna Izquierda */}
                   <div className="pr-4">
                     <h3 className="text-lg font-bold text-[#1e3fda] mb-6">Nuestras marcas</h3>
@@ -115,7 +115,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                       <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
                       
                       {/* AthenaAds */}
-                      <Link href="/athena" className="group cursor-pointer">
+                      <Link href="/athenas-ads" className="group cursor-pointer">
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1">
                             <div className="mb-2">
@@ -180,9 +180,9 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                     <h3 className="text-lg font-bold text-[#1e3fda] mb-6">Nuestras soluciones</h3>
                     <div className="">
                       {/* PRISMA */}
-                      <div className="group cursor-pointer">
+                      <div className="group">
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
-                          <div className="flex-1">
+                          <div className="flex-1 relative">
                             <div className="mb-2">
                               <Image 
                                 src="/images/menu/Prisma-Logo-color.png" 
@@ -191,17 +191,11 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                                 height={32}
                                 className="h-6 w-auto"
                               />
+                              <span className="absolute top-0 right-0 bg-gray-200 text-gray-700 text-[10px] rounded font-medium leading-[100%] pt-[5px] pb-[3px] px-[8px]">
+                                Próximamente
+                              </span>
                             </div>
                             <p className="text-gray-600 text-xs">IA para marcas.</p>
-                          </div>
-                          <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
-                            <Image 
-                              src="/images/menu/arrow_right_alt.png" 
-                              alt="Arrow" 
-                              width={20} 
-                              height={20}
-                              className="w-5"
-                            />
                           </div>
                         </div>
                       </div>
@@ -209,9 +203,9 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                       <hr className="border-gray-100 my-2" style={{ borderColor: '#9080c0' }} />
                       
                       {/* PROSPECT/A */}
-                      <div className="group cursor-pointer">
+                      <div className="group">
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
-                          <div className="flex-1">
+                          <div className="flex-1 relative">
                             <div className="mb-2">
                               <Image 
                                 src="/images/menu/ProspectIA-Logo-color.png" 
@@ -220,17 +214,11 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                                 height={32}
                                 className="h-6 w-auto"
                               />
+                              <span className="absolute top-0 right-0 bg-gray-200 text-gray-700 text-[10px] rounded font-medium leading-[100%] pt-[5px] pb-[3px] px-[8px]">
+                                Próximamente
+                              </span>
                             </div>
                             <p className="text-gray-600 text-xs">IA para leads de alto valor.</p>
-                          </div>
-                          <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
-                            <Image 
-                              src="/images/menu/arrow_right_alt.png" 
-                              alt="Arrow" 
-                              width={20} 
-                              height={20}
-                              className="w-5"
-                            />
                           </div>
                         </div>
                       </div>
@@ -259,15 +247,16 @@ export default function Header({ variant = 'default' }: HeaderProps) {
           </Link>
         </nav>
 
-        {/* Botón Contáctanos - Derecha */}
-        <div className="flex items-center justify-end mr-30">
+        {/* Botón Contáctanos - Centro on mobile, right on lg+ */}
+        <div className="flex-1 flex items-center justify-center lg:justify-end lg:flex-none lg:mr-30">
           <Link
             href="/contacto"
-            className={`px-6 py-4 rounded-lg font-extrabold hover:opacity-90 transition-all duration-300 transform hover:scale-105 ${
+            className={`px-3 py-2 lg:px-6 lg:py-3 rounded-lg text-sm lg:text-base font-extrabold hover:opacity-90 transition-all duration-300 transform hover:scale-105 ${
               isWhiteBg 
                 ? 'bg-gradient-to-r from-[#1e3fda] to-[#58308c] text-white' 
                 : 'bg-white text-[#6e4490]'
             }`}
+            aria-label="Contáctanos"
           >
             Contáctanos
           </Link>
@@ -275,37 +264,28 @@ export default function Header({ variant = 'default' }: HeaderProps) {
 
         {/* Mobile menu button */}
         <button 
-          className={`lg:hidden transition-all duration-300 ${isWhiteBg ? 'text-[#1e3fda]' : 'text-white'}`}
+          className={`lg:hidden transition-all duration-300 ml-3 ${isWhiteBg ? 'text-[#1e3fda]' : 'text-white'}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          {isMobileMenuOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
       </div>
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 z-50 bg-white animate-in slide-in-from-top duration-300">
-          {/* Header móvil con logo y X */}
-          <div className="bg-gradient-to-r from-[#1e3fda] to-[#58308c] px-4 py-4 flex items-center justify-between">
-            <Image 
-              src="/images/general/Logo_Attach_Group.png" 
-              alt="Attach Group" 
-              width={120} 
-              height={30}
-              className="h-8 w-auto"
-            />
-            <button 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white text-2xl font-light hover:opacity-80 transition-opacity pr-2"
-            >
-              ×
-            </button>
-          </div>
-
-          {/* Contenido del menú con scroll suave */}
-          <nav className="flex flex-col px-6 py-6 space-y-6 overflow-y-auto">
+        <div className="lg:hidden fixed top-0 left-0 right-0 bottom-0 z-40 pointer-events-none">
+          <div className="bg-white mt-20 h-[calc(100vh-5rem)] pointer-events-auto animate-in slide-in-from-top duration-300">
+          {/* Contenido del menú */}
+            <nav className="flex flex-col px-6 py-6 space-y-6 h-full overflow-y-auto">
             <Link
               href="/nosotros"
               className="text-[#1e3fda] text-xl font-bold hover:opacity-80 transition-all duration-200 transform hover:translate-x-2 pb-4 border-b border-gray-200"
@@ -343,7 +323,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                     <h3 className="text-[#1e3fda] text-lg font-bold mb-4">Nuestras marcas</h3>
                     <div className="space-y-4">
                       {/* Galileo IA */}
-                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <Link href="/galileo" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                         <Image 
                           src="/images/menu/GalileoIA Logo-color.png" 
                           alt="Galileo IA" 
@@ -352,33 +332,33 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                           className="h-6 w-auto mb-2"
                         />
                         <p className="text-gray-600 text-sm">Impulsa tu negocio con IA.</p>
-                      </div>
+                      </Link>
                       <hr className="border-gray-200 my-3" />
                       
                       {/* AthenaAds */}
-                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <Link href="/athenas-ads" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                         <Image 
                           src="/images/menu/AthenaAds Logo-color.png" 
                           alt="AthenaAds" 
                           width={80} 
                           height={24}
-                          className="h-6 w-auto mb-2"
+                          className="h-7 w-auto mb-2"
                         />
                         <p className="text-gray-600 text-sm">Publicidad programática.</p>
-                      </div>
+                      </Link>
                       <hr className="border-gray-200 my-3" />
                       
                       {/* Attach Media */}
-                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <Link href="/attach-media" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                         <Image 
                           src="/images/menu/Attach-Media-Logo-color.png" 
                           alt="Attach Media" 
                           width={90} 
                           height={24}
-                          className="h-6 w-auto mb-2"
+                          className="h-5 w-auto mb-2"
                         />
                         <p className="text-gray-600 text-sm">Data que transforma.</p>
-                      </div>
+                      </Link>
                     </div>
                   </div>
 
@@ -387,7 +367,7 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                     <h3 className="text-[#1e3fda] text-lg font-bold mb-4">Nuestras soluciones</h3>
                     <div className="space-y-4">
                       {/* PRISMA */}
-                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors relative">
                         <Image 
                           src="/images/menu/Prisma-Logo-color.png" 
                           alt="PRISMA" 
@@ -395,12 +375,15 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                           height={24}
                           className="h-6 w-auto mb-2"
                         />
+                        <span className="absolute top-3 right-3 bg-gray-200 text-gray-700 text-xs rounded font-medium leading-[100%] pt-[5px] pb-[3px] px-[8px]">
+                          Próximamente
+                        </span>
                         <p className="text-gray-600 text-sm">IA para marcas.</p>
                       </div>
                       <hr className="border-gray-200 my-3" />
                       
                       {/* PROSPECT/A */}
-                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors relative">
                         <Image 
                           src="/images/menu/ProspectIA-Logo-color.png" 
                           alt="PROSPECT/A" 
@@ -408,6 +391,9 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                           height={24}
                           className="h-6 w-auto mb-2"
                         />
+                        <span className="absolute top-3 right-3 bg-gray-200 text-gray-700 text-xs rounded font-medium leading-[100%] pt-[5px] pb-[3px] px-[8px]">
+                          Próximamente
+                        </span>
                         <p className="text-gray-600 text-sm">IA para leads de alto valor.</p>
                       </div>
                     </div>
@@ -442,7 +428,8 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                 Contáctanos
               </Link>
             </div>
-          </nav>
+            </nav>
+          </div>
         </div>
       )}
     </header>
