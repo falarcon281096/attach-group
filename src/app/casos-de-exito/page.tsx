@@ -102,9 +102,9 @@ export default function Home() {
             ¿Quieres ser nuestro próximo caso de éxito?
           </h2>
 
-          <button className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition">
+          <a href="/contacto" className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition">
             Conversemos <span className="ml-2">➜</span>
-          </button>
+          </a>
         </div>
       </section>
       {/* Footer */}

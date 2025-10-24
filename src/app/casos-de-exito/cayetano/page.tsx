@@ -1,19 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import Image from "next/image";
-import ResultsSection from "../../../components/ResultsSection";
 
 export default function Home() {
-
-  const getImageUrl = (image: string | { src: string }): string => {
-    return typeof image === 'string' ? image : image.src;
-  };
-
-
   const stats = [
     {
       value: "+500%",
@@ -61,32 +52,41 @@ export default function Home() {
         <Header />
 
         {/* Hero Section */}
-        <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c]  rounded-b-[50px] relative z-10">
-          <div className="rounded-b-[50px]  ml-15 pt-20 pb-16">
-            <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
+        <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c]  rounded-b-[30px] lg:rounded-b-[50px] relative z-10">
+          <div className="rounded-b-[50px] lg:ml-15 lg:pt-17 pb-0 lg:pb-16 pt-35">
+            <div className="grid lg:grid-cols-2 gap-12 items-center lg:ml-15">
               {/* Content */}
-              <div className="text-white">
-                <p className="text-5xl">La estrategia digital que impulsó la consideración</p>
+              <div className="text-white px-7">
+                <p className="text-3xl lg:text-5xl font-800" style={{fontWeight:'100'}}>La estrategia digital que impulsó la consideración</p>
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   y el éxito de la admisión 2025-01
                 </h1>
-                <p className="text-xl text-white mb-8 max-w-lg">
+                <p className="pt-85 lg:pt-0 text-l lg:text-xl text-white mb-8 max-w-lg">
                   La Universidad Peruana Cayetano Heredia (UPCH) es una institución líder en educación superior en el Perú, reconocida por su excelencia académica, especialmente en las áreas de salud, ciencia e investigación. A lo largo de los años, ha consolidado su prestigio formando profesionales altamente capacitados e influyentes en el país y la región.
                 </p>
               </div>
 
               {/* Image placeholder - where the person and city image goes */}
-              <div className="relative 
+              <div className="absolute
+                    top-[30%]
+                    lg:top-[unset]
+                    pl-12
+                    lg:pl-0
+                    lg:relative 
                     before:absolute before:inset-0 
                     before:bg-[url('/images/general/attach_cross_white.png')]
                     before:bg-no-repeat
                     before:bg-center
                     before:content-['']
                     before:bg-[length:100%_100%]
-                    before:w-30
-                    before:h-30
-                    before:-translate-x-1/2
-                    before:top-100">
+                    lg:before:w-30
+                    lg:before:h-30
+                    before:w-17
+                    before:h-17
+                    lg:before:-translate-x-1/2
+                    before:-translate-x-[-0.5rem]
+                    lg:before:top-100
+                    before:top-45">
                 <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/cayetano.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
               </div>
             </div>
@@ -94,26 +94,26 @@ export default function Home() {
 
           {/*Indicadores*/}
           <section className="">
-            <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
+            <div className="mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-4 lg:gap-2 gap-y-10">
               {/* Indicador 1 */}
-              <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-4xl">+82%</p>
-                <p className="mt-2 text-xl">de incremento en alcance</p>
+              <div className="relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
+                <p className="font-bold text-3xl lg:text-5xl">+82%</p>
+                <p className="mt-2 lg:text-xl text-l">de incremento en alcance</p>
               </div>
               {/* Indicador 2 */}
-              <div className="relative px-6 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-4xl">+430%</p>
-                <p className="mt-2 text-xl">más clics</p>
+              <div className="relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
+                <p className="font-bold text-3xl lg:text-5xl">+430%</p>
+                <p className="mt-2 lg:text-xl text-l">más clics</p>
               </div>
               {/* Indicador 3 */}
-              <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-4xl">+320%</p>
-                <p className="mt-2 text-xl">más visualizaciones de video</p>
+              <div className="relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
+                <p className="font-bold text-3xl lg:text-5xl">+320%</p>
+                <p className="mt-2 lg:text-xl text-l">más visualizaciones de video</p>
               </div>
               {/* Indicador 4 */}
-              <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
-                <p className="font-bold text-4xl lg:text-4xl">29%</p>
-                <p className="mt-2 text-xl">de reducción en CPL</p>
+              <div className="relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
+                <p className="font-bold text-3xl lg:text-5xl">29%</p>
+                <p className="mt-2 lg:text-xl text-l">de reducción en CPL</p>
               </div>
             </div>
           </section>
@@ -121,34 +121,41 @@ export default function Home() {
       </div>
 
       {/* Contenido casos de éxito */}
-      <section className="bg-white rounded-b-[50px] py-30">
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
+      <section className="bg-white lg:rounded-b-[50px] rounded-b-[30px] pt-7 pb-0 px-7 lg:pt-30 lg:pb-10">
+        <div className="flex gap-10 lg:mx-30 pb-15 lg:flex-row flex-col justify-items-stretch">
           {/* Carlo R.*/}
-          <div className="w-1/2">
+          <div className="lg:w-1/2">
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               El reto
             </h3>
-            <p className="tex-xl text-gray-400">La institución educativa buscaba incrementar y optimizar los resultados de su campaña de Admisión Pregrado 2025-1, superando el desempeño del periodo anterior (2024-1).</p>
-            <p className="tex-xl text-gray-400">El desafío era doble: fortalecer el impacto de marca y consideración, mientras se mejoraban los resultados de performance y conversión en el canal digital, manteniendo eficiencia en inversión y retorno.</p>
+            <p className="tex-xl text-gray-600">La institución educativa buscaba incrementar y optimizar los resultados de su campaña de Admisión Pregrado 2025-1, superando el desempeño del periodo anterior (2024-1).</p>
+            <p className="tex-xl text-gray-600">El desafío era doble: fortalecer el impacto de marca y consideración, mientras se mejoraban los resultados de performance y conversión en el canal digital, manteniendo eficiencia en inversión y retorno.</p>
           </div>
-          <div className="flex justify-end relative w-[50%]
+          <div className="flex
+                    justify-end
+                    relative
+                    lg:w-[50%]
                     before:absolute before:inset-0 
                     before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
                     before:bg-no-repeat
                     before:bg-center
                     before:content-['']
                     before:bg-[length:100%_100%]
-                    before:w-15
-                    before:h-15
-                    before:-translate-x-1/5
-                    before:top-45">
-            <Image className="w-full" src="/images/casos-de-exito/cayetano/cayetano_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+                    before:w-10
+                    before:h-10
+                    before:-translate-x-[-17.5rem]
+                    before:top-20
+                    lg:before:w-15
+                    lg:before:h-15
+                    lg:before:-translate-x-1/2
+                    lg:before:top-45">
+            <Image className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px]" src="/images/casos-de-exito/cayetano/cayetano_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
 
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
-          <div className="flex justify-end relative w-[50%]
+        <div className="flex gap-10 lg:gap-15 lg:mx-30 pb-20 lg:flex-row flex-col justify-items-stretch">
+          <div className="flex justify-end relative lg:w-[50%]
                     before:absolute before:inset-0 
                     before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
                     before:bg-no-repeat
@@ -157,47 +164,49 @@ export default function Home() {
                     before:bg-[length:100%_100%]
                     before:w-15
                     before:h-15
-                    before:-translate-x-[-36rem]
-                    before:top-105">
-            <Image className="w-full" src="/images/casos-de-exito/cayetano/cayetano_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+                    before:-translate-x-[-34rem]
+                    before:top-105
+                    lg:order-[unset]
+                    order-2">
+            <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/cayetano/cayetano_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
-          <div className="w-1/2">
+          <div className="lg:w-1/2">
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Estrategia
             </h3>
-            <p className="tex-xl text-gray-400">Desde la visión data-driven y el enfoque full funnel, diseñamos una estrategia que integró acciones de Awareness, Consideración y Conversión bajo un solo objetivo: generar impacto real en cada etapa del recorrido del usuario.</p>
-            <p className="tex-xl text-gray-400">
+            <p className="tex-xl text-gray-600">Desde la visión data-driven y el enfoque full funnel, diseñamos una estrategia que integró acciones de Awareness, Consideración y Conversión bajo un solo objetivo: generar impacto real en cada etapa del recorrido del usuario.</p>
+            <p className="tex-xl text-gray-600">
               <b>1. Planeación estratégica con base en data:</b><br />
               se priorizaron los canales de captación con mayor desempeño tras un análisis exhaustivo a nivel CRM, maximizando la inversión en los que mostraban mejores tasas de conversión.
             </p>
 
-            <p className="tex-xl text-gray-400">
+            <p className="tex-xl text-gray-600">
               <b>2. Optimización continua y colaboración en tiempo real:</b><br />
               mediante un monitoreo diario entre cliente y agencia, se lograron ajustes ágiles y sincronizados que mejoraron significativamente la eficiencia operativa.
             </p>
 
-            <p className="tex-xl text-gray-400">
+            <p className="tex-xl text-gray-600">
               <b>3. Estrategia creativa integral:</b><br />
               bajo el concepto <i>“Cayetano es más que Cayetano”</i>, se desarrolló una propuesta que conectó emocionalmente con el público y amplificó la visibilidad y el tráfico hacia las plataformas digitales.
             </p>
 
-            <p className="tex-xl text-gray-400">
+            <p className="tex-xl text-gray-600">
               <b>4. Inversión estratégica más allá del lower funnel:</b><br />
               se destinó presupuesto a acciones de visibilidad y reconocimiento de marca, permitiendo construir un impacto integral y sostenido a lo largo del funnel.
             </p>
           </div>
         </div>
 
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
+        <div className="flex gap-0 lg:gap-15 lg:mx-30 pb-20 lg:flex-row flex-col justify-items-stretch">
 
           {/* Carlo R.*/}
-          <div className="w-1/2">
-            <h4 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+          <div className="lg:w-1/2">
+            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mt-9 mb-0 lg:mb-6">
               Resultados de Awareness
-            </h4>
+            </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {stats.map((item, i) => (
           <div
             key={i}
@@ -215,8 +224,8 @@ export default function Home() {
                 before:h-13
                 before:bg-[#1840E2] 
                 flex flex-col gap-2 pl-5">
-              <h2 className="text-3xl font-bold text-[#1840E2]">{item.value}</h2>
-              <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2]">{item.value}</h2>
+              <p className="text-s text-gray-600 leading-relaxed lg:text-l md:text-base">
                 {item.text}
               </p>
             </div>
@@ -226,12 +235,12 @@ export default function Home() {
 
           </div>
 
-          <div className="w-1/2">
-            <h4 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+          <div className="lg:w-1/2">
+            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mt-9 mb-0 lg:mb-6">
               Resultados de Consideración
-            </h4>
+            </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {stats2.map((item, i) => (
           <div
             key={i}
@@ -249,8 +258,8 @@ export default function Home() {
                 before:h-13
                 before:bg-[#1840E2] 
                 flex flex-col gap-2 pl-5">
-              <h2 className="text-3xl font-bold text-[#1840E2]">{item.value}</h2>
-              <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2]">{item.value}</h2>
+              <p className="text-s text-gray-600 leading-relaxed lg:text-l md:text-base">
                 {item.text}
               </p>
             </div>
@@ -259,12 +268,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-1/2">
-            <h4 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+          <div className="lg:w-1/2">
+            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mt-9 mb-0 lg:mb-6">
               Resultados de Conversión
-            </h4>
+            </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {stats3.map((item, i) => (
           <div
             key={i}
@@ -282,8 +291,8 @@ export default function Home() {
                 before:h-13
                 before:bg-[#1840E2] 
                 flex flex-col gap-2 pl-5">
-              <h2 className="text-3xl font-bold text-[#1840E2]">{item.value}</h2>
-              <p className="text-gray-500 leading-relaxed text-xl md:text-base">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2]">{item.value}</h2>
+              <p className="text-s text-gray-600 leading-relaxed lg:text-l md:text-base">
                 {item.text}
               </p>
             </div>
@@ -295,16 +304,16 @@ export default function Home() {
       </section>
 
       {/* CTA Talk Us */}
-      <section className="pb-17 pr-30">
-        <div className="flex flex-col gap-10 pl-30 pt-20 pb-17 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-5xl">
+      <section className="pb-17 px-5 lg:pr-30">
+        <div className="flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl">
             Desarrollemos algo
             increíble juntos.
           </h2>
 
-          <button className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition">
+          <a href="/contacto" className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition">
             Conversemos <span className="ml-2">➜</span>
-          </button>
+          </a>
         </div>
       </section>
 
