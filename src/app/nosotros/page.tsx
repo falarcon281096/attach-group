@@ -1,74 +1,20 @@
 "use client";
 
+import Header from "../../components/Header";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
+import styles from "./nosotros.module.css";
 
 export default function Home() {
-  // Estado para manejar el caso activo
-  const [activeCase, setActiveCase] = useState('caja-arequipa');
 
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
       <div className="atm-initial bg-gradient-to-b from-[#FFFFFF] to-[#F7F7F7]">
-        {/* Header */}
-        <header className="relative z-20">
-          <div className="ml-15 flex items-center justify-between border-l-2 border-[#1e3fda]/20 py-6">
-            {/* Logo - Izquierda */}
-            <a href="/attach-group" className="flex items-center ml-15">
-              <div className="w-40 h-8 bg-[#1840E2]/50 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-lg">ATTACH+ GROUP</span>
-              </div>
-            </a>
-
-            {/* Navigation - Centro */}
-            <nav className="hidden lg:flex items-center space-x-8 justify-center text-[#1840E2]">
-              <Link
-                href="/nosotros"
-                className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors"
-              >
-                Nosotros
-              </Link>
-              <div className="relative group">
-                <button className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors flex items-center">
-                  Soluciones
-                  <span className="ml-1 text-sm">+</span>
-                </button>
-              </div>
-              <Link
-                href="/casos-de-exito"
-                className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors"
-              >
-                Casos de éxito
-              </Link>
-              <Link
-                href="/cultura"
-                className="text-[#1840E2] hover:text-[#1840E2]/80 font-bold transition-colors"
-              >
-                Cultura
-              </Link>
-            </nav>
-
-            {/* Botón Contáctanos - Derecha */}
-            <div className="flex items-center justify-end bg-linear-to-r from-[#1e3fda] to-[#58308c] rounded-lg mr-30">
-              <Link
-                href="/contacto"
-                className="px-6 py-4 font-semibold transition-colors"
-              >
-                Contáctanos
-              </Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <button className="lg:hidden text-white">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </header>
+        <Header variant="white-bg" />
 
         {/* Hero Section */}
-        <div className="z-10 pb-20">
+        <div className={`z-10 pb-20 ${styles.hero}`}>
           <div className="ml-15 border-l-2 border-b-2 border-[#1e3fda]/20 rounded-bl-[50px] pt-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
               {/* Content */}
@@ -82,9 +28,7 @@ export default function Home() {
 
               {/* Image placeholder - where the person and city image goes */}
               <div className="">
-                <div className="bg-black/10 backdrop-blur-sm rounded-2xl p-8 h-96 flex items-center justify-center">
-                  <span className="text-white/60 text-lg">Banner Image Placeholder</span>
-                </div>
+                  <Image src="/attach-group/images/nosotros/foto-grupal-attach.png" className="w-full" alt="icon Galileo IA" width={684} height={580} />
               </div>
             </div>
           </div>
@@ -117,7 +61,7 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <div className="py-20">
+        <div className={`py-20 ${styles.servicios}`}>
           <div className="mx-30">
             {/* Header */}
             <div className="mb-10 text-center ">
@@ -132,12 +76,13 @@ export default function Home() {
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-3xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
+                  <Image src="/attach-group/images/nosotros/logo-galilea.png" alt="icon Galileo IA" width={279} height={74} />
                 </div>
 
                 {/* Content Section */}
                 <div className="p-8 text-gray-600">
                   <p className="text-[1.3rem] mb-6">
-                    Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones
+                    Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones.
                   </p>
                 </div>
               </div>
@@ -146,12 +91,13 @@ export default function Home() {
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-3xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
+                  <Image src="/attach-group/images/nosotros/logo-athenaAds.png" alt="icon AthenaAds" width={300} height={83} />
                 </div>
 
                 {/* Content Section */}
                 <div className="p-8 text-gray-600">
                   <p className="text-[1.3rem] mb-6">
-                    Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones
+                    Especialistas en publicidad programática, que desarrolla soluciones personalizadas y efectivas para cada marca.
                   </p>
                 </div>
               </div>
@@ -160,12 +106,13 @@ export default function Home() {
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-3xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
+                  <Image src="/attach-group/images/nosotros/logo-attach-media.png" alt="icon Attach Media" width={239} height={96} />
                 </div>
 
                 {/* Content Section */}
                 <div className="p-8 text-gray-600">
                   <p className="text-[1.3rem] mb-6">
-                    Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones
+                    Agencia integral de medios y soluciones digitales que combina estrategia, data y tecnología para diseñar campañas efectivas.
                   </p>
                 </div>
               </div>
@@ -176,17 +123,17 @@ export default function Home() {
 
       <div className="atm-content bg-gradient-to-b from-[#FFFFFF] to-[#F7F7F7] rounded-b-[3rem]">
         {/*Lideres Section*/}
-        <div className="py-20">
-          <h2 className="mx-30 text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+        <div className={`py-20 mx-30 ${styles.lideres}`}>
+          <h2 className="text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
             Quiénes lideran el camino
           </h2>
           <section className="py-16">
-            <div className="mx-30">
+            <div className="">
               <div className="flex flex-wrap justify-center gap-10">
                 {/* Carlo R.*/}
                 <div className="relative">
-                  <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-                  <div className="absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-3">
+                  <Image src="/attach-group/images/nosotros/CarloRodriguez.jpg" alt="Carlo Rodriguez" width={361} height={423} />
+                  <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Carlo Rodriguez</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">CEO Attach</p>
                   </div>
@@ -195,8 +142,8 @@ export default function Home() {
 
                 {/*Fernando S.*/}
                 <div className="relative">
-                  <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-                  <div className="absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-3">
+                  <Image src="/attach-group/images/nosotros/fernando-salazar.jpg" alt="Fernando Salazar" width={361} height={423} />
+                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Fernando Salazar</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">COO Attach</p>
                   </div>
@@ -208,57 +155,21 @@ export default function Home() {
         </div>
 
         {/*Clientes Section*/}
-        <div className="py-20">
-          <h2 className="mx-30 text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+        <div className={`py-20 mx-30 ${styles.clientes}`}>
+          <h2 className="text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
             Algunos de nuestros clientes
           </h2>
 
           <section className="py-16">
-            <div className="mx-30">
-              <div className="flex flex-wrap justify-center gap-10">
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/* Carlo R.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-
-                {/*Fernando S.*/}
-                <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
-              </div>
+            <div className="">
+              <Image className="w-full" src="/attach-group/images/nosotros/clientes-desktop.png" alt="clientes" width={1296} height={747} />
             </div>
           </section>
 
         </div>
 
         {/*Oficinas Section*/}
-        <div className="flex gap-10 mx-30 pb-20 justify-items-stretch">
+        <div className={`flex gap-10 mx-30 pb-20 justify-items-stretch ${styles["section-oficinas"]}`}>
           {/* Carlo R.*/}
           <div className="w-1/2">
           <h2 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
@@ -267,28 +178,30 @@ export default function Home() {
           <p className="tex-xl text-gray-400 border-1 px-3 py-2 w-45 rounded-[50px]">Perú - México - USA</p>
           </div>
           <div className="relative">
-            <span className="block w-[15rem] h-[9rem] bg-gray-200 rounded-md"></span>
+            <Image src="/attach-group/images/nosotros/mapa-atatch.png" alt="Mapa Attach" width={486} height={550} />
           </div>
 
         </div>
       </div>
       {/* CTA Talk Us */}
-      <section className="pb-17 pr-30">
+      <section className={`pb-17 pr-30 ${styles["cta-talkus"]}`}>
         <div className="flex flex-col gap-10 pl-30 pt-20 pb-17 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-5xl">
             Hablemos sobre cómo potenciar juntos el crecimiento de tu empresa
           </h2>
-
-          <button className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition">
-            Conversemos <span className="ml-2">➜</span>
-          </button>
+          <Link
+                href="/contacto"
+                className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition"
+              >
+                 Conversemos <span className="ml-2">➜</span>
+          </Link>
         </div>
       </section>
 
 
 
       {/* Footer */}
-      <div className="bg-[#F7F7F7] py-20">
+      <div className="py-20 bg-[#F7F7F7]">
         <div className="mx-30">
           {/* Branches Cards */}
           <div className="grid lg:grid-cols-3 gap-12 text-gray-500">
@@ -319,16 +232,48 @@ export default function Home() {
               <p><span className="font-bold">E-mail:</span> usa@attach.group</p>
             </div>
           </div>
+
           {/* Logo y Social Links */}
           <div className="text-gray-500 grid lg:grid-cols-2 gap-12">
-            <div className="p-8">
-              <span className="font-bold">ATTACH+ GROUP</span>
-            </div>
+            <Link href="/" className="ml-15 py-8">
+              <Image 
+                className="" 
+                src="/attach-group/images/general/Logo_Attach_Group_Blue.png" 
+                alt="Logo Attach" 
+                width={180} 
+                height={50} 
+              />
+            </Link>
             <div className="p-8">
               <div className="flex justify-end gap-4">
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
-                <div className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]"><span className="text-white">SMI</span></div>
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    src="/attach-group/images/general/socialicon_linkden.png" 
+                    alt="LinkedIn" 
+                    width={180} 
+                    height={50} 
+                  />
+                </a>
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    src="/attach-group/images/general/socialicon_ig.png" 
+                    alt="Instagram" 
+                    width={180} 
+                    height={50} 
+                  />
+                </a>
+                <a href="#" className="w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+                  <Image 
+                    className="" 
+                    style={{ marginTop: '4px' }} 
+                    src="/attach-group/images/general/socialicon_yt.png" 
+                    alt="YouTube" 
+                    width={180} 
+                    height={50} 
+                  />
+                </a>
               </div>
             </div>
           </div>
