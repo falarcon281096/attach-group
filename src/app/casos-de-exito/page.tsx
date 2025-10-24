@@ -10,7 +10,7 @@ export default function Home() {
       link: '/casos-de-exito/deposeguro',
       id: 'deposeguro',
       title: 'Deposeguro',
-      tag: 'Sitio Web',
+      tag: 'Sitio web',
       image: '/images/casos-de-exito/deposeguro.png',
     },
     {
@@ -37,7 +37,7 @@ export default function Home() {
     {
       link: '/casos-de-exito/universal-2',
       id: 'universal-2',
-      title: 'El universal 2',
+      title: 'El Universal',
       tag: 'Galileo',
       image: '/images/casos-de-exito/eluniversal.png',
     },
@@ -58,7 +58,7 @@ export default function Home() {
       <div className="mx-5 lg:mx-30 py-25">
         <div className="flex flex-col gap-10 text-center px-5 lg:px-20 max-w-200 mx-auto">
           {/* Content */}
-          <h1 className="text-4xl lg:text-6xl font-bold">
+          <h1 className="text-4xl lg:text-6xl font-bold text-white">
             Estrategias digitales, éxitos reales
           </h1>
           <p className="text-2xl text-white">
@@ -66,7 +66,7 @@ export default function Home() {
           </p>
           <a href="#atm-casos" className="bg-white text-[#1840e2] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/90 flex justify-center max-w-200 mx-auto items-center">
             Ver casos de éxito
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="ml-2 w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
@@ -98,7 +98,7 @@ export default function Home() {
       {/* CTA Talk Us */}
       <section className="pb-17 px-5 lg:pr-30">
         <div className="flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-5xl">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold max-w-5xl text-white">
             ¿Quieres ser nuestro próximo caso de éxito?
           </h2>
 

@@ -19,7 +19,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
               {/* Content */}
               <div>
-                <p className="text-[#1840E2] font-thin text-4xl lg:text-6xl">Somos</p>
+                <p className="text-[#1840E2] font-extralight text-4xl lg:text-6xl">Somos</p>
                 <h1 className="font-extrabold text-4xl lg:text-6xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
                   Attach Group
                 </h1>
@@ -50,7 +50,7 @@ export default function Home() {
             {/* Indicador 3 */}
             <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
               <p className="font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">+100</p>
-              <p className="text-gray-400 mt-2 text-[1.35rem]">Colaboradores en disdtintas especialidades</p>
+              <p className="text-gray-400 mt-2 text-[1.35rem]">Colaboradores en distintas especialidades</p>
             </div>
             {/* Indicador 4 */}
             <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
@@ -132,7 +132,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-10">
                 {/* Carlo R.*/}
                 <div className="relative">
-                  <Image src="/images/nosotros/CarloRodriguez.jpg" alt="Carlo Rodriguez" width={361} height={423} />
+                  <Image src="/images/nosotros/carlo-rodriguez-foto.jpg" alt="Carlo Rodriguez" width={361} height={423} />
                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Carlo Rodriguez</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">CEO Attach</p>
@@ -142,7 +142,7 @@ export default function Home() {
 
                 {/*Fernando S.*/}
                 <div className="relative">
-                  <Image src="/images/nosotros/fernando-salazar.jpg" alt="Fernando Salazar" width={361} height={423} />
+                  <Image src="/images/nosotros/fernando-salazar-foto.jpg" alt="Fernando Salazar" width={361} height={423} />
                    <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Fernando Salazar</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">COO Attach</p>
@@ -186,8 +186,8 @@ export default function Home() {
       {/* CTA Talk Us */}
       <section className={`pb-17 pr-30 ${styles["cta-talkus"]}`}>
         <div className="flex flex-col gap-10 pl-30 pt-20 pb-17 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-5xl">
-            Hablemos sobre cómo potenciar juntos el crecimiento de tu empresa
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold max-w-5xl text-white">
+            Ya nos conociste. Lo que sigue lo construimos contigo.
           </h2>
           <Link
                 href="/contacto"

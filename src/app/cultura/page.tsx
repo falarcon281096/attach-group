@@ -16,9 +16,9 @@ export default function Home() {
         {/*Oficinas Section*/}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 py-20 justify-items-stretch '>
           <div className='text-[1.75rem] lg:text-[4rem] px-5 flex flex-col justify-center'>
-            <span className='bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent tracking-[-1%] font-extrabold leading-snug'>
+            <span className='bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent tracking-[-1%] font-extrabold leading-tight'>
               Donde las ideas, <br /> la data y
-              <span className='font-normal italic underline underline-offset-4'>
+              <span className='font-semibold italic underline underline-offset-4 decoration-[#433AB3]'>
                 las <br />
                 personas evolucionan
               </span>

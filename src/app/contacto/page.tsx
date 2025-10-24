@@ -179,7 +179,7 @@ export default function Home() {
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
       <div className="atm-initial bg-white">
         {/* Header */}
-        <Header showBorder={false}/>
+        <Header showBorder={false} variant='white-bg'/>
       </div>
 
       <div className="atm-content pb-30 bg-white">

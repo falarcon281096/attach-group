@@ -22,14 +22,14 @@ export default function Home() {
           <div className="grid gap-3 lg:gap-12 items-center sm:px-10 lg:px-0 lg:ml-15">
             {/* Content */}
             <div className="text-white lg:text-left px-6 lg:px-0 lg:hidden">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 lg:mb-8 lg:mr-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold mb-6 lg:mb-8 lg:mr-4">
                 Tecnología y estrategia para llevar tu negocio al siguiente nivel
               </h1>
             </div>
 
             <div className="flex flex-col-reverse gap-10 lg:grid lg:grid-cols-2">
               <div className="text-white lg:text-left px-6 lg:px-0">
-                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 lg:mb-8 lg:mr-4 hidden lg:block">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold mb-6 lg:mb-8 lg:mr-4 hidden lg:block">
                   Tecnología y estrategia para llevar tu negocio al siguiente nivel
                 </h1>
                 <p className="text-base sm:text-lg lg:text-2xl text-white mb-8 max-w-lg mx-auto lg:mx-0">
@@ -164,7 +164,7 @@ export default function Home() {
         <div className="px-6 lg:mx-30">
           {/* Header */}
           <div className="mb-16">
-            <h2 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+            <h2 className="text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Potenciamos marcas <br></br>para el futuro
             </h2>
             <p className="text-xl text-gray-600">
@@ -183,13 +183,13 @@ export default function Home() {
                   className="cursor-pointer flex items-center mb-4 w-full text-left"
                 >
                   {activeCase === 'caja-arequipa' && (
-                    <svg className="w-8 h-8 text-gray-800 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-8 h-8 text-[#464646] mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   )}
                   <h3 className={`text-3xl font-bold transition-colors ${activeCase === 'caja-arequipa'
-                    ? 'text-gray-800 underline'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'text-[#464646] underline'
+                    : 'text-[#818181] hover:text-gray-700'
                     }`}>
                     Caja Arequipa
                   </h3>
@@ -197,10 +197,10 @@ export default function Home() {
 
                 {activeCase === 'caja-arequipa' && (
                   <div className="transition-all duration-300">
-                    <h4 className="text-lg font-bold text-gray-800 mt-5">
+                    <h4 className="text-lg font-bold mt-5 text-[#464646]">
                       Más desembolsos con la misma inversión.
                     </h4>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="leading-relaxed text-[#464646]">
                       Optimizamos la estrategia digital con segmentación y foco regional, logrando un +26% en desembolsos nacionales y más de S/. 2 millones colocados sin incrementar la inversión. Las provincias lideraron el crecimiento con un +28% de resultados, demostrando que la eficiencia también impulsa expansión.
                     </p>
                   </div>
@@ -219,8 +219,8 @@ export default function Home() {
                     </svg>
                   )}
                   <h4 className={`text-3xl font-bold transition-colors ${activeCase === 'deposeguro'
-                    ? 'text-gray-800 underline'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'text-[#464646] underline'
+                    : 'text-[#818181] hover:text-gray-700'
                     }`}>
                     Deposeguro
                   </h4>
@@ -228,10 +228,10 @@ export default function Home() {
 
                 {activeCase === 'deposeguro' && (
                   <div className="mt-4 transition-all duration-300">
-                    <h5 className="text-lg font-bold text-gray-800 mb-3">
+                    <h5 className="text-lg font-bold mb-3 text-[#464646]">
                       Transformación digital del sector asegurador.
                     </h5>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="leading-relaxed text-[#464646]">
                       Implementamos una estrategia omnicanal que incrementó la captación de clientes en un +45% y redujo el tiempo de procesamiento de pólizas en un 60%. La digitalización completa del flujo de ventas permitió expandir la cobertura nacional sin incrementar costos operativos.
                     </p>
                   </div>
@@ -250,8 +250,8 @@ export default function Home() {
                     </svg>
                   )}
                   <h4 className={`text-3xl font-bold transition-colors ${activeCase === 'apuesta-total'
-                    ? 'text-gray-800 underline'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'text-[#464646] underline'
+                    : 'text-[#818181] hover:text-gray-700'
                     }`}>
                     Apuesta Total
                   </h4>
@@ -259,10 +259,10 @@ export default function Home() {
 
                 {activeCase === 'apuesta-total' && (
                   <div className="mt-4 transition-all duration-300">
-                    <h5 className="text-lg font-bold text-gray-800 mb-3">
+                    <h5 className="text-lg font-bold mb-3 text-[#464646]">
                       Liderazgo en entretenimiento digital.
                     </h5>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="leading-relaxed text-[#464646]">
                       Desarrollamos una plataforma integral que posicionó a la marca como líder en el mercado peruano de entretenimiento online. Logramos +120% de crecimiento en usuarios activos y un incremento del 85% en engagement a través de experiencias personalizadas e innovadoras.
                     </p>
                   </div>
