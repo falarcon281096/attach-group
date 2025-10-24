@@ -553,7 +553,10 @@ export default function Home() {
                                 key={i}
                                 className="relative bg-white text-[#333] text-[16px] md:text-[18px] leading-[26px] py-4 pl-10 pr-6 rounded-full shadow-sm transition-all duration-300 w-full md:w-[85%] max-w-[880px]"
                                 style={{
-                                    marginLeft: window.innerWidth >= 768 ? `${i * 30}px` : "0px", // solo escalera en desktop
+                                    marginLeft:
+                                        typeof window !== "undefined" && window.innerWidth >= 768
+                                            ? `${i * 30}px`
+                                            : "0px",
                                 }}
                             >
                                 <span
