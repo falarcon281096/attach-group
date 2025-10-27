@@ -17,7 +17,7 @@ export default function AthenaPersonalization() {
 
                     {/* Right Side - 65% */}
                     <div className="lg:col-span-8">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-2xl mx-auto">
                             {/* Card 1 - Audiencia */}
                             <div className="relative rounded-2xl md:rounded-3xl overflow-hidden h-48 md:h-64 flex items-end justify-center">
                                 <Image
