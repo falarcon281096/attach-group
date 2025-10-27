@@ -5,26 +5,26 @@ export default function Footer() {
   return (
     <footer className="py-10 lg:pt-20 lg:pb-10 bg-[#F7F7F7]">
       <div className="lg:mx-30">
-        <div className="grid lg:grid-cols-3 lg:gap-12 text-gray-500">
+        <div className="grid lg:grid-cols-3 lg:gap-12 text-gray-500 font-['graphik']">
           {/* Perú */}
           <div className="p-8">
-            <p className="text-3xl font-bold">Perú</p>
-            <p><span className="font-bold">Dirección:</span> Av. Javier Prado Este 492 - Oficina 1202</p>
-            <p><span className="font-bold">E-mail:</span> peru@attach.group</p>
+            <p className="text-gray-700 pb-3" style={{ fontSize: '24px', fontFamily: 'Graphik, sans-serif', fontWeight: 600 }}>Perú</p>
+            <p className="text-[14px]"><span className="font-bold">Dirección:</span> Av. Javier Prado Este 492 - Oficina 1202</p>
+            <p className="text-[14px]"><span className="font-bold">E-mail:</span> peru@attach.group</p>
           </div>
 
           {/* México */}
           <div className="p-8">
-            <p className="text-3xl font-bold">México</p>
-            <p><span className="font-bold">Dirección:</span> Torre Reforma, Piso 14, Av. Paseo de la Reforma 483, Col. Cuauhtémoc, CP 06500</p>
-            <p><span className="font-bold">E-mail:</span> mexico@attach.group</p>
+            <p className="text-gray-700 pb-3" style={{ fontSize: '24px', fontFamily: 'Graphik, sans-serif', fontWeight: 600 }}>México</p>
+            <p className="text-[14px]"><span className="font-bold">Dirección:</span> Torre Reforma, Piso 14, Av. Paseo de la Reforma 483, Col. Cuauhtémoc, CP 06500</p>
+            <p className="text-[14px]"><span className="font-bold">E-mail:</span> mexico@attach.group</p>
           </div>
 
           {/* USA */}
           <div className="p-8">
-            <p className="text-3xl font-bold">USA</p>
-            <p><span className="font-bold">Address:</span> 201 South Biscayne Blvd, Miami, FL 33131</p>
-            <p><span className="font-bold">E-mail:</span> usa@attach.group</p>
+            <p className="text-gray-700 pb-3" style={{ fontSize: '24px', fontFamily: 'Graphik, sans-serif', fontWeight: 600 }}>USA</p>
+            <p className="text-[14px]"><span className="font-bold">Address:</span> 201 South Biscayne Blvd, Miami, FL 33131</p>
+            <p className="text-[14px]"><span className="font-bold">E-mail:</span> usa@attach.group</p>
           </div>
         </div>
 

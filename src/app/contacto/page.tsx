@@ -189,7 +189,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] items-center gap-12 lg:gap-16 py-16 lg:py-24">
               {/* Content */}
               <div className="space-y-8">
-                <h1 className="font-extrabold text-4xl lg:text-6xl bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent leading-tight">
+                <h1 className="font-extrabold text-[32px] lg:text-[55px] bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent leading-tight">
                   Construyamos juntos el futuro de tu negocio
                 </h1>
                 <p className="text-base lg:text-lg text-[#3B2F74] leading-relaxed">
@@ -229,10 +229,10 @@ export default function Home() {
               <div className="relative grid gap-12 rounded-[36px] bg-gradient-to-br from-[#2147ff] via-[#3d3fce] to-[#612bb8] px-6 py-10 shadow-[0_30px_80px_rgba(34,63,218,0.35)] lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:px-12 lg:py-14">
                 <div className="space-y-6 text-white">
                   <h4 className="text-3xl lg:text-4xl font-bold leading-snug">
-                    Cuéntanos sobre tu proyecto
+                    Cuéntanos <br />sobre tu <br /> proyecto
                   </h4>
                   <p className="text-base lg:text-lg text-white/80 leading-relaxed">
-                    Completa el formulario y pronto estaremos en contacto contigo.
+                    Completa el formulario y <br /> pronto estaremos en contacto <br /> contigo.
                   </p>
                 </div>
                 <form

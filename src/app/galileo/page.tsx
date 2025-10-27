@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import GalileoBenefits from "../../components/GalileoBenefits";
+import GalileoSolutions from "../../components/GalileoSolutions";
 
 
 export default function Home() {
@@ -39,14 +41,14 @@ export default function Home() {
                             </h1>
 
                             <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-white mb-8 max-w-lg leading-[150%]">
-                                Soluciones de IA, Cloud y Martech que aceleran tu negocio.
+                                Soluciones de IA, Cloud y Martech que aceleran <br /> tu negocio.
                             </p>
                         </div>
 
                         {/* === Bloque Derecho === */}
                         <div className="flex flex-col gap-8 sm:gap-10 relative w-full">
-                            {/* Card 1 con “+” amarillo */}
-                            <div className="text-center relative bg-white text-gray-700 text-[15px] sm:text-[17px] md:text-[18px] font-medium px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full">
+                            {/* Card 1 con "+" amarillo */}
+                            <div className="text-center relative bg-white text-gray-700 text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full font-['graphik']">
                                 {/* + decorativo */}
                                 <span
                                     className="absolute -left-6 -top-5 text-[48px] font-bold text-[#FFC351] select-none"
@@ -64,8 +66,8 @@ export default function Home() {
                                 simples.
                             </div>
 
-                            {/* Card 2 con “+” rosado */}
-                            <div className="text-center relative bg-white text-gray-700 text-[15px] sm:text-[17px] md:text-[18px] font-medium px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full">
+                            {/* Card 2 con "+" rosado */}
+                            <div className="text-center relative bg-white text-gray-700 text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full font-['graphik']">
                                 {/* + decorativo */}
                                 <span
                                     className="absolute -right-6 -bottom-5 text-[48px] font-bold text-[#FF3F73] select-none"
@@ -87,154 +89,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <section className="bg-white py-24 text-gray-900">
-                <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                    {/* Título y subtítulo */}
-                    <div className="text-center mb-14">
-                        <h2 className="text-[48px] font-semibold text-[#818181] mb-2">
-                            De la estrategia a la acción
-                        </h2>
-                        <p className="text-[#818181] text-[20px]">
-                            Descubre cómo podemos apoyarte.
-                        </p>
-                    </div>
-
-                    {/* IA Enterprise */}
-                    <div className="mb-8">
-                        <h3 className="text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0]">
-                            IA Enterprise
-                        </h3>
-                    </div>
-
-                    {/* Soluciones SAAS */}
-                    <div className="mb-8">
-                        <h3 className="text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0]">
-                            <span className="text-[#e37426] mr-2">→</span> Soluciones SAAS
-                        </h3>
-                    </div>
-
-                    {/* Grid de tarjetas */}
-                    <div className="grid md:grid-cols-2 gap-10 mb-10">
-                        {/* Tarjeta 1 */}
-                        <article className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden">
-                            <Image
-                                src="/images/galileo/imagen-1-galileo.jpg"
-                                alt="PRISMA"
-                                width={900}
-                                height={600}
-                                className="w-full h-60 object-cover"
-                            />
-                            <div className="p-6 text-center">
-                                <div className="flex justify-center items-center mb-6">
-                                    <Image
-                                        src="/images/galileo/logo-prisma.png"
-                                        alt="PROSPECTA"
-                                        width={0}
-                                        height={0}
-                                        sizes="100vw"
-                                        className="h-auto w-auto max-w-full object-contain"
-                                    />
-                                </div>
-
-                                <p className="text-[#666666] text-[20px] leading-[28px] font-normal tracking-[0] text-center mb-5">
-                                    Prisma revela cómo la inteligencia artificial ve,
-                                    menciona y posiciona tu marca.
-                                </p>
-                                {/* <Link
-                                    href="#"
-                                    className="inline-flex items-center justify-center text-white font-bold text-[16px] leading-[24px] tracking-[0] rounded-[8px] px-[32px] py-[16px] gap-[8px] transition-opacity hover:opacity-90"
-                                    style={{
-                                        background: "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
-                                        filter:
-                                            "drop-shadow(0 4px 8px rgba(30, 63, 218, 0.15)) drop-shadow(0 0 25px rgba(30, 63, 218, 0.1))",
-                                    }}
-                                >
-                                    Saber más
-                                    <svg
-                                        className="w-5 h-5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                        />
-                                    </svg>
-                                </Link> */}
-                            </div>
-                        </article>
-
-                        {/* Tarjeta 2 */}
-                        <article className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden">
-                            <Image
-                                src="/images/galileo/imagen-2-galileo.jpg"
-                                alt="PROSPECTA"
-                                width={900}
-                                height={600}
-                                className="w-full h-60 object-cover"
-                            />
-                            <div className="p-6 text-center">
-                                <div className="flex justify-center items-center mb-6">
-                                    <Image
-                                        src="/images/galileo/logo-prospecta.png"
-                                        alt="PROSPECTA"
-                                        width={0}
-                                        height={0}
-                                        sizes="100vw"
-                                        className="h-auto w-auto max-w-full object-contain"
-                                    />
-                                </div>
-
-                                <p className="text-[#666666] text-[20px] leading-[28px] font-normal tracking-[0] text-center mb-5">
-                                    La plataforma conversacional con IA que precalifica leads,
-                                    optimiza campañas y potencia ventas.
-                                </p>
-                                {/* <Link
-                                    href="#"
-                                    className="inline-flex items-center justify-center text-white font-bold text-[16px] leading-[24px] tracking-[0] rounded-[8px] px-[32px] py-[16px] gap-[8px] transition-opacity hover:opacity-90"
-                                    style={{
-                                        background: "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
-                                        filter:
-                                            "drop-shadow(0 4px 8px rgba(30, 63, 218, 0.15)) drop-shadow(0 0 25px rgba(30, 63, 218, 0.1))",
-                                    }}
-                                >
-                                    Saber más
-                                    <svg
-                                        className="w-5 h-5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                        />
-                                    </svg>
-                                </Link> */}
-                            </div>
-                        </article>
-                    </div>
-
-                    {/* Infraestructura Cloud */}
-                    <div className="mb-8">
-                        <h4 className="text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0]">
-                            Infraestructura Cloud
-                        </h4>
-                    </div>
-
-                    {/* Martech + Advanced Analytics */}
-                    <div>
-                        <h4 className="text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0]">
-                            Martech + Advanced Analytics
-                        </h4>
-                    </div>
-                </div>
-            </section>
+            <GalileoSolutions />
 
             <section className="py-20 bg-gradient-to-b from-white to-[#fff9f4] text-center">
                 {/* === Título === */}
@@ -468,52 +323,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section
-                className="py-20 px-6 md:px-12 lg:px-24 text-left"
-                style={{
-                    background: "var(--new-colors-galileo-ia-2, #FFC351)",
-                }}
-            >
-                <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                    {/* Columna izquierda */}
-                    <div>
-                        <h2 className="text-white text-[40px] md:text-[48px] font-semibold leading-[110%] mb-8">
-                            Asociarse con <br />
-                            <span className="opacity-90">Galileo IA</span> significa:
-                        </h2>
-                    </div>
-
-                    {/* Columna derecha */}
-                    <div className="flex flex-col gap-5 items-start">
-                        {[
-                            "Convertir datos en decisiones estratégicas",
-                            "Aumentar la competitividad en tu operación diaria",
-                            "Anticipar riesgos y descubrir oportunidades de mejora",
-                            "Automatizar tareas y procesos para ahorrar tiempo y costos",
-                        ].map((item, i) => (
-                            <p
-                                key={i}
-                                className="relative bg-white text-[#333] text-[16px] md:text-[18px] leading-[26px] py-4 pl-10 pr-6 rounded-full shadow-sm transition-all duration-300 w-full md:w-[85%] max-w-[880px]"
-                                style={{
-                                    marginLeft:
-                                        typeof window !== "undefined" && window.innerWidth >= 768
-                                            ? `${i * 30}px`
-                                            : "0px",
-                                }}
-                            >
-                                <span
-                                    className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full"
-                                    style={{
-                                        background:
-                                            "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
-                                    }}
-                                ></span>
-                                {item}
-                            </p>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <GalileoBenefits />
 
             {/* === SECTION 2: Descubre cómo aplicar IA === */}
             <section
