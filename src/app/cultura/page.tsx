@@ -17,8 +17,8 @@ export default function Home() {
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 py-20 justify-items-stretch '>
           <div className='text-[1.75rem] lg:text-[4rem] px-5 flex flex-col justify-center'>
             <span className='bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent tracking-[-1%] font-extrabold leading-tight'>
-              Donde las ideas, <br /> la data y
-              <span className='font-semibold italic underline underline-offset-4 decoration-[#433AB3]'>
+              Donde las ideas, <br /> la data y&nbsp;
+              <span className='font-medium italic underline underline-offset-4 decoration-[#433AB3]'>
                 las <br />
                 personas evolucionan
               </span>
@@ -50,14 +50,14 @@ export default function Home() {
               className='block w-full h-auto'
             />
           </div>
-          <div className='flex flex-col justify-center gap-10 order-1 lg:order-2 px-5 lg:px-0'>
-            <p className='text-[#1840E2] text-2xl lg:text-5xl'>
+          <div className='flex flex-col justify-center gap-10 order-1 lg:order-2 px-5 lg:pr-50'>
+            <p className='text-[#1840E2] text-2xl lg:text-4xl'>
               Nos inspira resolver desafíos,{' '}
-              <strong>aprender constantemente y crecer</strong> en un entorno
+              <strong className='font-semibold'>aprender constantemente y crecer</strong> en un entorno
               colaborativo.
             </p>
-            <p className='text-[#1840E2] text-2xl lg:text-5xl'>
-              No solo hablamos de resultados: <strong>los generamos.</strong>
+            <p className='text-[#1840E2] text-2xl lg:text-4xl'>
+              No solo hablamos de resultados: <strong className='font-semibold'>los generamos.</strong>
             </p>
           </div>
         </div>
@@ -86,21 +86,31 @@ export default function Home() {
 
       <div className='flex  bg-white py-20'>
         <div className='grid grid-cols-q lg:grid-cols-2 pl-5  lg:pl-50 lg:pr-0 gap-10 lg:gap-20 w-full'>
-          <div className='flex flex-col gap-10 pr-5 lg:pr-0 items-start justify-center'>
+          <div className='flex flex-col gap-8 pr-5 lg:pr-0 items-start justify-center'>
             <h4 className='text-[#1840E2] font-semibold text-4xl lg:text-5xl'>
               Innovar. Colaborar. <br /> Evolucionar juntos.
             </h4>
-            <p className='leading-5 text-[#818181]'>
+            <p className='leading-5 text-[#818181] text-xl'>
               Porque la forma en que trabajamos es tan importante como lo que
               hacemos.
             </p>
-            <div className='border px-8 py-2 rounded-xl '>
-              <p className='bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent'>
-                Mindset innovador. Para generar imapcto real y sostenible
+            <div className='border px-4 py-2 rounded-xl '>
+              <p className="flex items-center gap-2 bg-gradient-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-xl">
+                <img
+                  src="/images/cultura/check_circle.svg"
+                  alt="check"
+                  className="w-5 h-5"
+                />
+                Mindset innovador. Para generar impacto real y sostenible
               </p>
             </div>
-            <div className='border px-8 py-2 rounded-xl ml-0 lg:ml-10 '>
-              <p className='bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent'>
+            <div className='border px-4 py-2 rounded-xl ml-0 lg:ml-10 '>
+              <p className='flex items-center gap-2 bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-xl'>
+                <img
+                  src="/images/cultura/check_circle.svg"
+                  alt="check"
+                  className="w-5 h-5"
+                />
                 Aprendizaje compartido. Talentos, ideas y experiencias
               </p>
             </div>
@@ -130,13 +140,11 @@ export default function Home() {
             />
           </div>
           <div className='flex flex-col  gap-5 justify-center pr-5 pl-5 lg:pl-0 lg:pr-50 order-1 lg:order-2'>
-            <h4 className='text-[#1840E2] font-bold text-4xl lg:text-5xl'>
+            <h4 className='text-[#1840E2] font-semibold text-4xl lg:text-5xl'>
               Nuestro propósito
             </h4>
-            <p className='text-gray-500 text-sm lg:text-2xl mr-0 lg:mr-30'>
-              Resolvemos problermas en las organizaciones a través del
-              conocimiento, tecnología, innovación y talento experto: para así
-              impulsar las ecnomoías y comunidades donde operamos
+            <p className='text-gray-500 text-sm lg:text-xl mr-0 lg:mr-10'>
+              Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.
             </p>
           </div>
         </div>
