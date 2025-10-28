@@ -34,24 +34,27 @@ export default function AnimatedGradient() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
                     {/* Left Side - Logo and Text */}
                     <div className="text-white space-y-4 md:space-y-6">
-                        <div>
-                            <Image
-                                src="/images/general/athenaads_logo.png"
-                                alt="Athena Ads Logo"
-                                width={695}
-                                height={319}
-                                className="w-full max-w-md md:max-w-2xl"
-                                priority
-                            />
+                        <div className="inline-block overflow-hidden" style={{ margin: '-2rem' }}>
+                            <div style={{ padding: '2rem' }}>
+                                <Image
+                                    src="/images/athena-ads/AthenaAdsLogo.svg"
+                                    alt="Athena Ads Logo"
+                                    width={695}
+                                    height={319}
+                                    className="w-full max-w-md md:max-w-2xl align-top"
+                                    style={{ display: 'block' }}
+                                    priority
+                                />
+                            </div>
                         </div>
 
-                        <h1 className="md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4" style={{ fontSize: '50px' }}>
+                        <h1 className="ml-20 md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4" style={{ fontSize: '40px' }}>
                             Publicidad <br /> programática efectiva
                         </h1>
 
-                        <div className="w-[80%] h-1 bg-white mb-4 md:mb-6"></div>
+                        <div className="ml-20 w-[67%] h-1 bg-white mb-4 md:mb-6"></div>
 
-                        <h2 className="text-lg md:text-2xl lg:text-3xl font-['graphik'] font-normal mb-8 md:mb-12 w-[80%]" style={{ fontSize: '28px', lineHeight: '1.5' }}>
+                        <h2 className="ml-20 text-lg md:text-2xl lg:text-3xl font-['graphik'] font-normal mb-8 md:mb-12 w-[80%]" style={{ fontSize: '28px', lineHeight: '1.5' }}>
                             Estrategias omnicanal diseñadas para <br /> marcas que buscan claridad, impacto y resultados.
                         </h2>
                     </div>
