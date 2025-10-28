@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="text-gray-500 grid grid-cols-2 gap-5 mt-5 lg:mt-0 py-5 px-7 lg:gap-12">
           <Link href="/" className="mt-1 px-0 md:py-8 w-30 lg:w-auto">
             <Image 
-              src="/images/general/Logo_Attach_Group_Blue.png" 
+              src="/images/general/attachGroupLogo.svg" 
               alt="Logo Attach" 
               width={180} 
               height={50} 

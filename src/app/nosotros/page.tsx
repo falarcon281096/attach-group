@@ -76,7 +76,7 @@ export default function Home() {
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-3xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
-                  <Image src="/images/nosotros/logo-galilea.png" alt="icon Galileo IA" width={279} height={74} />
+                  <Image src="/images/general/GalileoIALogo.svg" alt="icon Galileo IA" width={279} height={74} />
                 </div>
 
                 {/* Content Section */}
@@ -91,7 +91,7 @@ export default function Home() {
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-3xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
-                  <Image src="/images/nosotros/logo-athenaAds.png" alt="icon AthenaAds" width={300} height={83} />
+                  <Image src="/images/general/AthenaAdsLogo.svg" alt="icon AthenaAds" width={300} height={83} />
                 </div>
 
                 {/* Content Section */}
@@ -106,7 +106,7 @@ export default function Home() {
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-3xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
-                  <Image src="/images/nosotros/logo-attach-media.png" alt="icon Attach Media" width={239} height={96} />
+                  <Image src="/images/general/AttachMediaLogo.svg" alt="icon Attach Media" width={239} height={96} />
                 </div>
 
                 {/* Content Section */}

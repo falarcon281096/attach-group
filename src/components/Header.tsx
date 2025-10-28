@@ -51,7 +51,7 @@ export default function Header({ variant = 'default', showBorder = true }: Heade
           {isWhiteBg ? (
             <Image
               className="w-[120px] lg:w-[160px]"
-              src="/images/general/Logo_Attach_Group_Blue.png"
+              src="/images/general/attachGroupLogo.svg"
               alt="Logo Attach"
               width={120}
               height={24}
@@ -59,7 +59,7 @@ export default function Header({ variant = 'default', showBorder = true }: Heade
           ) : (
             <Image
               className="w-[120px] lg:w-[160px]"
-              src="/images/general/Logo_Attach_Group.png"
+              src="/images/general/LogoAttachGroupWhite.svg"
               alt="Logo Attach"
               width={120}
               height={24}
