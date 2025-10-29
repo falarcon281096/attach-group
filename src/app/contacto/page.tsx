@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Image from "next/image";
 import { FormEvent, ChangeEvent, useState, useRef, useEffect } from "react";
 
 export default function Home() {
@@ -209,10 +210,14 @@ export default function Home() {
               <div className="relative">
                 <span className="absolute -left-6 bottom-16 hidden lg:block h-14 w-14 rounded-2xl bg-gradient-to-br from-[#2147ff] to-[#612bb8]"></span>
                 <div className="relative rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(34,63,218,0.25)] bg-gradient-to-br from-[#dfe6ff] to-[#f3e6ff]">
-                  <div className="aspect-[3/4] flex items-center justify-center">
-                    <span className="text-[#1d1b4f]/70 text-lg font-semibold">
-                      Banner Image Placeholder
-                    </span>
+                  <div className="aspect-[3/4] relative">
+                    <Image
+                      src="/images/nosotros/contactanos.jpg"
+                      alt="Contáctanos"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
                   </div>
                   <span className="absolute -bottom-6 -right-6 hidden lg:block h-20 w-20 rounded-[28px] bg-gradient-to-br from-[#2147ff] to-[#612bb8] opacity-80"></span>
                 </div>

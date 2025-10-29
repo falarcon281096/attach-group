@@ -28,7 +28,7 @@ export default function Home() {
 
               {/* Image placeholder - where the person and city image goes */}
               <div className="">
-                  <Image src="/images/nosotros/foto-grupal-attach.png" className="w-full" alt="icon Galileo IA" width={684} height={580} />
+                  <Image src="/images/nosotros/AttachGroup.jpg" className="w-full" alt="icon Galileo IA" width={684} height={580} />
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ export default function Home() {
           </div>
           <div className='relative pl-10'>
             <Image
-              src='/images/cultura/cultura-banner.png'
+              src='/images/cultura/culturaAttach.jpg'
               alt='cultura-banner'
               width={400}
               height={600}
@@ -91,7 +91,7 @@ export default function Home() {
               Innovar. Colaborar. <br /> Evolucionar juntos.
             </h4>
             <p className='leading-5 text-[#818181] text-xl'>
-              Porque la forma en que trabajamos es tan importante como lo que
+              Porque la forma en que trabajamos es tan importante <br /> como lo que
               hacemos.
             </p>
             <div className='border px-4 py-2 rounded-xl '>
