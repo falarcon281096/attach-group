@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import GradientPlus from '@/components/GradientPlus';
 
 export default function Home() {
 
@@ -32,7 +33,14 @@ export default function Home() {
               alt='cultura-banner'
               width={400}
               height={600}
-              className='block w-full h-auto'
+              className='block w-full rounded-3xl h-auto'
+            />
+            <GradientPlus 
+              leftMobile="-1rem"
+              leftDesktop="-1.6rem"
+              rightMobile="1rem"
+              bottomMobile="2rem"
+              bottomDesktop="1rem"
             />
           </div>
         </div>

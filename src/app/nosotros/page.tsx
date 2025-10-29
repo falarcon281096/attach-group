@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./nosotros.module.css";
 import Footer from "../../components/Footer";
+import GradientPlus from "../../components/GradientPlus";
 
 export default function Home() {
 
@@ -16,7 +17,7 @@ export default function Home() {
         {/* Hero Section */}
         <div className={`z-10 pb-20 ${styles.hero}`}>
           <div className="ml-15 border-l-2 border-b-2 border-[#1e3fda]/20 rounded-bl-[50px] pt-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center ml-15">
+            <div className="grid lg:grid-cols-2 gap-12 items-center ml-15 overflow-visible">
               {/* Content */}
               <div>
                 <p className="text-[#1840E2] font-extralight text-4xl lg:text-6xl">Somos</p>
@@ -27,8 +28,15 @@ export default function Home() {
               </div>
 
               {/* Image placeholder - where the person and city image goes */}
-              <div className="">
-                  <Image src="/images/nosotros/AttachGroup.jpg" className="w-full" alt="icon Galileo IA" width={684} height={580} />
+              <div className="relative overflow-visible">
+                  <Image 
+                    src="/images/nosotros/AttachGroup.jpg" 
+                    className="w-full rounded-3xl" 
+                    alt="icon Galileo IA" 
+                    width={684} 
+                    height={580} 
+                  />
+                  <GradientPlus />
               </div>
             </div>
           </div>
