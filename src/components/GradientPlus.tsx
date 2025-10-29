@@ -101,6 +101,12 @@ export default function GradientPlus({
   const spanRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const normalizeLength = (value: CssLength | undefined): string | undefined => {
+    if (value === undefined) return undefined;
+    if (typeof value === 'number') return `${value}px`;
+    return value;
+  };
+
   // Build gradient string
   const buildGradient = (): string => {
     // If custom gradient is provided, use it directly
@@ -150,15 +156,18 @@ export default function GradientPlus({
 
       // Update font size responsively
       if (width >= 1024) {
-        spanRef.current.style.fontSize = sizeDesktop;
+        const v = normalizeLength(sizeDesktop);
+        if (v !== undefined) spanRef.current.style.fontSize = v;
       } else if (width >= 768) {
-        spanRef.current.style.fontSize = sizeTablet;
+        const v = normalizeLength(sizeTablet);
+        if (v !== undefined) spanRef.current.style.fontSize = v;
       } else {
-        spanRef.current.style.fontSize = sizeMobile;
+        const v = normalizeLength(sizeMobile);
+        if (v !== undefined) spanRef.current.style.fontSize = v;
       }
 
       // Helper to pick value based on breakpoint
-      const pick = (m?: string, t?: string, d?: string): string | undefined => {
+      const pick = (m?: CssLength, t?: CssLength, d?: CssLength): CssLength | undefined => {
         const mv = m;
         const tv = t ?? mv;
         const dv = d ?? tv;
@@ -170,19 +179,23 @@ export default function GradientPlus({
       // Update positions responsively (only when single-value prop is not provided)
       if (!left) {
         const v = pick(leftMobile, leftTablet, leftDesktop);
-        if (v !== undefined) containerRef.current.style.left = v;
+        const nv = normalizeLength(v);
+        if (nv !== undefined) containerRef.current.style.left = nv;
       }
       if (!right) {
         const v = pick(rightMobile, rightTablet, rightDesktop);
-        if (v !== undefined) containerRef.current.style.right = v;
+        const nv = normalizeLength(v);
+        if (nv !== undefined) containerRef.current.style.right = nv;
       }
       if (!top) {
         const v = pick(topMobile, topTablet, topDesktop);
-        if (v !== undefined) containerRef.current.style.top = v;
+        const nv = normalizeLength(v);
+        if (nv !== undefined) containerRef.current.style.top = nv;
       }
       if (!bottom) {
         const v = pick(bottomMobile, bottomTablet, bottomDesktop);
-        if (v !== undefined) containerRef.current.style.bottom = v;
+        const nv = normalizeLength(v);
+        if (nv !== undefined) containerRef.current.style.bottom = nv;
       }
     };
 
@@ -234,25 +247,34 @@ export default function GradientPlus({
 
   // Build inline styles for position (when single value is provided)
   const positionStyle: React.CSSProperties = {};
-  if (left) positionStyle.left = left;
-  if (right) positionStyle.right = right;
-  if (top) positionStyle.top = top;
-  if (bottom) positionStyle.bottom = bottom;
+  const leftNorm = normalizeLength(left);
+  const rightNorm = normalizeLength(right);
+  const topNorm = normalizeLength(top);
+  const bottomNorm = normalizeLength(bottom);
+  if (leftNorm !== undefined) positionStyle.left = leftNorm;
+  if (rightNorm !== undefined) positionStyle.right = rightNorm;
+  if (topNorm !== undefined) positionStyle.top = topNorm;
+  if (bottomNorm !== undefined) positionStyle.bottom = bottomNorm;
   
   // Build padding styles
-  if (padding) {
-    positionStyle.padding = padding;
+  if (padding !== undefined) {
+    const v = normalizeLength(padding);
+    if (v !== undefined) positionStyle.padding = v;
   } else {
-    if (paddingTop) positionStyle.paddingTop = paddingTop;
-    if (paddingBottom) positionStyle.paddingBottom = paddingBottom;
-    if (paddingLeft) positionStyle.paddingLeft = paddingLeft;
-    if (paddingRight) positionStyle.paddingRight = paddingRight;
+    const pt = normalizeLength(paddingTop);
+    const pb = normalizeLength(paddingBottom);
+    const pl = normalizeLength(paddingLeft);
+    const pr = normalizeLength(paddingRight);
+    if (pt !== undefined) positionStyle.paddingTop = pt;
+    if (pb !== undefined) positionStyle.paddingBottom = pb;
+    if (pl !== undefined) positionStyle.paddingLeft = pl;
+    if (pr !== undefined) positionStyle.paddingRight = pr;
   }
 
   // Build transform
   const transformParts: string[] = [];
-  if (translateX) transformParts.push(`translateX(${translateX})`);
-  if (translateY) transformParts.push(`translateY(${translateY})`);
+  if (translateX !== undefined) transformParts.push(`translateX(${normalizeLength(translateX)})`);
+  if (translateY !== undefined) transformParts.push(`translateY(${normalizeLength(translateY)})`);
   if (rotate) transformParts.push(`rotate(${rotate})`);
   if (transform) transformParts.push(transform);
   if (transformParts.length > 0) {
