@@ -606,7 +606,7 @@ export default function AthenaAds() {
         </section>
 
           {/* Section - Preguntas frecuentes */}
-          <section className="py-10 md:py-16 lg:py-20 px-9 md:px-10 lg:px-14">
+          {/* <section className="py-10 md:py-16 lg:py-20 px-9 md:px-10 lg:px-14">
             <div className="container mx-auto max-w-7xl">
               <h2 className="hero-title-override faq-title-gradient text-center mb-12">Preguntas frecuentes</h2>
               
@@ -622,7 +622,7 @@ export default function AthenaAds() {
                 ))}
               </div>
             </div>
-          </section>
+          </section> */}
         {/* Footer */}
         <Footer />
       </div>
