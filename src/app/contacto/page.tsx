@@ -212,7 +212,7 @@ export default function Home() {
                 <div className="relative rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(34,63,218,0.25)] bg-gradient-to-br from-[#dfe6ff] to-[#f3e6ff]">
                   <div className="aspect-[3/4] relative">
                     <Image
-                      src="/images/nosotros/contactanos.jpg"
+                      src="/images/nosotros/contactanos.webp"
                       alt="Contáctanos"
                       fill
                       className="object-cover"

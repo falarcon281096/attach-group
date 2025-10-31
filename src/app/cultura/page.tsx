@@ -27,18 +27,19 @@ export default function Home() {
               juntas
             </span>
           </div>
-          <div className='relative pl-10'>
-            <Image
-              src='/images/cultura/culturaAttach.jpg'
-              alt='cultura-banner'
-              width={400}
-              height={600}
-              className='block w-full rounded-3xl h-auto'
-            />
+          <div className='relative pl-10 overflow-visible'>
+            <div className="overflow-hidden rounded-l-3xl rounded-r-none">
+              <Image
+                src='/images/cultura/culturaAttach.webp'
+                alt='cultura-banner'
+                width={400}
+                height={600}
+                className='block w-full h-auto'
+              />
+            </div>
             <GradientPlus 
               leftMobile="-1rem"
               leftDesktop="-1.6rem"
-              rightMobile="1rem"
               bottomMobile="2rem"
               bottomDesktop="1rem"
             />

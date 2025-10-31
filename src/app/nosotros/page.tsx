@@ -31,7 +31,7 @@ export default function Home() {
               <div className="relative overflow-visible order-2 lg:order-2 lg:col-start-2 pl-8 lg:pl-8 pr-0">
                   <div className="overflow-hidden rounded-l-3xl rounded-r-none">
                     <Image 
-                      src="/images/nosotros/AttachGroup.jpg" 
+                      src="/images/nosotros/AttachGroup.webp" 
                       className="w-full object-cover" 
                       alt="icon Galileo IA" 
                       width={684} 
@@ -207,7 +207,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-10">
                 {/* Carlo R.*/}
                 <div className="relative">
-                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/carlo-rodriguez-foto.jpg" alt="Carlo Rodriguez" width={361} height={423} />
+                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/carlo-rodriguez-foto.webp" alt="Carlo Rodriguez" width={361} height={423} />
                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Carlo Rodriguez</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">CEO Attach</p>
@@ -217,7 +217,7 @@ export default function Home() {
 
                 {/*Fernando S.*/}
                 <div className="relative">
-                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/fernando-salazar-foto.jpg" alt="Fernando Salazar" width={361} height={423} />
+                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/fernando-salazar-foto.webp" alt="Fernando Salazar" width={361} height={423} />
                    <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Fernando Salazar</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">COO Attach</p>
