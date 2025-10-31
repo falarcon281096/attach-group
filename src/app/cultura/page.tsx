@@ -50,13 +50,21 @@ export default function Home() {
       {/*body*/}
       <div className='atm-content relative py-20  bg-white'>
         <div className='pr-15 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'>
-          <div className='flex items-center justify-center py-10 order-2 lg:order-1'>
-            <Image
-              src='/images/cultura/cultura-inspira.png'
-              alt='cultura-inspira'
-              width={400}
-              height={600}
-              className='block w-full h-auto'
+          <div className='relative flex items-center justify-start py-10 order-2 lg:order-1 overflow-visible'>
+            <div className="relative w-full max-w-md lg:max-w-lg overflow-hidden rounded-r-3xl rounded-l-none aspect-[3/4]">
+              <Image
+                src='/images/cultura/cultura-inspira.webp'
+                alt='cultura-inspira'
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className='object-cover'
+              />
+            </div>
+            <GradientPlus 
+              rightMobile="-1.7rem"
+              rightDesktop="7rem"
+              bottomMobile="2rem"
+              bottomDesktop="1rem"
             />
           </div>
           <div className='flex flex-col justify-center gap-10 order-1 lg:order-2 px-5 lg:pr-50'>
@@ -139,13 +147,21 @@ export default function Home() {
       {/* nuestro proposito */}
       <div className='flex py-20 bg-white w-full'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-40 w-full'>
-          <div className='order-2 lg:order-1'>
-            <Image
-              src='/images/cultura/cultura-proposito.png'
-              alt='cultura-proposito'
-              width={600}
-              height={400}
-              className='block w-full h-auto pr-10 lg:pr-0'
+          <div className='relative order-2 lg:order-1 overflow-visible'>
+            <div className="overflow-hidden rounded-r-3xl rounded-l-none pr-10 lg:pr-0">
+              <Image
+                src='/images/cultura/nuestro-proposito.webp'
+                alt='cultura-proposito'
+                width={600}
+                height={400}
+                className='block w-full h-auto'
+              />
+            </div>
+            <GradientPlus 
+              rightMobile="1rem"
+              rightDesktop="-3rem"
+              bottomMobile="2rem"
+              bottomDesktop="1rem"
             />
           </div>
           <div className='flex flex-col  gap-5 justify-center pr-5 pl-5 lg:pl-0 lg:pr-50 order-1 lg:order-2'>
