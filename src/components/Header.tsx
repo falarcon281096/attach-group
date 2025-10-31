@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 interface HeaderProps {
-  variant?: 'default' | 'white-bg' | 'galileo' | 'athena' | 'attachmedia';
+  variant?: 'default' | 'white-bg' | 'galileo' | 'athena' | 'attachmedia'| 'prospectia'| 'prisma';
   showBorder?: boolean;
 }
 
@@ -16,11 +16,15 @@ export default function Header({ variant = 'default', showBorder = true }: Heade
   const isWhiteBg = variant === 'white-bg';
   const isGalileo = variant === 'galileo';
   const isAthena = variant === 'athena';
+  const isPrisma = variant === 'prisma';
+  const isProspectia = variant === 'prospectia';
   const isAttachmedia = variant === 'attachmedia';
 
   const getBackgroundGradient = () => {
     if (isWhiteBg) return 'bg-white';
     if (isGalileo) return 'bg-gradient-to-r from-[#FF3F73] to-[#FFC351]';
+    if (isPrisma) return 'bg-gradient-to-r from-[#FF3F73] to-[#FFC351]';
+    if (isProspectia) return 'bg-gradient-to-r from-[#FF3F73] to-[#FFC351]';
     if (isAthena) return 'bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3]';
     if (isAttachmedia) return 'bg-linear-to-r from-[#2f7de1] to-[#25bbcd]';
     return 'bg-gradient-to-r from-[#1e3fda] to-[#58308c]';
@@ -28,6 +32,7 @@ export default function Header({ variant = 'default', showBorder = true }: Heade
 
   const getButtonGradient = () => {
     if (isGalileo) return 'bg-gradient-to-r from-[#0066cc] to-[#004499]';
+    if (isPrisma) return 'bg-gradient-to-r from-[#0066cc] to-[#004499]';
     if (isAthena) return 'bg-gradient-to-r from-[#f7931e] to-[#e6851a]';
     if (isAttachmedia) return 'bg-gradient-to-r from-[#1e3a8a] to-[#1e40af]';
     return 'bg-gradient-to-r from-[#1e3fda] to-[#58308c]';
@@ -37,6 +42,7 @@ export default function Header({ variant = 'default', showBorder = true }: Heade
     if (isAttachmedia) return 'text-[#00B0C8]';
     if (isAthena) return 'text-[#00CED3]';
     if (isGalileo) return 'text-[#FFC351]';
+    if (isPrisma) return 'text-[#FFC351]';
     return isWhiteBg ? 'text-white' : 'text-[#6e4490]';
   };
 

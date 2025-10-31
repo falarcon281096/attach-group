@@ -33,9 +33,9 @@ export default function AnimatedGradient() {
             <div className="container mx-auto px-6 md:px-8 lg:px-16 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
                     {/* Left Side - Logo and Text */}
-                    <div className="text-white space-y-4 md:space-y-6">
+                    <div className="text-white space-y-4 md:space-y-6 px-6 md:px-0">
                         <div className="inline-block overflow-hidden">
-                            <div className="ml-23 mb-10 mt-15">
+                            <div className="ml-0 md:ml-23 mb-6 md:mb-10 mt-6 md:mt-15">
                                 <Image
                                     src="/images/athena-ads/AthenaAdsLogo.svg"
                                     alt="Athena Ads Logo"
@@ -48,15 +48,15 @@ export default function AnimatedGradient() {
                             </div>
                         </div>
 
-                        <h1 className="ml-25 md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4" style={{ fontSize: '40px' }}>
-                            Publicidad <br /> programática efectiva
-                        </h1>
+                        <div className="text-[24px] md:text-[40px] font-['graphik'] ml-0 md:ml-25 font-bold mb-3 md:mb-4 md:w-[70%]">
+                            Publicidad   programática efectiva
+                        </div>
 
-                        <div className="ml-25 w-[65%] h-1 bg-white mb-4 md:mb-6"></div>
+                        <div className="ml-0 md:ml-25 w-full md:w-[65%] h-1 bg-white mb-4 md:mb-6"></div>
 
-                        <h2 className="ml-25 text-lg md:text-2xl lg:text-3xl font-['graphik'] font-normal mb-8 md:mb-12 w-[70%]" style={{ fontSize: '28px', lineHeight: '1.5' }}>
+                        <div className="text-[16px] md:text-[24px] ml-0 md:ml-25 font-['graphik'] font-normal mb-8 md:mb-12 w-full md:w-[70%]" style={{  lineHeight: '1.5' }}>
                             Estrategias omnicanal diseñadas para <br /> marcas que buscan claridad, impacto y resultados.
-                        </h2>
+                        </div>
                     </div>
 
                     {/* Right Side - Two white cards with SVG */}

@@ -17,26 +17,39 @@ export default function Home() {
         {/* Hero Section */}
         <div className={`z-10 pb-20 ${styles.hero}`}>
           <div className="ml-15 border-l-2 border-b-2 border-[#1e3fda]/20 rounded-bl-[50px] pt-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center ml-15 overflow-visible">
-              {/* Content */}
-              <div>
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-x-12 lg:gap-y-4 items-center ml-15 overflow-visible">
+              {/* Título (móvil primero). Párrafo solo visible en desktop dentro de este bloque */}
+              <div className="order-1 lg:order-1 lg:col-start-1">
                 <p className="text-[#1840E2] font-extralight text-4xl lg:text-6xl">Somos</p>
                 <h1 className="font-extrabold text-4xl lg:text-6xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
                   Attach Group
                 </h1>
-                <p className="text-[#464646] mt-10 text-2xl">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</p>
+                <p className="hidden lg:block text-[#464646] mt-4 text-2xl">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</p>
               </div>
 
-              {/* Image placeholder - where the person and city image goes */}
-              <div className="relative overflow-visible">
-                  <Image 
-                    src="/images/nosotros/AttachGroup.jpg" 
-                    className="w-full rounded-3xl" 
-                    alt="icon Galileo IA" 
-                    width={684} 
-                    height={580} 
+              {/* Imagen (móvil segundo) */}
+              <div className="relative overflow-visible order-2 lg:order-2 lg:col-start-2 pl-8 lg:pl-8 pr-0">
+                  <div className="overflow-hidden rounded-l-3xl rounded-r-none">
+                    <Image 
+                      src="/images/nosotros/AttachGroup.jpg" 
+                      className="w-full object-cover" 
+                      alt="icon Galileo IA" 
+                      width={684} 
+                      height={580} 
+                    />
+                  </div>
+                  <GradientPlus 
+                    leftMobile="-0.5rem"
+                    leftDesktop="-3rem"
+                    bottomMobile="2rem"
+                    bottomDesktop="1rem"
+                    zIndex={1}
                   />
-                  <GradientPlus />
+              </div>
+
+              {/* Párrafo (móvil tercero, desktop oculto) */}
+              <div className="order-3 lg:order-1 lg:col-start-1 lg:hidden">
+                <p className="text-[#464646] mt-4 text-2xl">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</p>
               </div>
             </div>
           </div>
@@ -47,22 +60,58 @@ export default function Home() {
           <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
             {/* Indicador 1 */}
             <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
-              <p className="font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">+200</p>
+              <p
+                className="font-bold text-4xl lg:text-5xl bg-clip-text text-transparent"
+                style={{
+                  background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                +200
+              </p>
               <p className="text-gray-400 mt-2 text-[1.35rem]">Proyectos realizados</p>
             </div>
             {/* Indicador 2 */}
             <div className="relative px-6 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
-              <p className="font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">+22</p>
+              <p
+                className="font-bold text-4xl lg:text-5xl bg-clip-text text-transparent"
+                style={{
+                  background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                +22
+              </p>
               <p className="text-gray-400 mt-2 text-[1.35rem]">Años de experiencia</p>
             </div>
             {/* Indicador 3 */}
             <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
-              <p className="font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">+100</p>
+              <p
+                className="font-bold text-4xl lg:text-5xl bg-clip-text text-transparent"
+                style={{
+                  background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                +100
+              </p>
               <p className="text-gray-400 mt-2 text-[1.35rem]">Colaboradores en distintas especialidades</p>
             </div>
             {/* Indicador 4 */}
             <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
-              <p className="font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">3</p>
+              <p
+                className="font-bold text-4xl lg:text-5xl bg-clip-text text-transparent"
+                style={{
+                  background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                3
+              </p>
               <p className="text-gray-400 mt-2 text-[1.35rem]">Oficinas en Latam</p>
             </div>
           </div>
@@ -83,43 +132,61 @@ export default function Home() {
               {/* Card 1: Inteligencia Artificial */}
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-3xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
-                  <Image src="/images/general/GalileoIALogo.svg" alt="icon Galileo IA" width={279} height={74} />
+                <div className="bg-linear-to-br rounded-3xl from-red-400 to-orange-400 h-40 lg:h-60 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
+                  <Image
+                    src="/images/general/GalileoIALogo.svg"
+                    alt="icon Galileo IA"
+                    width={279}
+                    height={74}
+                    className="w-[70%] h-auto lg:w-auto"
+                  />
                 </div>
 
                 {/* Content Section */}
                 <div className="p-8 text-gray-600">
-                  <p className="text-[1.3rem] mb-6">
+                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-6">
                     Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones.
                   </p>
                 </div>
               </div>
 
               {/* Card 2: Publicidad Programática */}
-              <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+              <div className="bg-white rounded-4xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-3xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
-                  <Image src="/images/general/AthenaAdsLogo.svg" alt="icon AthenaAds" width={300} height={83} />
+                <div className="bg-linear-to-br rounded-4xl from-lime-400 to-green-400 h-40 lg:h-60 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
+                  <Image
+                    src="/images/general/AthenaAdsLogo.svg"
+                    alt="icon AthenaAds"
+                    width={300}
+                    height={83}
+                    className="w-[70%] h-auto lg:w-auto"
+                  />
                 </div>
 
                 {/* Content Section */}
                 <div className="p-8 text-gray-600">
-                  <p className="text-[1.3rem] mb-6">
+                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-6">
                     Especialistas en publicidad programática, que desarrolla soluciones personalizadas y efectivas para cada marca.
                   </p>
                 </div>
               </div>
 
               {/* Card 3: Medios On y Off */}
-              <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+              <div className="bg-white rounded-4xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-3xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
-                  <Image src="/images/general/AttachMediaLogo.svg" alt="icon Attach Media" width={239} height={96} />
+                <div className="bg-linear-to-br rounded-4xl from-blue-400 to-cyan-400 h-40 lg:h-60 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
+                  <Image
+                    src="/images/general/AttachMediaLogo.svg"
+                    alt="icon Attach Media"
+                    width={239}
+                    height={96}
+                    className="w-[70%] h-auto lg:w-auto"
+                  />
                 </div>
 
                 {/* Content Section */}
                 <div className="p-8 text-gray-600">
-                  <p className="text-[1.3rem] mb-6">
+                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-6">
                     Agencia integral de medios y soluciones digitales que combina estrategia, data y tecnología para diseñar campañas efectivas.
                   </p>
                 </div>
@@ -140,7 +207,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-10">
                 {/* Carlo R.*/}
                 <div className="relative">
-                  <Image src="/images/nosotros/carlo-rodriguez-foto.jpg" alt="Carlo Rodriguez" width={361} height={423} />
+                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/carlo-rodriguez-foto.jpg" alt="Carlo Rodriguez" width={361} height={423} />
                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Carlo Rodriguez</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">CEO Attach</p>
@@ -150,7 +217,7 @@ export default function Home() {
 
                 {/*Fernando S.*/}
                 <div className="relative">
-                  <Image src="/images/nosotros/fernando-salazar-foto.jpg" alt="Fernando Salazar" width={361} height={423} />
+                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/fernando-salazar-foto.jpg" alt="Fernando Salazar" width={361} height={423} />
                    <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Fernando Salazar</p>
                     <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">COO Attach</p>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import ResponsiveHeading from "./ResponsiveHeading";
 
 export default function GalileoSolutions() {
     const [openSection, setOpenSection] = useState<string>("saas");
@@ -18,9 +19,18 @@ export default function GalileoSolutions() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 {/* Título y subtítulo */}
                 <div className="text-center mb-14">
-                    <h2 className="text-[48px] font-semibold text-[#818181] mb-2">
+                    <ResponsiveHeading
+                        as="h2"
+                        sizeMobile="text-3xl"
+                        sizeTablet="text-4xl"
+                        sizeDesktop="48px"
+                        color="#818181"
+                        weight="semibold"
+                        align="center"
+                        marginBottomMobile="mb-2"
+                    >
                         De la estrategia a la acción
-                    </h2>
+                    </ResponsiveHeading>
                     <p className="text-[#818181] text-[20px]">
                         Descubre cómo podemos apoyarte.
                     </p>

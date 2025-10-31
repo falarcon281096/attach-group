@@ -32,12 +32,19 @@ export default function Home() {
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold mb-6 lg:mb-8 lg:mr-4 hidden lg:block">
                   Tecnología y estrategia para llevar tu negocio al siguiente nivel
                 </h1>
-                <p className="text-base sm:text-lg lg:text-2xl text-white mb-8 max-w-lg mx-auto lg:mx-0">
+                <p
+                  className="text-base font-normal sm:text-lg lg:text-2xl mb-8 max-w-lg mx-auto lg:mx-0 bg-clip-text text-transparent"
+                  style={{
+                    background: 'linear-gradient(270deg, #C5C5C5 0%, #E9E9E9 12.02%, #FFFFFF 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
                   Transformamos tus desafíos en oportunidades de crecimiento. Combinamos visión estratégica y
                   soluciones tecnológicas para impulsar resultados reales y medibles.
                 </p>
                 <div className="flex lg:justify-start">
-                  <Link href="/nosotros/" className="bg-white text-[#1840e2] px-8 py-3 sm:px-10 sm:py-4 rounded-lg font-extrabold text-base sm:text-lg hover:bg-white/90 inline-flex items-center">
+                  <Link href="/nosotros/" className="bg-white text-[#1840e2] px-8 py-3 sm:px-10 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-white/90 inline-flex items-center">
                     Saber más
                     <svg
                       className="ml-2 w-4 h-4 sm:w-5 sm:h-5"
@@ -96,7 +103,10 @@ export default function Home() {
             {/* Card 1: Inteligencia Artificial */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
-              <div className="bg-linear-to-br rounded-2xl from-red-400 to-orange-400 h-60 flex items-center justify-center p-8">
+            <div
+              className="rounded-2xl h-60 flex items-center justify-center p-8"
+              style={{ background: 'linear-gradient(317.2deg, #FFC351 0%, #FF3F73 100%)' }}
+            >
                 <Image className="w-65" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
               </div>
 
@@ -117,7 +127,10 @@ export default function Home() {
             {/* Card 2: Publicidad Programática */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
-              <div className="bg-linear-to-br rounded-2xl from-lime-400 to-green-400 h-60 flex items-center justify-center p-8">
+            <div
+              className="rounded-2xl h-60 flex items-center justify-center p-8"
+              style={{ background: 'linear-gradient(320.61deg, #22D1C4 0%, #E2E830 100%)' }}
+            >
                 <Image className="w-65" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
               </div>
 
@@ -138,7 +151,10 @@ export default function Home() {
             {/* Card 3: Medios On y Off */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
-              <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-60 flex items-center justify-center p-8">
+            <div
+              className="rounded-2xl h-60 flex items-center justify-center p-8"
+              style={{ background: 'linear-gradient(272.19deg, #22D1C4 0%, #2F7DE0 100%)' }}
+            >
                 <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
               </div>
 
@@ -372,7 +388,16 @@ export default function Home() {
       {/*Partner Section*/}
       <div className="bg-white rounded-b-[3rem] py-20">
         <div className="px-6 lg:mx-30 lg:px-25">
-        <h2 className="px-0 lg:px-30 lg:text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6" style={{ filter: 'drop-shadow(22px 13px 107.3px rgba(24, 64, 226, 0.5))' }}>
+        <h2
+          className="px-0 lg:px-30 lg:text-center text-4xl lg:text-5xl bg-clip-text text-transparent font-bold mb-6 inline-block"
+          style={{
+            background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            filter: 'drop-shadow(0px 4px 102.3px rgba(24, 64, 226, 0.5))',
+            textShadow: '0px 4px 102.3px rgba(24, 64, 226, 0.5)',
+          }}
+        >
           Somos partners de las mejores plataformas tecnológicas
         </h2>
 
@@ -419,7 +444,7 @@ export default function Home() {
       {/* CTA Talk Us */}
       <section className="pb-17 lg:pr-30">
         <div className="flex flex-col gap-10 px-6 lg:pl-30 pt-20 pb-17 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-5xl text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl max-w-5xl font-semibold text-white">
             Hablemos sobre cómo potenciar juntos el crecimiento de tu empresa
           </h2>
 

@@ -10,9 +10,9 @@ export default function AthenaPersonalization() {
                         <h2 className="hero-title-override gradient-text text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent">
                             Personalización
                         </h2>
-                        <p className="font-['Graphik'] text-base md:text-xl text-gray-500">
+                        <div className="font-['Graphik'] text-[14px] md:text-[20px] text-gray-500">
                             Cada marca tiene una historia única, y tus campañas deben reflejar esa singularidad en cada mensaje y canal. Por eso, nuestras soluciones son diseñadas en función de tu mensaje, presupuesto y objetivos.
-                        </p>
+                        </div>
                     </div>
 
                     {/* Right Side - 65% */}
@@ -26,9 +26,20 @@ export default function AthenaPersonalization() {
                                     fill
                                     className="object-cover"
                                 />
-                                <p className="relative z-10 text-white pb-6 md:pb-8" style={{ fontFamily: 'Graphik', fontSize: '24px', fontWeight: 600, lineHeight: '28px' }}>
+                                <div
+                                    className="text-[14px] md:text-[20px] relative z-10 pb-6 md:pb-8 bg-clip-text text-transparent"
+                                    style={{
+                                        fontFamily: 'Graphik',
+                                        fontWeight: 600,
+                                        lineHeight: '28px',
+                                        background: 'linear-gradient(270deg, #63B8FF 0%, #D3D3D3 48.96%, rgba(255, 255, 255, 0.6) 100%)',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                        
+                                    }}
+                                >
                                     Audiencia
-                                </p>
+                                </div>
                             </div>
 
                             {/* Card 2 - Ecosistema de medios */}
@@ -39,9 +50,16 @@ export default function AthenaPersonalization() {
                                     fill
                                     className="object-cover"
                                 />
-                                <p className="relative z-10 text-white pb-6 md:pb-8 text-center px-4" style={{ fontFamily: 'Graphik', fontSize: '24px', fontWeight: 600, lineHeight: '28px' }}>
+                                <div className="text-[14px] md:text-[20px] relative z-10 text-white pb-6 md:pb-8 text-center px-4" style={{
+                                        fontFamily: 'Graphik',
+                                        fontWeight: 600,
+                                        lineHeight: '28px',
+                                        background: 'linear-gradient(270deg, #63B8FF 0%, #D3D3D3 48.96%, rgba(255, 255, 255, 0.6) 100%)',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                    }}>
                                     Ecosistema de medios
-                                </p>
+                                </div>
                             </div>
 
                             {/* Card 3 - Formato */}
@@ -52,9 +70,16 @@ export default function AthenaPersonalization() {
                                     fill
                                     className="object-cover"
                                 />
-                                <p className="relative z-10 text-white pb-6 md:pb-8" style={{ fontFamily: 'Graphik', fontSize: '24px', fontWeight: 600, lineHeight: '28px' }}>
+                                <div className="text-[14px] md:text-[20px] relative z-10 text-white pb-6 md:pb-8" style={{
+                                        fontFamily: 'Graphik',
+                                        fontWeight: 600,
+                                        lineHeight: '28px',
+                                        background: 'linear-gradient(270deg, #63B8FF 0%, #D3D3D3 48.96%, rgba(255, 255, 255, 0.6) 100%)',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                    }}>
                                     Formato
-                                </p>
+                                </div>
                             </div>
                         </div>
                     </div>

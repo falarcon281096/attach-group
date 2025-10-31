@@ -7,43 +7,41 @@ interface GradientColorStop {
   position: string;
 }
 
-type CssLength = string | number;
-
 interface GradientPlusProps {
   className?: string;
   containerClassName?: string;
   // Position properties
-  left?: CssLength;
-  leftMobile?: CssLength;
-  leftTablet?: CssLength;
-  leftDesktop?: CssLength;
-  right?: CssLength;
-  rightMobile?: CssLength;
-  rightTablet?: CssLength;
-  rightDesktop?: CssLength;
-  top?: CssLength;
-  topMobile?: CssLength;
-  topTablet?: CssLength;
-  topDesktop?: CssLength;
-  bottom?: CssLength;
-  bottomMobile?: CssLength;
-  bottomTablet?: CssLength;
-  bottomDesktop?: CssLength;
+  left?: string;
+  leftMobile?: string;
+  leftTablet?: string;
+  leftDesktop?: string;
+  right?: string;
+  rightMobile?: string;
+  rightTablet?: string;
+  rightDesktop?: string;
+  top?: string;
+  topMobile?: string;
+  topTablet?: string;
+  topDesktop?: string;
+  bottom?: string;
+  bottomMobile?: string;
+  bottomTablet?: string;
+  bottomDesktop?: string;
   // Padding properties
-  paddingBottom?: CssLength;
-  paddingTop?: CssLength;
-  paddingLeft?: CssLength;
-  paddingRight?: CssLength;
-  padding?: CssLength;
+  paddingBottom?: string;
+  paddingTop?: string;
+  paddingLeft?: string;
+  paddingRight?: string;
+  padding?: string;
   // Transform properties
   transform?: string;
   rotate?: string;
-  translateX?: CssLength;
-  translateY?: CssLength;
+  translateX?: string;
+  translateY?: string;
   // Size properties
-  sizeMobile?: CssLength;
-  sizeTablet?: CssLength;
-  sizeDesktop?: CssLength;
+  sizeMobile?: string;
+  sizeTablet?: string;
+  sizeDesktop?: string;
   // Layer properties
   zIndex?: string | number;
   // Gradient properties
@@ -101,12 +99,6 @@ export default function GradientPlus({
   const spanRef = useRef<HTMLSpanElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const normalizeLength = (value: CssLength | undefined): string | undefined => {
-    if (value === undefined) return undefined;
-    if (typeof value === 'number') return `${value}px`;
-    return value;
-  };
-
   // Build gradient string
   const buildGradient = (): string => {
     // If custom gradient is provided, use it directly
@@ -148,26 +140,34 @@ export default function GradientPlus({
   const gradientString = buildGradient();
 
   useEffect(() => {
-    if (!spanRef.current || !containerRef.current) return;
+    if (!spanRef.current) return;
 
-    const updateResponsiveStyles = () => {
-      if (!spanRef.current || !containerRef.current) return;
+    const updateSize = () => {
+      if (!spanRef.current) return;
+      const width = window.innerWidth;
+      if (width >= 1024) {
+        spanRef.current.style.fontSize = sizeDesktop;
+      } else if (width >= 768) {
+        spanRef.current.style.fontSize = sizeTablet;
+      } else {
+        spanRef.current.style.fontSize = sizeMobile;
+      }
+    };
+
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, [sizeMobile, sizeTablet, sizeDesktop]);
+
+  // Apply responsive inline positions to avoid relying on dynamic Tailwind classes
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const applyResponsivePositions = () => {
+      if (!containerRef.current) return;
       const width = window.innerWidth;
 
-      // Update font size responsively
-      if (width >= 1024) {
-        const v = normalizeLength(sizeDesktop);
-        if (v !== undefined) spanRef.current.style.fontSize = v;
-      } else if (width >= 768) {
-        const v = normalizeLength(sizeTablet);
-        if (v !== undefined) spanRef.current.style.fontSize = v;
-      } else {
-        const v = normalizeLength(sizeMobile);
-        if (v !== undefined) spanRef.current.style.fontSize = v;
-      }
-
-      // Helper to pick value based on breakpoint
-      const pick = (m?: CssLength, t?: CssLength, d?: CssLength): CssLength | undefined => {
+      const pick = (m?: string, t?: string, d?: string): string | undefined => {
         const mv = m;
         const tv = t ?? mv;
         const dv = d ?? tv;
@@ -176,105 +176,103 @@ export default function GradientPlus({
         return mv;
       };
 
-      // Update positions responsively (only when single-value prop is not provided)
-      if (!left) {
+      // Left/Right
+      if (left === undefined) {
         const v = pick(leftMobile, leftTablet, leftDesktop);
-        const nv = normalizeLength(v);
-        if (nv !== undefined) containerRef.current.style.left = nv;
+        if (v !== undefined) {
+          containerRef.current.style.left = v;
+          containerRef.current.style.right = '';
+        }
       }
-      if (!right) {
+      if (right === undefined) {
         const v = pick(rightMobile, rightTablet, rightDesktop);
-        const nv = normalizeLength(v);
-        if (nv !== undefined) containerRef.current.style.right = nv;
+        if (v !== undefined) {
+          containerRef.current.style.right = v;
+          // If right is set, clear left so positioning isn't conflicted
+          if (left === undefined) containerRef.current.style.left = '';
+        }
       }
-      if (!top) {
+
+      // Top/Bottom
+      if (top === undefined) {
         const v = pick(topMobile, topTablet, topDesktop);
-        const nv = normalizeLength(v);
-        if (nv !== undefined) containerRef.current.style.top = nv;
+        if (v !== undefined) containerRef.current.style.top = v;
       }
-      if (!bottom) {
+      if (bottom === undefined) {
         const v = pick(bottomMobile, bottomTablet, bottomDesktop);
-        const nv = normalizeLength(v);
-        if (nv !== undefined) containerRef.current.style.bottom = nv;
+        if (v !== undefined) containerRef.current.style.bottom = v;
       }
     };
 
-    updateResponsiveStyles();
-    window.addEventListener('resize', updateResponsiveStyles);
-    return () => window.removeEventListener('resize', updateResponsiveStyles);
+    applyResponsivePositions();
+    window.addEventListener('resize', applyResponsivePositions);
+    return () => window.removeEventListener('resize', applyResponsivePositions);
   }, [
-    sizeMobile,
-    sizeTablet,
-    sizeDesktop,
-    left,
-    leftMobile,
-    leftTablet,
-    leftDesktop,
-    right,
-    rightMobile,
-    rightTablet,
-    rightDesktop,
-    top,
-    topMobile,
-    topTablet,
-    topDesktop,
-    bottom,
-    bottomMobile,
-    bottomTablet,
-    bottomDesktop,
+    left, leftMobile, leftTablet, leftDesktop,
+    right, rightMobile, rightTablet, rightDesktop,
+    top, topMobile, topTablet, topDesktop,
+    bottom, bottomMobile, bottomTablet, bottomDesktop,
   ]);
 
-  // Build position classes using Tailwind arbitrary values
-  const buildPositionClasses = (prop: string | undefined, mobile: string | undefined, tablet: string | undefined, desktop: string | undefined, prefix: string): string => {
-    if (prop) return ""; // If single value provided, use inline style
-    if (!mobile && !tablet && !desktop) return "";
-    
-    const mobileValue = mobile || "0";
-    const tabletValue = tablet || mobileValue;
-    const desktopValue = desktop || tabletValue;
-    
-    if (mobileValue === tabletValue && tabletValue === desktopValue) {
-      return `${prefix}-[${mobileValue}]`;
-    }
-    return `${prefix}-[${mobileValue}] md:${prefix}-[${tabletValue}] lg:${prefix}-[${desktopValue}]`;
+  // Build position classes using Tailwind arbitrary values, supporting negative via '-left-[...]'
+  const mkClass = (prefix: string, value: string): string => {
+    const trimmed = value.trim();
+    const isNegative = trimmed.startsWith('-');
+    const abs = isNegative ? trimmed.slice(1) : trimmed;
+    return `${isNegative ? '-' : ''}${prefix}-[${abs}]`;
   };
 
-  // Position handled via inline styles to support decimals and dynamic values reliably
-  const leftClasses = "";
-  const rightClasses = "";
-  const topClasses = "";
-  const bottomClasses = "";
+  const buildPositionClasses = (
+    prop: string | undefined,
+    mobile: string | undefined,
+    tablet: string | undefined,
+    desktop: string | undefined,
+    prefix: string
+  ): string => {
+    if (prop) return ""; // If single inline value provided, skip classes
+    if (!mobile && !tablet && !desktop) return "";
+
+    const mv = mobile;
+    const tv = tablet ?? mv;
+    const dv = desktop ?? tv;
+    if (!mv && !tv && !dv) return "";
+
+    if (mv && tv === mv && dv === mv) {
+      return mkClass(prefix, mv);
+    }
+    const parts: string[] = [];
+    if (mv) parts.push(mkClass(prefix, mv));
+    if (tv && tv !== mv) parts.push(`md:${mkClass(prefix, tv)}`);
+    if (dv && dv !== tv) parts.push(`lg:${mkClass(prefix, dv)}`);
+    return parts.join(' ');
+  };
+
+  const leftClasses = buildPositionClasses(left, leftMobile, leftTablet, leftDesktop, "left");
+  const rightClasses = buildPositionClasses(right, rightMobile, rightTablet, rightDesktop, "right");
+  const topClasses = buildPositionClasses(top, topMobile, topTablet, topDesktop, "top");
+  const bottomClasses = buildPositionClasses(bottom, bottomMobile, bottomTablet, bottomDesktop, "bottom");
 
   // Build inline styles for position (when single value is provided)
   const positionStyle: React.CSSProperties = {};
-  const leftNorm = normalizeLength(left);
-  const rightNorm = normalizeLength(right);
-  const topNorm = normalizeLength(top);
-  const bottomNorm = normalizeLength(bottom);
-  if (leftNorm !== undefined) positionStyle.left = leftNorm;
-  if (rightNorm !== undefined) positionStyle.right = rightNorm;
-  if (topNorm !== undefined) positionStyle.top = topNorm;
-  if (bottomNorm !== undefined) positionStyle.bottom = bottomNorm;
+  if (left) positionStyle.left = left;
+  if (right) positionStyle.right = right;
+  if (top) positionStyle.top = top;
+  if (bottom) positionStyle.bottom = bottom;
   
   // Build padding styles
-  if (padding !== undefined) {
-    const v = normalizeLength(padding);
-    if (v !== undefined) positionStyle.padding = v;
+  if (padding) {
+    positionStyle.padding = padding;
   } else {
-    const pt = normalizeLength(paddingTop);
-    const pb = normalizeLength(paddingBottom);
-    const pl = normalizeLength(paddingLeft);
-    const pr = normalizeLength(paddingRight);
-    if (pt !== undefined) positionStyle.paddingTop = pt;
-    if (pb !== undefined) positionStyle.paddingBottom = pb;
-    if (pl !== undefined) positionStyle.paddingLeft = pl;
-    if (pr !== undefined) positionStyle.paddingRight = pr;
+    if (paddingTop) positionStyle.paddingTop = paddingTop;
+    if (paddingBottom) positionStyle.paddingBottom = paddingBottom;
+    if (paddingLeft) positionStyle.paddingLeft = paddingLeft;
+    if (paddingRight) positionStyle.paddingRight = paddingRight;
   }
 
   // Build transform
   const transformParts: string[] = [];
-  if (translateX !== undefined) transformParts.push(`translateX(${normalizeLength(translateX)})`);
-  if (translateY !== undefined) transformParts.push(`translateY(${normalizeLength(translateY)})`);
+  if (translateX) transformParts.push(`translateX(${translateX})`);
+  if (translateY) transformParts.push(`translateY(${translateY})`);
   if (rotate) transformParts.push(`rotate(${rotate})`);
   if (transform) transformParts.push(transform);
   if (transformParts.length > 0) {
@@ -292,7 +290,7 @@ export default function GradientPlus({
   return (
     <div 
       ref={containerRef}
-      className={`absolute ${defaultBottomClass} ${containerClassName}`.trim().replace(/\s+/g, ' ')}
+      className={`absolute ${defaultBottomClass} ${leftClasses} ${rightClasses} ${topClasses} ${bottomClasses} ${containerClassName}`.trim().replace(/\s+/g, ' ')}
       style={positionStyle}
     >
       <span

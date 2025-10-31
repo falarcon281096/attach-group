@@ -134,6 +134,11 @@ export default function AthenaAds() {
           line-height: 42px !important;
         }
 
+        /* Mobile overrides */
+        @media (max-width: 767px) {
+          .athena-ads-page .premium-inventory-h3 { font-size: 20px !important; line-height: 26px !important; }
+        }
+
         .athena-ads-page h3 {
           font-family: 'Graphik', sans-serif;
           font-size: 48px;
@@ -179,9 +184,9 @@ export default function AthenaAds() {
               </h2>
             </div>
 
-            <p className="font-['graphik'] font-normal text-base md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[70%] lg:w-[45%]">
-              Incorporamos herramientas exclusivas que nos permiten <br />conectar data online y offline, logrando segmentaciones con precisión
-            </p>
+            <div className="font-['graphik'] font-normal text-[14px] md:text-[20px]  text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[70%] lg:w-[45%] pl-0 md:pl-0">
+              Incorporamos herramientas exclusivas que nos permiten conectar data online y offline, logrando segmentaciones con precisión
+            </div>
 
             {/* Grid for 2 images */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 lg:gap-10 mb-8 md:mb-12 max-w-7xl mx-auto">
@@ -196,12 +201,12 @@ export default function AthenaAds() {
                   />
                 </div>
                 <div className="text-center p-3 md:p-4">
-                  <h4 className="text-lg md:text-xl font-bold mb-2 font-['Graphik'] gradient-text">
+                  <h6 className="text-[16px] md:text-xl font-semibold mb-2 font-['Graphik'] gradient-text">
                     Phone ID Audiences
-                  </h4>
-                  <p className="text-sm md:text-base text-gray-500 px-3 md:px-0">
+                  </h6>
+                  <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0">
                     Impacta usuarios en horarios y ubicaciones clave.
-                  </p>
+                  </div>
                 </div>
               </div>
 
@@ -216,18 +221,18 @@ export default function AthenaAds() {
                   />
                 </div>
                 <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center p-4 md:p-0">
-                  <h4 className="text-lg md:text-xl font-bold mb-2 font-['Graphik'] gradient-text">
+                  <h6 className="text-[16px] md:text-xl font-bold mb-2 font-['Graphik'] gradient-text">
                     Digital out of home by User Movility
-                  </h4>
-                  <p className="text-sm md:text-base text-gray-500 px-3 md:px-0">
+                  </h6>
+                  <div className="text-[14px] md:text-[20px]  text-gray-500 px-3 md:px-0">
                     Pantallas digitales que se activan cuando tu usuario está cerca.
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Premium Inventory Section */}
-            <h3 className="premium-inventory-h3 mb-8 md:mb-12 text-[rgba(129,129,129,1)] w-full md:w-[80%] lg:w-[55%] mx-auto text-center">
+            <h3 className="text-[32px] md:text-[24px]  premium-inventory-h3 mb-8 md:mb-12 text-[rgba(129,129,129,1)] w-full md:w-[80%] lg:w-[55%] mx-auto text-center">
               Y potenciamos el impacto en un entorno premium, dentro de nuestro inventario podrás encontrar opciones como
             </h3>
 
@@ -244,12 +249,12 @@ export default function AthenaAds() {
                   />
                 </div>
                 <div className="text-center p-3 md:p-4">
-                  <h4 className="text-1xl md:text-2xl font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
+                  <div className="text-[16px] md:text-[24px] font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
                     Connected TV
-                  </h4>
-                  <p className="text-sm md:text-base text-gray-500 px-3 md:px-0">
-                    Llega a audiencias masivas en <br />streaming con segmentación avanzada.
-                  </p>
+                  </div>
+                  <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0 font-['Graphik']" >
+                    Llega a audiencias masivas en streaming con segmentación avanzada.
+                  </div>
                 </div>
               </div>
 
@@ -264,12 +269,12 @@ export default function AthenaAds() {
                   />
                 </div>
                 <div className="text-center p-3 md:p-4">
-                  <h4 className="text-1xl md:text-2xl font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
+                  <div className="text-[16px] md:text-[24px] font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
                     Digital Screens (Indoor & Outdoor)
-                  </h4>
-                  <p className="text-sm md:text-base text-gray-500 px-3 md:px-0">
-                    Pantallas digitales estratégicas en <br /> puntos de alto tráfico y cobertura masiva.
-                  </p>
+                  </div>
+                  <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0 font-['Graphik'] w-[50%] md:w-[100%] mx-auto">
+                    Pantallas digitales estratégicas en puntos de alto tráfico y cobertura masiva.
+                  </div>
                 </div>
               </div>
 
@@ -284,12 +289,12 @@ export default function AthenaAds() {
                   />
                 </div>
                 <div className="text-center p-3 md:p-4">
-                  <h4 className="text-1xl md:text-2xl font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
+                  <div className="text-[16px] md:text-[24px] font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
                     Gaming
-                  </h4>
-                  <p className="text-sm md:text-base text-gray-500 px-3 md:px-0">
-                    Anuncios integrados en <br />videojuegos (display, video, audio).
-                  </p>
+                  </div>
+                  <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0 font-['Graphik'] w-[50%] md:w-[100%] mx-auto">
+                    Anuncios integrados en videojuegos (display, video, audio).
+                  </div>
                 </div>
               </div>
             </div>
@@ -306,13 +311,13 @@ export default function AthenaAds() {
         {/* Section - Innovación que impulsa el rendimiento */}
         <section className="py-10 md:py-16 lg:py-20 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
-            <h2 className="hero-title-override gradient-text text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center">
+            <h2 className="text-[24px] md:text-[48px] hero-title-override gradient-text  font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center">
               Innovación que impulsa el rendimiento
             </h2>
 
-            <p className="text-base md:text-xl text-gray-500 mb-8 md:mb-12 text-center font-['Graphik'] mx-auto w-full md:w-[70%] lg:w-[65%]">
+            <div className="text-[16px] md:text-[20px] text-gray-500 mb-8 md:mb-12 text-center font-['Graphik'] mx-auto w-full md:w-[70%] lg:w-[65%]">
               Cada formato está diseñado para captar atención, generar interacción y <br /> maximizar el impacto de tus campañas programáticas. Algunos ejemplos <br /> de lo que hemos hecho.
-            </p>
+            </div>
 
             {/* Three Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
@@ -337,12 +342,12 @@ export default function AthenaAds() {
                   </div>
                 </div>
                 <div className="p-4 md:p-6">
-                  <h3 className="text-xl font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
+                  <div className="text-[14px] md:text-[20px] font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
                     <b>Social Extender</b>
-                  </h3>
-                  <p className="text-base px-3 md:px-0" style={{ color: 'rgba(129, 129, 129, 1)' }}>
+                  </div>
+                  <div className="text-[14px] md:text-[20px]   px-3 md:px-0" style={{ color: 'rgba(129, 129, 129, 1)' }}>
                     Diseñamos anuncios con look & feel de videos de TikTok o Instagram Reels, pero fuera de esas interfaces, en otros sitios y apps programáticas.
-                  </p>
+                  </div>
                 </div>
               </div>
 
@@ -367,12 +372,12 @@ export default function AthenaAds() {
                   </div>
                 </div>
                 <div className="p-4 md:p-6">
-                  <h3 className="text-xl font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
+                  <div className="text-[14px] md:text-[20px]  font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
                     <b>Rich Media Interactivo</b>
-                  </h3>
-                  <p className="text-base px-3 md:px-0" style={{ color: 'rgba(129, 129, 129, 1)' }}>
+                  </div>
+                  <div className="text-[14px] md:text-[20px]   px-3 md:px-0" style={{ color: 'rgba(129, 129, 129, 1)' }}>
                     Realizamos banners que permiten interacción (juegos, encuestas, mapas, galerías).
-                  </p>
+                  </div>
                 </div>
               </div>
 
@@ -397,12 +402,12 @@ export default function AthenaAds() {
                   </div>
                 </div>
                 <div className="p-4 md:p-6">
-                  <h3 className="text-xl font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
+                  <div className="text-[14px] md:text-[20px] text-xl font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
                     <b>Tap to Map</b>
-                  </h3>
-                  <p className="text-base px-3 md:px-0" style={{ color: 'rgba(129, 129, 129, 1)' }}>
+                  </div>
+                  <div className="text-[14px] md:text-[20px]   px-3 md:px-0" style={{ color: 'rgba(129, 129, 129, 1)' }}>
                     Creamos un formato que integra un mapa dentro del anuncio, mostrando la tienda más cercana al usuario.
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -412,11 +417,11 @@ export default function AthenaAds() {
         {/* Section - Historias de impacto programático */}
         <section className="py-10 md:py-16 lg:py-20 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
-            <h2 className="hero-title-override gradient-text text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
+            <h2 className="text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
               Historias de impacto programático
             </h2>
 
-            <p className="text-base md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
+            <p className="text-[16px] md:text-[20px] md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
               Datos, estrategia y creatividad se combinan para crear resultados que <br />trascienden las métricas. Así generamos crecimiento sostenible con <br />Athena Ads.
             </p>
 

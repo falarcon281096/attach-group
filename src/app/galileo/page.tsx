@@ -21,7 +21,7 @@ export default function Home() {
                 >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-7xl mx-auto">
                         {/* === Bloque Izquierdo === */}
-                        <div className="text-white flex flex-col justify-center relative">
+                        <div className="text-white flex flex-col justify-center relative pt-6 sm:pt-8 md:pt-0">
                             <Image
                                 className="mb-6 w-[220px] sm:w-[260px] md:w-[300px] lg:w-[393px] h-auto"
                                 src="/images/galileo/galileo.png"
@@ -48,7 +48,7 @@ export default function Home() {
                         {/* === Bloque Derecho === */}
                         <div className="flex flex-col gap-8 sm:gap-10 relative w-full">
                             {/* Card 1 con "+" amarillo */}
-                            <div className="text-center relative bg-white text-gray-700 text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full font-['graphik']">
+                            <div className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full font-['graphik'] " style={{color:'#818181'}}>
                                 {/* + decorativo */}
                                 <span
                                     className="absolute -left-6 -top-5 text-[48px] font-bold text-[#FFC351] select-none"
@@ -67,7 +67,7 @@ export default function Home() {
                             </div>
 
                             {/* Card 2 con "+" rosado */}
-                            <div className="text-center relative bg-white text-gray-700 text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full font-['graphik']">
+                            <div style={{color:'#818181'}} className="text-center relative bg-white  text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full font-['graphik']">
                                 {/* + decorativo */}
                                 <span
                                     className="absolute -right-6 -bottom-5 text-[48px] font-bold text-[#FF3F73] select-none"
@@ -256,7 +256,7 @@ export default function Home() {
                 </p>
 
                 {/* === Grid de casos === */}
-                <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-0 md:px-6">
 
                     {/* === Card 1: Cayetano === */}
                     <Link
