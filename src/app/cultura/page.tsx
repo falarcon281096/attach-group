@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import GradientPlus from '@/components/GradientPlus';
+import PositionedPlus from '@/components/PositionedPlus';
+import ImageWithPlus from '@/components/ImageWithPlus';
 
 export default function Home() {
 
@@ -147,22 +149,20 @@ export default function Home() {
       {/* nuestro proposito */}
       <div className='flex py-20 bg-white w-full'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-40 w-full'>
-          <div className='relative order-2 lg:order-1 overflow-visible'>
-            <div className="overflow-hidden rounded-r-3xl rounded-l-none pr-10 lg:pr-0">
-              <Image
+          <div className='relative order-2 lg:order-1 pr-10 lg:pr-0'>
+            <ImageWithPlus
                 src='/images/cultura/nuestro-proposito.webp'
                 alt='cultura-proposito'
                 width={600}
                 height={400}
-                className='block w-full h-auto'
+                position="RIGHT_DOWN"
+                paddingMobile="2rem"
+                paddingDesktop="1rem" 
+                imageClassName="block w-full h-auto"
+                containerClassName="w-full"
+                sizePercent={0.22}
+                overhangPercent={0.25}
               />
-            </div>
-            <GradientPlus 
-              rightMobile="1rem"
-              rightDesktop="-3rem"
-              bottomMobile="2rem"
-              bottomDesktop="1rem"
-            />
           </div>
           <div className='flex flex-col  gap-5 justify-center pr-5 pl-5 lg:pl-0 lg:pr-50 order-1 lg:order-2'>
             <h4 className='text-[#1840E2] font-semibold text-4xl lg:text-5xl'>
