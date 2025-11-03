@@ -49,7 +49,7 @@ export default function AnimatedGradient() {
                         </div>
 
                         <div className="text-[24px] md:text-[40px] font-['graphik'] ml-0 md:ml-25 font-bold mb-3 md:mb-4 md:w-[70%]">
-                            Publicidad   programática efectiva
+                            Publicidad programática efectiva
                         </div>
 
                         <div className="ml-0 md:ml-25 w-full md:w-[65%] h-1 bg-white mb-4 md:mb-6"></div>

@@ -209,7 +209,6 @@ export default function Home() {
 
               {/* Image placeholder */}
               <div className="relative">
-                <span className="hidden absolute -left-6 bottom-16 hidden lg:block h-14 w-14 rounded-2xl bg-gradient-to-br from-[#2147ff] to-[#612bb8]"></span>
                 <div className="relative rounded-[32px]  shadow-[0_20px_60px_rgba(34,63,218,0.25)] bg-gradient-to-br from-[#dfe6ff] to-[#f3e6ff]">
                   <div className="aspect-[3/4] relative">
                      
