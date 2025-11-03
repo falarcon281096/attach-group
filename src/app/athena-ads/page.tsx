@@ -208,7 +208,7 @@ export default function AthenaAds() {
                     Impacta usuarios en horarios y ubicaciones clave.
                   </div>
                 </div>
-              </div>
+              </div>l
 
               {/* Second Image - 2/3 width */}
               <div className="md:col-span-2 bg-white border-2 border-[#1E120D1A] rounded-2xl md:rounded-3xl">

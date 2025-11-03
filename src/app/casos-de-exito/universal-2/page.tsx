@@ -49,7 +49,14 @@ export default function Home() {
                     pl-12
                     lg:pl-0
                     lg:relative 
-                    before:absolute before:inset-0 
+                    w-full
+                    lg:w-auto
+                    max-w-md
+                    lg:max-w-2xl
+                    mx-auto
+                    lg:mx-0
+                    before:absolute
+                    before:z-10
                     before:bg-[url('/images/general/attach_cross_white.png')]
                     before:bg-no-repeat
                     before:bg-center
@@ -60,10 +67,21 @@ export default function Home() {
                     before:w-17
                     before:h-17
                     lg:before:-translate-x-1/2
-                    before:-translate-x-[-0.5rem]
-                    lg:before:top-100
-                    before:top-45">
-                    <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/eluniversal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
+                    lg:before:bottom-0
+                    lg:before:left-0
+                    before:bottom-0
+                    before:left-0
+                    before:-translate-x-[-0.5rem]">
+                    <div className="relative w-full z-0">
+                      <Image 
+                        className="w-full h-auto rounded-l-[4rem] relative z-0" 
+                        src="/images/casos-de-exito/eluniversal2.webp" 
+                        alt="Home caminando hacia un portal con el logo de Attach" 
+                        width={800} 
+                        height={1000}
+                        style={{ width: '100%', height: 'auto' }}
+                      />
+                    </div>
                   </div>
             </div>
           </div>
