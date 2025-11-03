@@ -46,7 +46,7 @@ export default function Home() {
       id: 'apuesta-t-paid',
       title: 'Apuesta Total',
       tag: 'Paid Media',
-      image: '/images/casos-de-exito/apuestatotal.png',
+      image: '/images/casos-de-exito/apuestatotal2.webp',
     },
   ];
 
