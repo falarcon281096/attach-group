@@ -18,7 +18,7 @@ export default function Home() {
       id: 'apuesta-t-catalogo',
       title: 'Apuesta Total',
       tag: 'Catálogo dinámico',
-      image: '/images/casos-de-exito/apuestatotal.png',
+      image: '/images/casos-de-exito/apuestatotal.webp',
     },
     {
       link: '/casos-de-exito/cayetano',
