@@ -8,8 +8,10 @@ type Position = 'LEFT_UP' | 'LEFT_DOWN' | 'RIGHT_UP' | 'RIGHT_DOWN' | 'CENTER_UP
 interface ImageWithPlusProps {
   src: string;
   alt: string;
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
+  fill?: boolean;
+  sizes?: string;
   imageClassName?: string;
   containerClassName?: string;
   
@@ -46,8 +48,10 @@ interface ImageWithPlusProps {
 export default function ImageWithPlus({
   src,
   alt,
-  width = 600,
-  height = 400,
+  width,
+  height,
+  fill = false,
+  sizes,
   imageClassName = '',
   containerClassName = '',
   position = 'RIGHT_DOWN',
@@ -336,16 +340,26 @@ export default function ImageWithPlus({
   return (
     <div 
       ref={containerRef}
-      className={`relative overflow-visible ${containerClassName}`}
+      className={`relative overflow-visible ${fill ? 'h-full' : ''} ${containerClassName}`}
     >
-      <div ref={imageRef} className={`relative w-full ${getRoundedClasses()}`}>
-        <Image
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          className={`block w-full h-auto ${imageClassName}`}
-        />
+      <div ref={imageRef} className={`relative w-full ${fill ? 'h-full' : ''} ${getRoundedClasses()}`}>
+        {fill ? (
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            sizes={sizes}
+            className={`${imageClassName || 'object-cover'}`}
+          />
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            width={typeof width === 'number' ? width : 600}
+            height={typeof height === 'number' ? height : 400}
+            className={`block w-full h-auto ${imageClassName}`}
+          />
+        )}
       </div>
       <span 
         ref={plusRef}

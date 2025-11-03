@@ -30,21 +30,21 @@ export default function Home() {
             </span>
           </div>
           <div className='relative pl-10 overflow-visible'>
-            <div className="overflow-hidden rounded-l-3xl rounded-r-none">
-              <Image
+            <div className="rounded-l-3xl rounded-r-none">
+              <ImageWithPlus
                 src='/images/cultura/culturaAttach.webp'
                 alt='cultura-banner'
                 width={400}
                 height={600}
-                className='block w-full h-auto'
+                position="LEFT_DOWN"
+                paddingMobile="2rem"
+                paddingDesktop="1rem" 
+                imageClassName="block w-full h-auto"
+                containerClassName="w-full"
+                sizePercent={0.22}
+                overhangPercent={0.25}
               />
             </div>
-            <GradientPlus 
-              leftMobile="-1rem"
-              leftDesktop="-1.6rem"
-              bottomMobile="2rem"
-              bottomDesktop="1rem"
-            />
           </div>
         </div>
       </div>
@@ -53,21 +53,29 @@ export default function Home() {
       <div className='atm-content relative py-20  bg-white'>
         <div className='pr-15 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'>
           <div className='relative flex items-center justify-start py-10 order-2 lg:order-1 overflow-visible'>
-            <div className="relative w-full max-w-md lg:max-w-lg overflow-hidden rounded-r-3xl rounded-l-none aspect-[3/4]">
-              <Image
+            <div className="relative w-full max-w-md lg:max-w-lg rounded-r-3xl rounded-l-none aspect-[3/4]">
+              {/* <Image
                 src='/images/cultura/cultura-inspira.webp'
                 alt='cultura-inspira'
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className='object-cover'
+              /> */}
+              <ImageWithPlus
+                src='/images/cultura/cultura-inspira.webp'
+                alt='cultura-inspira'
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                position="RIGHT_DOWN"
+                paddingMobile="2rem"
+                paddingDesktop="1rem" 
+                imageClassName="object-cover"
+                containerClassName="w-full"
+                sizePercent={0.25}
+                overhangPercent={0.25}
               />
-            </div>
-            <GradientPlus 
-              rightMobile="-1.7rem"
-              rightDesktop="7rem"
-              bottomMobile="2rem"
-              bottomDesktop="1rem"
-            />
+            </div>  
+            
           </div>
           <div className='flex flex-col justify-center gap-10 order-1 lg:order-2 px-5 lg:pr-50'>
             <p className='text-[#1840E2] text-2xl lg:text-4xl'>

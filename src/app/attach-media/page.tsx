@@ -12,10 +12,10 @@ export default function AttachMediaPage() {
       
       {/* Hero Section */}
       <div className="relative rounded-b-4xl z-10 bg-linear-to-r from-[#2f7de1] to-[#25bbcd]">
-        <div className="px-6 md:px-30 pt-10 md:pt-20 pb-10 md:pb-16">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="px-6 md:px-30 pt-24 md:pt-20 pb-10 md:pb-16">
+          <div className="grid lg:grid-cols-2 gap-0 md:gap-12 items-center">
             {/* Left Content */}
-            <div className="pt-6 md:pt-10 text-white mr-0 md:mr-8">
+            <div className="pt-0  text-white mr-0 md:mr-8">
               {/* Logo Attach Media */}
               <div className="mb-6 md:mb-8">
                 <Image 
@@ -27,13 +27,13 @@ export default function AttachMediaPage() {
                 />
               </div>
               
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 leading-tight">
-                Tecnología y data<br className="hidden md:block" /> aplicada a los medios
+              <h1 className="text-[24px] md:text-[40px] font-['graphik'] font-semibold mb-2 leading-tight md:w-[80%]">
+                Tecnología y data aplicada a los medios
               </h1>
               {/* Línea blanca gruesa debajo del título */}
-              <div className="w-32 md:w-125 h-2 bg-white mb-2"></div>
+              <div className="w-32 md:w-125 h-2 bg-white mb-2 md:w-[70%] w-full"></div>
               
-              <p className="text-xl md:text-2xl text-white mb-6 md:mb-8 leading-relaxed">
+              <p className="text-[16px] md:text-[24px] font-normal font-['graphik'] text-white mb-6 md:mb-8 leading-relaxed">
                 Transformamos la inversión publicitaria en resultados reales para tu negocio
               </p>
             </div>
@@ -41,10 +41,10 @@ export default function AttachMediaPage() {
             {/* Right Content - Cards flotantes como en la imagen original */}
             <div className="relative ml-0 md:ml-16 mt-8 md:mt-0">
               {/* Cards Container */}
-              <div className="space-y-4 md:space-y-6 relative z-10">
+              <div className="space-y-4 md:space-y-6 px-7 md:px-0 relative z-10">
                 {/* First Card */}
                 <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 relative shadow-lg rounded-lg">
-                  <div className="absolute top-40 -left-6 hidden md:block">
+                  <div className="absolute top-40 -left-6 md:block">
                     <Image 
                       src="/images/general/attach_cross_blue.svg" 
                       alt="Plus" 
@@ -52,14 +52,14 @@ export default function AttachMediaPage() {
                       height={44} 
                     />
                   </div>
-                  <p className="text-base md:text-xl text-center text-gray-500 leading-relaxed">
+                  <p className="text-[14px] md:text-[20px] text-center text-gray-500 leading-relaxed">
                     Ayudamos a las marcas a <span className="text-blue-600 font-semibold">maximizar el impacto de su inversión</span> en medios, con una visión estratégica que conecta marketing y negocio. <span className="text-blue-600 font-semibold">Nuestro diferencial:</span> marcos de trabajo propios, expertos en medios y una estructura que garantiza calidad y resultados sostenidos.
                   </p>
                 </div>
 
                 {/* Second Card */}
                 <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 relative shadow-lg rounded-lg">
-                  <div className="absolute bottom-6 right-[-20] hidden md:block">
+                  <div className="absolute bottom-6 right-[-20] md:block">
                     <Image 
                       src="/images/general/attach_cross_blue.svg" 
                       alt="Plus" 
@@ -82,10 +82,10 @@ export default function AttachMediaPage() {
         <div className="px-6 md:mx-30">
           {/* Header */}
           <div className="text-center mb-10 md:mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-800 mb-4 md:mb-8">
+            <h2 className="text-[24px] md:text-[48px] font-['graphik'] font-semibold text-gray-800 mb-4 md:mb-8">
               De la estrategia a la acción
             </h2>
-            <p className="text-base md:text-xl text-gray-500 max-w-4xl mx-auto px-4">
+            <p className="text-base md:text-xl text-gray-500 max-w-4xl mx-auto">
               Porque una estrategia solo cobra sentido cuando genera resultados medibles.
             </p>
           </div>
@@ -97,11 +97,11 @@ export default function AttachMediaPage() {
             </h3>
             
             <div className="space-y-4 md:space-y-6">
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+              <p className="text-[14px] md:text-[20px] font-normal font-['graphik']   leading-relaxed" style={{color:'#818181'}}>
                 Conectamos marcas con sus audiencias a través de estrategias de medios off y on que integran el alcance de ATL con la precisión de digital. Nuestro enfoque unifica todos los canales bajo una misma estrategia de negocio para transformar la inversión publicitaria en impacto medible.
               </p>
               
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+              <p className="text-[14px] md:text-[20px] font-normal font-['graphik'] text-gray-400 leading-relaxed" style={{color:'#818181'}}>
                 Nuestra metodología permite que cada acción sea guiada por <span className="text-cyan-500 font-semibold">data, insights y objetivos de negocio</span>, garantizando decisiones más inteligentes y eficientes.
               </p>
             </div>
@@ -261,9 +261,9 @@ export default function AttachMediaPage() {
       </div>
 
       {/* Sección Influencer Marketing */}
-      <div className="bg-white pt-5 pb-8 md:pb-10">
+      <div className="bg-white pt-0 md:pt-5 pb-8 md:pb-10">
         <div className="px-4 md:mx-30">
-          <div className="bg-white border-b border-gray-200 py-10 md:py-16">
+          <div className="bg-white border-b border-gray-200 py-0 md:py-16">
             {/* Content Grid */}
             <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left Content - Text */}

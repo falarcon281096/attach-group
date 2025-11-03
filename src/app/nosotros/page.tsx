@@ -4,8 +4,8 @@ import Header from "../../components/Header";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./nosotros.module.css";
-import Footer from "../../components/Footer";
-import GradientPlus from "../../components/GradientPlus";
+import Footer from "../../components/Footer"; 
+import ImageWithPlus from "@/components/ImageWithPlus";
 
 export default function Home() {
 
@@ -29,22 +29,22 @@ export default function Home() {
 
               {/* Imagen (móvil segundo) */}
               <div className="relative overflow-visible order-2 lg:order-2 lg:col-start-2 pl-8 lg:pl-8 pr-0">
-                  <div className="overflow-hidden rounded-l-3xl rounded-r-none">
-                    <Image 
-                      src="/images/nosotros/AttachGroup.webp" 
-                      className="w-full object-cover" 
-                      alt="icon Galileo IA" 
-                      width={684} 
-                      height={580} 
+                  <div className="rounded-l-3xl rounded-r-none">
+                     
+                    <ImageWithPlus
+                      src='/images/nosotros/AttachGroup.webp'
+                      alt='icon Galileo IA'
+                      width={684}
+                      height={580}
+                      position="LEFT_DOWN"
+                      paddingMobile="2rem"
+                      paddingDesktop="1rem" 
+                      imageClassName="w-full object-cover"
+                      containerClassName="w-full"
+                      sizePercent={0.22}
+                      overhangPercent={0.25}
                     />
-                  </div>
-                  <GradientPlus 
-                    leftMobile="-0.5rem"
-                    leftDesktop="-3rem"
-                    bottomMobile="2rem"
-                    bottomDesktop="1rem"
-                    zIndex={1}
-                  />
+                  </div> 
               </div>
 
               {/* Párrafo (móvil tercero, desktop oculto) */}
