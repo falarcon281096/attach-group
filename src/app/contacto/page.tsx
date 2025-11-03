@@ -188,7 +188,7 @@ export default function Home() {
         {/* Hero Section */}
         <div className="relative">
           <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] items-center gap-12 lg:gap-16 py-16 lg:py-24">
+            <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] items-center gap-12 lg:gap-16 pt-24 pb-16 lg:py-24">
               {/* Content */}
               <div className="space-y-8">
                 <h1 className="font-extrabold text-[32px] lg:text-[55px] bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent leading-tight">

@@ -360,7 +360,7 @@ export default function Header({ variant = 'default', showBorder = true }: Heade
                         <hr className="border-gray-200 my-3" />
 
                         {/* AthenaAds */}
-                        <Link href="/athenas-ads" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/athena-ads" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           <Image
                             src="/images/menu/AthenaAds Logo-color.png"
                             alt="AthenaAds"

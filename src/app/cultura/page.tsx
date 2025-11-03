@@ -41,8 +41,8 @@ export default function Home() {
                 paddingDesktop="1rem" 
                 imageClassName="block w-full h-auto"
                 containerClassName="w-full"
-                sizePercent={0.22}
-                overhangPercent={0.25}
+                sizePercent={0.34}
+                overhangPercent={0.34}
               />
             </div>
           </div>
@@ -53,14 +53,7 @@ export default function Home() {
       <div className='atm-content relative py-20  bg-white'>
         <div className='pr-15 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'>
           <div className='relative flex items-center justify-start py-10 order-2 lg:order-1 overflow-visible'>
-            <div className="relative w-full max-w-md lg:max-w-lg rounded-r-3xl rounded-l-none aspect-[3/4]">
-              {/* <Image
-                src='/images/cultura/cultura-inspira.webp'
-                alt='cultura-inspira'
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className='object-cover'
-              /> */}
+            <div className="relative w-full max-w-md lg:max-w-2xl rounded-r-3xl rounded-l-none aspect-[3/4]">
               <ImageWithPlus
                 src='/images/cultura/cultura-inspira.webp'
                 alt='cultura-inspira'
@@ -74,8 +67,7 @@ export default function Home() {
                 sizePercent={0.25}
                 overhangPercent={0.25}
               />
-            </div>  
-            
+            </div>   
           </div>
           <div className='flex flex-col justify-center gap-10 order-1 lg:order-2 px-5 lg:pr-50'>
             <p className='text-[#1840E2] text-2xl lg:text-4xl'>
@@ -154,8 +146,8 @@ export default function Home() {
                       paddingDesktop="1rem" 
                       imageClassName="block w-full h-auto"
                       containerClassName="w-full"
-                      sizePercent={0.29}
-                      overhangPercent={0.29}
+                      sizePercent={0.32}
+                      overhangPercent={0.32}
                     />
           </div>
         </div>

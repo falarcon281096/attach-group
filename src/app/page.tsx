@@ -18,7 +18,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <div className="relative z-10">
-        <div className="ml-0 lg:ml-15 border-b-2 border-white/30 lg:border-l-2 rounded-none lg:rounded-bl-[50px] pt-16 pb-14 lg:pt-20 lg:pb-16">
+        <div className="ml-0 lg:ml-15 border-b-2 border-white/30 lg:border-l-2 rounded-none lg:rounded-bl-[50px] pt-24 pb-14 lg:pt-20 lg:pb-16">
           <div className="grid gap-3 lg:gap-12 items-center sm:px-10 lg:px-0 lg:ml-15">
             {/* Content */}
             <div className="text-white lg:text-left px-6 lg:px-0 lg:hidden">
@@ -394,8 +394,8 @@ export default function Home() {
             background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            filter: 'drop-shadow(0px 4px 102.3px rgba(24, 64, 226, 0.5))',
-            textShadow: '0px 4px 102.3px rgba(24, 64, 226, 0.5)',
+            // filter: 'drop-shadow(0px 4px 102.3px rgba(24, 64, 226, 0.5))',
+            // textShadow: '0px 4px 102.3px rgba(24, 64, 226, 0.5)',
           }}
         >
           Somos partners de las mejores plataformas tecnológicas
