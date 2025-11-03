@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import ImageWithPlus from "@/components/ImageWithPlus";
 import Image from "next/image";
 import { FormEvent, ChangeEvent, useState, useRef, useEffect } from "react";
 
@@ -208,18 +209,23 @@ export default function Home() {
 
               {/* Image placeholder */}
               <div className="relative">
-                <span className="absolute -left-6 bottom-16 hidden lg:block h-14 w-14 rounded-2xl bg-gradient-to-br from-[#2147ff] to-[#612bb8]"></span>
-                <div className="relative rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(34,63,218,0.25)] bg-gradient-to-br from-[#dfe6ff] to-[#f3e6ff]">
+                <span className="hidden absolute -left-6 bottom-16 hidden lg:block h-14 w-14 rounded-2xl bg-gradient-to-br from-[#2147ff] to-[#612bb8]"></span>
+                <div className="relative rounded-[32px]  shadow-[0_20px_60px_rgba(34,63,218,0.25)] bg-gradient-to-br from-[#dfe6ff] to-[#f3e6ff]">
                   <div className="aspect-[3/4] relative">
-                    <Image
-                      src="/images/nosotros/contactanos.webp"
-                      alt="Contáctanos"
-                      fill
-                      className="object-cover"
-                      priority
+                     
+                    <ImageWithPlus
+                      src='/images/nosotros/contactanos.webp'
+                      alt='Contáctanos' 
+                      position="LEFT_DOWN"
+                      paddingMobile="2rem"
+                      paddingDesktop="1rem" 
+                      imageClassName="object-cover"
+                      containerClassName="w-full"
+                      sizePercent={0.22}
+                      overhangPercent={0.25}
                     />
                   </div>
-                  <span className="absolute -bottom-6 -right-6 hidden lg:block h-20 w-20 rounded-[28px] bg-gradient-to-br from-[#2147ff] to-[#612bb8] opacity-80"></span>
+                   
                 </div>
               </div>
             </div>

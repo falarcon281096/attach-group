@@ -207,7 +207,7 @@ export default function Home() {
                     ? 'text-[#464646] underline'
                     : 'text-[#818181] hover:text-gray-700'
                     }`}>
-                    Caja Arequipa
+                    El Universal
                   </h3>
                 </button>
 
@@ -217,7 +217,7 @@ export default function Home() {
                       Más desembolsos con la misma inversión.
                     </h4>
                     <p className="leading-relaxed text-[#464646]">
-                      Optimizamos la estrategia digital con segmentación y foco regional, logrando un +26% en desembolsos nacionales y más de S/. 2 millones colocados sin incrementar la inversión. Las provincias lideraron el crecimiento con un +28% de resultados, demostrando que la eficiencia también impulsa expansión.
+                    Desarrollamos e integramos un chatbot conversacional impulsado por LLM que permite a los lectores interactuar con las noticias en tiempo real. La solución, que incluyó un benchmark de 7 modelos de lenguaje, garantiza escalabilidad, eficiencia en costos y libera horas-hombre del equipo editorial para enfocarse en contenido de valor.
                     </p>
                   </div>
                 )}
@@ -248,7 +248,7 @@ export default function Home() {
                       Transformación digital del sector asegurador.
                     </h5>
                     <p className="leading-relaxed text-[#464646]">
-                      Implementamos una estrategia omnicanal que incrementó la captación de clientes en un +45% y redujo el tiempo de procesamiento de pólizas en un 60%. La digitalización completa del flujo de ventas permitió expandir la cobertura nacional sin incrementar costos operativos.
+                    Transformamos el sitio web en un canal estratégico de generación de leads. El desarrollo web, optimizado en UX/UI y rendimiento técnico, resultó en un +45% en la tasa de conversión web (YoY) y un +89% en la contactabilidad de anuncios digitales.
                     </p>
                   </div>
                 )}
@@ -279,7 +279,7 @@ export default function Home() {
                       Liderazgo en entretenimiento digital.
                     </h5>
                     <p className="leading-relaxed text-[#464646]">
-                      Desarrollamos una plataforma integral que posicionó a la marca como líder en el mercado peruano de entretenimiento online. Logramos +120% de crecimiento en usuarios activos y un incremento del 85% en engagement a través de experiencias personalizadas e innovadoras.
+                      Implementamos una estrategia de programática avanzada utilizando Smart Audience. Esto generó un aumento de más del 170% en el volumen de recargas durante el piloto, y un crecimiento superior al 700% en el valor promedio de cada transacción.
                     </p>
                   </div>
                 )}

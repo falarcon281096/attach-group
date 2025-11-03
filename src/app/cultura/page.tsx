@@ -143,13 +143,20 @@ export default function Home() {
             </div>
           </div>
           <div className='flex w-full  '>
-            <Image
-              src='/images/cultura/cultura-innovar.png'
-              alt='cultura-innovar'
-              width={308}
-              height={320}
-              className='block w-full h-auto'
-            />
+             
+            <ImageWithPlus
+                      src='/images/cultura/cultura-innovar.webp'
+                      alt='cultura-innovar' 
+                      position="LEFT_DOWN"
+                      width={308}
+                      height={320}
+                      paddingMobile="2rem"
+                      paddingDesktop="1rem" 
+                      imageClassName="block w-full h-auto"
+                      containerClassName="w-full"
+                      sizePercent={0.29}
+                      overhangPercent={0.29}
+                    />
           </div>
         </div>
       </div>
