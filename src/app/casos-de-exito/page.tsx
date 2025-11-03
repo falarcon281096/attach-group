@@ -11,7 +11,7 @@ export default function Home() {
       id: 'deposeguro',
       title: 'Deposeguro',
       tag: 'Sitio web',
-      image: '/images/casos-de-exito/deposeguro.png',
+      image: '/images/casos-de-exito/deposeguro.webp',
     },
     {
       link: '/casos-de-exito/apuesta-total-2025',
@@ -25,7 +25,7 @@ export default function Home() {
       id: 'cayetano-heredia',
       title: 'Universidad Cayetano Heredia',
       tag: 'Sitio Web e Infraestructura',
-      image: '/images/casos-de-exito/cayetano.png',
+      image: '/images/casos-de-exito/cayetano.webp',
     },
     {
       link: '/casos-de-exito/universal',
