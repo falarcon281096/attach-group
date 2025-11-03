@@ -32,14 +32,14 @@ export default function Home() {
       id: 'universal',
       title: 'El Universal',
       tag: 'Paid Media',
-      image: '/images/casos-de-exito/eluniversal.png',
+      image: '/images/casos-de-exito/eluniversal.webp',
     },
     {
       link: '/casos-de-exito/universal-2',
       id: 'universal-2',
       title: 'El Universal',
       tag: 'Galileo',
-      image: '/images/casos-de-exito/eluniversal.png',
+      image: '/images/casos-de-exito/eluniversal.webp',
     },
     {
       link: '/casos-de-exito/apuesta-total-ads',
