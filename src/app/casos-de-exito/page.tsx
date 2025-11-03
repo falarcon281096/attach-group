@@ -39,7 +39,7 @@ export default function Home() {
       id: 'universal-2',
       title: 'El Universal',
       tag: 'Galileo',
-      image: '/images/casos-de-exito/eluniversal.webp',
+      image: '/images/casos-de-exito/eluniversal2.webp',
     },
     {
       link: '/casos-de-exito/apuesta-total-ads',
