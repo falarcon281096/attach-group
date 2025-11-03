@@ -58,7 +58,7 @@ export default function Footer() {
           </Link>
           <div className="lg:p-8">
             <div className="flex justify-end gap-2 lg:gap-4">
-              <a href="https://www.instagram.com/attach.consultores/" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+              <a href="https://www.instagram.com/attach.group/" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                 <Image 
                   src="/images/general/socialicon_linkden.png" 
                   alt="LinkedIn" 
@@ -66,7 +66,7 @@ export default function Footer() {
                   height={50} 
                 />
               </a>
-              <a href="https://pe.linkedin.com/company/attach-consultores" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+              <a href="https://www.linkedin.com/company/attachgroup/" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                 <Image 
                   src="/images/general/socialicon_ig.png" 
                   alt="Instagram" 
@@ -74,7 +74,7 @@ export default function Footer() {
                   height={50} 
                 />
               </a>
-              <a href="https://www.youtube.com/c/attachmedia" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+              <a href="https://www.youtube.com/@attach-group/" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
                 <Image 
                   style={{ marginTop: '4px' }} 
                   src="/images/general/socialicon_yt.png" 

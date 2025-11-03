@@ -268,13 +268,13 @@ export default function Home() {
               nosotros!
             </p>
             <div className='flex gap-5 lg:gap-10  justify-start  lg:justify-center'>
-              <a href="https://pe.linkedin.com/company/attach-consultores" target="blank">
+              <a href="https://www.linkedin.com/company/attachgroup/" target="blank">
                 <img
                   src='/images/cultura/linkedin.png'
                   alt=''
                 />
               </a>
-              <a href="https://www.instagram.com/attach.consultores/" target="blank">
+              <a href="https://www.instagram.com/attach.group/" target="blank">
                 <img
                   src='/images/cultura/instagram.png'
                   alt=''

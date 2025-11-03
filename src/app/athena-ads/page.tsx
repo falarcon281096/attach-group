@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import Header from "../../components/Header";
+import HeaderAthena from "../../components/HeaderAthena";
 import Footer from "../../components/Footer";
 import AnimatedGradient from "../../components/AnimatedGradient";
 import AthenaProcessSection from "../../components/AthenaProcessSection";
@@ -170,7 +170,7 @@ export default function AthenaAds() {
           font-family: 'Graphik', sans-serif;
         }
       `}</style>
-      <Header variant="athena" showBorder={false}/>
+      <HeaderAthena showBorder={false}/>
       <div className="min-h-screen athena-ads-page overflow-x-hidden" style={{ backgroundColor: 'rgba(161, 224, 94, 0.05)' }}>
         {/* Hero Section */}
         <AnimatedGradient />
@@ -430,7 +430,7 @@ export default function AthenaAds() {
               {/* Card 1 - Apuesta Total */}
               <Link href="/casos-de-exito/apuesta-total-ads" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
                 <Image
-                  src="/images/athena-ads/14.png"
+                  src="/images/casos-de-exito/apuestatotal.webp"
                   alt="Caso de éxito"
                   fill
                   className="object-cover"
@@ -446,9 +446,9 @@ export default function AthenaAds() {
               </Link>
 
               {/* Card 2 - El Universal */}
-              <Link href="/casos-de-exito/universal" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
+              {/* <Link href="/casos-de-exito/universal" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
                 <Image
-                  src="/images/athena-ads/15.png"
+                  src="/images/casos-de-exito/eluniversal.webp"
                   alt="Caso de éxito"
                   fill
                   className="object-cover"
@@ -461,12 +461,12 @@ export default function AthenaAds() {
                     Integra IA conversacional a su experiencia digital
                   </p>
                 </div>
-              </Link>
+              </Link> */}
 
               {/* Card 3 - UPCH/Cayetano */}
-              <Link href="/casos-de-exito/cayetano" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
+              {/* <Link href="/casos-de-exito/cayetano" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
                 <Image
-                  src="/images/athena-ads/16.png"
+                  src="/images/casos-de-exito/cayetano.webp"
                   alt="Caso de éxito"
                   fill
                   className="object-cover"
@@ -479,7 +479,7 @@ export default function AthenaAds() {
                     La estrategia digital que impulsó la consideración y el éxito de la admisión 2025-01
                   </p>
                 </div>
-              </Link>
+              </Link> */}
 
 
             </div>

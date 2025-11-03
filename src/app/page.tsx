@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ImageWithPlus from "@/components/ImageWithPlus";
 
 type cases = 'caja-arequipa' | 'deposeguro' | 'apuesta-total';
 
@@ -315,23 +316,29 @@ export default function Home() {
                     lg:before:bg-[length:100%_100%]
                     lg:before:w-30 lg:before:h-30">
                 {/* Image Placeholder */}
-                  <Image
-                    className="w-[90%] rounded-tl-[40px] rounded-br-[40px]"
-                    src={
-                      activeCase === 'caja-arequipa' ? "/images/home/caja_arequipa.png" :
-                        activeCase === 'deposeguro' ? "/images/home/deposeguro.png" :
-                          activeCase === 'apuesta-total' ? "/images/home/apuesta_total.png" :
-                            "/images/home/caja_arequipa.png"
-                    }
-                    alt={
-                      activeCase === 'caja-arequipa' ? "Caja Arequipa" :
-                        activeCase === 'deposeguro' ? "Deposeguro" :
-                          activeCase === 'apuesta-total' ? "Apuesta Total" :
-                            "Caso de éxito"
-                    }
-                    width={1800}
-                    height={1800}
-                  />
+                <ImageWithPlus
+                      src={
+                        activeCase === 'caja-arequipa' ? "/images/casos-de-exito/eluniversal.webp" :
+                          activeCase === 'deposeguro' ? "/images/casos-de-exito/deposeguro.webp" :
+                            activeCase === 'apuesta-total' ? "/images/casos-de-exito/apuestatotal.webp" :
+                              "/images/casos-de-exito/eluniversal.webp"
+                      }
+                      alt={
+                        activeCase === 'caja-arequipa' ? "El Universal" :
+                          activeCase === 'deposeguro' ? "Deposeguro" :
+                            activeCase === 'apuesta-total' ? "Apuesta Total" :
+                              "Caso de éxito"
+                      }
+                      width={1800}
+                      height={1800}
+                      position="LEFT_DOWN"
+                      paddingMobile="2rem"
+                      paddingDesktop="2rem" 
+                      imageClassName="w-full object-cover"
+                      containerClassName="w-full"
+                      sizePercent={0.42}
+                      overhangPercent={0.20}
+                    /> 
               </div>
           </div>
         </div>

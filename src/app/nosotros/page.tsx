@@ -210,7 +210,7 @@ export default function Home() {
                   <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/carlo-rodriguez-foto.webp" alt="Carlo Rodriguez" width={361} height={423} />
                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Carlo Rodriguez</p>
-                    <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">CEO Attach</p>
+                    <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">CEO Attach Group</p>
                   </div>
                 </div>
 
@@ -220,7 +220,7 @@ export default function Home() {
                   <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/fernando-salazar-foto.webp" alt="Fernando Salazar" width={361} height={423} />
                    <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Fernando Salazar</p>
-                    <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">COO Attach</p>
+                    <p className="text-sm bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent">COO Attach Group</p>
                   </div>
                 </div>
               </div>

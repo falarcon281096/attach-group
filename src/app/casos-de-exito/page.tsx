@@ -38,7 +38,7 @@ export default function Home() {
       link: '/casos-de-exito/universal-2',
       id: 'universal-2',
       title: 'El Universal',
-      tag: 'Galileo',
+      tag: 'Paid Media',
       image: '/images/casos-de-exito/eluniversal2.webp',
     },
     {

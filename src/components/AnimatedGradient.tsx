@@ -17,20 +17,25 @@ export default function AnimatedGradient() {
 
     return (
         <section 
-            className="min-h-[95vh] rounded-b-[30px] md:rounded-b-[50px] flex items-center pt-32 pb-8 md:py-12 lg:py-0 relative overflow-hidden"
+            className="min-h-[95vh] rounded-b-[30px] md:rounded-b-[50px] flex items-center pt-32 pb-8 md:py-12 lg:py-0 relative overflow-hidden -mt-[80px] lg:-mt-0"
         >
             {/* Animated gradient background */}
             <div 
-                className="absolute inset-0 transition-all duration-1000"
+                className="absolute transition-all duration-1000"
                 style={{
                     background: `linear-gradient(${gradientPosition}deg, #E2E830 0%, #A1E05E 25%, #2ED3B1 50%, #00CED3 75%, #E2E830 100%)`,
+                    top: '-80px',
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    zIndex: 0,
                 }}
             >
                 {/* Overlay effect for depth */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
             </div>
 
-            <div className="container mx-auto px-6 md:px-8 lg:px-16 relative z-10">
+            <div className="container mx-auto px-6 md:px-8 lg:px-16 relative z-10 pt-[80px] lg:pt-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
                     {/* Left Side - Logo and Text */}
                     <div className="text-white space-y-4 md:space-y-6 px-6 md:px-0">
