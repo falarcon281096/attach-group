@@ -24,7 +24,7 @@ export default function Footer() {
             <p className="text-[#818181] font-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] pb-3">México</p>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">Dirección:</span>{' '}
-              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">Torre Reforma, Piso 14, Av. Paseo de la Reforma 483, Col. Cuauhtémoc, CP 06500</span>
+              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">Paseo de la reforma 509, col.  cuauhtémoc ddmx 06600</span>
             </p>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">E-mail:</span>{' '}
@@ -37,7 +37,7 @@ export default function Footer() {
             <p className="text-[#818181] font-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] pb-3">USA</p>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">Address:</span>{' '}
-              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">201 South Biscayne Blvd, Miami, FL 33131</span>
+              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">66 W Flagler Street, Floor 9, suite 929 Miami, FL 33130, USA</span>
             </p>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">E-mail:</span>{' '}
