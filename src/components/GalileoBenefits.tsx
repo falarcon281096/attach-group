@@ -8,7 +8,7 @@ export default function GalileoBenefits() {
 
     return (
         <section
-            className="py-20 pr-6 pl-0 md:px-12 lg:px-24 text-left"
+            className="py-10 md:py-20 pr-6 pl-0 md:px-12 lg:px-24 text-left"
             style={{
                 background: "var(--new-colors-galileo-ia-2, #FFC351)",
                 paddingRight: "5px",
@@ -19,7 +19,7 @@ export default function GalileoBenefits() {
                 <div>
                     <h2 className="text-white pl-12 md:pl-0 text-[24px] md:text-[48px] font-semibold leading-[110%] mb-2 md:mb-8">
                         Asociarse con 
-                        <span className="opacity-90"> Galileo IA</span><br /> significa:
+                        <span className="opacity-90"> Galileo IA</span> significa:
                     </h2>
                 </div>
 

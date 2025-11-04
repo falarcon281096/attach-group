@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import Link from 'next/link';
 
 export default function AttachMediaPage() {
   return (
@@ -384,6 +385,79 @@ export default function AttachMediaPage() {
         </div>
       </div>
 
+      {/* Section - Historias de impacto programático */}
+      <section className="py-0 md:py-8 lg:py-20 px-6 md:px-8 lg:px-12">
+          <div className="container mx-auto">
+            <h2 className="text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]" style={{ backgroundImage: 'linear-gradient(109.97deg, #2F7DE1 1.8%, #22D3C5 99.93%)' }}>
+            Resultados que se miden, decisiones que transforman
+            </h2>
+
+            <p className="text-[16px] md:text-[20px] md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
+            Mostramos cómo la estrategia, la tecnología y la data se traducen en resultados de negocio reales. Cada caso refleja nuestro compromiso con la eficiencia, la claridad y el crecimiento sostenible.
+            </p>
+
+            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-0 md:px-6">
+
+            {/* Card 3 - UPCH/Cayetano */}
+            <Link href="/casos-de-exito/cayetano" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
+                <Image
+                  src="/images/casos-de-exito/cayetano.webp"
+                  alt="Caso de éxito"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 to-transparent px-6 md:px-6">
+                  <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
+                    <b>UPCH</b>
+                  </h3>
+                  <p className="text-sm md:text-base text-white">
+                    La estrategia digital que impulsó la consideración y el éxito de la admisión 2025-01
+                  </p>
+                </div>
+              </Link>
+             
+       
+              {/* Card 2 - deposeguro  */}
+              <Link href="/casos-de-exito/deposeguro" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
+                <Image
+                  src="/images/casos-de-exito/deposeguro.webp"
+                  alt="Caso de éxito"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 to-transparent px-6 md:px-6">
+                  <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
+                    <b>Deposeguro</b>
+                  </h3>
+                  <p className="text-sm md:text-base text-white">
+                    Integra IA conversacional a su experiencia digital
+                  </p>
+                </div>
+              </Link>
+ 
+              {/* Card 1 - Apuesta Total */}
+              <Link href="/casos-de-exito/apuesta-total-ads" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
+                <Image
+                  src="/images/casos-de-exito/apuestatotal.webp"
+                  alt="Caso de éxito"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 to-transparent px-6 md:px-6">
+                  <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
+                    <b>APUESTA TOTAL</b>
+                  </h3>
+                  <p className="text-sm md:text-base text-white">
+                    De la intención a la acción: programática que impulsa el número y valor de recargas
+                  </p>
+                </div>
+              </Link>
+
+
+            </div>
+          </div>
+        </section>
+      
       {/* Footer */}
       <Footer />
     </div>

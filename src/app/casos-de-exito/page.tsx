@@ -17,7 +17,7 @@ export default function Home() {
       link: '/casos-de-exito/apuesta-total-2025',
       id: 'apuesta-t-catalogo',
       title: 'Apuesta Total',
-      tag: 'Catálogo dinámico',
+      tag: 'Programática',
       image: '/images/casos-de-exito/apuestatotal.webp',
     },
     {
@@ -31,21 +31,21 @@ export default function Home() {
       link: '/casos-de-exito/universal',
       id: 'universal',
       title: 'El Universal',
-      tag: 'Paid Media',
+      tag: 'IA',
       image: '/images/casos-de-exito/eluniversal.webp',
     },
     {
       link: '/casos-de-exito/universal-2',
       id: 'universal-2',
       title: 'El Universal',
-      tag: 'Paid Media',
+      tag: 'IA',
       image: '/images/casos-de-exito/eluniversal2.webp',
     },
     {
       link: '/casos-de-exito/apuesta-total-ads',
       id: 'apuesta-t-paid',
       title: 'Apuesta Total',
-      tag: 'Paid Media',
+      tag: 'Programática',
       image: '/images/casos-de-exito/apuestatotal2.webp',
     },
   ];

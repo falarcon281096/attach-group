@@ -69,7 +69,7 @@ export default function Home() {
                     before:-translate-x-[-0.5rem]
                     lg:before:top-100
                     before:top-45">
-                <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/Apuestathenads1.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
+                <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/apuestatotal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function Home() {
                     before:top-105
                     lg:order-[unset]
                     order-2">
-            <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/apuestatotal.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/Apuestathenads1.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="lg:w-1/2">

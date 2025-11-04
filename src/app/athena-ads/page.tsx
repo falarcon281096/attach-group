@@ -326,7 +326,7 @@ export default function AthenaAds() {
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[30px] md:gap-[14px]" style={{ padding:"10px 60px"}}>
                   <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded ">
                     <Image
-                      src="/images/athena-ads/08.png"
+                      src="/images/athena-ads/Cayetano-Social-Extender.gif"
                       alt="Social Extender 1"
                       fill
                       className="object-cover"
@@ -356,7 +356,7 @@ export default function AthenaAds() {
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px] " style={{ padding:"10px 40px"}}>
                   <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
                     <Image
-                      src="/images/athena-ads/10.jpg"
+                      src="/images/athena-ads/Ficohsa-Richmedia.gif"
                       alt="Rich Media 1"
                       fill
                       className="object-cover"
@@ -386,7 +386,7 @@ export default function AthenaAds() {
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
                   <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
                     <Image
-                      src="/images/athena-ads/12.jpg"
+                      src="/images/athena-ads/SBD-Tap-to-Map.gif"
                       alt="Tap to Map 1"
                       fill
                       className="object-cover"

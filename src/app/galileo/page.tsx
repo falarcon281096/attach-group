@@ -41,7 +41,7 @@ export default function Home() {
                             </h1>
 
                             <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-white mb-8 max-w-lg leading-[150%]">
-                                Soluciones de IA, Cloud y Martech que aceleran <br /> tu negocio.
+                                Soluciones de IA, Cloud y Martech que aceleran tu negocio.
                             </p>
                         </div>
 
@@ -91,10 +91,10 @@ export default function Home() {
 
             <GalileoSolutions />
 
-            <section className="py-20 bg-gradient-to-b from-white to-[#fff9f4] text-center">
+            <section className="py-0 md:py-20 bg-gradient-to-b from-white to-[#fff9f4] text-center">
                 {/* === Título === */}
                 <h2
-                    className="text-[48px] leading-[100%] font-semibold mb-12 text-center"
+                    className="text-[24px] md:text.[28px] leading-[100%] font-semibold mb-12 text-center px-10 md:px-0"
                     style={{
                         backgroundImage: "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
                         backgroundClip: "text",
@@ -237,7 +237,7 @@ export default function Home() {
             <section className="py-20 bg-gradient-to-b from-[#fff9f4] to-[#ffffff] text-center">
                 {/* === Título === */}
                 <h2
-                    className="text-[48px] leading-[100%] font-semibold mb-3 text-center"
+                    className="text-[24px] md:text-[48px] leading-[100%] font-semibold mb-3 text-center"
                     style={{
                         backgroundImage: "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
                         backgroundClip: "text",
@@ -251,7 +251,7 @@ export default function Home() {
                 </h2>
 
                 {/* === Subtítulo === */}
-                <p className="text-[#818181] text-[20px] leading-[28px] font-normal mb-12">
+                <p className="text-[#818181] text-[14px] md:text-[20px] leading-[28px] font-normal mb-12">
                     Casos que demuestran cómo la tecnología impulsa eficiencia e innovación.
                 </p>
 
@@ -280,7 +280,7 @@ export default function Home() {
                     </Link> */}
 
                     {/* === Card 1: El Universal === */}
-                    {/* <Link
+                    <Link
                         href="/casos-de-exito/universal"
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block"
                     >
@@ -298,14 +298,14 @@ export default function Home() {
                                 Clasificación inteligente de contenido: el salto de El Universal con IA generativa
                             </p>
                         </div>
-                    </Link> */}
+                    </Link>
                     {/* === Card 2: El Universal === */}
                     <Link
                         href="/casos-de-exito/universal"
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block"
                     >
                         <Image
-                            src="/images/casos-de-exito/eluniversal.webp"
+                            src="/images/casos-de-exito/eluniversal2.webp"
                             alt="El Universal México"
                             fill
                             className="object-cover w-full h-full"
@@ -347,15 +347,15 @@ export default function Home() {
 
             {/* === SECTION 2: Descubre cómo aplicar IA === */}
             <section
-                className="py-24 px-6 md:px-12 lg:px-24 text-left text-white"
+                className="py-8 md:py-24 px-6 md:px-12 lg:px-24 text-left text-white"
                 style={{
                     background: "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
                 }}
             >
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
                     <div>
-                        <h2 className="text-[40px] md:text-[48px] font-semibold leading-[110%] mb-10">
-                            Descubre cómo aplicar <br /> IA en tu empresa
+                        <h2 className="text-[24px] md:text-[48px] font-semibold leading-[110%] mb-10">
+                            Descubre cómo aplicar IA en tu empresa
                         </h2>
                         <div>
                             <Link
