@@ -32,26 +32,23 @@ export default function Home() {
 
                             {/* Título con borde inferior */}
                             <h1
-                                className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] font-bold leading-[110%] mb-5 pb-3 border-b border-white/70 inline-block"
-                                style={{
-                                    width: "fit-content",
-                                }}
+                                className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[48px] font-bold leading-[110%] mb-5 pb-3 border-b-3 border-white/70 w-full md:w-[85%]"
                             >
                                 Inteligencia artificial aplicada a negocios
                             </h1>
 
-                            <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-white mb-8 max-w-lg leading-[150%]">
+                            <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-white mb-0 md:mb-8 max-w-lg leading-[150%]">
                                 Soluciones de IA, Cloud y Martech que aceleran tu negocio.
                             </p>
                         </div>
 
                         {/* === Bloque Derecho === */}
-                        <div className="flex flex-col gap-8 sm:gap-10 relative w-full">
+                        <div className="flex flex-col gap-4 md:gap-8 sm:gap-10 mx-5 md:mx-0 relative md:w-full">
                             {/* Card 1 con "+" amarillo */}
-                            <div className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full font-['graphik'] " style={{color:'#818181'}}>
+                            <div className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8   shadow-lg w-full font-['graphik'] " style={{color:'#818181'}}>
                                 {/* + decorativo */}
                                 <span
-                                    className="absolute -left-6 -top-5 text-[48px] font-bold text-[#FFC351] select-none"
+                                    className="absolute -left-6 bottom-2 text-[48px] font-bold text-[#FFC351] select-none"
                                     style={{
                                         lineHeight: "1",
                                     }}
@@ -67,7 +64,7 @@ export default function Home() {
                             </div>
 
                             {/* Card 2 con "+" rosado */}
-                            <div style={{color:'#818181'}} className="text-center relative bg-white  text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full font-['graphik']">
+                            <div style={{color:'#818181'}} className="text-center relative bg-white  text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8  shadow-lg w-full font-['graphik']">
                                 {/* + decorativo */}
                                 <span
                                     className="absolute -right-6 -bottom-5 text-[48px] font-bold text-[#FF3F73] select-none"
@@ -124,7 +121,7 @@ export default function Home() {
                             height={80}
                             className="object-contain"
                         />
-                        <p className="text-[#818181] text-[16px] leading-[24px] font-normal text-center">
+                        <p className="text-[#818181] text-[13px] md:text-[16px]  leading-[24px] font-normal text-center">
                             Identificación de problemas y objetivos
                         </p>
                     </div>
@@ -144,7 +141,7 @@ export default function Home() {
                             height={80}
                             className="object-contain"
                         />
-                        <p className="text-[#818181] text-[16px] leading-[24px] font-normal text-center">
+                        <p className="text-[#818181] text-[13px] md:text-[16px] leading-[24px] font-normal text-center">
                             Propuesta de soluciones
                         </p>
                     </div>
@@ -164,7 +161,7 @@ export default function Home() {
                             height={80}
                             className="object-contain"
                         />
-                        <p className="text-[#818181] text-[16px] leading-[24px] font-normal text-center">
+                        <p className="text-[#818181] text-[13px] md:text-[16px] leading-[24px] font-normal text-center">
                             Diseño del prototipo
                         </p>
                     </div>
@@ -184,7 +181,7 @@ export default function Home() {
                             height={80}
                             className="object-contain"
                         />
-                        <p className="text-[#818181] text-[16px] leading-[24px] font-normal text-center">
+                        <p className="text-[#818181] text-[13px] md:text-[16px] leading-[24px] font-normal text-center">
                             Entrenamiento y optimización
                         </p>
                     </div>
@@ -204,7 +201,7 @@ export default function Home() {
                             height={80}
                             className="object-contain"
                         />
-                        <p className="text-[#818181] text-[16px] leading-[24px] font-normal text-center">
+                        <p className="text-[#818181] text-[13px] md:text-[16px] leading-[24px] font-normal text-center">
                             Implementación
                         </p>
                     </div>
@@ -224,7 +221,7 @@ export default function Home() {
                             height={80}
                             className="object-contain"
                         />
-                        <p className="text-[#818181] text-[16px] leading-[24px] font-normal text-center">
+                        <p className="text-[#818181] text-[13px] md:text-[16px] leading-[24px] font-normal text-center">
                             Medición de impacto y escalamiento
                         </p>
                     </div>

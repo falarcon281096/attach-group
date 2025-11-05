@@ -17,7 +17,7 @@ export default function GalileoBenefits() {
             <div className="max-w-full ml-0 md:ml-12 lg:ml-24 mr-0 grid grid-cols-1 md:grid-cols-[30%_70%] gap-3 md:gap-12 items-center">
                 {/* Columna izquierda */}
                 <div>
-                    <h2 className="text-white pl-12 md:pl-0 text-[24px] md:text-[48px] font-semibold leading-[110%] mb-2 md:mb-8">
+                    <h2 className="text-white pl-5 md:pl-0 text-[24px] md:text-[48px] font-semibold leading-[110%] mb-2 md:mb-8">
                         Asociarse con 
                         <span className="opacity-90"> Galileo IA</span> significa:
                     </h2>

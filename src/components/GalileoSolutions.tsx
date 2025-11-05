@@ -15,13 +15,13 @@ export default function GalileoSolutions() {
     };
 
     return (
-        <section className="bg-white py-24 text-gray-900">
+        <section className="bg-white py-8 md:py-24 text-gray-900">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 {/* Título y subtítulo */}
-                <div className="text-center mb-14">
+                <div className="text-center mb-8 md:mb-14">
                     <ResponsiveHeading
                         as="h2"
-                        sizeMobile="text-3xl"
+                        sizeMobile="24px"
                         sizeTablet="text-4xl"
                         sizeDesktop="48px"
                         color="#818181"
@@ -31,14 +31,14 @@ export default function GalileoSolutions() {
                     >
                         De la estrategia a la acción
                     </ResponsiveHeading>
-                    <p className="text-[#818181] text-[20px]">
+                    <p className="text-[#818181] text-[14px] md:text-[20px]">
                         Descubre cómo podemos apoyarte.
                     </p>
                 </div>
 
                 {/* IA Enterprise */}
-                <div className="mb-8">
-                    <h3 className="text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0]">
+                <div className="mb-2 md:mb-8">
+                    <h3 className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0]">
                         IA Enterprise
                     </h3>
                 </div>
@@ -46,7 +46,7 @@ export default function GalileoSolutions() {
                 {/* Soluciones SAAS */}
                 <div className="mb-8">
                     <h3
-                        className="text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
+                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
                         onClick={() => handleToggle("saas")}
                     >
                         {openSection === "saas" && (
@@ -74,18 +74,18 @@ export default function GalileoSolutions() {
                             className="w-full h-60 object-cover"
                         />
                         <div className="p-6 text-center">
-                            <div className="flex justify-center items-center mb-6">
+                            <div className="flex  justify-center items-center mb-6">
                                 <Image
                                     src="/images/galileo/logo-prisma.png"
                                     alt="PROSPECTA"
                                     width={0}
                                     height={0}
                                     sizes="100vw"
-                                    className="h-auto w-auto max-w-full object-contain"
+                                    className="h-auto w-[42%] md:w-[100%] md:w-auto md:max-w-full object-contain"
                                 />
                             </div>
 
-                            <p className="text-[#666666] text-[20px] leading-[28px] font-normal tracking-[0] text-center mb-5">
+                            <p className="text-[#666666] text-[14px] md:text-[20px] leading-[28px] font-normal tracking-[0] text-center mb-5">
                                 Prisma revela cómo la inteligencia artificial ve,
                                 menciona y posiciona tu marca.
                             </p>
@@ -93,7 +93,7 @@ export default function GalileoSolutions() {
                     </article>
 
                     {/* Tarjeta 2 */}
-                    <article className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,63,115,0.25)] hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
+                    <article className="rounded-2xl  bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,63,115,0.25)] hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
                         <Image
                             src="/images/galileo/imagen-2-galileo.jpg"
                             alt="PROSPECTA"
@@ -109,11 +109,11 @@ export default function GalileoSolutions() {
                                     width={0}
                                     height={0}
                                     sizes="100vw"
-                                    className="h-auto w-auto max-w-full object-contain"
+                                    className="w-[42%] md:w-[100%] h-auto w-auto max-w-full object-contain"
                                 />
                             </div>
 
-                            <p className="text-[#666666] text-[20px] leading-[28px] font-normal tracking-[0] text-center mb-5">
+                            <p className="text-[#666666] text-[14px] md:text-[20px] leading-[28px] font-normal tracking-[0] text-center mb-5">
                                 La plataforma conversacional con IA que precalifica leads,
                                 optimiza campañas y potencia ventas.
                             </p>
@@ -124,7 +124,7 @@ export default function GalileoSolutions() {
                 {/* Infraestructura Cloud */}
                 <div className="mb-8">
                     <h4
-                        className="text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
+                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
                         onClick={() => handleToggle("cloud")}
                     >
                         {openSection === "cloud" && (
@@ -142,7 +142,7 @@ export default function GalileoSolutions() {
                             : "hidden opacity-0 -translate-y-4 scale-95"
                     }`}
                 >
-                    <div className="font-['graphik'] font-normal text-[#666666] text-[20px] leading-[28px] pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[28px] pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
                         Diseñamos y gestionamos infraestructuras en la nube que escalan y protegen tus datos. Te guiamos en la elección de la arquitectura más eficiente y flexible, integrándola con tus plataformas de negocio. Así obtienes una nube segura, clara y lista para crecer al ritmo de tu empresa.
                     </div>
                     <div className="relative h-[280px] w-full group">
@@ -180,7 +180,7 @@ export default function GalileoSolutions() {
                 {/* Martech + Advanced Analytics */}
                 <div className="mb-8">
                     <h4
-                        className="text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
+                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
                         onClick={() => handleToggle("martech")}
                     >
                         {openSection === "martech" && (
@@ -198,7 +198,7 @@ export default function GalileoSolutions() {
                             : "hidden opacity-0 -translate-y-4 scale-95"
                     }`}
                 >
-                    <div className="font-['graphik'] font-normal text-[#666666] text-[20px] leading-[28px] pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px]  leading-[28px] pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
                         Implementamos soluciones que abarcan desde plataformas de datos de clientes (CDP) hasta optimización creativa en tiempo real (DCO), personalizando experiencias y optimizando campañas. Asimismo, aplicamos modelos predictivos, dashboards y algoritmos a medida que convierten la información en decisiones estratégicas y crecimiento sostenible.
                     </div>
                     <div className="relative h-[280px] w-full group">
