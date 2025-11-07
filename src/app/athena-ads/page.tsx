@@ -270,7 +270,7 @@ export default function AthenaAds() {
                   />
                 </div>
                 <div className="text-center p-3 md:p-4">
-                  <div className="text-[16px] md:text-[24px] font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
+                  <div className="mx-auto w-[90%] md:w-full text-[16px] md:text-[24px] font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
                     Digital Screens (Indoor & Outdoor)
                   </div>
                   <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0 font-['Graphik'] w-[50%] md:w-[100%] mx-auto">
