@@ -91,7 +91,7 @@ export default function Home() {
             <section className="py-0 md:py-20 bg-gradient-to-b from-white to-[#fff9f4] text-center">
                 {/* === Título === */}
                 <div
-                    className="text-[24px] md:text-[48px] leading-[100%] font-semibold mb-12 text-center px-10 md:px-0"
+                    className="text-[24px] md:text-[48px] leading-[32px] md:leading-[54px] font-semibold mb-12 text-center px-10 md:px-0"
                     style={{
                         backgroundImage: "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
                         backgroundClip: "text",
@@ -234,7 +234,7 @@ export default function Home() {
             <section className="py-20 bg-gradient-to-b from-[#fff9f4] to-[#ffffff] text-center">
                 {/* === Título === */}
                 <h2
-                    className="text-[24px] md:text-[48px] leading-[100%] font-semibold mb-3 text-center"
+                    className="text-[24px] md:text-[48px] leading-[32px] md:leading-[54px] font-semibold mb-3 text-center"
                     style={{
                         backgroundImage: "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
                         backgroundClip: "text",

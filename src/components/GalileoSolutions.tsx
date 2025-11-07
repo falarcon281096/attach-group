@@ -122,7 +122,7 @@ export default function GalileoSolutions() {
                 </div>
 
                 {/* Infraestructura Cloud */}
-                <div className="mb-8">
+                <div className="mb-2 md:mb-8">
                     <h4
                         className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
                         onClick={() => handleToggle("cloud")}

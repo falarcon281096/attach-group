@@ -29,15 +29,15 @@ export default function AttachMediaPage() {
                 />
               </div>
               
-              <h1 className="text-[24px] md:text-[40px] font-['graphik'] font-semibold mb-2 leading-tight md:w-[80%]">
+              <h1 className="text-[24px] md:text-[40px] leading-[30px] md:leading-[42px]  font-['Graphik'] font-semibold mb-2 leading-tight md:w-[80%]">
                 Tecnología y data aplicada a los medios
               </h1>
               {/* Línea blanca gruesa debajo del título */}
-              <div className="w-32 md:w-125 h-2 bg-white mb-2 md:w-[70%] w-full"></div>
+              <div className="w-32 md:w-125 h-1 bg-white mb-2 md:w-[70%] w-full"></div>
               
-              <p className="text-[16px] md:text-[24px] font-normal font-['graphik'] text-white mb-6 md:mb-8 leading-relaxed">
+              <div className="text-[16px] md:text-[24px] leading-[19px] md:leading-[28px] font-normal font-['Graphik'] text-white mb-6 md:mb-8 leading-relaxed">
                 Transformamos la inversión publicitaria en resultados reales para tu negocio
-              </p>
+              </div>
             </div>
 
             {/* Right Content - Cards flotantes como en la imagen original */}
@@ -55,7 +55,7 @@ export default function AttachMediaPage() {
                     />
                   </div>
                   <p className="text-[14px] md:text-[20px] text-center text-gray-500 leading-relaxed">
-                    Ayudamos a las marcas a <span className="text-blue-600 font-semibold">maximizar el impacto de su inversión</span> en medios, con una visión estratégica que conecta marketing y negocio. <span className="text-blue-600 font-semibold">Nuestro diferencial:</span> marcos de trabajo propios, expertos en medios y una estructura que garantiza calidad y resultados sostenidos.
+                    Ayudamos a las marcas a <span className="text-[#2F7DE0] font-semibold">maximizar el impacto de su inversión</span> en medios, con una visión estratégica que conecta marketing y negocio. <span className="text-[#2F7DE0] font-semibold">Nuestro diferencial:</span> marcos de trabajo propios, expertos en medios y una estructura que garantiza calidad y resultados sostenidos.
                   </p>
                 </div>
 
@@ -70,7 +70,7 @@ export default function AttachMediaPage() {
                     />
                   </div>
                   <p className="text-base md:text-xl text-center text-gray-500 leading-relaxed">
-                    Impulsamos el crecimiento digital con <span className="text-blue-600 font-semibold">estrategias guiadas por data</span>, desde la analítica y la investigación hasta la ejecución y la optimización continua, para mejorar conversiones, elevar ingresos, fidelizar clientes y <span className="text-blue-600 font-semibold">asegurar resultados de negocio comprobables.</span>
+                    Impulsamos el crecimiento digital con <span className="text-[#2F7DE0] font-semibold">estrategias guiadas por data</span>, desde la analítica y la investigación hasta la ejecución y la optimización continua, para mejorar conversiones, elevar ingresos, fidelizar clientes y <span className="text-[#2F7DE0] font-semibold">asegurar resultados de negocio comprobables.</span>
                   </p>
                 </div>
               </div>
