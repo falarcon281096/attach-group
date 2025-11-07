@@ -19,22 +19,74 @@ export default function Home() {
 
       {/* Hero Section */}
       <div className="relative z-10">
-        <div className="ml-0 lg:ml-15 border-b-2 border-white/30 lg:border-l-2 rounded-none lg:rounded-bl-[50px] pt-24 pb-14 lg:pt-20 lg:pb-16">
-          <div className="grid gap-3 lg:gap-12 items-center sm:px-10 lg:px-0 lg:ml-15">
-            {/* Content */}
-            <div className="text-white lg:text-left px-6 lg:px-0 lg:hidden">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold mb-6 lg:mb-8 lg:mr-4">
-                Tecnología y estrategia para llevar tu negocio al siguiente nivel
-              </h1>
-            </div>
-
-            <div className="flex flex-col-reverse gap-10 lg:grid lg:grid-cols-2">
-              <div className="text-white lg:text-left px-6 lg:px-0">
-                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold mb-6 lg:mb-8 lg:mr-4 hidden lg:block">
+        <div className="ml-0 lg:ml-15 lg:border-b-2 border-white/30 lg:border-l-2 rounded-none lg:rounded-bl-[50px] pt-24 pb-14 lg:pt-20 lg:pb-16">
+          <div className="grid gap-3 lg:gap-12 items-start sm:px-10 lg:px-0 lg:ml-15">
+            <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:gap-y-0 lg:items-start lg:auto-rows-min">
+              <div className="text-white lg:text-left px-6 lg:px-0 lg:col-start-1 lg:row-start-1">
+                <div 
+                  className="w-full mt-10 md:mt-15 md:w-[90%] text-[28px] md:text-[56px] leading-[35px] md:leading-[70px] tracking-[-0.01em] mb-1 lg:mb-0 lg:mr-4 font-['Graphik']"
+                  style={{
+                    fontWeight: 700,
+                    color: '#FFFFFF'
+                  }}
+                >
                   Tecnología y estrategia para llevar tu negocio al siguiente nivel
-                </h1>
+                </div>
+                <div className="hidden lg:block">
+                  <p
+                    className="mt-10 md:mb-8 mb-1 bg-clip-text text-transparent font-['Graphik'] text-[16px] md:text-[24px] leading-[22px] lg:leading-[32px]"
+                    style={{
+                      background: 'linear-gradient(270deg, #C5C5C5 0%, #E9E9E9 12.02%, #FFFFFF 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
+                    Transformamos tus desafíos en oportunidades de crecimiento. Combinamos visión estratégica y
+                    soluciones tecnológicas para impulsar resultados reales y medibles.
+                  </p>
+                  <div className="flex lg:justify-start">
+                    <Link href="/nosotros/" className="bg-white text-[#1840e2] px-8 py-3 sm:px-10 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-white/90 inline-flex items-center">
+                      Saber más
+                      <svg
+                        className="ml-2 w-4 h-4 sm:w-5 sm:h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+               {/* Imagen */}
+              <div
+                className="relative lg:mt-0 pl-12 sm:px-10 lg:px-0 lg:col-start-2 lg:row-start-1 
+                  before:absolute
+                  before:z-10
+                  before:bg-[url('/images/general/attach_cross_white.png')] 
+                  before:bg-no-repeat before:bg-center before:content-['']
+                  before:bg-[length:80%_80%] before:w-20 before:h-20 before:-translate-x-1/2 before:bottom-[10%] before:left-12
+                  lg:before:bg-[length:100%_100%] lg:before:w-30 lg:before:h-30 lg:before:-translate-x-1/2 lg:before:left-0"
+              >
+                <div className="overflow-hidden rounded-tl-[40px] rounded-bl-[40px]">
+                  <Image
+                    className="w-full h-auto rounded-tl-[40px] rounded-bl-[40px] lg:h-[85%] lg:object-cover lg:object-center lg:scale-125 relative z-0"
+                    src="/images/home/portada.png"
+                    alt="Home caminando hacia un portal con el logo de Attach"
+                    width={1200}
+                    height={1000}
+                  />
+                </div>
+              </div>
+              <div className="text-white lg:text-left px-6 lg:px-0 lg:hidden mt-0">
                 <p
-                  className="text-base font-normal sm:text-lg lg:text-2xl mb-8 max-w-lg mx-auto lg:mx-0 bg-clip-text text-transparent"
+                  className="mb-6 lg:mb-1 max-w-lg mx-auto lg:mx-0 bg-clip-text text-transparent font-['Graphik'] text-[16px] md:text-[24px] leading-[22px] md:leading-[30px] lg:leading-[26px]"
                   style={{
                     background: 'linear-gradient(270deg, #C5C5C5 0%, #E9E9E9 12.02%, #FFFFFF 100%)',
                     WebkitBackgroundClip: 'text',
@@ -63,23 +115,6 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-               {/* Imagen */}
-              <div
-                className="relative lg:mt-0 pl-12 sm:px-10 lg:px-0 
-                  before:absolute
-                  before:bg-[url('/images/general/attach_cross_white.png')]
-                  before:bg-no-repeat before:bg-center before:content-['']
-                  before:bg-[length:80%_80%] before:w-20 before:h-20 before:-translate-x-1/2 before:bottom-[10%] before:left-12
-                  lg:before:bg-[length:100%_100%] lg:before:w-30 lg:before:h-30 lg:before:-translate-x-1/2 lg:before:left-0"
-              >
-                <Image
-                  className="w-full rounded-l-2xl lg:rounded-l-[4rem]"
-                  src="/images/home/portada.png"
-                  alt="Home caminando hacia un portal con el logo de Attach"
-                  width={1200}
-                  height={1000}
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -87,25 +122,73 @@ export default function Home() {
 
 
       {/* Services Section */}
-      <div className="py-20">
+      <div className="py-10 md:py-20">
         <div className="px-6 lg:mx-30">
           {/* Header */}
           <div className="mb-10">
-            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+            {/* Móvil */}
+            <h2 
+              className="mb-6 font-['Graphik'] text-[24px] md:text-[48px] leading-[26px] md:leading-[58px] bg-clip-text text-transparent lg:hidden"
+              style={{ 
+                fontWeight: 600, 
+                letterSpacing: '-0.01em',
+                background: 'linear-gradient(270deg, #C5C5C5 0%, #E9E9E9 12.02%, #FFFFFF 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
               Un solo grupo, múltiples <br></br> respuestas
             </h2>
-            <p className="text-xl text-white">
+            {/* Escritorio */}
+            <h2 
+              className="mb-6 font-['Graphik'] bg-clip-text text-transparent hidden lg:block"
+              style={{
+                fontSize: '48px',
+                fontWeight: 600,
+                lineHeight: '100%',
+                letterSpacing: '-0.02em',
+                background: 'linear-gradient(270deg, #C5C5C5 0%, #E9E9E9 12.02%, #FFFFFF 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Un solo grupo, múltiples <br></br> respuestas
+            </h2>
+            {/* Móvil: con gradiente */}
+            <p 
+              className="font-['Graphik'] text-[16px] md:text-[20px] lg:hidden bg-clip-text text-transparent"
+              style={{ 
+                fontWeight: 400,
+                lineHeight: '20px',
+                letterSpacing: '-0.01em',
+                background: 'linear-gradient(270deg, #C5C5C5 0%, #E9E9E9 12.02%, #FFFFFF 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Cada uno de nuestros servicios está respaldado por un partner especializado. Descubre quién lo hace posible.
+            </p>
+            {/* Escritorio: color blanco */}
+            <p 
+              className="font-['Graphik'] hidden lg:block text-white"
+              style={{
+                fontSize: '20px',
+                fontWeight: 400,
+                lineHeight: '28px',
+                letterSpacing: '0%',
+              }}
+            >
               Cada uno de nuestros servicios está respaldado por un partner especializado. Descubre quién lo hace posible.
             </p>
           </div>
 
           {/* Services Cards */}
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-7 md:gap-12">
             {/* Card 1: Inteligencia Artificial */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
             <div
-              className="rounded-2xl h-60 flex items-center justify-center p-8"
+              className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
               style={{ background: 'linear-gradient(317.2deg, #FFC351 0%, #FF3F73 100%)' }}
             >
                 <Image className="w-65" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
@@ -113,9 +196,9 @@ export default function Home() {
 
               {/* Content Section */}
               <div className="p-8 text-center">
-                <h3 className="text-4xl font-bold text-[#1e3fda] mb-6">
-                  Inteligencia <br/> Artificial
-                </h3>
+                <div className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-6 lg:text-center lg:mx-auto">
+                  Inteligencia Artificial
+                </div>
                 <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
                   Conoce más
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,7 +212,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
             <div
-              className="rounded-2xl h-60 flex items-center justify-center p-8"
+              className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
               style={{ background: 'linear-gradient(320.61deg, #22D1C4 0%, #E2E830 100%)' }}
             >
                 <Image className="w-65" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
@@ -137,9 +220,9 @@ export default function Home() {
 
               {/* Content Section */}
               <div className="p-8 text-center">
-                <h3 className="text-4xl font-bold text-[#1e3fda] mb-6">
+                <div className="text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-6 lg:text-center lg:mx-auto">
                   Publicidad Programática
-                </h3>
+                </div>
                 <Link href="/athena-ads/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
                   Conoce más
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,7 +236,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               {/* Logo Section */}
             <div
-              className="rounded-2xl h-60 flex items-center justify-center p-8"
+              className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
               style={{ background: 'linear-gradient(272.19deg, #22D1C4 0%, #2F7DE0 100%)' }}
             >
                 <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
@@ -161,8 +244,8 @@ export default function Home() {
 
               {/* Content Section */}
               <div className="p-8 text-center">
-                <h3 className="text-4xl font-bold text-[#1e3fda] mb-6">
-                  Medios <br /> On y Off
+                <h3 className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-6 lg:text-center lg:mx-auto">
+                  Medios On y Off
                 </h3>
                 <Link href="/attach-media/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
                   Conoce más
@@ -177,14 +260,14 @@ export default function Home() {
       </div>
 
       {/* Case Studies Section */}
-      <div className="bg-white py-20 px-6">
-        <div className="px-6 lg:mx-30">
+      <div className="bg-white py-10 md:py-20 px-6">
+        <div className="px-0 md:px-6 lg:mx-30">
           {/* Header */}
-          <div className="mb-16">
-            <h2 className="text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-              Potenciamos marcas <br></br>para el futuro
+          <div className="mb-10 md:bb-16">
+            <h2 className="text-[24px] md:text-[48px] leading-[28px] md:leading-[52px] bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+              Potenciamos marcas para el futuro
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-[14px] md:text-[20px] text-gray-600">
               Estrategia. Ejecución. Crecimiento. Porque de los desafíos nacen las mejores historias.
             </p>
           </div>
@@ -204,7 +287,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   )}
-                  <h3 className={`text-3xl font-bold transition-colors ${activeCase === 'caja-arequipa'
+                  <h3 className={`text-[20px] md:text-[32px] font-bold transition-colors ${activeCase === 'caja-arequipa'
                     ? 'text-[#464646] underline'
                     : 'text-[#818181] hover:text-gray-700'
                     }`}>
@@ -213,17 +296,32 @@ export default function Home() {
                 </button>
 
                 {activeCase === 'caja-arequipa' && (
-                  <div className="transition-all duration-300">
-                    <h4 className="text-lg font-bold mt-5 text-[#464646]">
+                  <div className="text-[13px] md:text-[16px] transition-all duration-300">
+                    <h4 className=" font-bold mt-5 text-[#464646]">
                       Más desembolsos con la misma inversión.
                     </h4>
                     <p className="leading-relaxed text-[#464646]">
                     Desarrollamos e integramos un chatbot conversacional impulsado por LLM que permite a los lectores interactuar con las noticias en tiempo real. La solución, que incluyó un benchmark de 7 modelos de lenguaje, garantiza escalabilidad, eficiencia en costos y libera horas-hombre del equipo editorial para enfocarse en contenido de valor.
                     </p>
+                    {/* Imagen móvil para El Universal (solo visible en móvil) */}
+                    <div className="block lg:hidden my-8">
+                      <ImageWithPlus
+                        src="/images/casos-de-exito/eluniversal.webp"
+                        alt="El Universal"
+                        width={1800}
+                        height={1800}
+                        position="LEFT_DOWN"
+                        paddingMobile="2rem"
+                        paddingDesktop="2rem"
+                        imageClassName="w-full object-cover"
+                        containerClassName="w-full"
+                        sizePercent={0.42}
+                        overhangPercent={0.20}
+                      />
+                    </div>
                   </div>
                 )}
-              </div>
-
+              </div> 
               {/* Deposeguro */}
               <div className="mb-8">
                 <button
@@ -251,10 +349,25 @@ export default function Home() {
                     <p className="leading-relaxed text-[#464646]">
                     Transformamos el sitio web en un canal estratégico de generación de leads. El desarrollo web, optimizado en UX/UI y rendimiento técnico, resultó en un +45% en la tasa de conversión web (YoY) y un +89% en la contactabilidad de anuncios digitales.
                     </p>
+                    {/* Imagen móvil para Deposeguro (solo visible en móvil) */}
+                    <div className="block lg:hidden my-8">
+                      <ImageWithPlus
+                        src="/images/casos-de-exito/deposeguro.webp"
+                        alt="Deposeguro"
+                        width={1800}
+                        height={1800}
+                        position="LEFT_DOWN"
+                        paddingMobile="2rem"
+                        paddingDesktop="2rem"
+                        imageClassName="w-full object-cover"
+                        containerClassName="w-full"
+                        sizePercent={0.42}
+                        overhangPercent={0.20}
+                      />
+                    </div>
                   </div>
                 )}
-              </div>
-
+              </div> 
               {/* Apuesta Total */}
               <div className="mb-12">
                 <button
@@ -282,10 +395,25 @@ export default function Home() {
                     <p className="leading-relaxed text-[#464646]">
                       Implementamos una estrategia de programática avanzada utilizando Smart Audience. Esto generó un aumento de más del 170% en el volumen de recargas durante el piloto, y un crecimiento superior al 700% en el valor promedio de cada transacción.
                     </p>
+                    {/* Imagen móvil para Apuesta Total (solo visible en móvil) */}
+                    <div className="block lg:hidden my-8">
+                      <ImageWithPlus
+                        src="/images/casos-de-exito/apuestatotal.webp"
+                        alt="Apuesta Total"
+                        width={1800}
+                        height={1800}
+                        position="LEFT_DOWN"
+                        paddingMobile="2rem"
+                        paddingDesktop="2rem"
+                        imageClassName="w-full object-cover"
+                        containerClassName="w-full"
+                        sizePercent={0.42}
+                        overhangPercent={0.20}
+                      />
+                    </div>
                   </div>
                 )}
-              </div>
-
+              </div> 
               {/* CTA Button */}
               <div className="mt-12">
                 <Link href={'/casos-de-exito/'} style={{ filter: 'drop-shadow(0 4px 8px rgba(30, 63, 218, 0.15)) drop-shadow(0 0 25px rgba(30, 63, 218, 0.1))' }} className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-14 py-4 rounded-lg font-bold hover:opacity-90 transition-opacity inline-flex items-center">
@@ -299,10 +427,10 @@ export default function Home() {
 
             {/* Right Content - Dynamic Image */}
               {/* Main Image */}
-              <div className="flex justify-end relative transition-all duration-500 ease-in-out
+              <div className="hidden lg:flex justify-end relative transition-all duration-500 ease-in-out
                     relative 
                     before:absolute
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')] 
                     before:bg-no-repeat
                     before:bg-center
                     before:content-['']
@@ -393,10 +521,10 @@ export default function Home() {
       </div>
 
       {/*Partner Section*/}
-      <div className="bg-white rounded-b-[3rem] py-20">
+      <div className="bg-white rounded-b-[3rem] py-17 md:py-20">
         <div className="px-6 lg:mx-30 lg:px-25">
         <h2
-          className="px-0 lg:px-30 lg:text-center text-4xl lg:text-5xl bg-clip-text text-transparent font-bold mb-6 inline-block"
+          className="px-0 lg:px-30 text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] lg:text-center bg-clip-text text-transparent font-bold mb-0 md:mb-6 inline-block"
           style={{
             background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
             WebkitBackgroundClip: 'text',

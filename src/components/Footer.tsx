@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid lg:grid-cols-3 lg:gap-12 font-['graphik']">
           {/* Perú */}
           <div className="p-4 md:p-8">
-            <p className="text-[#818181] font-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] pb-3">Perú</p>
+            <div className="text-[#818181] font-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] pb-3">Perú</div>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">Dirección:</span>{' '}
               <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">Av. Javier Prado Este 492 - Oficina 1202</span>
@@ -21,7 +21,7 @@ export default function Footer() {
 
           {/* México */}
           <div className="p-4 md:p-8">
-            <p className="text-[#818181] font-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] pb-3">México</p>
+            <div className="text-[#818181] font-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] pb-3">México</div>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">Dirección:</span>{' '}
               <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">Paseo de la reforma 509, col.  cuauhtémoc ddmx 06600</span>
@@ -34,7 +34,7 @@ export default function Footer() {
 
           {/* USA */}
           <div className="p-4 md:p-8">
-            <p className="text-[#818181] font-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] pb-3">USA</p>
+            <div className="text-[#818181] font-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] pb-3">USA</div>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">Address:</span>{' '}
               <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">66 W Flagler Street, Floor 9, suite 929 Miami, FL 33130, USA</span>
@@ -56,28 +56,28 @@ export default function Footer() {
               height={50} 
             />
           </Link>
-          <div className="lg:p-8">
+          <div className="lg:p-8"> 
             <div className="flex justify-end gap-2 lg:gap-4">
-              <a href="https://www.instagram.com/attach.group/" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+              <a href="https://www.instagram.com/attach.group/" target="blank" className="w-1/3 lg:w-1/11">
                 <Image 
-                  src="/images/general/socialicon_linkden.png" 
+                  src="/images/general/Instagram.svg" 
                   alt="LinkedIn" 
                   width={180} 
                   height={50} 
                 />
               </a>
-              <a href="https://www.linkedin.com/company/attachgroup/" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+              <a href="https://www.linkedin.com/company/attachgroup/" target="blank" className="w-1/3 lg:w-1/11">
                 <Image 
-                  src="/images/general/socialicon_ig.png" 
+                  src="/images/general/Linkedin.svg" 
                   alt="Instagram" 
                   width={180} 
                   height={50} 
                 />
               </a>
-              <a href="https://www.youtube.com/@attach-group/" target="blank" className="w-1/3 lg:w-1/11 p-3 rounded-[50%] bg-[#1e3fda]">
+              <a href="https://www.youtube.com/@attach-group/" target="blank" className="w-1/3 lg:w-1/11">
                 <Image 
-                  style={{ marginTop: '4px' }} 
-                  src="/images/general/socialicon_yt.png" 
+                  
+                  src="/images/general/Youtube.svg" 
                   alt="YouTube" 
                   width={180} 
                   height={50} 

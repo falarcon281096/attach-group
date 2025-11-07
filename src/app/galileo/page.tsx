@@ -90,8 +90,8 @@ export default function Home() {
 
             <section className="py-0 md:py-20 bg-gradient-to-b from-white to-[#fff9f4] text-center">
                 {/* === Título === */}
-                <h2
-                    className="text-[24px] md:text.[28px] leading-[100%] font-semibold mb-12 text-center px-10 md:px-0"
+                <div
+                    className="text-[24px] md:text-[48px] leading-[100%] font-semibold mb-12 text-center px-10 md:px-0"
                     style={{
                         backgroundImage: "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
                         backgroundClip: "text",
@@ -102,7 +102,7 @@ export default function Home() {
                     }}
                 >
                     Nuestro proceso
-                </h2>
+                </div>
 
                 {/* === Grid de pasos === */}
                 <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 px-6">
@@ -297,7 +297,7 @@ export default function Home() {
                         </div>
                     </Link>
                     {/* === Card 2: El Universal === */}
-                    <Link
+                    {/* <Link
                         href="/casos-de-exito/universal"
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block"
                     >
@@ -315,7 +315,7 @@ export default function Home() {
                                 Clasificación inteligente de contenido: el salto de El Universal con IA generativa
                             </p>
                         </div>
-                    </Link>
+                    </Link> */}
 
                     {/* === Card 3: Apuesta Total === */}
                     {/* <Link
@@ -357,7 +357,7 @@ export default function Home() {
                         <div>
                             <Link
                                 href="/contacto"
-                                className="inline-flex items-center justify-center bg-white font-semibold text-[16px] leading-[24px] px-8 py-4 rounded-lg hover:opacity-90 transition"
+                                className="inline-flex items-center justify-center bg-white font-semibold text-[16px] md:text-[18px] leading-[24px] px-8 py-4 rounded-lg hover:opacity-90 transition"
                                 style={{
                                     color: "var(--new-colors-galileo-ia-2, #FFC351)",
                                 }}

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Link from 'next/link';
+import AttachMediaProcessSection from "../../components/AttachMediaProcessSection";
 
 export default function AttachMediaPage() {
   return (
@@ -131,7 +132,7 @@ export default function AttachMediaPage() {
                 Equipo híbrido: Personas + IA, la combinación que potencia resultados
               </h3>
               
-              <div className="space-y-4 mb-2">
+              <div className="space-y-4 mb-7 md:mb-5">
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                   En nuestro modelo operativo, <span className="text-cyan-500 font-semibold">combinamos la experiencia del talento humano con el poder de la inteligencia artificial aplicada</span>. Además del personal asignado, contamos con Agentes de IA creados por Attach Group que optimizan presupuestos de campañas, depuran keywords eficientes y sugieren mejoras de las piezas publicitarias. Esta sinergia permite <span className="text-cyan-500 font-semibold">automatizar tareas, escalar aprendizajes y asegurar una calidad consistente en los resultados.</span>
                 </p>
@@ -386,13 +387,14 @@ export default function AttachMediaPage() {
       </div>
 
       {/* Section - Historias de impacto programático */}
+      <AttachMediaProcessSection />
       <section className="py-0 md:py-8 lg:py-20 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
             <h2 className="text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]" style={{ backgroundImage: 'linear-gradient(109.97deg, #2F7DE1 1.8%, #22D3C5 99.93%)' }}>
             Resultados que se miden, decisiones que transforman
             </h2>
 
-            <p className="text-[16px] md:text-[20px] md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
+            <p className="text-[14px] md:text-[20px] md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
             Mostramos cómo la estrategia, la tecnología y la data se traducen en resultados de negocio reales. Cada caso refleja nuestro compromiso con la eficiencia, la claridad y el crecimiento sostenible.
             </p>
 

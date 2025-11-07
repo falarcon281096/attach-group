@@ -275,7 +275,7 @@ export default function Header({ variant = 'default', showBorder = true }: Heade
         </nav>
 
         {/* Botón Contáctanos - Centro on mobile, right on lg+ */}
-        <div className="flex-1 flex items-center justify-center lg:justify-end lg:flex-none lg:mr-30">
+        <div className="flex-1 flex items-center justify-end lg:justify-end lg:flex-none lg:mr-30">
           <Link
             href="/contacto"
             className={`px-3 py-2 lg:px-6 lg:py-3 rounded-lg text-sm lg:text-base font-extrabold hover:opacity-90 transition-all duration-300 transform hover:scale-105 ${isWhiteBg

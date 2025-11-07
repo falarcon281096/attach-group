@@ -17,14 +17,14 @@ export default function Home() {
       link: '/casos-de-exito/apuesta-total-2025',
       id: 'apuesta-t-catalogo',
       title: 'Apuesta Total',
-      tag: 'Programática',
+      tag: 'Publicidad programática',
       image: '/images/casos-de-exito/apuestatotal.webp',
     },
     {
       link: '/casos-de-exito/cayetano',
       id: 'cayetano-heredia',
       title: 'Universidad Cayetano Heredia',
-      tag: 'Sitio Web e Infraestructura',
+      tag: 'Sitio web e infraestructura',
       image: '/images/casos-de-exito/cayetano.webp',
     },
     {
@@ -38,7 +38,7 @@ export default function Home() {
       link: '/casos-de-exito/universal-2',
       id: 'universal-2',
       title: 'El Universal',
-      tag: 'IA',
+      tag: 'UX',
       image: '/images/casos-de-exito/eluniversal2.webp',
     },
     {

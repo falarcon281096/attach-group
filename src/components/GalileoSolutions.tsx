@@ -109,7 +109,7 @@ export default function GalileoSolutions() {
                                     width={0}
                                     height={0}
                                     sizes="100vw"
-                                    className="w-[42%] md:w-[100%] h-auto w-auto max-w-full object-contain"
+                                    className="h-auto w-[42%] md:w-[100%] md:w-auto md:max-w-full object-contain"
                                 />
                             </div>
 
@@ -142,7 +142,7 @@ export default function GalileoSolutions() {
                             : "hidden opacity-0 -translate-y-4 scale-95"
                     }`}
                 >
-                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[28px] pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[28px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
                         Diseñamos y gestionamos infraestructuras en la nube que escalan y protegen tus datos. Te guiamos en la elección de la arquitectura más eficiente y flexible, integrándola con tus plataformas de negocio. Así obtienes una nube segura, clara y lista para crecer al ritmo de tu empresa.
                     </div>
                     <div className="relative h-[280px] w-full group">

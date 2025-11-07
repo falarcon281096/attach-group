@@ -187,8 +187,8 @@ export default function Home() {
       <div className="atm-content pb-30 bg-white">
         {/* Hero Section */}
         <div className="relative">
-          <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] items-center gap-12 lg:gap-16 pt-24 pb-16 lg:py-24">
+          <div className="px-6 lg:mx-30">
+            <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] items-center gap-12 lg:gap-16 pt-24">
               {/* Content */}
               <div className="space-y-8">
                 <h1 className="font-extrabold text-[32px] lg:text-[55px] bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent leading-tight">
@@ -233,15 +233,15 @@ export default function Home() {
 
         {/* Formulario */}
         <section className="relative">
-          <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+          <div className="px-6 lg:mx-30">
             <div className="relative isolate">
               <div className="absolute inset-x-0 -top-14 mx-auto h-28 max-w-[360px] rounded-full bg-gradient-to-r from-[#2147ff]/25 via-[#3d3fce]/20 to-[#612bb8]/25 blur-3xl"></div>
               <div className="relative grid gap-12 rounded-[36px] bg-gradient-to-br from-[#2147ff] via-[#3d3fce] to-[#612bb8] px-6 py-10 shadow-[0_30px_80px_rgba(34,63,218,0.35)] lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:px-12 lg:py-14">
                 <div className="space-y-6 text-white">
-                  <h4 className="text-3xl lg:text-4xl font-bold leading-snug">
+                  <h4 className="text-[24px] md:text-[48px] log:text-[48px] font-bold leading-[24px] md:leading-[48px]">
                     Cuéntanos <br />sobre tu <br /> proyecto
                   </h4>
-                  <p className="text-base lg:text-lg text-white/80 leading-relaxed">
+                  <p className="text-[14px] md:text-[20px]  text-white/80 leading-[18px] md:leading-[28px]">
                     Completa el formulario y <br /> pronto estaremos en contacto <br /> contigo.
                   </p>
                 </div>

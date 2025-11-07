@@ -202,7 +202,7 @@ export default function Home() {
           <h2 className="text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
             Quiénes lideran el camino
           </h2>
-          <section className="py-16">
+          <section className="py-2 md:py-4">
             <div className="">
               <div className="flex flex-wrap justify-center gap-10">
                 {/* Carlo R.*/}
@@ -230,7 +230,7 @@ export default function Home() {
         </div>
 
         {/*Clientes Section*/}
-        <div className={`py-20 mx-30 ${styles.clientes}`}>
+        <div className={`py-10 md:py-20  mx-30 ${styles.clientes}`}>
           <h2 className="text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
             Algunos de nuestros clientes
           </h2>

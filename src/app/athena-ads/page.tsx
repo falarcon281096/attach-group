@@ -332,14 +332,14 @@ export default function AthenaAds() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
+                  {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
                     <Image
                       src="/images/athena-ads/09.jpg"
                       alt="Social Extender 2"
                       fill
                       className="object-cover"
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <div className="p-4 md:p-6">
                   <div className="text-[14px] md:text-[20px] font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
@@ -362,14 +362,14 @@ export default function AthenaAds() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
+                  {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
                     <Image
                       src="/images/athena-ads/11.jpg"
                       alt="Rich Media 2"
                       fill
                       className="object-cover"
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <div className="p-4 md:p-6">
                   <div className="text-[14px] md:text-[20px]  font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
@@ -392,14 +392,14 @@ export default function AthenaAds() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
+                  {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
                     <Image
                       src="/images/athena-ads/13.jpg"
                       alt="Tap to Map 2"
                       fill
                       className="object-cover"
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <div className="p-4 md:p-6">
                   <div className="text-[14px] md:text-[20px] text-xl font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
@@ -430,7 +430,7 @@ export default function AthenaAds() {
               {/* Card 1 - Apuesta Total */}
               <Link href="/casos-de-exito/apuesta-total-ads" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
                 <Image
-                  src="/images/casos-de-exito/apuestatotal.webp"
+                  src="/images/casos-de-exito/Apuestathenads1.webp"
                   alt="Caso de éxito"
                   fill
                   className="object-cover"

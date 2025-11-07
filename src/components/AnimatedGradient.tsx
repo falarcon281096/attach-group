@@ -1,29 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import AthenaCards from "./AthenaCards";
 
 export default function AnimatedGradient() {
-    const [gradientPosition, setGradientPosition] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setGradientPosition((prev) => (prev + 0.5) % 360);
-        }, 50);
-
-        return () => clearInterval(interval);
-    }, []);
-
     return (
         <section 
             className="min-h-[95vh] rounded-b-[30px] md:rounded-b-[50px] flex items-center pt-32 pb-8 md:py-12 lg:py-0 relative overflow-hidden -mt-[80px] lg:-mt-0"
         >
-            {/* Animated gradient background */}
+            {/* Gradient background */}
             <div 
-                className="absolute transition-all duration-1000"
+                className="absolute"
                 style={{
-                    background: `linear-gradient(${gradientPosition}deg, #E2E830 0%, #A1E05E 25%, #2ED3B1 50%, #00CED3 75%, #E2E830 100%)`,
+                    background: `linear-gradient(90deg, #E2E830 0%, #A1E05E 25%, #2ED3B1 50%, #00CED3 75%, #E2E830 100%)`,
                     top: '-80px',
                     left: 0,
                     right: 0,
@@ -53,13 +42,13 @@ export default function AnimatedGradient() {
                             </div>
                         </div>
 
-                        <div className="text-[24px] md:text-[40px] font-['graphik'] ml-0 md:ml-25 font-bold mb-3 md:mb-4 md:w-[70%]">
+                        <div className="text-[24px] md:text-[40px] leading-[24px] md:leading-[40px] font-['graphik'] ml-0 md:ml-25 font-bold mb-3 md:mb-4 md:w-[70%]">
                             Publicidad programática efectiva
                         </div>
 
                         <div className="ml-0 md:ml-25 w-full md:w-[65%] h-1 bg-white mb-4 md:mb-6"></div>
 
-                        <div className="text-[16px] md:text-[24px] ml-0 md:ml-25 font-['graphik'] font-normal mb-8 md:mb-12 w-full md:w-[70%]" style={{  lineHeight: '1.5' }}>
+                        <div className="text-[16px] md:text-[24px] leading-[16px] md:leading-[24px] ml-0 md:ml-25 font-['graphik'] font-normal mb-8 md:mb-12 w-full md:w-[70%]" style={{  lineHeight: '1.5' }}>
                             Estrategias omnicanal diseñadas para <br /> marcas que buscan claridad, impacto y resultados.
                         </div>
                     </div>
