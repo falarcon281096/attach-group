@@ -19,7 +19,7 @@ export default function AttachMediaPage() {
             {/* Left Content */}
             <div className="pt-0  text-white mr-0 md:mr-8">
               {/* Logo Attach Media */}
-              <div className="mb-6 md:mb-8">
+              <div className="mb-10 md:mb-8">
                 <Image 
                   src="/images/general/attachmedia_logo.png" 
                   alt="Attach Media" 
@@ -29,13 +29,13 @@ export default function AttachMediaPage() {
                 />
               </div>
               
-              <h1 className="text-[24px] md:text-[40px] leading-[30px] md:leading-[42px]  font-['Graphik'] font-semibold mb-2 leading-tight md:w-[80%]">
+              <h1 className="text-[24px] md:text-[40px] leading-[30px] md:leading-[42px]  font-['Graphik'] font-semibold mb-4 md:mb-2 leading-tight md:w-[80%]">
                 Tecnología y data aplicada a los medios
               </h1>
               {/* Línea blanca gruesa debajo del título */}
               <div className="w-32 md:w-125 h-1 bg-white mb-2 md:w-[70%] w-full"></div>
               
-              <div className="text-[16px] md:text-[24px] leading-[19px] md:leading-[28px] font-normal font-['Graphik'] text-white mb-6 md:mb-8 leading-relaxed">
+              <div className="text-[16px] md:text-[24px] leading-[19px] md:leading-[28px] font-normal font-['Graphik'] text-white mt-4 md:mt-0 mb-2 md:mb-8 leading-relaxed">
                 Transformamos la inversión publicitaria en resultados reales para tu negocio
               </div>
             </div>
@@ -43,7 +43,7 @@ export default function AttachMediaPage() {
             {/* Right Content - Cards flotantes como en la imagen original */}
             <div className="relative ml-0 md:ml-16 mt-8 md:mt-0">
               {/* Cards Container */}
-              <div className="space-y-4 md:space-y-6 px-7 md:px-0 relative z-10">
+              <div className="space-y-4 md:space-y-6 px-5 md:px-0 relative z-10">
                 {/* First Card */}
                 <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 relative shadow-lg rounded-lg">
                   <div className="absolute top-40 -left-6 md:block">
@@ -87,7 +87,7 @@ export default function AttachMediaPage() {
             <h2 className="text-[24px] md:text-[48px] font-['graphik'] font-semibold text-gray-800 mb-4 md:mb-8">
               De la estrategia a la acción
             </h2>
-            <p className="text-base md:text-xl text-gray-500 max-w-4xl mx-auto">
+            <p className="px-3 md:px-0 text-[14px] md:text-[20px] text-gray-500 max-w-4xl mx-auto">
               Porque una estrategia solo cobra sentido cuando genera resultados medibles.
             </p>
           </div>
