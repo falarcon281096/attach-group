@@ -16,19 +16,19 @@ export default function AthenaBenefits() {
         paddingRight: "5px",
       }}
     >
-      <div className="max-w-full ml-0 md:ml-12 lg:ml-24 mr-0 grid grid-cols-1 md:grid-cols-[30%_70%] gap-3 md:gap-12 items-center">
+      <div className="max-w-full ml-0 md:ml-12 lg:ml-24 mr-0 grid grid-cols-1 md:grid-cols-[35%_65%] gap-3 md:gap-12 items-center">
         {/* Columna izquierda */}
         <div>
-          <h2 className="text-white pl-5 md:pl-0 text-[24px] md:text-[48px] font-semibold leading-[110%] mb-2 md:mb-8">
+          <div className="text-white pl-5 md:pl-0 text-[24px] md:text-[48px] font-semibold leading-[110%] mb-2 md:mb-8">
             Asociarse con
             <span className="opacity-90"> Athena Ads</span> significa:
-          </h2>
+          </div>
         </div>
 
         {/* Columna derecha */}
         <div className="benefits-list flex flex-col gap-3 md:gap-3 items-start px-4 md:max-w-none w-full">
           {benefits.map((item, i) => (
-            <p
+            <div
               key={i}
               className={`benefit-item relative bg-white text-[#818181] font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 px-12 md:pl-10 md:pr-6 rounded-2xl border border-[#E2E830] transition-all duration-300 inline-block w-full md:w-fit max-w-full ${offsets[i]}`}
             >
@@ -42,7 +42,7 @@ export default function AthenaBenefits() {
                 <span className="text-white text-[10px] font-bold">✓</span>
               </span>
               {item}
-            </p>
+            </div>
           ))}
         </div>
       </div>

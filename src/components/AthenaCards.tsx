@@ -1,6 +1,6 @@
 export default function AthenaCards() {
     return (
-        <div className="mt-24 space-y-5 md:space-y-6 lg:space-y-8">
+        <div className="mt-0 md:mt-24 space-y-5 md:space-y-6 lg:space-y-8">
             {/* First Card */}
             <div className="relative bg-white p-5 md:p-6 lg:p-8 overflow-visible w-[85%] mx-auto rounded-lg shadow-md transition-all duration-300 hover:shadow-[0_15px_40px_rgba(0,206,211,0.25)] hover:scale-105 hover:-translate-y-2 border border-gray-100">
                 <div className="absolute -left-7 top-1/2 -translate-y-1/2 transition-all duration-300 group-hover:scale-110">

@@ -418,13 +418,13 @@ export default function AthenaAds() {
         {/* Section - Historias de impacto programático */}
         <section className="py-10 md:py-16 lg:py-20 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
-            <h2 className="text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
+            <div className="text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
               Historias de impacto programático
-            </h2>
+            </div>
 
-            <p className="text-[16px] md:text-[20px] md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
+            <div className="text-[16px] md:text-[20px] md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
               Datos, estrategia y creatividad se combinan para crear resultados que <br />trascienden las métricas. Así generamos crecimiento sostenible con <br />Athena Ads.
-            </p>
+            </div>
 
             {/* Three Image Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
@@ -491,7 +491,7 @@ export default function AthenaAds() {
         <AthenaBenefits />
 
         {/* CTA Section - ¿Listo para una estrategia única? */}
-        <section className="px-6 md:px-8 lg:px-12 min-h-[80vh] md:min-h-0 md:py-16 lg:h-[500px] flex items-center" style={{ background: 'linear-gradient(270deg, #00CED3 2.82%, #2ED3B1 23.42%, #A1E05E 71.16%, #E2E830 96.43%)' }}>
+        <section className="px-6 md:px-8 lg:px-12 min-h-[34vh] md:min-h-0 md:py-16 lg:h-[500px] flex items-center" style={{ background: 'linear-gradient(270deg, #00CED3 2.82%, #2ED3B1 23.42%, #A1E05E 71.16%, #E2E830 96.43%)' }}>
           <div className="container mx-auto">
             <div className="w-full lg:w-1/2">
               <h2 className="hero-title-override text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8">

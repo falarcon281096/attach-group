@@ -243,7 +243,7 @@ export default function AthenaProcessSection() {
               </div>
 
               {/* Card 5 - Reportes y análisis */}
-              <div className="col-span-1">
+              <div className="col-span-2 md:col-span-1 justify-self-center md:justify-self-auto">
                 <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center justify-between text-center hover:shadow-xl transition-shadow duration-300">
                   <div className="mb-4 flex justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">

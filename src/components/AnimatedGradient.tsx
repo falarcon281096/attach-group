@@ -25,9 +25,9 @@ export default function AnimatedGradient() {
             </div>
 
             <div className="container mx-auto px-6 md:px-8 lg:px-16 relative z-10 pt-[80px] lg:pt-0">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 md:gap-12 lg:gap-16 items-center">
                     {/* Left Side - Logo and Text */}
-                    <div className="mt-24 text-white space-y-4 md:space-y-6 px-6 md:px-0">
+                    <div className="mt-0 md:mt-24 text-white space-y-4 md:space-y-6 px-6 md:px-0">
                         <div className="inline-block overflow-hidden">
                             <div className="ml-0 md:ml-23 mb-6 md:mb-10 mt-6 md:mt-15">
                                 <Image
