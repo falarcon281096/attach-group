@@ -61,10 +61,10 @@ export default function Home() {
           <h1 className="text-4xl lg:text-6xl font-bold text-white">
             Estrategias digitales, éxitos reales
           </h1>
-          <p className="text-2xl text-white">
+          <p className="text-[16px] md:text-[24px] text-white w-full md:w-[75%] mx-auto">
             Ayudamos a nuestros clientes a convertir desafíos en resultados medibles y escalables.
           </p>
-          <a href="#atm-casos" className="bg-white text-[#1840e2] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/90 flex justify-center max-w-200 mx-auto items-center">
+          <a href="#atm-casos" className="bg-white text-[16px] md:text-[20px] text-[#1840e2] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/90 flex justify-center max-w-200 mx-auto items-center">
             Ver casos de éxito
             <svg className="ml-2 w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
