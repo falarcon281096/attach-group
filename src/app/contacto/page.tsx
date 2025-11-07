@@ -233,17 +233,17 @@ export default function Home() {
 
         {/* Formulario */}
         <section className="relative">
-          <div className="px-6 lg:mx-30">
+          <div className="px-6 mt-5 md:mt-0 lg:mx-30">
             <div className="relative isolate">
               <div className="absolute inset-x-0 -top-14 mx-auto h-28 max-w-[360px] rounded-full bg-gradient-to-r from-[#2147ff]/25 via-[#3d3fce]/20 to-[#612bb8]/25 blur-3xl"></div>
-              <div className="relative grid gap-12 rounded-[36px] bg-gradient-to-br from-[#2147ff] via-[#3d3fce] to-[#612bb8] px-6 py-10 shadow-[0_30px_80px_rgba(34,63,218,0.35)] lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:px-12 lg:py-14">
+              <div className="relative grid gap-7 md:gap-12 rounded-[26px] bg-gradient-to-br from-[#2147ff] via-[#3d3fce] to-[#612bb8] px-6 py-8 shadow-[0_30px_80px_rgba(34,63,218,0.35)] lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:px-12 lg:py-14">
                 <div className="space-y-6 text-white">
-                  <h4 className="text-[24px] md:text-[48px] log:text-[48px] font-bold leading-[24px] md:leading-[48px]">
-                    Cuéntanos <br />sobre tu <br /> proyecto
+                  <h4 className="text-[24px] md:text-[48px] font-['Graphik'] log:text-[48px] font-semibold leading-[24px] md:leading-[48px]">
+                    Cuéntanos sobre tu proyecto
                   </h4>
-                  <p className="text-[14px] md:text-[20px]  text-white/80 leading-[18px] md:leading-[28px]">
-                    Completa el formulario y <br /> pronto estaremos en contacto <br /> contigo.
-                  </p>
+                  <div className="text-[14px] md:text-[20px]  text-white/80 leading-[18px] md:leading-[28px]">
+                    Completa el formulario y pronto estaremos en contacto contigo.
+                  </div>
                 </div>
                 <form
                   className="grid grid-cols-1 gap-5 lg:grid-cols-2"

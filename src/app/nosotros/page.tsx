@@ -57,7 +57,7 @@ export default function Home() {
 
         {/*Indicadores*/}
         <section className="">
-          <div className="mx-30 py-16 grid lg:grid-cols-4 gap-2">
+          <div className="mx-30 py-16 grid grid-cols-2 lg:grid-cols-4 gap-2">
             {/* Indicador 1 */}
             <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
               <p
