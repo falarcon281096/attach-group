@@ -6,7 +6,7 @@ import AthenaCards from "./AthenaCards";
 export default function AnimatedGradient() {
     return (
         <section 
-            className="min-h-[95vh] rounded-b-[30px] md:rounded-b-[50px] flex items-center pt-32 pb-8 md:py-12 lg:py-0 relative overflow-hidden -mt-[80px] lg:-mt-0"
+            className="min-h-[95vh] rounded-b-[30px] md:rounded-b-[50px] flex items-center  pt-26 md:pt-32 pb-8 md:py-12 lg:py-0 relative overflow-hidden -mt-[80px]  lg:-mt-0"
         >
             {/* Gradient background */}
             <div 
@@ -27,7 +27,7 @@ export default function AnimatedGradient() {
             <div className="container mx-auto px-6 md:px-8 lg:px-16 relative z-10 pt-[80px] lg:pt-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 md:gap-12 lg:gap-16 items-center">
                     {/* Left Side - Logo and Text */}
-                    <div className="mt-0 md:mt-24 text-white space-y-4 md:space-y-6 px-6 md:px-0">
+                    <div className="mt-0 md:mt-24 text-white space-y-4 md:space-y-6 px-4 md:px-0">
                         <div className="inline-block overflow-hidden">
                             <div className="ml-0 md:ml-23 mb-6 md:mb-10 mt-6 md:mt-15">
                                 <Image
@@ -42,7 +42,7 @@ export default function AnimatedGradient() {
                             </div>
                         </div>
 
-                        <div className="text-[24px] md:text-[40px] leading-[24px] md:leading-[40px] font-['graphik'] ml-0 md:ml-25 font-bold mb-3 md:mb-4 md:w-[70%]">
+                        <div className="text-[24px] md:text-[40px] leading-[24px] md:leading-[40px] font-['graphik'] ml-0 md:ml-25 font-bold mb-3 md:mb-4 w-full md:w-[70%]">
                             Publicidad programática efectiva
                         </div>
 
