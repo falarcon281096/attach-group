@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import AthenaBenefits from "../../components/AthenaBenefits";
 import Image from "next/image";
 import { useState } from "react";
 import HeaderAthena from "../../components/HeaderAthena";
@@ -487,105 +488,7 @@ export default function AthenaAds() {
         </section>
 
         {/* New Section - Asociarse con Athena Ads */}
-        <section className="px-6 md:px-8 lg:px-12 bg-[rgba(226,232,48,1)] py-12 md:py-16 lg:h-[500px] flex items-center overflow-hidden ">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-              {/* Left Side - Title */}
-              <div>
-                <h2 className="hero-title-override text-2xl md:text-4xl lg:text-5xl font-bold text-white">
-                  Asociarse con Athena <br /> Ads significa:
-                </h2>
-              </div>
-
-              {/* Right Side - 4 Cards in Staircase */}
-              <div className="space-y-3 md:space-y-3 overflow-hidden">
-                {/* Card 1 */}
-                <div className="bg-white rounded-lg py-3 px-4 md:px-5 flex items-center gap-3 transform translate-x-0 w-full md:w-[90%] lg:w-[85%]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
-                    <mask id="mask0_3770_4939_1" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                      <rect width="24" height="24" fill="#D9D9D9" />
-                    </mask>
-                    <g mask="url(#mask0_3770_4939_1)">
-                      <path d="M10.6 16.6L17.65 9.55L16.25 8.15L10.6 13.8L7.75 10.95L6.35 12.35L10.6 16.6ZM12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.3833 2 14.6833 2.2625 15.9 2.7875C17.1167 3.3125 18.175 4.025 19.075 4.925C19.975 5.825 20.6875 6.88333 21.2125 8.1C21.7375 9.31667 22 10.6167 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22Z" fill="url(#paint0_linear_3770_4939_1)" />
-                    </g>
-                    <defs>
-                      <linearGradient id="paint0_linear_3770_4939_1" x1="21.4354" y1="12.0013" x2="2.71418" y2="12.0013" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#00CED3" />
-                        <stop offset="0.22" stopColor="#2ED3B1" />
-                        <stop offset="0.73" stopColor="#A1E05E" />
-                        <stop offset="1" stopColor="#E2E830" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                  <p className="text-gray-700 flex-1 leading-snug">Innovación constante</p>
-                </div>
-
-                {/* Card 2 - Shifted Right */}
-                <div className="bg-white rounded-lg py-3 px-4 md:px-5 flex items-center gap-3 transform md:translate-x-[2rem] lg:translate-x-[3rem] w-full md:w-[90%] lg:w-[85%]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
-                    <mask id="mask0_3770_4939_2" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                      <rect width="24" height="24" fill="#D9D9D9" />
-                    </mask>
-                    <g mask="url(#mask0_3770_4939_2)">
-                      <path d="M10.6 16.6L17.65 9.55L16.25 8.15L10.6 13.8L7.75 10.95L6.35 12.35L10.6 16.6ZM12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.3833 2 14.6833 2.2625 15.9 2.7875C17.1167 3.3125 18.175 4.025 19.075 4.925C19.975 5.825 20.6875 6.88333 21.2125 8.1C21.7375 9.31667 22 10.6167 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22Z" fill="url(#paint0_linear_3770_4939_2)" />
-                    </g>
-                    <defs>
-                      <linearGradient id="paint0_linear_3770_4939_2" x1="21.4354" y1="12.0013" x2="2.71418" y2="12.0013" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#00CED3" />
-                        <stop offset="0.22" stopColor="#2ED3B1" />
-                        <stop offset="0.73" stopColor="#A1E05E" />
-                        <stop offset="1" stopColor="#E2E830" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                  <p className="text-gray-700 flex-1 leading-snug">Resultados transparentes y medibles</p>
-                </div>
-
-                {/* Card 3 - Shifted More Right */}
-                <div className="bg-white rounded-lg py-3 px-4 md:px-5 flex items-center gap-3 transform md:translate-x-[4rem] lg:translate-x-[6rem] w-full md:w-[90%] lg:w-[85%]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
-                    <mask id="mask0_3770_4939_3" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                      <rect width="24" height="24" fill="#D9D9D9" />
-                    </mask>
-                    <g mask="url(#mask0_3770_4939_3)">
-                      <path d="M10.6 16.6L17.65 9.55L16.25 8.15L10.6 13.8L7.75 10.95L6.35 12.35L10.6 16.6ZM12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.3833 2 14.6833 2.2625 15.9 2.7875C17.1167 3.3125 18.175 4.025 19.075 4.925C19.975 5.825 20.6875 6.88333 21.2125 8.1C21.7375 9.31667 22 10.6167 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22Z" fill="url(#paint0_linear_3770_4939_3)" />
-                    </g>
-                    <defs>
-                      <linearGradient id="paint0_linear_3770_4939_3" x1="21.4354" y1="12.0013" x2="2.71418" y2="12.0013" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#00CED3" />
-                        <stop offset="0.22" stopColor="#2ED3B1" />
-                        <stop offset="0.73" stopColor="#A1E05E" />
-                        <stop offset="1" stopColor="#E2E830" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                  <p className="text-gray-700 flex-1 leading-snug">Tomar decisiones basadas en datos</p>
-                </div>
-
-                {/* Card 4 - Shifted Most Right */}
-                <div className="bg-white rounded-lg py-3 px-4 md:px-5 flex items-center gap-3 transform md:translate-x-[6rem] lg:translate-x-[9rem] w-full md:w-[90%] lg:w-[85%]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="flex-shrink-0">
-                    <mask id="mask0_3770_4939_4" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                      <rect width="24" height="24" fill="#D9D9D9" />
-                    </mask>
-                    <g mask="url(#mask0_3770_4939_4)">
-                      <path d="M10.6 16.6L17.65 9.55L16.25 8.15L10.6 13.8L7.75 10.95L6.35 12.35L10.6 16.6ZM12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.3833 2 14.6833 2.2625 15.9 2.7875C17.1167 3.3125 18.175 4.025 19.075 4.925C19.975 5.825 20.6875 6.88333 21.2125 8.1C21.7375 9.31667 22 10.6167 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22Z" fill="url(#paint0_linear_3770_4939_4)" />
-                    </g>
-                    <defs>
-                      <linearGradient id="paint0_linear_3770_4939_4" x1="21.4354" y1="12.0013" x2="2.71418" y2="12.0013" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#00CED3" />
-                        <stop offset="0.22" stopColor="#2ED3B1" />
-                        <stop offset="0.73" stopColor="#A1E05E" />
-                        <stop offset="1" stopColor="#E2E830" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                  <p className="text-gray-700 flex-1 leading-snug">Soluciones tecnológicas sin restricciones</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <AthenaBenefits />
 
         {/* CTA Section - ¿Listo para una estrategia única? */}
         <section className="px-6 md:px-8 lg:px-12 min-h-[80vh] md:min-h-0 md:py-16 lg:h-[500px] flex items-center" style={{ background: 'linear-gradient(270deg, #00CED3 2.82%, #2ED3B1 23.42%, #A1E05E 71.16%, #E2E830 96.43%)' }}>
