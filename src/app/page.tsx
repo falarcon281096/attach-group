@@ -74,9 +74,18 @@ export default function Home() {
                   before:bg-[length:80%_80%] before:w-20 before:h-20 before:-translate-x-1/2 before:bottom-[10%] before:left-12
                   lg:before:bg-[length:100%_100%] lg:before:w-30 lg:before:h-30 lg:before:-translate-x-1/2 lg:before:left-0"
               >
-                <div className="overflow-hidden rounded-tl-[40px] rounded-bl-[40px]">
+                <div className="overflow-hidden lg:rounded-tl-[40px] lg:rounded-bl-[40px]">
+                  {/* Imagen móvil: sin bordes CSS y con archivo portada_movil.png */}
                   <Image
-                    className="w-full h-auto rounded-tl-[40px] rounded-bl-[40px] lg:h-[85%] lg:object-cover lg:object-center lg:scale-125 relative z-0"
+                    className="block lg:hidden w-full h-auto relative z-0"
+                    src="/images/home/portada_movil.png"
+                    alt="Home caminando hacia un portal con el logo de Attach"
+                    width={1200}
+                    height={1000}
+                  />
+                  {/* Imagen desktop: mantiene bordes y estilos actuales */}
+                  <Image
+                    className="hidden lg:block w-full h-auto lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:h-[85%] lg:object-cover lg:object-center lg:scale-125 relative z-0"
                     src="/images/home/portada.png"
                     alt="Home caminando hacia un portal con el logo de Attach"
                     width={1200}
@@ -524,7 +533,7 @@ export default function Home() {
       <div className="bg-white rounded-b-[3rem] py-17 md:py-20">
         <div className="px-6 lg:mx-30 lg:px-25">
         <h2
-          className="px-0 lg:px-30 text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] lg:text-center bg-clip-text text-transparent font-bold mb-0 md:mb-6 inline-block"
+          className="px-0 lg:px-30 text-[24px] md:text-[48px] leading-[24px] md:leading-[64px] lg:text-center bg-clip-text text-transparent font-bold mb-0 md:mb-6 inline-block"
           style={{
             background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
             WebkitBackgroundClip: 'text',
