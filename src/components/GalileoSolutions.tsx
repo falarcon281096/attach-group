@@ -38,13 +38,60 @@ export default function GalileoSolutions() {
 
                 {/* IA Enterprise */}
                 <div className="mb-2 md:mb-8">
-                    <h3 className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0]">
+                    <h3
+                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
+                        onClick={() => handleToggle("ia")}
+                    >
+                        {openSection === "ia" && (
+                            <span className="text-[#e37426] mr-2">→</span>
+                        )}
                         IA Enterprise
                     </h3>
                 </div>
 
+                {/* Contenido IA Enterprise */}
+                <div
+                    className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center transition-all duration-700 ${
+                        openSection === "ia" 
+                            ? "block opacity-100 translate-y-0 scale-100 animate-in fade-in slide-in-from-bottom-4 duration-700" 
+                            : "hidden opacity-0 -translate-y-4 scale-95"
+                    }`}
+                >
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[28px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                        Desde agentes conversacionales que mejoran la atención al cliente, hasta proyectos de computer vision que automatizan tareas críticas, en Galileo IA desarrollamos soluciones de inteligencia artificial adaptadas a las necesidades de tu organización.
+                    </div>
+                    <div className="relative h-[280px] w-full group">
+                        {/* Contenedor de imagen con bordes personalizados */}
+                        <div 
+                            className="relative h-full w-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
+                            style={{
+                                borderTopLeftRadius: '20px',
+                                borderBottomRightRadius: '20px',
+                            }}
+                        >
+                            {/* Borde punteado vertical */}
+                            <div className="absolute left-0 top-0 h-full w-px z-10" style={{ background: '#9370DB' }}></div>
+                            {/* Imagen IA Enterprise */}
+                            <Image
+                                src="/images/galileo/IA-rnterprise.png"
+                                alt="IA Enterprise"
+                                width={800}
+                                height={600}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                        </div>
+                        {/* Icono + naranja sin fondo - esquina inferior izquierda */}
+                        <span 
+                            className="absolute bottom-2 -left-8 text-[#FFA500] text-9xl font-bold select-none transition-all duration-300 group-hover:scale-125 z-20"
+                            style={{ marginBottom: '8px' }}
+                        >
+                            +
+                        </span>
+                    </div>
+                </div>
+
                 {/* Soluciones SAAS */}
-                <div className="mb-8">
+                <div className="mb-3 md:mb-8">
                     <h3
                         className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
                         onClick={() => handleToggle("saas")}

@@ -24,7 +24,7 @@ export default function Home() {
                 <h1 className="font-extrabold text-4xl lg:text-6xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
                   Attach Group
                 </h1>
-                <p className="hidden lg:block text-[#464646] mt-4 text-2xl">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</p>
+                <div className="hidden lg:block text-[#464646] mt-4 text-[15px] md:text-[24px]">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</div>
               </div>
 
               {/* Imagen (móvil segundo) */}
@@ -49,7 +49,7 @@ export default function Home() {
 
               {/* Párrafo (móvil tercero, desktop oculto) */}
               <div className="order-3 lg:order-1 lg:col-start-1 lg:hidden">
-                <p className="text-[#464646] mt-4 text-2xl">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</p>
+                <div className="text-[#464646] mt-4 text-[15px] md:text-[24px]">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</div>
               </div>
             </div>
           </div>

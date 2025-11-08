@@ -181,9 +181,9 @@ export default function Home() {
             <h4 className='text-[#1840E2] font-semibold text-[24px] md:text-[48px]'>
               Nuestro propósito
             </h4>
-            <p className='text-gray-500 text-sm lg:text-xl mr-0 lg:mr-10'>
+            <div className='text-gray-500 text-[15px] md:text-[24px] mr-0 lg:mr-10'>
               Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.
-            </p>
+            </div>
           </div>
         </div>
       </div>
