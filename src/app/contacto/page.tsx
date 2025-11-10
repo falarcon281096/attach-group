@@ -184,7 +184,7 @@ export default function Home() {
         <Header showBorder={false} variant='white-bg'/>
       </div>
 
-      <div className="atm-content pb-30 bg-white">
+      <div className="atm-content pb-10 md:pb-30 bg-white">
         {/* Hero Section */}
         <div className="relative">
           <div className="px-6 lg:mx-30">
@@ -210,7 +210,7 @@ export default function Home() {
               {/* Image placeholder */}
               <div className="relative">
                 <div className="relative rounded-[32px]  shadow-[0_20px_60px_rgba(34,63,218,0.25)] bg-gradient-to-br from-[#dfe6ff] to-[#f3e6ff]">
-                  <div className="aspect-[3/4] relative">
+                  <div className="aspect-[3/4] relative pl-4 md:pl-0">
                      
                     <ImageWithPlus
                       src='/images/nosotros/contactanos.webp'
@@ -233,7 +233,7 @@ export default function Home() {
 
         {/* Formulario */}
         <section className="relative mt-[0px] md:mt-[-10px] pr-0 md:pr-36 lg:pr-24">
-          <div className="px-3 mt-5 md:mt-0 lg:mx-30">
+          <div className="px-4 mt-5 md:mt-0 lg:mx-30">
             <div className="relative isolate">
               <div className="absolute inset-x-0 -top-14 mx-auto h-28 max-w-[360px] rounded-full bg-gradient-to-r from-[#2147ff]/25 via-[#3d3fce]/20 to-[#612bb8]/25 blur-3xl"></div>
               <div

@@ -63,14 +63,14 @@ export default function GalileoSolutions() {
                     <div className="relative h-[280px] w-full group">
                         {/* Contenedor de imagen con bordes personalizados */}
                         <div 
-                            className="relative h-full w-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
+                            className="relative pl-5 md:pl-0 h-full w-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
                             style={{
                                 borderTopLeftRadius: '20px',
                                 borderBottomRightRadius: '20px',
                             }}
                         >
                             {/* Borde punteado vertical */}
-                            <div className="absolute left-0 top-0 h-full w-px z-10" style={{ background: '#9370DB' }}></div>
+                            <div className="absolute left-4 md:left-0 top-0 h-full w-px z-10" style={{ background: '#9370DB' }}></div>
                             {/* Imagen IA Enterprise */}
                             <Image
                                 src="/images/galileo/IA-rnterprise.png"
@@ -82,7 +82,7 @@ export default function GalileoSolutions() {
                         </div>
                         {/* Icono + naranja sin fondo - esquina inferior izquierda */}
                         <span 
-                            className="absolute bottom-2 -left-8 text-[#FFA500] text-9xl font-bold select-none transition-all duration-300 group-hover:scale-125 z-20"
+                            className="absolute bottom-2 -left-2 md:-left-8 text-[#FFA500] text-9xl font-bold select-none transition-all duration-300 group-hover:scale-125 z-20"
                             style={{ marginBottom: '8px' }}
                         >
                             +
@@ -192,10 +192,10 @@ export default function GalileoSolutions() {
                     <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[16pxpx] md:leading-[20px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
                         Diseñamos y gestionamos infraestructuras en la nube que escalan y protegen tus datos. Te guiamos en la elección de la arquitectura más eficiente y flexible, integrándola con tus plataformas de negocio. Así obtienes una nube segura, clara y lista para crecer al ritmo de tu empresa.
                     </div>
-                    <div className="relative h-[280px] w-full group">
+                    <div className="relative pl-5 md:pl-0 h-[280px] w-full group">
                         {/* Contenedor de imagen con bordes personalizados */}
                         <div 
-                            className="relative h-full w-fullc shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
+                            className="relative  h-full w-fullc shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
                             style={{
                                 borderTopLeftRadius: '20px',
                                 borderBottomRightRadius: '20px',
@@ -216,7 +216,7 @@ export default function GalileoSolutions() {
                         
                         {/* Icono + naranja sin fondo - esquina inferior izquierda */}
                         <span 
-                            className="absolute bottom-2 -left-8 text-[#FFA500] text-9xl font-bold select-none transition-all duration-300 group-hover:scale-125 z-20"
+                            className="absolute bottom-2 -left-1 md:-left-8 text-[#FFA500] text-9xl font-bold select-none transition-all duration-300 group-hover:scale-125 z-20"
                             style={{ marginBottom: '8px' }}
                         >
                             +
@@ -245,13 +245,13 @@ export default function GalileoSolutions() {
                             : "hidden opacity-0 -translate-y-4 scale-95"
                     }`}
                 >
-                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px]  leading-[28px] pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px]  leading-[28px] pl-0 md:pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
                         Implementamos soluciones que abarcan desde plataformas de datos de clientes (CDP) hasta optimización creativa en tiempo real (DCO), personalizando experiencias y optimizando campañas. Asimismo, aplicamos modelos predictivos, dashboards y algoritmos a medida que convierten la información en decisiones estratégicas y crecimiento sostenible.
                     </div>
-                    <div className="relative h-[280px] w-full group">
+                    <div className="relative pl-8 md:pl-0 h-[280px] w-full group">
                         {/* Contenedor de imagen con bordes personalizados */}
                         <div 
-                            className="relative h-full w-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
+                            className="relative  h-full w-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
                             style={{
                                 borderTopLeftRadius: '20px',
                                 borderBottomRightRadius: '20px',
@@ -272,7 +272,7 @@ export default function GalileoSolutions() {
                         
                         {/* Icono + naranja sin fondo - esquina inferior izquierda */}
                         <span 
-                            className="absolute bottom-2 -left-8 text-[#FFA500] text-9xl font-bold select-none transition-all duration-300 group-hover:scale-125 z-20"
+                            className="absolute bottom-2 -left-0 md:-left-8 text-[#FFA500] text-9xl font-bold select-none transition-all duration-300 group-hover:scale-125 z-20"
                             style={{ marginBottom: '8px' }}
                         >
                             +

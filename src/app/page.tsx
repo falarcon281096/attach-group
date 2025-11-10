@@ -587,7 +587,7 @@ export default function Home() {
 
       {/* CTA Talk Us */}
       <section className="pb-10 md:pb-17 lg:pr-30">
-        <div className="flex flex-col gap-7 md:gap-10 px-6 lg:pl-30 pt-12 md:pt-20 pb-0 mb:pb-17 border-r-0 md:border-r-2 border-b-0 md:border-b-2 border-white/30 rounded-br-[50px]">
+        <div className="flex flex-col gap-7 md:gap-10 px-6 lg:pl-30 pt-12 md:pt-20 pb-0 md:pb-17 border-r-0 md:border-r-2 border-b-0 md:border-b-2 border-white/30 rounded-br-[50px]">
           <h2 className="text-3xl md:text-4xl lg:text-5xl max-w-5xl font-semibold text-white">
             Hablemos sobre cómo potenciar juntos el crecimiento de tu empresa
           </h2>

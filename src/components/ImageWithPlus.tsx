@@ -33,16 +33,32 @@ interface ImageWithPlusProps {
   paddingMobile?: string;
   paddingTablet?: string;
   paddingDesktop?: string;
+  // Side-specific padding for finer control
+  paddingTopMobile?: string;
+  paddingBottomMobile?: string;
+  paddingLeftMobile?: string;
+  paddingRightMobile?: string;
+  paddingTopDesktop?: string;
+  paddingBottomDesktop?: string;
+  paddingLeftDesktop?: string;
+  paddingRightDesktop?: string;
   
   // Custom offset adjustments
   offsetX?: string;
   offsetY?: string;
+  // Responsive offset adjustments (requested)
+  offsetXMobile?: string;
+  offsetXDesktop?: string;
   
   // Overhang percentage (how much of the + should stick out)
   overhangPercent?: number; // Default 0.25 (25%)
+  // Mobile-only overhang percentage override
+  overhangPercentMobile?: number;
   
   // Size percentage (percentage of image size to use for +, default 7%)
   sizePercent?: number; // Default 0.07 (7%)
+  // Mobile-only size percentage override
+  sizePercentMobile?: number;
 }
 
 export default function ImageWithPlus({
@@ -65,17 +81,35 @@ export default function ImageWithPlus({
   paddingMobile,
   paddingTablet,
   paddingDesktop,
+  paddingTopMobile,
+  paddingBottomMobile,
+  paddingLeftMobile,
+  paddingRightMobile,
+  paddingTopDesktop,
+  paddingBottomDesktop,
+  paddingLeftDesktop,
+  paddingRightDesktop,
   offsetX,
   offsetY,
+  offsetXMobile,
+  offsetXDesktop,
   overhangPercent = 0.25,
+  overhangPercentMobile,
   sizePercent = 0.07, // 7% por defecto
+  sizePercentMobile,
 }: ImageWithPlusProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const plusRef = useRef<HTMLSpanElement>(null);
   const [currentSize, setCurrentSize] = useState(size);
   const [currentPadding, setCurrentPadding] = useState(padding);
+  const [padTop, setPadTop] = useState<string | undefined>(undefined);
+  const [padBottom, setPadBottom] = useState<string | undefined>(undefined);
+  const [padLeft, setPadLeft] = useState<string | undefined>(undefined);
+  const [padRight, setPadRight] = useState<string | undefined>(undefined);
+  const [curOffsetX, setCurOffsetX] = useState<string | undefined>(offsetX);
   const [calculatedSize, setCalculatedSize] = useState<string | null>(null);
+  const [curOverhangPercent, setCurOverhangPercent] = useState<number>(overhangPercent);
 
   // Check if sizes are provided (solo si se pasan explícitamente)
   const hasExplicitSizes = sizeMobile !== undefined || sizeTablet !== undefined || sizeDesktop !== undefined;
@@ -109,12 +143,36 @@ export default function ImageWithPlus({
             if (width >= 1024) {
               setCurrentSize(`${calculatedSizeValue}px`);
               setCurrentPadding(paddingDesktop || paddingTablet || padding);
+              setPadTop(paddingTopDesktop ?? paddingDesktop ?? paddingTablet ?? padding);
+              setPadBottom(paddingBottomDesktop ?? paddingDesktop ?? paddingTablet ?? padding);
+              setPadLeft(paddingLeftDesktop);
+              setPadRight(paddingRightDesktop);
+              setCurOffsetX(offsetXDesktop ?? offsetX);
+              setCurOverhangPercent(overhangPercent);
             } else if (width >= 768) {
               setCurrentSize(`${calculatedSizeValue * 0.85}px`); // 85% para tablet
               setCurrentPadding(paddingTablet || padding);
+              setPadTop(paddingTablet ?? padding);
+              setPadBottom(paddingTablet ?? padding);
+              setPadLeft(undefined);
+              setPadRight(undefined);
+              setCurOffsetX(offsetX);
+              setCurOverhangPercent(overhangPercent);
             } else {
-              setCurrentSize(`${calculatedSizeValue * 0.7}px`); // 70% para mobile
+              // Si se provee sizePercentMobile, usarlo directamente sin el factor 0.7
+              if (typeof sizePercentMobile === 'number') {
+                const mobileSizeValue = maxDimension * sizePercentMobile;
+                setCurrentSize(`${mobileSizeValue}px`);
+              } else {
+                setCurrentSize(`${calculatedSizeValue * 0.7}px`); // 70% para mobile (por defecto)
+              }
               setCurrentPadding(paddingMobile || padding);
+              setPadTop(paddingTopMobile ?? paddingMobile ?? padding);
+              setPadBottom(paddingBottomMobile ?? paddingMobile ?? padding);
+              setPadLeft(paddingLeftMobile);
+              setPadRight(paddingRightMobile);
+              setCurOffsetX(offsetXMobile ?? offsetX);
+              setCurOverhangPercent(typeof overhangPercentMobile === 'number' ? overhangPercentMobile : overhangPercent);
             }
           }
         }
@@ -124,12 +182,30 @@ export default function ImageWithPlus({
         if (width >= 1024) {
           setCurrentSize(sizeDesktop || sizeTablet || size);
           setCurrentPadding(paddingDesktop || paddingTablet || padding);
+          setPadTop(paddingTopDesktop ?? paddingDesktop ?? paddingTablet ?? padding);
+          setPadBottom(paddingBottomDesktop ?? paddingDesktop ?? paddingTablet ?? padding);
+          setPadLeft(paddingLeftDesktop);
+          setPadRight(paddingRightDesktop);
+          setCurOffsetX(offsetXDesktop ?? offsetX);
+          setCurOverhangPercent(overhangPercent);
         } else if (width >= 768) {
           setCurrentSize(sizeTablet || size);
           setCurrentPadding(paddingTablet || padding);
+          setPadTop(paddingTablet ?? padding);
+          setPadBottom(paddingTablet ?? padding);
+          setPadLeft(undefined);
+          setPadRight(undefined);
+          setCurOffsetX(offsetX);
+          setCurOverhangPercent(overhangPercent);
         } else {
           setCurrentSize(sizeMobile || size);
           setCurrentPadding(paddingMobile || padding);
+          setPadTop(paddingTopMobile ?? paddingMobile ?? padding);
+          setPadBottom(paddingBottomMobile ?? paddingMobile ?? padding);
+          setPadLeft(paddingLeftMobile);
+          setPadRight(paddingRightMobile);
+          setCurOffsetX(offsetXMobile ?? offsetX);
+          setCurOverhangPercent(typeof overhangPercentMobile === 'number' ? overhangPercentMobile : overhangPercent);
         }
       }
     };
@@ -150,7 +226,32 @@ export default function ImageWithPlus({
       window.removeEventListener('resize', updateSize);
       img?.removeEventListener('load', updateSize);
     };
-  }, [size, sizeMobile, sizeTablet, sizeDesktop, padding, paddingMobile, paddingTablet, paddingDesktop, hasExplicitSizes, sizePercent]);
+  }, [
+    size,
+    sizeMobile,
+    sizeTablet,
+    sizeDesktop,
+    padding,
+    paddingMobile,
+    paddingTablet,
+    paddingDesktop,
+    paddingTopMobile,
+    paddingBottomMobile,
+    paddingLeftMobile,
+    paddingRightMobile,
+    paddingTopDesktop,
+    paddingBottomDesktop,
+    paddingLeftDesktop,
+    paddingRightDesktop,
+    offsetX,
+    offsetXMobile,
+    offsetXDesktop,
+    hasExplicitSizes,
+    sizePercent,
+    sizePercentMobile,
+    overhangPercent,
+    overhangPercentMobile,
+  ]);
 
 
   // Position the plus symbol
@@ -183,12 +284,12 @@ export default function ImageWithPlus({
     // El centro debe estar a: (size * (1 - overhangPercent) / 2) del borde
     // O más simple: moveInward = halfSize - (size * overhangPercent)
     const halfSize = sizeValue / 2;
-    const overhangSize = sizeValue * overhangPercent;
+    const overhangSize = sizeValue * curOverhangPercent;
     
     // Si overhangPercent es mayor que 0.5, significa que más de la mitad sobresale
     // En ese caso, el centro debe estar FUERA del borde (negativo)
     let moveInward: number;
-    if (overhangPercent > 0.5) {
+    if (curOverhangPercent > 0.5) {
       // Más de la mitad sobresale, el centro está fuera
       moveInward = -(overhangSize - halfSize);
     } else {
@@ -209,41 +310,41 @@ export default function ImageWithPlus({
 
     switch (position) {
       case 'LEFT_UP':
-        // Posición desde left: 0, luego mover hacia adentro
-        plusRef.current.style.left = '0';
+        // Posición desde left con padding horizontal opcional
+        plusRef.current.style.left = padLeft ?? '0';
         plusRef.current.style.transform = `translateX(-${moveInwardValue})`;
-        plusRef.current.style.top = currentPadding;
+        plusRef.current.style.top = padTop ?? currentPadding;
         break;
       case 'LEFT_DOWN':
-        plusRef.current.style.left = '0';
+        plusRef.current.style.left = padLeft ?? '0';
         plusRef.current.style.transform = `translateX(-${moveInwardValue})`;
-        plusRef.current.style.bottom = currentPadding;
+        plusRef.current.style.bottom = padBottom ?? currentPadding;
         break;
       case 'RIGHT_UP':
-        // Posición desde right: 0, luego mover hacia adentro
-        plusRef.current.style.right = '0';
+        // Posición desde right con padding horizontal opcional
+        plusRef.current.style.right = padRight ?? '0';
         plusRef.current.style.transform = `translateX(${moveInwardValue})`;
-        plusRef.current.style.top = currentPadding;
+        plusRef.current.style.top = padTop ?? currentPadding;
         break;
       case 'RIGHT_DOWN':
-        plusRef.current.style.right = '0';
+        plusRef.current.style.right = padRight ?? '0';
         plusRef.current.style.transform = `translateX(${moveInwardValue})`;
-        plusRef.current.style.bottom = currentPadding;
+        plusRef.current.style.bottom = padBottom ?? currentPadding;
         break;
       case 'CENTER_UP':
         plusRef.current.style.left = '50%';
-        plusRef.current.style.top = currentPadding;
+        plusRef.current.style.top = padTop ?? currentPadding;
         plusRef.current.style.transform = 'translateX(-50%)';
         break;
       case 'CENTER_DOWN':
         plusRef.current.style.left = '50%';
-        plusRef.current.style.bottom = currentPadding;
+        plusRef.current.style.bottom = padBottom ?? currentPadding;
         plusRef.current.style.transform = 'translateX(-50%)';
         break;
     }
 
     // Apply custom offsets
-    if (offsetX && plusRef.current.style.transform) {
+    if (curOffsetX && plusRef.current.style.transform) {
       // Si ya hay un transform, combinarlo con el offsetX
       const currentTransform = plusRef.current.style.transform;
       // Extraer el translateX actual y combinarlo con offsetX
@@ -251,24 +352,24 @@ export default function ImageWithPlus({
       if (offsetMatch) {
         // Ya hay un translateX, extraer el valor y sumar offsetX
         const currentOffset = offsetMatch[1];
-        const newOffset = `calc(${currentOffset} + ${offsetX})`;
+        const newOffset = `calc(${currentOffset} + ${curOffsetX})`;
         plusRef.current.style.transform = currentTransform.replace(
           /translateX\([^)]+\)/,
           `translateX(${newOffset})`
         );
       } else {
         // No hay translateX, agregarlo
-        plusRef.current.style.transform = `${currentTransform} translateX(${offsetX})`;
+        plusRef.current.style.transform = `${currentTransform} translateX(${curOffsetX})`;
       }
-    } else if (offsetX) {
+    } else if (curOffsetX) {
       // No hay transform, aplicar offset directamente
       const currentLeft = plusRef.current.style.left;
       const currentRight = plusRef.current.style.right;
       
       if (currentLeft && currentLeft !== '50%') {
-        plusRef.current.style.left = `calc(${currentLeft} + ${offsetX})`;
+        plusRef.current.style.left = `calc(${currentLeft} + ${curOffsetX})`;
       } else if (currentRight) {
-        plusRef.current.style.right = `calc(${currentRight} + ${offsetX})`;
+        plusRef.current.style.right = `calc(${currentRight} + ${curOffsetX})`;
       }
     }
 
@@ -282,7 +383,7 @@ export default function ImageWithPlus({
         plusRef.current.style.bottom = `calc(${currentBottom} + ${offsetY})`;
       }
     }
-  }, [position, currentSize, currentPadding, offsetX, offsetY, overhangPercent]);
+  }, [position, currentSize, currentPadding, padTop, padBottom, padLeft, padRight, curOffsetX, offsetY, curOverhangPercent]);
 
   // Update font size
   useEffect(() => {

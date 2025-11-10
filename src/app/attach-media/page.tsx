@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Link from 'next/link';
 import AttachMediaProcessSection from "../../components/AttachMediaProcessSection";
+import AttachBenefits from "../../components/AttachBenefits";
 
 export default function AttachMediaPage() {
   return (
@@ -110,6 +111,9 @@ export default function AttachMediaPage() {
           </div>
         </div>
       </div>
+
+      {/* Beneficios AttachMedia */}
+      <AttachBenefits />
 
       {/* Sección Equipo Híbrido */}
       <div className="bg-white">
@@ -459,7 +463,7 @@ export default function AttachMediaPage() {
             </div>
           </div>
         </section>
-      
+      <AttachBenefits />
       {/* Footer */}
       <Footer />
     </div>

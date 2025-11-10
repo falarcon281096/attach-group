@@ -12,7 +12,7 @@ export default function AnimatedGradient() {
             <div 
                 className="absolute"
                 style={{
-                    background: `linear-gradient(90deg, #E2E830 0%, #A1E05E 25%, #2ED3B1 50%, #00CED3 75%, #E2E830 100%)`,
+                    background: `linear-gradient(90deg, #E2E830 0%, #A1E05E 25%, #2ED3B1 50%, #00CED3 75%, #2ED3B1 100%)`,
                     top: '-80px',
                     left: 0,
                     right: 0,

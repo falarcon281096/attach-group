@@ -273,7 +273,7 @@ export default function AthenaAds() {
                   <div className="mx-auto w-[90%] md:w-full text-[16px] md:text-[24px] font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
                     Digital Screens (Indoor & Outdoor)
                   </div>
-                  <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0 font-['Graphik'] w-[50%] md:w-[100%] mx-auto">
+                  <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0 font-['Graphik'] w-[90%] md:w-[100%] mx-auto">
                     Pantallas digitales estratégicas en puntos de alto tráfico y cobertura masiva.
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export default function AthenaAds() {
                   <div className="text-[16px] md:text-[24px] font-bold mb-2 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent">
                     Gaming
                   </div>
-                  <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0 font-['Graphik'] w-[50%] md:w-[100%] mx-auto">
+                  <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0 font-['Graphik'] w-[70%] md:w-[100%] mx-auto">
                     Anuncios integrados en videojuegos (display, video, audio).
                   </div>
                 </div>

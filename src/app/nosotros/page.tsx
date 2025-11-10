@@ -24,7 +24,7 @@ export default function Home() {
                 <h1 className="font-extrabold text-4xl lg:text-6xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
                   Attach Group
                 </h1>
-                <div className="hidden lg:block text-[#464646] mt-4 text-[15px] md:text-[24px]">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</div>
+                <div className="hidden lg:block text-[#464646] mt-4 text-[16px] md:text-[24px]">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</div>
               </div>
 
               {/* Imagen (móvil segundo) */}
@@ -118,7 +118,7 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <div className={`py-10 md:py-20 ${styles.servicios}`}>
+        <div className={`py-18 md:py-20 ${styles.servicios}`}>
           <div className="mx-30">
             {/* Header */}
             <div className="mb-10 text-center ">
@@ -144,7 +144,7 @@ export default function Home() {
 
                 {/* Content Section */}
                 <div className="px-8 py-3 md:px-8 md:py-9 text-gray-600">
-                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-6">
+                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-1 md:mb-6">
                     Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones.
                   </p>
                 </div>
@@ -165,7 +165,7 @@ export default function Home() {
 
                 {/* Content Section */}
                 <div className="px-8 py-3 md:px-8 md:py-9 text-gray-600">
-                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-6">
+                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-1 md:mb-6">
                     Especialistas en publicidad programática, que desarrolla soluciones personalizadas y efectivas para cada marca.
                   </p>
                 </div>
@@ -186,7 +186,7 @@ export default function Home() {
 
                 {/* Content Section */}
                 <div className="px-8 py-3 md:px-8 md:py-9 text-gray-600">
-                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-6">
+                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-1 md:mb-6">
                     Agencia integral de medios y soluciones digitales que combina estrategia, data y tecnología para diseñar campañas efectivas.
                   </p>
                 </div>
@@ -245,15 +245,19 @@ export default function Home() {
 
         {/*Oficinas Section*/}
         <div className={`flex gap-10 mx-30 pb-20 justify-items-stretch ${styles["section-oficinas"]}`}>
-          {/* Carlo R.*/}
-          <div className="w-1/2">
-          <h2 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
-            Oficinas en tres países. Alcance más allá de fronteras
-          </h2>
-          <p className="tex-xl text-gray-400 border-1 px-3 py-2 w-45 rounded-[50px]">Perú - México - USA</p>
+          {/* Texto (visible en desktop, oculto en móvil) */}
+          <div className="w-1/2 mt-5 md:pt-0">
+            <h2 className="hidden md:block text-[24px] md:text-[48px] leading-[28px] md:leading-[53px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+              Oficinas en tres países. Alcance más allá de fronteras
+            </h2>
+            <p className="tex-xl text-gray-400 border-1 px-3 py-2 w-45 rounded-[50px]">Perú - México - USA</p>
           </div>
+          {/* Mapa con título sobrepuesto en móvil */}
           <div className="relative">
             <Image src="/images/nosotros/mapa-atatch.png" alt="Mapa Attach" width={486} height={550} />
+            <h2 className="mb-0 md:mb-10 md:hidden absolute z-10 bottom-[-45px] left-0 right-0 text-center px-3 text-[24px] leading-[28px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold">
+              Oficinas en tres países. Alcance más allá de fronteras
+            </h2>
           </div>
 
         </div>
