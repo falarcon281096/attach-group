@@ -15,7 +15,7 @@ export default function AttachBenefits() {
         paddingRight: "5px",
       }}
     >
-      <div className="max-w-full ml-0 md:ml-12 lg:ml-24 mr-0 grid grid-cols-1 md:grid-cols-[35%_65%] gap-3 md:gap-12 items-center">
+      <div className="max-w-full ml-0 md:ml-12 lg:ml-24 mr-0 grid grid-cols-1 md:grid-cols-[32%_68%] gap-3 md:gap-12 items-center">
         {/* Columna izquierda */}
         <div>
           <div
@@ -47,7 +47,7 @@ export default function AttachBenefits() {
                   background: "#22D1C4",
                 }}
               >
-                <span className="text-white text-[10px] font-bold">✓</span>
+                <span className="text-black text-[10px] font-bold">✓</span>
               </span>
               {item}
             </div>
