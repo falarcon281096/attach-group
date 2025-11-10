@@ -300,7 +300,7 @@ export default function AttachMediaPage() {
             {/* Content Grid */}
             <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left Content - Image */}
-              <div className="relative">
+              <div className="relative order-2 lg:order-1">
                 <Image 
                   src="/images/soluciones/attach-media/seo-geo.png"
                   alt="SEO y GEO"
@@ -311,7 +311,7 @@ export default function AttachMediaPage() {
               </div>
 
               {/* Right Content - Text */}
-              <div className="mr-0 lg:mr-16">
+              <div className="order-1 lg:order-2 mr-0 lg:mr-16">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6">
                   SEO & GEO
                 </h2>
@@ -356,13 +356,13 @@ export default function AttachMediaPage() {
       </div>
 
       {/* Sección UX/UI & Development */}
-      <div className="bg-white pt-5 pb-8 md:pb-10">
+      <div className="bg-white pt-5 pb-2 md:pb-10">
         <div className="px-4 md:mx-30">
-          <div className="bg-white border-t border-gray-200 py-10 md:py-16">
+          <div className="bg-white border-t border-gray-200 py-3 md:py-16">
             {/* Content Grid */}
             <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left Content - Image */}
-              <div className="relative">
+              <div className="relative order-2 lg:order-1">
                 <Image 
                   src="/images/soluciones/attach-media/ui-ux.png"
                   alt="UX/UI and Development"
@@ -373,7 +373,7 @@ export default function AttachMediaPage() {
               </div>
 
               {/* Right Content - Text */}
-              <div className="mr-0 lg:mr-16">
+              <div className="order-1 lg:order-2 mr-0 lg:mr-16">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6">
                   UX/UI & Development
                 </h2>
@@ -385,7 +385,7 @@ export default function AttachMediaPage() {
           </div>
         </div>
       </div>
-
+      <div className="md:hidden h-px bg-gray-200 mx-[5px] mb-[15px]"></div>
       {/* Section - Historias de impacto programático */}
       <AttachMediaProcessSection />
       <section className="py-0 md:py-8 lg:py-20 px-6 md:px-8 lg:px-12">

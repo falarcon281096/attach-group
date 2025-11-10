@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="py-10 lg:pt-20 lg:pb-10 bg-[#F7F7F7]">
+    <footer className="py-7 md:pt-20 lg:pt-20 lg:pb-10 bg-[#F7F7F7]">
       <div className="lg:mx-30">
         <div className="grid lg:grid-cols-3 lg:gap-12 font-['graphik']">
           {/* Perú */}

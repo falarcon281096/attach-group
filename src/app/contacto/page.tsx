@@ -232,11 +232,14 @@ export default function Home() {
         </div>
 
         {/* Formulario */}
-        <section className="relative">
-          <div className="px-6 mt-5 md:mt-0 lg:mx-30">
+        <section className="relative mt-[0px] md:mt-[-10px] pr-0 md:pr-36 lg:pr-24">
+          <div className="px-3 mt-5 md:mt-0 lg:mx-30">
             <div className="relative isolate">
               <div className="absolute inset-x-0 -top-14 mx-auto h-28 max-w-[360px] rounded-full bg-gradient-to-r from-[#2147ff]/25 via-[#3d3fce]/20 to-[#612bb8]/25 blur-3xl"></div>
-              <div className="relative grid gap-7 md:gap-12 rounded-[26px] bg-gradient-to-br from-[#2147ff] via-[#3d3fce] to-[#612bb8] px-6 py-8 shadow-[0_30px_80px_rgba(34,63,218,0.35)] lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:px-12 lg:py-14">
+              <div
+                className="relative mx-2 md:mx-0 grid gap-7 md:gap-12 rounded-[26px] px-6 py-8 shadow-[0_30px_80px_rgba(34,63,218,0.35)] lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:px-12 lg:py-14"
+                style={{ background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)' }}
+              >
                 <div className="space-y-6 text-white">
                   <h4 className="text-[24px] md:text-[48px] font-['Graphik'] log:text-[48px] font-semibold leading-[24px] md:leading-[48px]">
                     Cuéntanos sobre tu proyecto
@@ -255,8 +258,8 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Nombres y apellidos"
-                      className={`rounded-lg border bg-white/10 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/20 ${
-                        errors.fullName ? "border-red-400" : "border-white/25"
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 ${
+                        errors.fullName ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.fullName}
                       onChange={handleInputChange("fullName")}
@@ -275,8 +278,8 @@ export default function Home() {
                     <input
                       type="email"
                       placeholder="Email corporativo"
-                      className={`rounded-lg border bg-white/10 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/20 ${
-                        errors.email ? "border-red-400" : "border-white/25"
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 ${
+                        errors.email ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.email}
                       onChange={handleInputChange("email")}
@@ -294,8 +297,8 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Compañía"
-                      className={`rounded-lg border bg-white/10 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/20 ${
-                        errors.company ? "border-red-400" : "border-white/25"
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 ${
+                        errors.company ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.company}
                       onChange={handleInputChange("company")}
@@ -314,8 +317,8 @@ export default function Home() {
                     <input
                       type="tel"
                       placeholder="Teléfono"
-                      className={`rounded-lg border bg-white/10 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/20 ${
-                        errors.phone ? "border-red-400" : "border-white/25"
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 ${
+                        errors.phone ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.phone}
                       onChange={handleInputChange("phone")}
@@ -332,8 +335,8 @@ export default function Home() {
                   <div className="flex flex-col lg:col-span-2">
                     <textarea
                       placeholder="¿Cómo podemos ayudarte?"
-                      className={`rounded-lg border bg-white/10 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/20 h-36 resize-none ${
-                        errors.message ? "border-red-400" : "border-white/25"
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 h-36 resize-none ${
+                        errors.message ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.message}
                       onChange={handleInputChange("message")}

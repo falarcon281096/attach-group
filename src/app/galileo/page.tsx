@@ -248,9 +248,9 @@ export default function Home() {
                 </h2>
 
                 {/* === Subtítulo === */}
-                <p className="text-[#818181] text-[14px] md:text-[20px] leading-[28px] font-normal mb-12">
+                <div className="px-5 md:px-0 text-[#818181] text-[14px] md:text-[20px] leading-[28px] font-normal mb-12">
                     Casos que demuestran cómo la tecnología impulsa eficiencia e innovación.
-                </p>
+                </div>
 
                 {/* === Grid de casos === */}
                 <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-0 md:px-6">

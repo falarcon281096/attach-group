@@ -16,7 +16,7 @@ export default function Home() {
 
         {/* Hero Section */}
         <div className={`z-10 pb-20 ${styles.hero}`}>
-          <div className="ml-15 border-l-2 border-b-2 border-[#1e3fda]/20 rounded-bl-[50px] pt-20">
+          <div className="ml-15 border-l-2 border-b-2 border-[#818181]/20 rounded-bl-[50px] pt-20">
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-x-12 lg:gap-y-4 items-center ml-15 overflow-visible">
               {/* Título (móvil primero). Párrafo solo visible en desktop dentro de este bloque */}
               <div className="order-1 lg:order-1 lg:col-start-1">
@@ -57,11 +57,11 @@ export default function Home() {
 
         {/*Indicadores*/}
         <section className="">
-          <div className="mx-30 py-16 grid grid-cols-2 lg:grid-cols-4 gap-2">
+          <div className="px-4 md:px-0 mx-2 md:mx-30 py-0 md:py-15 grid grid-cols-2 lg:grid-cols-4 gap-2">
             {/* Indicador 1 */}
-            <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
+            <div className="relative pl-5 md:pl-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
               <p
-                className="font-bold text-4xl lg:text-5xl bg-clip-text text-transparent"
+                className="font-bold text-[28px] md:text-[56px] bg-clip-text text-transparent"
                 style={{
                   background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
                   WebkitBackgroundClip: 'text',
@@ -70,12 +70,12 @@ export default function Home() {
               >
                 +200
               </p>
-              <p className="text-gray-400 mt-2 text-[1.35rem]">Proyectos realizados</p>
+              <p className="text-gray-400 mt-2 text-[14px] md:text-[20px]">Proyectos realizados</p>
             </div>
             {/* Indicador 2 */}
-            <div className="relative px-6 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
+            <div className="relative pl-5 md:pl-7  border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
               <p
-                className="font-bold text-4xl lg:text-5xl bg-clip-text text-transparent"
+                className="font-bold text-[28px] md:text-[56px] bg-clip-text text-transparent"
                 style={{
                   background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
                   WebkitBackgroundClip: 'text',
@@ -84,12 +84,12 @@ export default function Home() {
               >
                 +22
               </p>
-              <p className="text-gray-400 mt-2 text-[1.35rem]">Años de experiencia</p>
+              <p className="text-gray-400 mt-2 text-[14px] md:text-[20px]">Años de experiencia</p>
             </div>
             {/* Indicador 3 */}
-            <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
+            <div className="relative pl-5 md:pl-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
               <p
-                className="font-bold text-4xl lg:text-5xl bg-clip-text text-transparent"
+                className="font-bold text-[28px] md:text-[56px] bg-clip-text text-transparent"
                 style={{
                   background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
                   WebkitBackgroundClip: 'text',
@@ -98,12 +98,12 @@ export default function Home() {
               >
                 +100
               </p>
-              <p className="text-gray-400 mt-2 text-[1.35rem]">Colaboradores en distintas especialidades</p>
+              <p className="text-gray-400 mt-2 text-[14px] md:text-[20px]">Colaboradores en distintas especialidades</p>
             </div>
             {/* Indicador 4 */}
-            <div className="relative px-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
+            <div className="relative pl-5 md:pl-7 border-l border-gray-200 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-[#1840e2]">
               <p
-                className="font-bold text-4xl lg:text-5xl bg-clip-text text-transparent"
+                className="font-bold text-[28px] md:text-[56px] bg-clip-text text-transparent"
                 style={{
                   background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
                   WebkitBackgroundClip: 'text',
@@ -112,17 +112,17 @@ export default function Home() {
               >
                 3
               </p>
-              <p className="text-gray-400 mt-2 text-[1.35rem]">Oficinas en Latam</p>
+              <p className="text-gray-400 mt-2 text-[14px] md:text-[20px]">Oficinas en Latam</p>
             </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <div className={`py-20 ${styles.servicios}`}>
+        <div className={`py-10 md:py-20 ${styles.servicios}`}>
           <div className="mx-30">
             {/* Header */}
             <div className="mb-10 text-center ">
-              <h2 className="font-bold mb-6 font-extrabold text-4xl lg:text-5xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
+              <h2 className="font-bold mb-5 md:mb-6 font-extrabold text-[24px] md:text[48px] leading-[28px] md:leading-[54px] bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
                 Tres partners. Una visión compartida
               </h2>
             </div>
@@ -132,7 +132,7 @@ export default function Home() {
               {/* Card 1: Inteligencia Artificial */}
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-3xl from-red-400 to-orange-400 h-40 lg:h-60 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
+                <div className="bg-linear-to-br rounded-2xl from-red-400 to-orange-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-4 lg:px-10 py-6 lg:py-8">
                   <Image
                     src="/images/general/GalileoIALogo.svg"
                     alt="icon Galileo IA"
@@ -143,7 +143,7 @@ export default function Home() {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-8 text-gray-600">
+                <div className="px-8 py-3 md:px-8 md:py-9 text-gray-600">
                   <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-6">
                     Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones.
                   </p>
@@ -151,9 +151,9 @@ export default function Home() {
               </div>
 
               {/* Card 2: Publicidad Programática */}
-              <div className="bg-white rounded-4xl shadow-lg overflow-hidden">
+              <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-4xl from-lime-400 to-green-400 h-40 lg:h-60 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
+                <div className="bg-linear-to-br rounded-2xl from-lime-400 to-green-400 h-35 md:h-60 lg:h-60 flex items-center justify-center px-4 lg:px-10 py-6 lg:py-8">
                   <Image
                     src="/images/general/AthenaAdsLogo.svg"
                     alt="icon AthenaAds"
@@ -164,7 +164,7 @@ export default function Home() {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-8 text-gray-600">
+                <div className="px-8 py-3 md:px-8 md:py-9 text-gray-600">
                   <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-6">
                     Especialistas en publicidad programática, que desarrolla soluciones personalizadas y efectivas para cada marca.
                   </p>
@@ -172,9 +172,9 @@ export default function Home() {
               </div>
 
               {/* Card 3: Medios On y Off */}
-              <div className="bg-white rounded-4xl shadow-lg overflow-hidden">
+              <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-4xl from-blue-400 to-cyan-400 h-40 lg:h-60 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
+                <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-35 md:h-60 lg:h-60 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
                   <Image
                     src="/images/general/AttachMediaLogo.svg"
                     alt="icon Attach Media"
@@ -185,7 +185,7 @@ export default function Home() {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-8 text-gray-600">
+                <div className="px-8 py-3 md:px-8 md:py-9 text-gray-600">
                   <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-6">
                     Agencia integral de medios y soluciones digitales que combina estrategia, data y tecnología para diseñar campañas efectivas.
                   </p>
@@ -198,8 +198,8 @@ export default function Home() {
 
       <div className="atm-content bg-gradient-to-b from-[#FFFFFF] to-[#F7F7F7] rounded-b-[3rem]">
         {/*Lideres Section*/}
-        <div className={`py-20 mx-30 ${styles.lideres}`}>
-          <h2 className="text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+        <div className={`py-10 md:py-20 mx-30 ${styles.lideres}`}>
+          <h2 className="text-center text-[24px] md:text-[48px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
             Quiénes lideran el camino
           </h2>
           <section className="py-2 md:py-4">
@@ -230,12 +230,12 @@ export default function Home() {
         </div>
 
         {/*Clientes Section*/}
-        <div className={`py-10 md:py-20  mx-30 ${styles.clientes}`}>
-          <h2 className="text-center text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+        <div className={`py-13 md:py-20  mx-30 ${styles.clientes}`}>
+          <h2 className="text-center text-[24px] md:text-[48px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
             Algunos de nuestros clientes
           </h2>
 
-          <section className="py-16">
+          <section className="py-0">
             <div className="">
               <Image className="w-full" src="/images/nosotros/clientes-desktop.png" alt="clientes" width={1296} height={747} />
             </div>
@@ -259,9 +259,9 @@ export default function Home() {
         </div>
       </div>
       {/* CTA Talk Us */}
-      <section className={`pb-17 pr-30 ${styles["cta-talkus"]}`}>
-        <div className="flex flex-col gap-10 pl-30 pt-20 pb-17 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold max-w-5xl text-white">
+      <section className={`pb-0 md:pb-11 pr-30 ${styles["cta-talkus"]}`}>
+        <div className="flex flex-col gap-5 md:gap-10 pl-[10px] pr-[10px] md:pl-30 md:pr-30 pt-13 md:pt-20 pb-11 md:pb-12 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
+          <h2 className="text-[24px] md:text-[48px] leading-[26px] md:leading-[50px] font-semibold max-w-5xl text-white">
             Ya nos conociste. Lo que sigue lo construimos contigo.
           </h2>
           <Link

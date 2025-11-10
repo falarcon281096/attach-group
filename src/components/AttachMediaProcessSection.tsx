@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function AttachMediaProcessSection() {
   return (
-    <section className="py-10 md:py-8 lg:py-8 px-6 md:px-8 lg:px-12">
+    <section className="py-5 md:py-8 lg:py-8 px-6 md:px-8 lg:px-12">
       <div className="container mx-auto">
         {/* Título con gradiente específico */}
         <h2
@@ -24,7 +24,7 @@ export default function AttachMediaProcessSection() {
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-5 lg:gap-5">
           {/* Card 1 - Diagnóstico */}
           <div className="col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center justify-between text-center hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-white rounded-2xl border border-[#00CED380] p-4 md:p-6 flex flex-col items-center justify-between text-center">
               <div className="flex justify-center mb-2">
                 <div className="inline-flex flex-col items-center gap-2  rounded-2xl px-4 py-3">
                   <Image src="/images/attach-media/diagnostico.svg" alt="Diagnóstico" width={80} height={80} />
@@ -41,7 +41,7 @@ export default function AttachMediaProcessSection() {
 
           {/* Card 2 - Estrategia */}
           <div className="col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center justify-between text-center hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-white rounded-2xl border border-[#00CED380] p-4 md:p-6 flex flex-col items-center justify-between text-center">
               <div className="flex justify-center mb-2">
                 <div className="inline-flex flex-col items-center gap-2   rounded-2xl px-4 py-3">
                   <Image src="/images/attach-media/estrategia.svg" alt="Estrategia" width={80} height={80} />
@@ -58,7 +58,7 @@ export default function AttachMediaProcessSection() {
 
           {/* Card 3 - Implementación */}
           <div className="col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center justify-between text-center hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-white rounded-2xl border border-[#00CED380] p-4 md:p-6 flex flex-col items-center justify-between text-center">
               <div className="flex justify-center mb-2">
                 <div className="inline-flex flex-col items-center gap-2 rounded-2xl px-4 py-3">
                   <Image src="/images/attach-media/implementacion.svg" alt="Implementación" width={80} height={80} />
@@ -77,7 +77,7 @@ export default function AttachMediaProcessSection() {
 
           {/* Card 5 - Medición */}
           <div className="col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center justify-between text-center hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-white rounded-2xl border border-[#00CED380] p-4 md:p-6 flex flex-col items-center justify-between text-center">
               <div className="flex justify-center mb-2">
                 <div className="inline-flex flex-col items-center gap-2 rounded-2xl px-4 py-3">
                   <Image src="/images/attach-media/medicion.svg" alt="Medición" width={80} height={80} />
@@ -94,7 +94,7 @@ export default function AttachMediaProcessSection() {
 
            {/* Card 4 - Optimización */}
           <div className="col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center justify-between text-center hover:shadow-xl transition-shadow duration-300">
+            <div className="bg-white rounded-2xl border border-[#00CED380] p-4 md:p-6 flex flex-col items-center justify-between text-center">
               <div className="flex justify-center mb-2">
                 <div className="inline-flex flex-col items-center gap-2 rounded-2xl px-4 py-3">
                   <Image src="/images/attach-media/optimizacion.svg" alt="Optimización" width={80} height={80} />

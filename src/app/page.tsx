@@ -19,12 +19,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <div className="relative z-10">
-        <div className="ml-0 lg:ml-15 lg:border-b-2 border-white/30 lg:border-l-2 rounded-none lg:rounded-bl-[50px] pt-24 pb-14 lg:pt-20 lg:pb-16">
+        <div className="ml-0 lg:ml-15 lg:border-b-2 border-white/30 lg:border-l-2 rounded-none lg:rounded-bl-[50px] pt-24 md:pt-8 pb-14 lg:pt-8 lg:pb-16">
           <div className="grid gap-3 lg:gap-12 items-start sm:px-10 lg:px-0 lg:ml-15">
             <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:gap-y-0 lg:items-start lg:auto-rows-min">
               <div className="text-white lg:text-left px-6 lg:px-0 lg:col-start-1 lg:row-start-1">
                 <div 
-                  className="w-full mt-10 md:mt-15 md:w-[90%] text-[28px] md:text-[56px] leading-[35px] md:leading-[70px] tracking-[-0.01em] mb-1 lg:mb-0 lg:mr-4 font-['Graphik']"
+                  className="w-full mt-5 md:mt-15 md:w-[90%] text-[28px] md:text-[56px] leading-[35px] md:leading-[70px] tracking-[-0.01em] mb-1 lg:mb-0 lg:mr-4 font-['Graphik']"
                   style={{
                     fontWeight: 700,
                     color: '#FFFFFF'
@@ -131,13 +131,13 @@ export default function Home() {
 
 
       {/* Services Section */}
-      <div className="py-10 md:py-20">
+      <div className="py-10 md:py-15">
         <div className="px-6 lg:mx-30">
           {/* Header */}
-          <div className="mb-10">
+          <div className="mb-10 md:mb-10">
             {/* Móvil */}
             <h2 
-              className="mb-6 font-['Graphik'] text-[24px] md:text-[48px] leading-[26px] md:leading-[58px] bg-clip-text text-transparent lg:hidden"
+              className="mb-6 font-['Graphik'] text-[24px] md:text-[48px] leading-[26px] md:leading-[62px] bg-clip-text text-transparent lg:hidden"
               style={{ 
                 fontWeight: 600, 
                 letterSpacing: '-0.01em',
@@ -146,7 +146,7 @@ export default function Home() {
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Un solo grupo, múltiples <br></br> respuestas
+              Un solo grupo, múltiples<br/>respuestas
             </h2>
             {/* Escritorio */}
             <h2 
@@ -161,7 +161,7 @@ export default function Home() {
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Un solo grupo, múltiples <br></br> respuestas
+              Un solo grupo, múltiples respuestas
             </h2>
             {/* Móvil: con gradiente */}
             <p 
@@ -204,8 +204,8 @@ export default function Home() {
               </div>
 
               {/* Content Section */}
-              <div className="p-8 text-center">
-                <div className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-6 lg:text-center lg:mx-auto">
+              <div className="p-4 md:p-8 text-center">
+                <div className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto">
                   Inteligencia Artificial
                 </div>
                 <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
@@ -228,8 +228,8 @@ export default function Home() {
               </div>
 
               {/* Content Section */}
-              <div className="p-8 text-center">
-                <div className="text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-6 lg:text-center lg:mx-auto">
+              <div className="p-4 md:p-8 text-center">
+                <div className="text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto">
                   Publicidad Programática
                 </div>
                 <Link href="/athena-ads/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
@@ -252,8 +252,8 @@ export default function Home() {
               </div>
 
               {/* Content Section */}
-              <div className="p-8 text-center">
-                <h3 className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-6 lg:text-center lg:mx-auto">
+              <div className="p-4 md:p-8 text-center">
+                <h3 className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto">
                   Medios On y Off
                 </h3>
                 <Link href="/attach-media/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center">
@@ -272,8 +272,8 @@ export default function Home() {
       <div className="bg-white py-10 md:py-20 px-6">
         <div className="px-0 md:px-6 lg:mx-30">
           {/* Header */}
-          <div className="mb-10 md:bb-16">
-            <h2 className="text-[24px] md:text-[48px] leading-[28px] md:leading-[52px] bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+          <div className="mb-7 md:mb-10">
+            <h2 className="w-full md:w-[50%] text-[24px] md:text-[48px] leading-[28px] md:leading-[52px] bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Potenciamos marcas para el futuro
             </h2>
             <p className="text-[14px] md:text-[20px] text-gray-600">
@@ -282,7 +282,7 @@ export default function Home() {
           </div>
 
           {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-top">
             {/* Left Content */}
             <div>
               {/* Caja Arequipa Case */}
@@ -313,16 +313,16 @@ export default function Home() {
                     Desarrollamos e integramos un chatbot conversacional impulsado por LLM que permite a los lectores interactuar con las noticias en tiempo real. La solución, que incluyó un benchmark de 7 modelos de lenguaje, garantiza escalabilidad, eficiencia en costos y libera horas-hombre del equipo editorial para enfocarse en contenido de valor.
                     </p>
                     {/* Imagen móvil para El Universal (solo visible en móvil) */}
-                    <div className="block lg:hidden my-8">
+                    <div className="block lg:hidden my-8 ml-10 md:ml-0">
                       <ImageWithPlus
                         src="/images/casos-de-exito/eluniversal.webp"
                         alt="El Universal"
                         width={1800}
                         height={1800}
                         position="LEFT_DOWN"
-                        paddingMobile="2rem"
+                        paddingMobile="0.1rem"
                         paddingDesktop="2rem"
-                        imageClassName="w-full object-cover"
+                        imageClassName="w-full h-auto object-cover lg:object-contain lg:max-h-[350px]"
                         containerClassName="w-full"
                         sizePercent={0.42}
                         overhangPercent={0.20}
@@ -359,14 +359,14 @@ export default function Home() {
                     Transformamos el sitio web en un canal estratégico de generación de leads. El desarrollo web, optimizado en UX/UI y rendimiento técnico, resultó en un +45% en la tasa de conversión web (YoY) y un +89% en la contactabilidad de anuncios digitales.
                     </p>
                     {/* Imagen móvil para Deposeguro (solo visible en móvil) */}
-                    <div className="block lg:hidden my-8">
+                    <div className="block lg:hidden my-8 ml-10 md:ml-0">
                       <ImageWithPlus
                         src="/images/casos-de-exito/deposeguro.webp"
                         alt="Deposeguro"
                         width={1800}
                         height={1800}
                         position="LEFT_DOWN"
-                        paddingMobile="2rem"
+                        paddingMobile="0.1rem"
                         paddingDesktop="2rem"
                         imageClassName="w-full object-cover"
                         containerClassName="w-full"
@@ -405,14 +405,14 @@ export default function Home() {
                       Implementamos una estrategia de programática avanzada utilizando Smart Audience. Esto generó un aumento de más del 170% en el volumen de recargas durante el piloto, y un crecimiento superior al 700% en el valor promedio de cada transacción.
                     </p>
                     {/* Imagen móvil para Apuesta Total (solo visible en móvil) */}
-                    <div className="block lg:hidden my-8">
+                    <div className="block lg:hidden my-8 ml-10 md:ml-0">
                       <ImageWithPlus
                         src="/images/casos-de-exito/apuestatotal.webp"
                         alt="Apuesta Total"
                         width={1800}
                         height={1800}
                         position="LEFT_DOWN"
-                        paddingMobile="2rem"
+                        paddingMobile="0.1rem"
                         paddingDesktop="2rem"
                         imageClassName="w-full object-cover"
                         containerClassName="w-full"
@@ -530,7 +530,7 @@ export default function Home() {
       </div>
 
       {/*Partner Section*/}
-      <div className="bg-white rounded-b-[3rem] py-17 md:py-20">
+      <div className="bg-white rounded-b-[3rem] py-14 md:py-20">
         <div className="px-6 lg:mx-30 lg:px-25">
         <h2
           className="px-0 lg:px-30 text-[24px] md:text-[48px] leading-[24px] md:leading-[64px] lg:text-center bg-clip-text text-transparent font-bold mb-0 md:mb-6 inline-block"
@@ -545,7 +545,7 @@ export default function Home() {
           Somos partners de las mejores plataformas tecnológicas
         </h2>
 
-        <section className="bg-gradient-to-b from-white to-[#f8f9fb] py-16">
+        <section className="bg-gradient-to-b from-white to-[#f8f9fb] pt-10 md:pt-16">
             <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-x-10 lg:gap-y-20">
               {/* Google Marketing Platform */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
@@ -586,8 +586,8 @@ export default function Home() {
       </div>
 
       {/* CTA Talk Us */}
-      <section className="pb-17 lg:pr-30">
-        <div className="flex flex-col gap-10 px-6 lg:pl-30 pt-20 pb-17 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
+      <section className="pb-10 md:pb-17 lg:pr-30">
+        <div className="flex flex-col gap-7 md:gap-10 px-6 lg:pl-30 pt-12 md:pt-20 pb-0 mb:pb-17 border-r-0 md:border-r-2 border-b-0 md:border-b-2 border-white/30 rounded-br-[50px]">
           <h2 className="text-3xl md:text-4xl lg:text-5xl max-w-5xl font-semibold text-white">
             Hablemos sobre cómo potenciar juntos el crecimiento de tu empresa
           </h2>
