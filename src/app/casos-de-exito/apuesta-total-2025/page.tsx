@@ -166,16 +166,19 @@ export default function Home() {
             <p className="tex-xl text-gray-600">
               <b>Automatización con CLO (Catalog Live Odds)</b><br />
               Se implementó Catalog Live Odds, un Alpha de Meta, que permitió conectar en tiempo real la base de datos de cuotas y partidos de Apuesta Total con sus campañas digitales.
+             <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
               <b>Creación de Catálogo Dinámico</b><br />
               Se desarrolló un catálogo de apuestas dinámicas que actualiza información clave (equipos, torneos, cuotas) de forma instantánea.
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
               <b>Generación de Banners Dinámicos</b><br />
               Se diseñaron plantillas para imágenes y videos, automatizando la creación de más de 15,000 banners mensuales para más de 200 partidos, eliminando revisiones
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">

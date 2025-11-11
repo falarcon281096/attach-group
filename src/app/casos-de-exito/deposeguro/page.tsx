@@ -152,12 +152,14 @@ export default function Home() {
               Estrategia
             </h3>
             <p className="tex-xl text-gray-600">Desarrollamos una estrategia integral basada en cuatro pilares clave: diseño y experiencia de usuario, infraestructura tecnológica, escalabilidad y posicionamiento digital.</p>
-            <p className="tex-xl text-gray-600"><b>1. Diagnóstico profundo y definición de objetivos:</b><br />
+           <br />
+            <p className="tex-xl text-gray-600"><b>1. Diagnóstico profundo y definición de objetivos:</b>
               Auditoría completa del sitio anterior —usabilidad, velocidad, arquitectura y SEO— complementada con investigación de usuarios y benchmarking competitivo. Esto nos permitió definir funcionalidades clave, flujos eficientes y KPIs alineados al negocio.</p>
-            <p className="tex-xl text-gray-600"><b>2. Diseño UX/UI y desarrollo web optimizado:</b><br />
-              Diseñamos una experiencia centrada en el usuario, con enfoque mobile-first, interfaces intuitivas y navegación clara. El desarrollo fue realizado en WordPress utilizando tecnologías avanzadas, priorizando velocidad, seguridad y escalabilidad, y aplicando prácticas que aseguran un alto rendimiento en Google Page Speed.</p>
-            <p className="tex-xl text-gray-600"><b>3. SEO técnico y migración a Google Cloud Platform (GCP):</b><br />
-              Construimos el sitio con una estructura semántica y URLs optimizadas desde su base. Además, migramos la infraestructura a GCP para garantizar disponibilidad, monitoreo continuo y capacidad de escalar de manera flexible según demanda.</p>
+              <br />
+            <p className="tex-xl text-gray-600"><b>2. Diseño UX/UI y desarrollo web optimizado:</b>
+              Diseñamos una experiencia centrada en el usuario, con enfoque mobile-first, interfaces intuitivas y navegación clara. El desarrollo fue realizado en WordPress utilizando tecnologías avanzadas, priorizando velocidad, seguridad y escalabilidad, y aplicando prácticas que aseguran un alto rendimiento en Google Page Speed.</p><br />
+            <p className="tex-xl text-gray-600"><b>3. SEO técnico y migración a Google Cloud Platform (GCP):</b>
+              Construimos el sitio con una estructura semántica y URLs optimizadas desde su base. Además, migramos la infraestructura a GCP para garantizar disponibilidad, monitoreo continuo y capacidad de escalar de manera flexible según demanda.</p><br />
             <p className="tex-xl text-gray-600"><b>4. Lanzamiento controlado y mejora continua:</b><br />
               Realizamos pruebas exhaustivas antes del lanzamiento, seguimiento post-live y optimizaciones basadas en métricas reales de uso, conversión y posicionamiento. También brindamos soporte continuo con actualizaciones, mantenimiento y mejoras evolutivas.</p>
           </div>

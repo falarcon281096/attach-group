@@ -111,7 +111,8 @@ export default function Home() {
                     before:bg-[length:100%_100%]
                     before:w-10
                     before:h-10
-                    before:-translate-x-[-17.5rem]
+                    before:-translate-x-[-18.5rem]
+                    md:before:-translate-x-[-17.5rem]
                     before:top-20
                     lg:before:w-15
                     lg:before:h-15
@@ -148,13 +149,13 @@ export default function Home() {
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>1. Entendimiento de la problemática:</b>
+              <b>1. Entendimiento de la problemática: </b>
               Reuniones con el equipo técnico del cliente permitieron mapear el flujo actual y validar que la IA generativa podía resolver el caso con la precisión y escala requeridas.
               <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>2. Uso de infraestructura en la nube:</b>
+              <b>2. Uso de infraestructura en la nube: </b>
               La solución se construyó con dos servicios clave de Google Cloud.<br /><br />
             </p>
 
@@ -163,12 +164,12 @@ export default function Home() {
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>- Gemini (IA generativa):</b>analizó cada nota como si fuera un lector humano y la clasificó en la taxonomía correcta sin perder contexto.
+              <b>- Gemini (IA generativa): </b>analizó cada nota como si fuera un lector humano y la clasificó en la taxonomía correcta sin perder contexto.
               El hecho de trabajar directamente en la base de datos no solo agilizó el flujo, sino que también redujo significativamente los costos de procesamiento, logrando una solución rápida y eficiente.             </p>
 
     <br />
             <p className="tex-xl text-gray-600">
-              <b>3. Análisis de contenido con IA generativa:</b>
+              <b>3. Análisis de contenido con IA generativa: </b>
               BigQuery permite enviar instrucciones escritas (prompts) directamente a la base de datos para que Gemini analice las notas. Gracias a esto, el modelo entiende el contenido completo de cada artículo y lo clasifica automáticamente en la categoría publicitaria correcta (taxonomías).
               <br /><br />
             </p>
@@ -180,7 +181,7 @@ export default function Home() {
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>5. Despliegue y automatización</b>
+              <b>5. Despliegue y automatización: </b> 
               Se configuró un Scheduler (programador de tareas automáticas) para ejecutar el notebook de forma periódica, automatizando por completo el análisis y la clasificación de contenido. Así, el proceso corre de manera constante, sin intervención manual y con resultados inmediatos.
               <br /><br />
             </p>
