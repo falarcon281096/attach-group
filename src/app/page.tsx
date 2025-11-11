@@ -306,9 +306,9 @@ export default function Home() {
 
                 {activeCase === 'caja-arequipa' && (
                   <div className="text-[13px] md:text-[16px] transition-all duration-300">
-                    <h4 className=" font-bold mt-5 text-[#464646]">
+                    {/* <h4 className=" font-bold mt-5 text-[#464646]">
                       Más desembolsos con la misma inversión.
-                    </h4>
+                    </h4> */}
                     <p className="leading-relaxed text-[#464646]">
                     Desarrollamos e integramos un chatbot conversacional impulsado por LLM que permite a los lectores interactuar con las noticias en tiempo real. La solución, que incluyó un benchmark de 7 modelos de lenguaje, garantiza escalabilidad, eficiencia en costos y libera horas-hombre del equipo editorial para enfocarse en contenido de valor.
                     </p>
@@ -342,7 +342,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   )}
-                  <h4 className={`text-3xl font-bold transition-colors ${activeCase === 'deposeguro'
+                  <h4 className={`text-[20px] md:text-[32px] leading-[24px] md:leading-[42px] font-bold transition-colors ${activeCase === 'deposeguro'
                     ? 'text-[#464646] underline'
                     : 'text-[#818181] hover:text-gray-700'
                     }`}>
@@ -352,9 +352,9 @@ export default function Home() {
 
                 {activeCase === 'deposeguro' && (
                   <div className="mt-4 transition-all duration-300">
-                    <h5 className="text-lg font-bold mb-3 text-[#464646]">
+                    {/* <h5 className="text-lg font-bold mb-3 text-[#464646]">
                       Transformación digital del sector asegurador.
-                    </h5>
+                    </h5> */}
                     <p className="leading-relaxed text-[#464646]">
                     Transformamos el sitio web en un canal estratégico de generación de leads. El desarrollo web, optimizado en UX/UI y rendimiento técnico, resultó en un +45% en la tasa de conversión web (YoY) y un +89% en la contactabilidad de anuncios digitales.
                     </p>
@@ -388,7 +388,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   )}
-                  <h4 className={`text-3xl font-bold transition-colors ${activeCase === 'apuesta-total'
+                  <h4 className={`text-[20px] md:text-[32px] leading-[24px] md:leading-[42px] font-bold transition-colors ${activeCase === 'apuesta-total'
                     ? 'text-[#464646] underline'
                     : 'text-[#818181] hover:text-gray-700'
                     }`}>
@@ -398,16 +398,16 @@ export default function Home() {
 
                 {activeCase === 'apuesta-total' && (
                   <div className="mt-4 transition-all duration-300">
-                    <h5 className="text-lg font-bold mb-3 text-[#464646]">
+                    {/* <h5 className="text-lg font-bold mb-3 text-[#464646]">
                       Liderazgo en entretenimiento digital.
-                    </h5>
+                    </h5> */}
                     <p className="leading-relaxed text-[#464646]">
                       Implementamos una estrategia de programática avanzada utilizando Smart Audience. Esto generó un aumento de más del 170% en el volumen de recargas durante el piloto, y un crecimiento superior al 700% en el valor promedio de cada transacción.
                     </p>
                     {/* Imagen móvil para Apuesta Total (solo visible en móvil) */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
                       <ImageWithPlus
-                        src="/images/casos-de-exito/apuestatotal.webp"
+                        src="/images/casos-de-exito/apuestatotal.png"
                         alt="Apuesta Total"
                         width={1800}
                         height={1800}
@@ -455,9 +455,9 @@ export default function Home() {
                 {/* Image Placeholder */}
                 <ImageWithPlus
                       src={
-                        activeCase === 'caja-arequipa' ? "/images/casos-de-exito/eluniversal.webp" :
-                          activeCase === 'deposeguro' ? "/images/casos-de-exito/deposeguro.webp" :
-                            activeCase === 'apuesta-total' ? "/images/casos-de-exito/apuestatotal.webp" :
+                        activeCase === 'caja-arequipa' ? "/images/casos-de-exito/eluniversal.png" :
+                          activeCase === 'deposeguro' ? "/images/casos-de-exito/deposeguro.png" :
+                            activeCase === 'apuesta-total' ? "/images/casos-de-exito/apuestatotal.png" :
                               "/images/casos-de-exito/eluniversal.webp"
                       }
                       alt={

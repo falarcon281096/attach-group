@@ -62,7 +62,7 @@ export default function Home() {
                     before:-translate-x-[-0.5rem]
                     lg:before:top-100
                     before:top-45">
-                <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/eluniversal.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
+                <Image className="w-full rounded-l-[4rem]" src="/images/casos-de-exito/eluniversal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
               </div>
             </div>
           </div>

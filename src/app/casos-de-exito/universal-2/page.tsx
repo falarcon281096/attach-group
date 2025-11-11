@@ -60,7 +60,7 @@ export default function Home() {
                 <div className="relative w-full z-0">
                   <Image 
                     className="w-full h-auto relative z-0 rounded-[1.25rem] lg:rounded-l-[4rem] lg:rounded-r-none" 
-                    src="/images/casos-de-exito/eluniversal2.webp" 
+                    src="/images/casos-de-exito/eluniversal.png" 
                     alt="Home caminando hacia un portal con el logo de Attach" 
                     width={800} 
                     height={1000}
@@ -123,7 +123,7 @@ export default function Home() {
                     lg:before:h-15
                     lg:before:-translate-x-1/2
                     lg:before:top-45">
-            <Image className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px]" src="/images/casos-de-exito/universal-2/eluniversal_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px]" src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
@@ -142,7 +142,7 @@ export default function Home() {
                     before:top-105
                     lg:order-[unset]
                     order-2">
-            <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/universal-2/eluniversal_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="lg:w-1/2">

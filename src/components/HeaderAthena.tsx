@@ -47,12 +47,9 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 shadow-none min-h-[80px] bg-transparent transition-transform duration-300 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${isScrolled ? 'backdrop-blur-sm' : ''}`}
-      style={{
-        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.1)' : 'transparent'
-      }}
+      className={
+        `static z-50 shadow-none min-h-[80px] bg-transparent`
+      }
     >
       <div className={`w-full px-3 lg:px-4 lg:ml-15 flex items-center justify-between py-5 lg:py-4 ${showBorder
         ? 'lg:border-l-2 border-white/30'

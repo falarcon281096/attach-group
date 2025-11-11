@@ -17,7 +17,7 @@ export default function Home() {
       link: '/casos-de-exito/apuesta-total-2025',
       id: 'apuesta-t-catalogo',
       title: 'Apuesta Total',
-      tag: 'Publicidad programática',
+      tag: 'Catálogo dinámico',
       image: '/images/casos-de-exito/apuestatotal.webp',
     },
     {
@@ -45,7 +45,7 @@ export default function Home() {
       link: '/casos-de-exito/apuesta-total-ads',
       id: 'apuesta-t-paid',
       title: 'Apuesta Total',
-      tag: 'Programática',
+      tag: 'Publicidad programática',
       image: '/images/casos-de-exito/apuestatotal2.webp',
     },
   ];

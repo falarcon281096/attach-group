@@ -66,7 +66,7 @@ export default function Home() {
                 offsetXMobile = "39px"
                 offsetX = "35px"
                 paddingDesktop="1rem" 
-                imageClassName="object-cover"
+                imageClassName=""
                 containerClassName="w-full"
                 sizePercent={0.45}
                 overhangPercent={0.45}

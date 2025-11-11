@@ -171,10 +171,15 @@ export default function AthenaAds() {
           font-family: 'Graphik', sans-serif;
         }
       `}</style>
-      <HeaderAthena showBorder={false}/>
-      <div className="min-h-screen athena-ads-page overflow-x-hidden" style={{ backgroundColor: 'rgba(161, 224, 94, 0.05)' }}>
+      {/* Wrapper con degradado único para header + hero */}
+      <div className="relative overflow-hidden rounded-b-[30px] md:rounded-b-[50px] bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3]">
+        <HeaderAthena showBorder={false}/>
         {/* Hero Section */}
         <AnimatedGradient />
+      </div>
+
+      {/* Resto de la página con fondo claro */}
+      <div className="min-h-screen athena-ads-page overflow-x-hidden" style={{ backgroundColor: 'rgba(161, 224, 94, 0.05)' }}>
 
         {/* Second Section - Tecnología diferencial */}
         <section className="py-10 md:py-16 lg:py-20 px-6 md:px-8 lg:px-12">
@@ -418,7 +423,7 @@ export default function AthenaAds() {
         {/* Section - Historias de impacto programático */}
         <section className="py-10 md:py-16 lg:py-20 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
-            <div className="text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
+            <div className="text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
               Historias de impacto programático
             </div>
 

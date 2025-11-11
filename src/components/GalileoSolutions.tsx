@@ -57,7 +57,7 @@ export default function GalileoSolutions() {
                             : "hidden opacity-0 -translate-y-4 scale-95"
                     }`}
                 >
-                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[28px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
                         Desde agentes conversacionales que mejoran la atención al cliente, hasta proyectos de computer vision que automatizan tareas críticas, en Galileo IA desarrollamos soluciones de inteligencia artificial adaptadas a las necesidades de tu organización.
                     </div>
                     <div className="relative h-[280px] w-full group">
@@ -132,7 +132,7 @@ export default function GalileoSolutions() {
                                 />
                             </div>
 
-                            <p className="text-[#666666] text-[14px] md:text-[20px] leading-[28px] font-normal tracking-[0] text-center mb-5">
+                            <p className="text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] font-normal tracking-[0] text-center mb-5">
                                 Prisma revela cómo la inteligencia artificial ve,
                                 menciona y posiciona tu marca.
                             </p>
@@ -160,7 +160,7 @@ export default function GalileoSolutions() {
                                 />
                             </div>
 
-                            <p className="text-[#666666] text-[14px] md:text-[20px] leading-[28px] font-normal tracking-[0] text-center mb-5">
+                            <p className="text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] font-normal tracking-[0] text-center mb-5">
                                 La plataforma conversacional con IA que precalifica leads,
                                 optimiza campañas y potencia ventas.
                             </p>
@@ -245,7 +245,7 @@ export default function GalileoSolutions() {
                             : "hidden opacity-0 -translate-y-4 scale-95"
                     }`}
                 >
-                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px]  leading-[28px] pl-0 md:pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 md:pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
                         Implementamos soluciones que abarcan desde plataformas de datos de clientes (CDP) hasta optimización creativa en tiempo real (DCO), personalizando experiencias y optimizando campañas. Asimismo, aplicamos modelos predictivos, dashboards y algoritmos a medida que convierten la información en decisiones estratégicas y crecimiento sostenible.
                     </div>
                     <div className="relative pl-8 md:pl-0 h-[280px] w-full group">
