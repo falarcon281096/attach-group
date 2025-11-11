@@ -69,7 +69,7 @@ export default function Home() {
 
           {/*Indicadores*/}
           <section className="">
-            <div className="mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-3 lg:gap-2 gap-y-10">
+            <div className="text-white mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-3 lg:gap-2 gap-y-10">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
                 <p className="font-bold text-xl lg:text-4xl">Eficiencia total</p>
@@ -144,17 +144,18 @@ export default function Home() {
               Estrategia
             </h3>
             <p className="tex-xl text-gray-600">
-              Para abordar este reto, aplicamos nuestro enfoque experto y metodológico:
+              Para abordar este reto, aplicamos nuestro enfoque experto y metodológico:<br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>1. Entendimiento de la problemática:</b><br />
+              <b>1. Entendimiento de la problemática:</b>
               Reuniones con el equipo técnico del cliente permitieron mapear el flujo actual y validar que la IA generativa podía resolver el caso con la precisión y escala requeridas.
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>2. Uso de infraestructura en la nube:</b><br />
-              La solución se construyó con dos servicios clave de Google Cloud.
+              <b>2. Uso de infraestructura en la nube:</b>
+              La solución se construyó con dos servicios clave de Google Cloud.<br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
@@ -165,20 +166,23 @@ export default function Home() {
               <b>- Gemini (IA generativa):</b>analizó cada nota como si fuera un lector humano y la clasificó en la taxonomía correcta sin perder contexto.
               El hecho de trabajar directamente en la base de datos no solo agilizó el flujo, sino que también redujo significativamente los costos de procesamiento, logrando una solución rápida y eficiente.             </p>
 
-
+    <br />
             <p className="tex-xl text-gray-600">
-              <b>3. Análisis de contenido con IA generativa:</b><br />
+              <b>3. Análisis de contenido con IA generativa:</b>
               BigQuery permite enviar instrucciones escritas (prompts) directamente a la base de datos para que Gemini analice las notas. Gracias a esto, el modelo entiende el contenido completo de cada artículo y lo clasifica automáticamente en la categoría publicitaria correcta (taxonomías).
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>4. Integración y pruebas iterativas: </b><br />
+              <b>4. Integración y pruebas iterativas: </b>
               Se realizaron pruebas para afinar los prompts y mejorar la precisión de la clasificación. Además, se implementaron guardrails (filtros de seguridad) que actúan como límites para la IA, evitando que el sistema clasifique notas en categorías de industrias no autorizadas por el diario. Esto permitió reducir riesgos y asegurar que la segmentación se mantuviera dentro de los lineamientos comerciales de El Universal.
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>5. Despliegue y automatización</b><br />
+              <b>5. Despliegue y automatización</b>
               Se configuró un Scheduler (programador de tareas automáticas) para ejecutar el notebook de forma periódica, automatizando por completo el análisis y la clasificación de contenido. Así, el proceso corre de manera constante, sin intervención manual y con resultados inmediatos.
+              <br /><br />
             </p>
           </div>
 
@@ -193,7 +197,7 @@ export default function Home() {
       {/* CTA Talk Us */}
       <section className="pb-17 px-5 lg:pr-30">
         <div className="flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl">
             Desarrollemos algo
             increíble juntos.
           </h2>

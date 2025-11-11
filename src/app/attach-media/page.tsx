@@ -123,11 +123,11 @@ export default function AttachMediaPage() {
             {/* Imagen de fondo */}
             <div className="relative h-48 md:h-64 lg:h-80">
               <Image 
-                src="/images/soluciones/attach-media/equipo-hibrido.png" 
+                src="/images/soluciones/attach-media/equipo-hibrido.webp" 
                 alt="Equipo híbrido trabajando con IA" 
                 width={1200} 
                 height={400}
-                className="w-full h-full  rounded-t-2xl md:rounded-t-3xl"
+                className="w-full h-full object_cover rounded-t-2xl md:rounded-t-3xl"
               />
             </div>
             

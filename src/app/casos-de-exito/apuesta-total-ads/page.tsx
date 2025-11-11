@@ -76,7 +76,7 @@ export default function Home() {
 
           {/*Indicadores*/}
           <section className="">
-            <div className="mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-4 lg:gap-2 gap-y-10">
+            <div className="text-white mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-4 lg:gap-2 gap-y-10">
               {/* Indicador 1 */}
               <div className="relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
                 <p className="font-bold text-2xl lg:text-4xl">+170%</p>
@@ -162,7 +162,7 @@ export default function Home() {
               <b>Selección de plataforma con audiencias de intención de compra</b><br />
               Athena Ads implementó un piloto de cuatro semanas en una plataforma especializada en audiencias con intención de compra.
               A diferencia de otras soluciones tradicionales basadas en intereses o contextos, esta permitía identificar usuarios propensos a realizar transacciones en línea, lo que la hacía ideal para el modelo de negocio de Apuesta Total.
-
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
@@ -170,14 +170,14 @@ export default function Home() {
               Se utilizó la funcionalidad Smart Audience, un tipo de segmentación avanzada que combina distintos intereses y comportamientos de compra de los usuarios en función de la URL de destino definida por campaña y del píxel de conversión configurado para medir el evento de recargas.
               Gracias a esta configuración, el algoritmo pudo aprender automáticamente qué perfiles tenían mayor propensión a realizar recargas, optimizando el alcance hacia audiencias con mayor probabilidad de conversión y retroalimentando la plataforma con datos reales de comportamiento.
               A diferencia de la segmentación tradicional, donde se seleccionan intereses específicos por campaña, Smart Audience automatiza y mejora la precisión de la segmentación a partir del aprendizaje continuo del sistema.
-
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
               <b>Creatividades responsive y contexto deportivo</b><br />
               Se activaron formatos responsive ads, que adaptaban su diseño y mensaje según el espacio disponible y el contexto del sitio web.
               Además, se realizaron test A/B entre creatividades genéricas y otras inspiradas en eventos deportivos de alta relevancia, para identificar los momentos con mayor intención de recarga.
-
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
@@ -196,7 +196,7 @@ export default function Home() {
       {/* CTA Talk Us */}
       <section className="pb-17 px-5 lg:pr-30">
         <div className="flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl">
             Desarrollemos algo
             increíble juntos.
           </h2>

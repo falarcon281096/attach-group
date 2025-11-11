@@ -74,7 +74,7 @@ export default function Home() {
 
           {/*Indicadores*/}
           <section className="">
-            <div className="mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-3 lg:gap-2 gap-y-10">
+            <div className="text-white mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-3 lg:gap-2 gap-y-10">
               {/* Indicador 1 */}
               <div className="relative px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
                 <p className="font-bold text-3xl lg:text-5xl">+45%</p>
@@ -124,7 +124,8 @@ export default function Home() {
                     lg:before:h-15
                     lg:before:-translate-x-1/2
                     lg:before:top-45">
-            <Image className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px]" src="/images/casos-de-exito/deposeguro/deposeguro_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            
+            <Image className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px]" src="/images/casos-de-exito/deposeguro/Depo1.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
 
         </div>
@@ -143,7 +144,7 @@ export default function Home() {
                     before:top-105
                     lg:order-[unset]
                     order-2">
-            <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/deposeguro/deposeguro_laestrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/deposeguro/Depo2.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
           </div>
           {/* Carlo R.*/}
           <div className="lg:w-1/2">
@@ -169,7 +170,7 @@ export default function Home() {
       {/* CTA Talk Us */}
       <section className="pb-17 px-5 lg:pr-30">
         <div className="flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl">
+          <h2 className="text-3xl md:text-4xl text-white  lg:text-5xl font-bold max-w-2xl">
             Desarrollemos algo increíble juntos.
           </h2>
 

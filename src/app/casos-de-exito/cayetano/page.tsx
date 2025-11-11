@@ -94,7 +94,7 @@ export default function Home() {
 
           {/*Indicadores*/}
           <section className="">
-            <div className="mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-4 lg:gap-2 gap-y-10">
+            <div className="text-white mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-4 lg:gap-2 gap-y-10">
               {/* Indicador 1 */}
               <div className="relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white">
                 <p className="font-bold text-3xl lg:text-5xl">+82%</p>
@@ -175,25 +175,29 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Estrategia
             </h3>
-            <p className="tex-xl text-gray-600">Desde la visión data-driven y el enfoque full funnel, diseñamos una estrategia que integró acciones de Awareness, Consideración y Conversión bajo un solo objetivo: generar impacto real en cada etapa del recorrido del usuario.</p>
+            <p className="tex-xl text-gray-600">Desde la visión data-driven y el enfoque full funnel, diseñamos una estrategia que integró acciones de Awareness, Consideración y Conversión bajo un solo objetivo: generar impacto real en cada etapa del recorrido del usuario.</p><br />
             <p className="tex-xl text-gray-600">
-              <b>1. Planeación estratégica con base en data:</b><br />
+              <b>1. Planeación estratégica con base en data: </b>
               se priorizaron los canales de captación con mayor desempeño tras un análisis exhaustivo a nivel CRM, maximizando la inversión en los que mostraban mejores tasas de conversión.
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>2. Optimización continua y colaboración en tiempo real:</b><br />
+              <b>2. Optimización continua y colaboración en tiempo real: </b>
               mediante un monitoreo diario entre cliente y agencia, se lograron ajustes ágiles y sincronizados que mejoraron significativamente la eficiencia operativa.
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>3. Estrategia creativa integral:</b><br />
+              <b>3. Estrategia creativa integral: </b>
               bajo el concepto <i>“Cayetano es más que Cayetano”</i>, se desarrolló una propuesta que conectó emocionalmente con el público y amplificó la visibilidad y el tráfico hacia las plataformas digitales.
+              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>4. Inversión estratégica más allá del lower funnel:</b><br />
+              <b>4. Inversión estratégica más allá del lower funnel: </b>
               se destinó presupuesto a acciones de visibilidad y reconocimiento de marca, permitiendo construir un impacto integral y sostenido a lo largo del funnel.
+              <br /><br />
             </p>
           </div>
         </div>
@@ -306,7 +310,7 @@ export default function Home() {
       {/* CTA Talk Us */}
       <section className="pb-17 px-5 lg:pr-30">
         <div className="flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl">
             Desarrollemos algo
             increíble juntos.
           </h2>

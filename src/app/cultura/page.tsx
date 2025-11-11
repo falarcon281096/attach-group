@@ -17,7 +17,7 @@ export default function Home() {
         <Header showBorder={false} variant='white-bg'/>
 
         {/*Oficinas Section*/}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 pt-30 md:pt-20 pb-20 md:pb-20 justify-items-stretch '>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 pt-30 md:pt-20 pb-12 md:pb-20 justify-items-stretch '>
           <div className=' w-[78%] md:w-[75%] text-[28px] lg:text-[56px] px-5 flex flex-col justify-center'>
             <span className='bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent tracking-[-1%] font-extrabold leading-tight'>
               Donde las ideas,  la data y&nbsp;
@@ -51,10 +51,10 @@ export default function Home() {
       </div>
 
       {/*body*/}
-      <div className='atm-content relative pt-5 md:pt-20 pb-0 md:pb-0  bg-white'>
+      <div className='atm-content relative pt-5 md:pt-0 pb-0 md:pb-0  bg-white'>
         <div className='pr-4 md:pr-15 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'>
           <div className='relative flex items-center justify-start pt-2 md:pt-10 pb-0 md:pb-0 order-2 lg:order-1 overflow-visible'>
-            <div className="relative pr-15 md:pr-0  w-full max-w-md lg:max-w-2xl rounded-r-3xl rounded-l-none aspect-[3/4]">
+            <div className="relative pr-15 md:pr-0 w-full max-w-md lg:max-w-2xl rounded-r-3xl rounded-l-none h-[270px] md:aspect-[3/4] md:h-[628px] lg:h-[628px]">
               <ImageWithPlus
                 src='/images/cultura/cultura-inspira.webp'
                 alt='cultura-inspira'
@@ -67,21 +67,22 @@ export default function Home() {
                 offsetX = "35px"
                 paddingDesktop="1rem" 
                 imageClassName="object-top"
-                containerClassName="w-full overflow-hidden rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px]"
+                containerClassName="w-full h-full overflow-hidden rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px]"
                 sizePercent={0.45}
                 overhangPercent={0.45}
-                sizePercentMobile={0.55}
-                overhangPercentMobile={0.55}
+                sizePercentMobile={0.50}
+                overhangPercentMobile={0.50}
               />
             </div>   
           </div>
-          <div className='flex flex-col justify-center gap-10 order-1 lg:order-2 px-5 lg:pr-50'>
-            <p className="text-[#1840E2] font-['Graphik'] text-[24px] md:text-[48px] leading-[27px] md:leading-[54px]">
+          <div className='flex flex-col justify-start gap-1 pl-10 md:pl-0 md:gap-0 order-1 lg:order-2 px-5 lg:pr-50 pt-0  md:pt-23'>
+            <p className="text-[#1840E2] font-['Graphik'] text-[24px] md:text-[48px] leading-[32px] md:leading-[52px]">
               Nos inspira resolver desafíos,{' '}
               <strong className='font-semibold'>aprender constantemente y crecer</strong> en un entorno
               colaborativo.
             </p>
-            <p className='text-[#1840E2] text-2xl lg:text-4xl'>
+            <br />
+            <p className='text-[#1840E2] text-[24px] md:text-[48px] leading-[32px] md:leading-[52px]'>
               No solo hablamos de resultados: <strong className='font-semibold'>los generamos.</strong>
             </p>
           </div>
@@ -112,14 +113,14 @@ export default function Home() {
 
       {/* innovar */}
 
-          <div className='flex  bg-white py-20'>
+          <div className='flex  bg-white py-1 md:py-20'>
             <div className='grid grid-cols-q lg:grid-cols-2 pl-5  lg:pl-50 lg:pr-0 gap-4 md:gap-10 lg:gap-20 w-full'>
               <div className='flex flex-col gap-3 md:gap-8 pr-5 lg:pr-0 items-start justify-center'>
                 <h4 className='text-[#1840E2] font-semibold  text-[24px] md:text-[48px] leading-[27px] md:leading-[54px]'>
                   Innovar. Colaborar. Evolucionar juntos.
                 </h4>
                 <p className='leading-5 text-[#818181] text-[14px] md:text-[20px] '>
-                  Porque la forma en que trabajamos es tan importante <br /> como lo que
+                  Porque la forma en que trabajamos es tan importante como lo que
                   hacemos.
                 </p>
                 <div className='border px-4 py-2 rounded-xl '>
@@ -166,8 +167,8 @@ export default function Home() {
       
 
       {/* nuestro proposito */}
-      <div className='flex pb-20 bg-white w-full'>
-        <div className='relative before:content-[""] md:before:content-none before:absolute before:inset-y-0 before:left-5 md:before:left-15 before:w-px before:bg-[#1840E2] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-40 w-full'>
+      <div className='flex pb-20 md:pb-4 bg-white w-full'>
+        <div className='relative before:content-[""] md:before:content-none before:absolute before:inset-y-0 before:left-5 md:before:left-15 before:w-px before:bg-[#1840E2] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-22 w-full'>
           <div className='relative order-2 lg:order-1 pr-10 lg:pr-0'>
             <ImageWithPlus
                 src='/images/cultura/nuestro-proposito.webp'
@@ -184,7 +185,7 @@ export default function Home() {
               />
           </div>
           <div className='  flex flex-col  gap-2 md:gap-5 justify-center pr-5 pl-10 lg:pl-0 lg:pr-50 order-1 lg:order-2'>
-            <h4 className='text-[#1840E2] font-semibold text-[24px] md:text-[48px]'>
+            <h4 className='text-[#1840E2] font-semibold text-[24px] md:text-[48px] pt-10 md:pt-0'>
               Nuestro propósito
             </h4>
             <div className='text-gray-500 text-[16px] md:text-[24px] mr-0 lg:mr-10'>
@@ -195,7 +196,7 @@ export default function Home() {
       </div>
 
       {/* nuestros programas */}
-      <section className='bg-white pt-4 md:pt-20 pb-20 md:pb-20 rounded-b-4xl bg-[rgba(240,248,255,0.2)]'>
+      <section className='bg-white pt-4 md:pt-30 pb-5 md:pb-15 rounded-b-4xl bg-[rgba(240,248,255,0.2)]'>
         <div className="mx-1 lg:mx-30 text-center leading-[29px] md:leading-[54px] text-[24px] md:text-[48px] font-['Graphik'] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-5 md:mb-10">
           Nuestros programas
         </div>
@@ -211,7 +212,7 @@ export default function Home() {
               />
             </div>
             <div className='px-8 py-7'>
-              <p className='text-[14px] md:text-[20px] font-["Graphik"] text-gray-500'>
+              <p className='text-[14px] md:text-[20px] font-["Graphik"] text-gray-600'>
                 Crecemos aprendiendo de quienes nos inspiran. Promovemos el
                 desarrollo profesional y personal mediante el{' '}
                 <b className='text-gray-600'>
@@ -273,11 +274,19 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='w-full px-5 lg:px-50 py-20'>
-          <div className='rounded-4xl bg-linear-to-r from-[#E9EEFF] to-[#F1F2F7] w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-40 items-center px-5 lg:px-13 py-20'>
-            <p className='font-semibold text-[#1840E2] text-3xl '>
-              ¡Síguenos en nuestras redes sociales y entérate más sobre
-              nosotros!
+        <div className='w-full px-5 lg:px-32 py-10 md:py-20 mt-5 md:mt-0'>
+          <div className='rounded-4xl bg-linear-to-r from-[#E9EEFF] to-[#F1F2F7] w-full grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-40 items-center px-5 lg:px-13 py-7 md:py-20'>
+            <p
+              className='font-semibold text-transparent bg-clip-text text-[20px] leading-[24px] md:text-[32px] md:leading-[42px]'
+              style={{
+                background:
+                  'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              ¡Síguenos en nuestras redes sociales
+              y entérate más sobre nosotros!
             </p>
             <div className='flex gap-5 lg:gap-10  justify-start  lg:justify-center'>
               <a href="https://www.linkedin.com/company/attachgroup/" target="blank">

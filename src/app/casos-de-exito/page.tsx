@@ -31,22 +31,22 @@ export default function Home() {
       link: '/casos-de-exito/universal',
       id: 'universal',
       title: 'El Universal',
-      tag: 'IA',
-      image: '/images/casos-de-exito/eluniversal.webp',
+      tag: 'Inteligencia artificial',
+      image: '/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.jpg',
     },
     {
       link: '/casos-de-exito/universal-2',
       id: 'universal-2',
       title: 'El Universal',
       tag: 'UX',
-      image: '/images/casos-de-exito/eluniversal2.webp',
+      image: '/images/casos-de-exito/universal/EL-UNIVERSAL-1.webp',
     },
     {
       link: '/casos-de-exito/apuesta-total-ads',
       id: 'apuesta-t-paid',
       title: 'Apuesta Total',
       tag: 'Publicidad programática',
-      image: '/images/casos-de-exito/apuestatotal2.webp',
+      image: '/images/casos-de-exito/Apuestathenads1.webp',
     },
   ];
 
