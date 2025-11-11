@@ -177,7 +177,7 @@ export default function Home() {
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
                   <Image
-                    src="/images/general/AttachMediaLogo.svg"
+                    src="/images/general/AttachMediaLogo.png"
                     alt="icon Attach Media"
                     width={239}
                     height={96}

@@ -18,8 +18,8 @@ export default function Home() {
 
         {/*Oficinas Section*/}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 pt-30 md:pt-20 pb-12 md:pb-20 justify-items-stretch '>
-          <div className=' w-[78%] md:w-[75%] text-[28px] lg:text-[56px] px-5 flex flex-col justify-center'>
-            <span className='bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent tracking-[-1%] font-extrabold leading-tight'>
+          <div className=' w-[88%] md:w-[75%] text-[28px] lg:text-[56px] px-10 md:px-5 flex flex-col justify-center'>
+            <span className=' bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent tracking-[-1%] font-extrabold leading-tight'>
               Donde las ideas,  la data y&nbsp;
               <span className='font-medium italic underline underline-offset-4 decoration-[#433AB3]'>
                 las
