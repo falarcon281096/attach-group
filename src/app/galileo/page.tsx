@@ -48,7 +48,7 @@ export default function Home() {
                             <div className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8   shadow-lg w-full font-['graphik'] " style={{color:'#818181'}}>
                                 {/* + decorativo */}
                                 <span
-                                    className="absolute -left-6 bottom-2 text-[48px] font-bold text-[#FFC351] select-none"
+                                    className="absolute -left-6 bottom-2 text-[78px] md:text-[90px] font-bold text-[#FFC351] select-none"
                                     style={{
                                         lineHeight: "1",
                                     }}
@@ -67,7 +67,7 @@ export default function Home() {
                             <div style={{color:'#818181'}} className="text-center relative bg-white  text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8  shadow-lg w-full font-['graphik']">
                                 {/* + decorativo */}
                                 <span
-                                    className="absolute -right-6 -bottom-5 text-[48px] font-bold text-[#FF3F73] select-none"
+                                    className="absolute -right-6 -bottom-5 text-[78px] md:text-[90px] font-bold text-[#FF3F73] select-none"
                                     style={{
                                         lineHeight: "1",
                                     }}

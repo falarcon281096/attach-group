@@ -66,8 +66,8 @@ export default function Home() {
                 offsetXMobile = "39px"
                 offsetX = "35px"
                 paddingDesktop="1rem" 
-                imageClassName=""
-                containerClassName="w-full"
+                imageClassName="object-top"
+                containerClassName="w-full overflow-hidden rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px]"
                 sizePercent={0.45}
                 overhangPercent={0.45}
                 sizePercentMobile={0.55}
