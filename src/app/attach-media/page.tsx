@@ -450,10 +450,10 @@ export default function AttachMediaPage() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 to-transparent px-6 md:px-6">
                   <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
-                    <b>APUESTA TOTAL</b>
+                    <b>Apuesta total</b>
                   </h3>
                   <p className="text-sm md:text-base text-white">
-                    De la intención a la acción: programática que impulsa el número y valor de recargas
+                    Publicidad programática
                   </p>
                 </div>
               </Link>

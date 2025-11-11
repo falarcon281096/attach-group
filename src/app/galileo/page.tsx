@@ -292,7 +292,7 @@ export default function Home() {
                                 El Universal
                             </h3>
                             <p className="text-[#FFFFFF] text-[20px] leading-[28px] font-semibold text-start">
-                                Clasificación inteligente de contenido: el salto de El Universal con IA generativa
+                                El Universal integra IA conversacional a su experiencia digital
                             </p>
                         </div>
                     </Link>

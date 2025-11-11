@@ -142,7 +142,7 @@ export default function GalileoSolutions() {
                     {/* Tarjeta 2 */}
                     <article className="rounded-2xl  bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,63,115,0.25)] hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
                         <Image
-                            src="/images/galileo/imagen-2-galileo.jpg"
+                            src="/images/galileo/imagen-2-galileo.webp"
                             alt="PROSPECTA"
                             width={900}
                             height={600}
