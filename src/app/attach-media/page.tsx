@@ -47,12 +47,13 @@ export default function AttachMediaPage() {
               <div className="space-y-4 md:space-y-6 px-5 md:px-0 relative z-10">
                 {/* First Card */}
                 <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative shadow-lg rounded-lg">
-                  <div className="absolute top-40 -left-6 md:block">
+                  <div className="absolute bottom-[10px] left-[-19px] md:bottom-[12px] md:left-[-25px] md:left-[-18px] md:block">
                     <Image 
                       src="/images/general/attach_cross_blue.svg" 
                       alt="Plus" 
-                      width={44} 
-                      height={44} 
+                      width={56} 
+                      height={56} 
+                      className="w-[50px] h-[50px] md:w-[60px] md:h-[60px]"
                     />
                   </div>
                   <p className="text-[14px] md:text-[20px] leading-[18px] md:leading-[28px] text-center text-gray-500 leading-relaxed">
@@ -66,8 +67,9 @@ export default function AttachMediaPage() {
                     <Image 
                       src="/images/general/attach_cross_blue.svg" 
                       alt="Plus" 
-                      width={44} 
-                      height={44} 
+                      width={56} 
+                      height={56}  
+                      className="w-[50px] h-[50px] md:w-[60px] md:h-[60px]"
                     />
                   </div>
                   <p className="text-[14px] md:text-[20px] leading-[18px] md:leading-[28px] text-center text-gray-500 leading-relaxed">
