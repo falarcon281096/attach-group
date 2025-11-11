@@ -49,7 +49,7 @@ export default function Home() {
               </div>
 
               {/* Párrafo (móvil tercero, desktop oculto) */}
-              <div className="order-3 lg:order-1 lg:col-start-1 lg:hidden">
+              <div className="order-3 lg:order-1 lg:col-start-1 lg:hidden px-10 md:px-0">
                 <div className="text-[#464646] mt-4 text-[15px] md:text-[24px]">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</div>
               </div>
             </div>
@@ -245,18 +245,18 @@ export default function Home() {
         </div>
 
         {/*Oficinas Section*/}
-        <div className={`flex gap-10 mx-30 pb-20 justify-items-stretch ${styles["section-oficinas"]}`}>
+        <div className={`flex gap-10 mx-0 md:mx-30 pb-20 justify-items-stretch ${styles["section-oficinas"]}`}>
           {/* Texto (visible en desktop, oculto en móvil) */}
           <div className="w-1/2 mt-5 md:pt-0">
-            <h2 className="hidden md:block text-[24px] md:text-[48px] leading-[28px] md:leading-[53px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+            <h2 className="w-90% hidden md:block text-[24px] md:text-[48px] leading-[28px] md:leading-[53px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               Oficinas en tres países. Alcance más allá de fronteras
             </h2>
             <p className="tex-xl text-gray-400 border-1 px-3 py-2 w-45 rounded-[50px]">Perú - México - USA</p>
           </div>
           {/* Mapa con título sobrepuesto en móvil */}
-          <div className="relative">
-            <Image src="/images/nosotros/mapa-atatch.webp" alt="Mapa Attach" width={486} height={550} />
-            <h2 className="mb-0 md:mb-10 md:hidden absolute z-10 bottom-[-45px] left-0 right-0 text-center px-3 text-[24px] leading-[28px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold">
+          <div className="relative ">
+            <Image src="/images/nosotros/mapa-atatch.webp" alt="Mapa Attach" className="mx-30 md:mx-0 mx-auto" width={486} height={550} />
+            <h2 className="mb-0 md:mb-10 md:hidden absolute z-10 bottom-[-45px] left-0 right-0 text-left px-3 text-[24px] leading-[28px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold">
               Oficinas en tres países. Alcance más allá de fronteras
             </h2>
           </div>
