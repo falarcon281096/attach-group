@@ -29,10 +29,10 @@ export default function Home() {
 
         {/* Hero Section */}
         <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c] rounded-b-[30px] lg:rounded-b-[50px] relative z-10">
-          <div className="rounded-b-[50px] lg:ml-15 lg:pt-17 pb-0 lg:pb-16 pt-35">
-            <div className="grid lg:grid-cols-2 gap-12 items-center lg:ml-15">
+          <div className="rounded-b-[50px] mx-7 lg:mx-30 pt-35 lg:pt-17 pb-0 lg:pb-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start">
               {/* Content */}
-              <div className="text-white px-7">
+              <div className="text-white px-7 lg:px-0 lg:flex-1">
                 <p className="text-3xl lg:text-5xl font-800" style={{fontWeight:'100'}}>El Universal integra IA conversacional</p>
                 <h1 className="text-4xl lg:text-6xl font-bold mb-8 mr-4">
                   a su experiencia digital
@@ -42,47 +42,32 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Image placeholder - where the person and city image goes */}
-                  <div className="absolute
-                    top-[23%]
-                    lg:top-[unset]
-                    pl-12
-                    lg:pl-0
-                    lg:relative 
-                    w-full
-                    lg:w-auto
-                    max-w-md
-                    lg:max-w-2xl
-                    mx-auto
-                    lg:mx-0
-                    before:absolute
-                    before:z-10
-                    before:bg-[url('/images/general/attach_cross_white.png')]
-                    before:bg-no-repeat
-                    before:bg-center
-                    before:content-['']
-                    before:bg-[length:100%_100%]
-                    lg:before:w-30
-                    lg:before:h-30
-                    before:w-17
-                    before:h-17
-                    lg:before:-translate-x-1/2
-                    lg:before:bottom-0
-                    lg:before:left-0
-                    before:bottom-0
-                    before:left-0
-                    before:-translate-x-[-0.5rem]">
-                    <div className="relative w-full z-0">
-                      <Image 
-                        className="w-full h-auto rounded-l-[4rem] relative z-0" 
-                        src="/images/casos-de-exito/eluniversal2.webp" 
-                        alt="Home caminando hacia un portal con el logo de Attach" 
-                        width={800} 
-                        height={1000}
-                        style={{ width: '100%', height: 'auto' }}
-                      />
-                    </div>
-                  </div>
+              {/* Imagen responsive a la derecha en desktop, debajo del texto en móvil */}
+              <div className="relative w-full lg:w-auto max-w-md lg:max-w-2xl mx-auto lg:mx-0 mt-6 lg:mt-0 px-7 lg:px-0 lg:flex-1
+                  before:absolute
+                  before:z-10
+                  before:bg-[url('/images/general/attach_cross_white.png')]
+                  before:bg-no-repeat
+                  before:bg-center
+                  before:content-['']
+                  before:bg-[length:100%_100%]
+                  before:w-17
+                  before:h-17
+                  lg:before:w-30
+                  lg:before:h-30
+                  before:bottom-0
+                  before:left-0">
+                <div className="relative w-full z-0">
+                  <Image 
+                    className="w-full h-auto relative z-0 rounded-[1.25rem] lg:rounded-l-[4rem] lg:rounded-r-none" 
+                    src="/images/casos-de-exito/eluniversal2.webp" 
+                    alt="Home caminando hacia un portal con el logo de Attach" 
+                    width={800} 
+                    height={1000}
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
 

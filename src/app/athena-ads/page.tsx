@@ -180,7 +180,7 @@ export default function AthenaAds() {
         <section className="py-10 md:py-16 lg:py-20 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
             <div className="mb-6 md:mb-8 text-center">
-              <h2 className="hero-title-override gradient-text inline-block font-bold" style={{filter: 'drop-shadow(0px 4px 102.3px rgba(226, 232, 48, 0.2))'}}>
+              <h2 className="hero-title-override text-[24px] md:text-[48px] gradient-text inline-block font-semibold" style={{filter: 'drop-shadow(0px 4px 102.3px rgba(226, 232, 48, 0.2))'}}>
                 Tecnología diferencial
               </h2>
             </div>
@@ -205,7 +205,7 @@ export default function AthenaAds() {
                   <h6 className="text-[16px] md:text-xl font-semibold mb-2 font-['Graphik'] gradient-text">
                     Phone ID Audiences
                   </h6>
-                  <div className="text-[14px] md:text-[20px] text-gray-500 px-3 md:px-0">
+                  <div className="text-[14px] md:text-[20px] font-['Graphik'] leading-[20px] md:leading-[28px] font-normal text-gray-500 px-3 md:px-0">
                     Impacta usuarios en horarios y ubicaciones clave.
                   </div>
                 </div>
@@ -225,7 +225,7 @@ export default function AthenaAds() {
                   <h6 className="text-[16px] md:text-xl font-bold mb-2 font-['Graphik'] gradient-text">
                     Digital out of home by User Movility
                   </h6>
-                  <div className="text-[14px] md:text-[20px]  text-gray-500 px-3 md:px-0">
+                  <div className="text-[14px] md:text-[20px] font-['Graphik'] leading-[20px] md:leading-[28px] font-normal text-gray-500 px-3 md:px-0">
                     Pantallas digitales que se activan cuando tu usuario está cerca.
                   </div>
                 </div>
@@ -233,7 +233,7 @@ export default function AthenaAds() {
             </div>
 
             {/* Premium Inventory Section */}
-            <h3 className="text-[32px] md:text-[24px]  premium-inventory-h3 mb-8 md:mb-12 text-[rgba(129,129,129,1)] w-full md:w-[80%] lg:w-[55%] mx-auto text-center">
+            <h3 className="text-[20px] md:text-[32px] font-['Graphik'] leading-[24px] md:leading-[42px] premium-inventory-h3 mb-8 md:mb-12 text-[rgba(129,129,129,1)] w-full md:w-[80%] lg:w-[55%] mx-auto text-center">
               Y potenciamos el impacto en un entorno premium, dentro de nuestro inventario podrás encontrar opciones como
             </h3>
 
@@ -310,7 +310,7 @@ export default function AthenaAds() {
         
 
         {/* Section - Innovación que impulsa el rendimiento */}
-        <section className="py-10 md:py-16 lg:py-20 px-6 md:px-8 lg:px-12">
+        <section className="pt-5 md:pt-8 pb-5 md:pb-4 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
             <h2 className="text-[24px] md:text-[48px] hero-title-override gradient-text  font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center">
               Innovación que impulsa el rendimiento
@@ -324,13 +324,13 @@ export default function AthenaAds() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
               {/* Card 1 - Social Extender */}
               <div className="border rounded-2xl md:rounded-3xl overflow-hidden " style={{ borderColor: 'rgba(30, 18, 13, 0.1)' }}>
-                <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[30px] md:gap-[14px]" style={{ padding:"10px 60px"}}>
-                  <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded ">
+                <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[30px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
+                  <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded ">
                     <Image
                       src="/images/athena-ads/Cayetano-Social-Extender.gif"
                       alt="Social Extender 1"
                       fill
-                      className="object-cover"
+                      className=""
                     />
                   </div>
                   {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
@@ -354,13 +354,13 @@ export default function AthenaAds() {
 
               {/* Card 2 - Rich Media Interactivo */}
               <div className="border rounded-2xl md:rounded-3xl overflow-hidden" style={{ borderColor: 'rgba(30, 18, 13, 0.1)' }}>
-                <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px] " style={{ padding:"10px 40px"}}>
-                  <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
+                <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px] " style={{ padding:"10px 30px"}}>
+                  <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded">
                     <Image
                       src="/images/athena-ads/Ficohsa-Richmedia.gif"
                       alt="Rich Media 1"
                       fill
-                      className="object-cover"
+                      className=""
                     />
                   </div>
                   {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
@@ -385,12 +385,12 @@ export default function AthenaAds() {
               {/* Card 3 - Tap to Map */}
               <div className="border rounded-2xl md:rounded-3xl overflow-hidden" style={{ borderColor: 'rgba(30, 18, 13, 0.1)' }}>
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
-                  <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
+                  <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded">
                     <Image
                       src="/images/athena-ads/SBD-Tap-to-Map.gif"
                       alt="Tap to Map 1"
                       fill
-                      className="object-cover"
+                      className=""
                     />
                   </div>
                   {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
@@ -491,14 +491,14 @@ export default function AthenaAds() {
         <AthenaBenefits />
 
         {/* CTA Section - ¿Listo para una estrategia única? */}
-        <section className="px-6 md:px-8 lg:px-12 min-h-[34vh] md:min-h-0 md:py-16 lg:h-[500px] flex items-center" style={{ background: 'linear-gradient(270deg, #00CED3 2.82%, #2ED3B1 23.42%, #A1E05E 71.16%, #E2E830 96.43%)' }}>
+        <section className="px-6 md:px-50 pt-0 md:pt-30 pb-0 md:pb-30 min-h-[34vh]  flex items-center" style={{ background: 'linear-gradient(270deg, #00CED3 2.82%, #2ED3B1 23.42%, #A1E05E 71.16%, #E2E830 96.43%)' }}>
           <div className="container mx-auto">
             <div className="w-full lg:w-1/2">
               <h2 className="hero-title-override text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8">
                 ¿Listo para una estrategia única?
               </h2>
 
-              <Link href="/contacto" className="bg-white text-[rgba(0,206,211,1)] font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg hover:bg-opacity-90 transition-all flex items-center gap-2 text-sm md:text-base w-fit">
+              <Link href="/contacto" className="text-[16px] md:text-[16px] leading-[20px] md:leading-[24px] bg-white text-[rgba(0,206,211,1)] font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg hover:bg-opacity-90 transition-all flex items-center gap-2 w-fit">
                 Conversemos
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5">
                   <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="rgba(0,206,211,1)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

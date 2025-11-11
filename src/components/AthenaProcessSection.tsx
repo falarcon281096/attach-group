@@ -2,7 +2,7 @@ export default function AthenaProcessSection() {
     return (
         <section className="py-10 md:py-8 lg:py-8 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
-            <h2 className="text-[24px] md:text-[24px] font-bold mb-8 md:mb-12 text-center" style={{ color: 'rgba(70, 70, 70, 1)' }}>Nuestro proceso</h2>
+            <div className="text-[24px] md:text-[24px] font-bold mb-8 md:mb-12 text-center" style={{ color: 'rgba(70, 70, 70, 1)' }}>Nuestro proceso</div>
 
             <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-5 lg:gap-5">
               {/* Card 1 - Estrategia y planificación */} 

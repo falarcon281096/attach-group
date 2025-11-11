@@ -6,7 +6,7 @@ import AthenaCards from "./AthenaCards";
 export default function AnimatedGradient() {
     return (
         <section 
-            className="min-h-[95vh] rounded-b-[30px] md:rounded-b-[50px] flex items-center  pt-26 md:pt-32 pb-8 md:py-12 lg:py-0 relative overflow-hidden -mt-[80px]  lg:-mt-0"
+            className="min-h-[95vh] rounded-b-[30px] md:rounded-b-[50px] flex items-center pt-26 md:pt-32 pb-8 md:py-12 lg:py-0 relative overflow-hidden -mt-[80px] lg:-mt-0"
         >
             {/* Gradient background */}
             <div 
@@ -29,7 +29,7 @@ export default function AnimatedGradient() {
                     {/* Left Side - Logo and Text */}
                     <div className="mt-0 md:mt-24 text-white space-y-4 md:space-y-6 px-4 md:px-0">
                         <div className="inline-block overflow-hidden">
-                            <div className="ml-0 md:ml-23 mb-6 md:mb-10 mt-6 md:mt-15">
+                            <div className="ml-0 md:ml-20 mb-6 md:mb-8 mt-5 md:mt-15">
                                 <Image
                                     src="/images/athena-ads/AthenaAdsLogo.svg"
                                     alt="Athena Ads Logo"
@@ -42,14 +42,14 @@ export default function AnimatedGradient() {
                             </div>
                         </div>
 
-                        <div className="text-[24px] md:text-[40px] leading-[24px] md:leading-[40px] font-['graphik'] ml-0 md:ml-25 font-bold mb-3 md:mb-4 w-full md:w-[70%]">
+                        <div className="text-[24px] md:text-[40px] leading-[24px] md:leading-[40px] font-['Graphik'] ml-0 md:ml-20 font-bold mb-2 md:mb-4 w-full md:w-[70%]">
                             Publicidad programática efectiva
                         </div>
 
-                        <div className="ml-0 md:ml-25 w-full md:w-[65%] h-1 bg-white mb-4 md:mb-6"></div>
+                        <div className="ml-0 md:ml-20 w-full md:w-[65%] h-1 bg-white mb-4 md:mb-3"></div>
 
-                        <div className="text-[16px] md:text-[24px] leading-[16px] md:leading-[24px] ml-0 md:ml-25 font-['graphik'] font-normal mb-8 md:mb-12 w-full md:w-[70%]" style={{  lineHeight: '1.5' }}>
-                            Estrategias omnicanal diseñadas para <br /> marcas que buscan claridad, impacto y resultados.
+                        <div className="text-[16px] md:text-[24px] leading-[19px] md:leading-[32px] ml-0 md:ml-20 font-['Graphik'] font-normal mb-8 md:mb-8 w-full md:w-[70%]">
+                            Estrategias omnicanal diseñadas para marcas que buscan claridad, impacto y resultados.
                         </div>
                     </div>
 

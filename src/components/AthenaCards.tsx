@@ -8,7 +8,7 @@ export default function AthenaCards() {
                         <path d="M55 20.8252V34.7087H34.7088V55H20.8252V34.7087H0V20.8252H20.8252V0H34.7088V20.8252H55Z" fill="#00CED3" />
                     </svg>
                 </div>
-                <div className="text-[14px] md:text-[20px] text-center font-['graphik'] font-normal" style={{ lineHeight: "24px", color: "#818181" }}>
+                <div className="text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] text-center font-['graphik'] font-normal" style={{  color: "#818181" }}>
                     Innovación que genera resultados. Combinamos datos propios y de terceros con formatos publicitarios innovadores para crear <span className="text-[#E2E830] font-semibold">experiencias disruptivas</span> que impactan en las audiencias y potencian resultados.
                 </div>
             </div>
@@ -20,7 +20,7 @@ export default function AthenaCards() {
                         <path d="M55 20.8252V34.7087H34.7088V55H20.8252V34.7087H0V20.8252H20.8252V0H34.7088V20.8252H55Z" fill="#E2E830" />
                     </svg>
                 </div>
-                <div className="text-[14px] md:text-[20px] text-center font-['graphik'] font-normal" style={{ lineHeight: "24px", color: "#818181"  }}>
+                <div className="text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] text-center font-['Graphik'] font-normal" style={{  color: "#818181"  }}>
                     Enfoque consultivo y estratégico. No solo ejecutamos campañas tácticas, brindamos <span className="text-[#00CED3] font-semibold">consultoría experta en programática omnicanal</span>, diseñando estrategias personalizadas que maximizan la inversión.
                 </div>
             </div>

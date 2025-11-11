@@ -38,11 +38,12 @@ export default function Home() {
                       height={580}
                       position="LEFT_DOWN"
                       paddingMobile="2rem"
+                      paddingBottomMobile="6px"
                       paddingDesktop="1rem" 
                       imageClassName="w-full object-cover"
                       containerClassName="w-full"
-                      sizePercent={0.22}
-                      overhangPercent={0.25}
+                      sizePercent={0.29}
+                      overhangPercent={0.29}
                     />
                   </div> 
               </div>
@@ -118,17 +119,17 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <div className={`py-18 md:py-20 ${styles.servicios}`}>
+        <div className={`pt-20 md:pt-10 pb-13 md:pb-10 ${styles.servicios}`}>
           <div className="mx-30">
             {/* Header */}
             <div className="mb-10 text-center ">
-              <h2 className="font-bold mb-5 md:mb-6 font-extrabold text-[24px] md:text[48px] leading-[28px] md:leading-[54px] bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
+              <div className="font-bold mb-5 md:mb-6 font-semibold text-[24px] md:text-[48px] leading-[28px] md:leading-[54px] bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
                 Tres partners. Una visión compartida
-              </h2>
+              </div>
             </div>
 
             {/* Services Cards */}
-            <div className="grid lg:grid-cols-3 gap-12">
+            <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
               {/* Card 1: Inteligencia Artificial */}
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
@@ -153,7 +154,7 @@ export default function Home() {
               {/* Card 2: Publicidad Programática */}
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-2xl from-lime-400 to-green-400 h-35 md:h-60 lg:h-60 flex items-center justify-center px-4 lg:px-10 py-6 lg:py-8">
+                <div className="bg-linear-to-br rounded-2xl from-lime-400 to-green-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-4 lg:px-10 py-6 lg:py-8">
                   <Image
                     src="/images/general/AthenaAdsLogo.svg"
                     alt="icon AthenaAds"
@@ -174,7 +175,7 @@ export default function Home() {
               {/* Card 3: Medios On y Off */}
               <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                 {/* Logo Section */}
-                <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-35 md:h-60 lg:h-60 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
+                <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8">
                   <Image
                     src="/images/general/AttachMediaLogo.svg"
                     alt="icon Attach Media"
@@ -199,7 +200,7 @@ export default function Home() {
       <div className="atm-content bg-gradient-to-b from-[#FFFFFF] to-[#F7F7F7] rounded-b-[3rem]">
         {/*Lideres Section*/}
         <div className={`py-10 md:py-20 mx-30 ${styles.lideres}`}>
-          <h2 className="text-center text-[24px] md:text-[48px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+          <h2 className="text-center text-[24px] md:text-[48px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-semibold mb-6">
             Quiénes lideran el camino
           </h2>
           <section className="py-2 md:py-4">
@@ -231,7 +232,7 @@ export default function Home() {
 
         {/*Clientes Section*/}
         <div className={`py-13 md:py-20  mx-30 ${styles.clientes}`}>
-          <h2 className="text-center text-[24px] md:text-[48px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
+          <h2 className="text-center text-[24px] md:text-[48px] leading-[28px] md:leading-[53px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-semibold mb-6">
             Algunos de nuestros clientes
           </h2>
 
@@ -254,7 +255,7 @@ export default function Home() {
           </div>
           {/* Mapa con título sobrepuesto en móvil */}
           <div className="relative">
-            <Image src="/images/nosotros/mapa-atatch.png" alt="Mapa Attach" width={486} height={550} />
+            <Image src="/images/nosotros/mapa-atatch.webp" alt="Mapa Attach" width={486} height={550} />
             <h2 className="mb-0 md:mb-10 md:hidden absolute z-10 bottom-[-45px] left-0 right-0 text-center px-3 text-[24px] leading-[28px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold">
               Oficinas en tres países. Alcance más allá de fronteras
             </h2>

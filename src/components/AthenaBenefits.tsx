@@ -26,11 +26,11 @@ export default function AthenaBenefits() {
         </div>
 
         {/* Columna derecha */}
-        <div className="benefits-list flex flex-col gap-3 md:gap-3 items-start px-4 md:max-w-none w-full">
+        <div className="benefits-list flex flex-col gap-3 md:gap-3 items-start px-5 md:px-4 md:max-w-none w-full">
           {benefits.map((item, i) => (
             <div
               key={i}
-              className={`benefit-item relative bg-white text-[#818181] font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 px-12 md:pl-10 md:pr-6 rounded-2xl border border-[#E2E830] transition-all duration-300 inline-block w-full md:w-fit max-w-full ${offsets[i]}`}
+              className={`benefit-item relative bg-white text-[#818181] font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 px-10 md:px-12 md:pl-10 md:pr-6 rounded-2xl border border-[#E2E830] transition-all duration-300 inline-block w-full md:w-fit max-w-full ${offsets[i]}`}
             >
               <span
                 className="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center"

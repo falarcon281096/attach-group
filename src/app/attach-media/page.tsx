@@ -42,11 +42,11 @@ export default function AttachMediaPage() {
             </div>
 
             {/* Right Content - Cards flotantes como en la imagen original */}
-            <div className="relative ml-0 md:ml-16 mt-8 md:mt-0">
+            <div className="relative ml-0 md:ml-0 mt-8 md:mt-0">
               {/* Cards Container */}
               <div className="space-y-4 md:space-y-6 px-5 md:px-0 relative z-10">
                 {/* First Card */}
-                <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 relative shadow-lg rounded-lg">
+                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative shadow-lg rounded-lg">
                   <div className="absolute top-40 -left-6 md:block">
                     <Image 
                       src="/images/general/attach_cross_blue.svg" 
@@ -55,13 +55,13 @@ export default function AttachMediaPage() {
                       height={44} 
                     />
                   </div>
-                  <p className="text-[14px] md:text-[20px] text-center text-gray-500 leading-relaxed">
+                  <p className="text-[14px] md:text-[20px] leading-[18px] md:leading-[28px] text-center text-gray-500 leading-relaxed">
                     Ayudamos a las marcas a <span className="text-[#2F7DE0] font-semibold">maximizar el impacto de su inversión</span> en medios, con una visión estratégica que conecta marketing y negocio. <span className="text-[#2F7DE0] font-semibold">Nuestro diferencial:</span> marcos de trabajo propios, expertos en medios y una estructura que garantiza calidad y resultados sostenidos.
                   </p>
                 </div>
 
                 {/* Second Card */}
-                <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 relative shadow-lg rounded-lg">
+                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative shadow-lg rounded-lg">
                   <div className="absolute bottom-6 right-[-20] md:block">
                     <Image 
                       src="/images/general/attach_cross_blue.svg" 
@@ -70,7 +70,7 @@ export default function AttachMediaPage() {
                       height={44} 
                     />
                   </div>
-                  <p className="text-base md:text-xl text-center text-gray-500 leading-relaxed">
+                  <p className="text-[14px] md:text-[20px] leading-[18px] md:leading-[28px] text-center text-gray-500 leading-relaxed">
                     Impulsamos el crecimiento digital con <span className="text-[#2F7DE0] font-semibold">estrategias guiadas por data</span>, desde la analítica y la investigación hasta la ejecución y la optimización continua, para mejorar conversiones, elevar ingresos, fidelizar clientes y <span className="text-[#2F7DE0] font-semibold">asegurar resultados de negocio comprobables.</span>
                   </p>
                 </div>
@@ -112,8 +112,7 @@ export default function AttachMediaPage() {
         </div>
       </div>
 
-      {/* Beneficios AttachMedia */}
-      <AttachBenefits />
+      
 
       {/* Sección Equipo Híbrido */}
       <div className="bg-white">
@@ -126,7 +125,7 @@ export default function AttachMediaPage() {
                 alt="Equipo híbrido trabajando con IA" 
                 width={1200} 
                 height={400}
-                className="w-full h-full object-cover rounded-t-2xl md:rounded-t-3xl"
+                className="w-full h-full  rounded-t-2xl md:rounded-t-3xl"
               />
             </div>
             
@@ -394,7 +393,7 @@ export default function AttachMediaPage() {
       <AttachMediaProcessSection />
       <section className="py-0 md:py-8 lg:py-20 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
-            <h2 className="text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]" style={{ backgroundImage: 'linear-gradient(109.97deg, #2F7DE1 1.8%, #22D3C5 99.93%)' }}>
+            <h2 className="text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]" style={{ backgroundImage: 'linear-gradient(109.97deg, #2F7DE1 1.8%, #22D3C5 99.93%)' }}>
             Resultados que se miden, decisiones que transforman
             </h2>
 
