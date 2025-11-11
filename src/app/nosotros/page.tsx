@@ -19,7 +19,7 @@ export default function Home() {
           <div className="ml-15 border-l-2 border-b-2 border-[#818181]/20 rounded-bl-[50px] pt-20">
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-x-12 lg:gap-y-4 items-center ml-15 overflow-visible">
               {/* Título (móvil primero). Párrafo solo visible en desktop dentro de este bloque */}
-              <div className="order-1 lg:order-1 lg:col-start-1">
+              <div className="order-1 lg:order-1 lg:col-start-1 pl-5 md:pl-0">
                 <p className="text-[#1840E2] font-extralight text-4xl lg:text-6xl">Somos</p>
                 <h1 className="font-extrabold text-4xl lg:text-6xl bg-gradient-to-r from-[#1840e2] to-[#58308c] bg-clip-text text-transparent">
                   Attach Group
@@ -49,8 +49,8 @@ export default function Home() {
               </div>
 
               {/* Párrafo (móvil tercero, desktop oculto) */}
-              <div className="order-3 lg:order-1 lg:col-start-1 lg:hidden px-10 md:px-0">
-                <div className="text-[#464646] mt-4 text-[15px] md:text-[24px]">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</div>
+              <div className="w-full order-3 lg:order-1 lg:col-start-1 lg:hidden  px-5 md:px-0">
+                <div className=" text-[#464646] mt-4 text-[15px] md:text-[24px] px-0 mr-4 md:mr-0 break-words">Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.</div>
               </div>
             </div>
           </div>
