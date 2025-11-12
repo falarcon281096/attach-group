@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import AnimatedGradient from "../../components/AnimatedGradient";
 import AthenaProcessSection from "../../components/AthenaProcessSection";
 import AthenaPersonalization from "../../components/AthenaPersonalization";
+import { useScrollReveal } from "@/components/useScrollReveal";
 
 function FaqItem({ question, answer, isOpen, onToggle }: { question: string; answer: string; isOpen: boolean; onToggle: () => void }) {
   return (
@@ -30,6 +31,10 @@ function FaqItem({ question, answer, isOpen, onToggle }: { question: string; ans
 }
 
 export default function AthenaAds() {
+  // Activar animaciones de aparición al hacer scroll
+  useScrollReveal();
+  // Activar también para variantes izquierda/derecha y tarjetas
+  useScrollReveal(".scroll-reveal-left, .scroll-reveal-right, .card-reveal");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
   const observerRef = useRef<IntersectionObserver | null>(null);

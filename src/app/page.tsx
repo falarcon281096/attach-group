@@ -258,7 +258,9 @@ export default function Home() {
             <div 
               ref={(el) => setCardRef("card-1", el)}
               data-card-id="card-1"
-              className={"bg-white rounded-2xl shadow-lg overflow-hidden"}
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-700 ${
+                isCardVisible["card-1"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              } hover:scale-105 hover:shadow-xl hover:-translate-y-1`}
             >
               {/* Logo Section */}
               <div
@@ -286,7 +288,9 @@ export default function Home() {
             <div 
               ref={(el) => setCardRef("card-2", el)}
               data-card-id="card-2"
-              className={"bg-white rounded-2xl shadow-lg overflow-hidden"}
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-700 ${
+                isCardVisible["card-2"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              } hover:scale-105 hover:shadow-xl hover:-translate-y-1`}
             >
               {/* Logo Section */}
               <div
@@ -314,7 +318,9 @@ export default function Home() {
             <div 
               ref={(el) => setCardRef("card-3", el)}
               data-card-id="card-3"
-              className={"bg-white rounded-2xl shadow-lg overflow-hidden"}
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-700 ${
+                isCardVisible["card-3"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              } hover:scale-105 hover:shadow-xl hover:-translate-y-1`}
             >
               {/* Logo Section */}
               <div
@@ -534,7 +540,7 @@ export default function Home() {
                 {/* Image Placeholder */}
                 <Link
                   href={
-                    activeCase === 'caja-arequipa' ? '/casos-de-exito/universal/' :
+                    activeCase === 'caja-arequipa' ? '/casos-de-exito/universal-2/' :
                     activeCase === 'deposeguro' ? '/casos-de-exito/deposeguro/' :
                     activeCase === 'apuesta-total' ? '/casos-de-exito/apuesta-total-ads/' :
                     '/casos-de-exito/'
@@ -639,48 +645,48 @@ export default function Home() {
           <div className="marquee py-2">
             <div className="marquee-track">
               {/* Set 1 */}
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
+              <div className="block w-[15rem] flex justify-center">
                 <Image className="w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[13rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[9rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[7rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[8rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[11rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
+              <div className="block w-[15rem] flex justify-center">
                 <Image className="w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
               </div>
 
               {/* Set 2 (duplicate for seamless loop) */}
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
+              <div className="block w-[15rem] flex justify-center">
                 <Image className="w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[13rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[9rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[7rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[8rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[11rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
+              <div className="block w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
               </div>
-              <div className="block w-auto lg:w-[15rem] flex justify-center">
+              <div className="block w-[15rem] flex justify-center">
                 <Image className="w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
               </div>
             </div>

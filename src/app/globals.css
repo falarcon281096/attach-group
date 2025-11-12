@@ -656,6 +656,65 @@ body {
   animation: none !important;
   transition: none !important;
 }
+/* Reveal from left/right - eye-catching slide-ins on scroll */
+@keyframes revealFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-42px) scale(0.98);
+    filter: blur(2px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(6px) scale(1.01);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes revealFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(42px) scale(0.98);
+    filter: blur(2px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-6px) scale(1.01);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.scroll-reveal-left,
+.scroll-reveal-right {
+  will-change: transform, opacity;
+  opacity: 0;
+}
+
+.scroll-reveal-left.is-visible {
+  animation: revealFromLeft 900ms cubic-bezier(0.2, 0.65, 0, 1) forwards;
+}
+
+.scroll-reveal-right.is-visible {
+  animation: revealFromRight 900ms cubic-bezier(0.2, 0.65, 0, 1) forwards;
+}
+
+/* Delay utilities compatible with existing markup */
+.scroll-reveal-left.scroll-reveal-delay-1.is-visible,
+.scroll-reveal-right.scroll-reveal-delay-1.is-visible {
+  animation-delay: 120ms;
+}
+
+.scroll-reveal-left.scroll-reveal-delay-2.is-visible,
+.scroll-reveal-right.scroll-reveal-delay-2.is-visible {
+  animation-delay: 240ms;
+}
 .image-light-static {
   position: absolute;
   inset: 0;
