@@ -328,6 +328,8 @@ body {
   50% { text-shadow: 0 0 12px rgba(255,255,255,0.45); }
 }
 .text-glow { animation: textGlow 2400ms ease-in-out infinite; }
+/* One-time glow: appears then fades out */
+.text-glow-once { animation: textGlow 1800ms ease-in-out 1 forwards; }
 
 /* Services cards: bounce-in */
 @keyframes bounceInSoft {

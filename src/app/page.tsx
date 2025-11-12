@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "../components/Header";
@@ -13,8 +13,51 @@ type cases = 'caja-arequipa' | 'deposeguro' | 'apuesta-total';
 export default function Home() {
   // Estado para manejar el caso activo
   const [activeCase, setActiveCase] = useState<cases>('caja-arequipa');
+  // Estado para animaciones de las tarjetas de servicios
+  const [isCardVisible, setIsCardVisible] = useState<{ [key: string]: boolean }>({});
+  const cardsObserverRef = useRef<IntersectionObserver | null>(null);
+  const cardsElementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
+
   // Activar animaciones al hacer scroll
   useScrollReveal();
+
+  // Observer para las tarjetas de servicios
+  useEffect(() => {
+    cardsObserverRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("data-card-id");
+            if (id) {
+              setIsCardVisible((prev) => ({ ...prev, [id]: true }));
+            }
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    const timeoutId = setTimeout(() => {
+      Object.values(cardsElementsRef.current).forEach((el) => {
+        if (el && cardsObserverRef.current) {
+          cardsObserverRef.current.observe(el);
+        }
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (cardsObserverRef.current) {
+        Object.values(cardsElementsRef.current).forEach((el) => {
+          if (el) cardsObserverRef.current?.unobserve(el);
+        });
+      }
+    };
+  }, []);
+
+  const setCardRef = (id: string, el: HTMLElement | null) => {
+    cardsElementsRef.current[id] = el;
+  };
 
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
@@ -27,7 +70,7 @@ export default function Home() {
             <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:gap-y-0 lg:items-start lg:auto-rows-min">
               <div className="text-white lg:text-left px-6 lg:px-0 lg:col-start-1 lg:row-start-1">
                 <div 
-                  className="w-full mt-5 md:mt-15 md:w-[94%] text-[28px] md:text-[56px] leading-[35px] md:leading-[70px] tracking-[-0.01em] mb-1 lg:mb-0 lg:mr-4 font-['Graphik'] text-shine letters-play"
+                  className="w-full mt-5 md:mt-15 md:w-[94%] text-[28px] md:text-[56px] leading-[35px] md:leading-[70px] tracking-[-0.01em] mb-1 lg:mb-0 lg:mr-4 font-['Graphik'] text-glow-once"
                   style={{
                     fontWeight: 700,
                     color: '#FFFFFF'
@@ -40,26 +83,9 @@ export default function Home() {
                       "tu negocio al siguiente",
                       "nivel",
                     ];
-                    let delayIndex = 0;
                     return segments.map((seg, sIdx) => (
                       <span key={`seg-${sIdx}`} className="block">
-                        {seg.split("").map((ch, i) => {
-                          if (ch === " ") {
-                            // Usar espacio normal para preservar separación y permitir saltos de línea naturales
-                            return " ";
-                          }
-                          const el = (
-                            <span
-                              key={`ch-${sIdx}-${i}`}
-                              className="letter-fall"
-                              style={{ ['--letter-delay' as any]: `${delayIndex * 28}ms` }}
-                            >
-                              {ch}
-                            </span>
-                          );
-                          delayIndex++;
-                          return el;
-                        })}
+                        {seg}
                       </span>
                     ));
                   })()}
@@ -229,23 +255,30 @@ export default function Home() {
           {/* Services Cards */}
           <div className="grid lg:grid-cols-3 gap-7 md:gap-12">
             {/* Card 1: Inteligencia Artificial */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden scroll-reveal card-spin hover-lift">
-              {/* Logo Section */}
-            <div
-              className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
-              style={{ background: 'linear-gradient(317.2deg, #FFC351 0%, #FF3F73 100%)' }}
+            <div 
+              ref={(el) => setCardRef("card-1", el)}
+              data-card-id="card-1"
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                isCardVisible["card-1"] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-90"
+              }`}
+              style={{ transitionDelay: "0.1s" }}
             >
-                <Image className="w-65" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
+              {/* Logo Section */}
+              <div
+                className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8 transform transition-all duration-500 group-hover:scale-110"
+                style={{ background: 'linear-gradient(317.2deg, #FFC351 0%, #FF3F73 100%)' }}
+              >
+                <Image className="w-65 transform transition-all duration-500 group-hover:scale-110" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
               </div>
 
               {/* Content Section */}
               <div className="p-4 md:p-8 text-center">
-                <div className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto text-slide text-slide-delay-1">
+                <div className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto transform transition-all duration-500 group-hover:scale-105">
                   Inteligencia Artificial
                 </div>
-                <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center text-slide text-slide-delay-2">
+                <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-500 inline-flex items-center transform group-hover:scale-105 hover:shadow-lg">
                   Conoce más
-                  <svg className="ml-2 w-4 h-4 arrow-wiggle" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
@@ -253,23 +286,30 @@ export default function Home() {
             </div>
 
             {/* Card 2: Publicidad Programática */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden scroll-reveal scroll-reveal-delay-1 card-spin hover-lift">
-              {/* Logo Section */}
-            <div
-              className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
-              style={{ background: 'linear-gradient(320.61deg, #22D1C4 0%, #E2E830 100%)' }}
+            <div 
+              ref={(el) => setCardRef("card-2", el)}
+              data-card-id="card-2"
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                isCardVisible["card-2"] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-90"
+              }`}
+              style={{ transitionDelay: "0.2s" }}
             >
-                <Image className="w-65" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
+              {/* Logo Section */}
+              <div
+                className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8 transform transition-all duration-500 group-hover:scale-110"
+                style={{ background: 'linear-gradient(320.61deg, #22D1C4 0%, #E2E830 100%)' }}
+              >
+                <Image className="w-65 transform transition-all duration-500 group-hover:scale-110" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
               </div>
 
               {/* Content Section */}
               <div className="p-4 md:p-8 text-center">
-                <div className="text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto text-slide text-slide-delay-1">
+                <div className="text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto transform transition-all duration-500 group-hover:scale-105">
                   Publicidad Programática
                 </div>
-                <Link href="/athena-ads/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center text-slide text-slide-delay-2">
+                <Link href="/athena-ads/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-500 inline-flex items-center transform group-hover:scale-105 hover:shadow-lg">
                   Conoce más
-                  <svg className="ml-2 w-4 h-4 arrow-wiggle" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
@@ -277,23 +317,30 @@ export default function Home() {
             </div>
 
             {/* Card 3: Medios On y Off */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden scroll-reveal scroll-reveal-delay-2 card-spin hover-lift">
-              {/* Logo Section */}
-            <div
-              className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
-              style={{ background: 'linear-gradient(272.19deg, #22D1C4 0%, #2F7DE0 100%)' }}
+            <div 
+              ref={(el) => setCardRef("card-3", el)}
+              data-card-id="card-3"
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                isCardVisible["card-3"] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-90"
+              }`}
+              style={{ transitionDelay: "0.3s" }}
             >
-                <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
+              {/* Logo Section */}
+              <div
+                className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8 transform transition-all duration-500 group-hover:scale-110"
+                style={{ background: 'linear-gradient(272.19deg, #22D1C4 0%, #2F7DE0 100%)' }}
+              >
+                <Image className="w-55 transform transition-all duration-500 group-hover:scale-110" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
               </div>
 
               {/* Content Section */}
               <div className="p-4 md:p-8 text-center">
-                <h3 className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto text-slide text-slide-delay-1">
+                <h3 className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto transform transition-all duration-500 group-hover:scale-105">
                   Medios On y Off
                 </h3>
-                <Link href="/attach-media/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors inline-flex items-center text-slide text-slide-delay-2">
+                <Link href="/attach-media/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-500 inline-flex items-center transform group-hover:scale-105 hover:shadow-lg">
                   Conoce más
-                  <svg className="ml-2 w-4 h-4 arrow-wiggle" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
@@ -363,6 +410,13 @@ export default function Home() {
                         overhangPercent={0.20}
                       />
                     </div>
+                    {/* Botón Saber más para El Universal */}
+                    <Link href="/casos-de-exito/universal/" className="inline-flex items-center bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+                      Saber más
+                      <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
                   </div>
                 )}
               </div> 
@@ -409,6 +463,13 @@ export default function Home() {
                         overhangPercent={0.20}
                       />
                     </div>
+                    {/* Botón Saber más para Deposeguro */}
+                    <Link href="/casos-de-exito/deposeguro/" className="inline-flex items-center bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+                      Saber más
+                      <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
                   </div>
                 )}
               </div> 
@@ -455,13 +516,20 @@ export default function Home() {
                         overhangPercent={0.20}
                       />
                     </div>
+                    {/* Botón Saber más para Apuesta Total */}
+                    <Link href="/casos-de-exito/apuesta-total-2025/" className="inline-flex items-center bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+                      Saber más
+                      <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
                   </div>
                 )}
               </div> 
-              {/* CTA Button */}
+              {/* CTA Button: Ver todos los casos */}
               <div className="mt-12 scroll-reveal scroll-reveal-delay-3">
                 <Link href={'/casos-de-exito/'} style={{ filter: 'drop-shadow(0 4px 8px rgba(30, 63, 218, 0.15)) drop-shadow(0 0 25px rgba(30, 63, 218, 0.1))' }} className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-14 py-4 rounded-lg font-bold hover:opacity-90 transition-opacity inline-flex items-center">
-                  Saber más
+                  Conoce todos nuestros casos de éxito
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
