@@ -331,6 +331,25 @@ body {
 /* One-time glow: appears then fades out */
 .text-glow-once { animation: textGlow 1800ms ease-in-out 1 forwards; }
 
+/* Horizontal marquee (right-to-left) */
+@keyframes marqueeLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee {
+  overflow: hidden;
+  position: relative;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem; /* space between logos */
+  width: max-content; /* allow content-width track */
+  animation: marqueeLeft 28s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
 /* Services cards: bounce-in */
 @keyframes bounceInSoft {
   0% { opacity: 0; transform: translateY(20px) scale(0.96); }
@@ -612,4 +631,103 @@ body {
   animation-delay: 18s;
   mix-blend-mode: soft-light;
   will-change: transform, opacity;
+}
+@keyframes textFadeInOnce {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.text-fade-in-once {
+  animation: textFadeInOnce 700ms ease-out 1 both;
+  will-change: opacity;
+}
+@keyframes fadeInOnce {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in-once {
+  animation: fadeInOnce 700ms ease-out 1 both;
+  will-change: opacity;
+}
+
+/* Utility: disable animations/transitions within a block */
+.no-anim, .no-anim * {
+  animation: none !important;
+  transition: none !important;
+}
+.image-light-static {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+.image-light-static::before,
+.image-light-static::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -30%;
+  width: 60%;
+  height: 140%;
+  background: linear-gradient(120deg,
+    rgba(255,255,255,0.00) 0%,
+    rgba(255,255,255,0.00) 30%,
+    rgba(255,255,255,0.45) 50%,
+    rgba(255,255,255,0.00) 70%,
+    rgba(255,255,255,0.00) 100%);
+  filter: blur(20px);
+  mix-blend-mode: soft-light;
+  will-change: transform, opacity;
+}
+.image-light-static::before { transform: translateX(-40%) rotate(20deg); }
+.image-light-static::after {
+  background: linear-gradient(300deg,
+    rgba(255,255,255,0.00) 0%,
+    rgba(255,255,255,0.00) 30%,
+    rgba(255,255,255,0.45) 50%,
+    rgba(255,255,255,0.00) 70%,
+    rgba(255,255,255,0.00) 100%);
+  transform: translateX(140%) rotate(-20deg);
+}
+
+.image-light-v-static {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9;
+}
+.image-light-v-static::before,
+.image-light-v-static::after {
+  content: "";
+  position: absolute;
+  filter: blur(20px);
+  mix-blend-mode: soft-light;
+  will-change: transform, opacity;
+}
+.image-light-v-static::before {
+  top: -30%;
+  left: -20%;
+  width: 140%;
+  height: 60%;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.00) 0%,
+    rgba(255,255,255,0.00) 30%,
+    rgba(255,255,255,0.45) 50%,
+    rgba(255,255,255,0.00) 70%,
+    rgba(255,255,255,0.00) 100%);
+  transform: translateY(-40%);
+}
+.image-light-v-static::after {
+  bottom: -30%;
+  left: -20%;
+  width: 140%;
+  height: 60%;
+  background: linear-gradient(0deg,
+    rgba(255,255,255,0.00) 0%,
+    rgba(255,255,255,0.00) 30%,
+    rgba(255,255,255,0.45) 50%,
+    rgba(255,255,255,0.00) 70%,
+    rgba(255,255,255,0.00) 100%);
+  transform: translateY(140%);
 }

@@ -70,7 +70,7 @@ export default function Home() {
             <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:gap-y-0 lg:items-start lg:auto-rows-min">
               <div className="text-white lg:text-left px-6 lg:px-0 lg:col-start-1 lg:row-start-1">
                 <div 
-                  className="w-full mt-5 md:mt-15 md:w-[94%] text-[28px] md:text-[56px] leading-[35px] md:leading-[70px] tracking-[-0.01em] mb-1 lg:mb-0 lg:mr-4 font-['Graphik'] text-glow-once"
+                  className="w-full mt-5 md:mt-15 md:w-[94%] text-[28px] md:text-[56px] leading-[35px] md:leading-[70px] tracking-[-0.01em] mb-1 lg:mb-0 lg:mr-4 font-['Graphik'] text-fade-in-once"
                   style={{
                     fontWeight: 700,
                     color: '#FFFFFF'
@@ -149,9 +149,9 @@ export default function Home() {
                     width={1200}
                     height={1000}
                   />
-                  {/* Overlay de luz sutil sobre la imagen */}
-                  <div className="image-light" aria-hidden="true" />
-                  <div className="image-light-v" aria-hidden="true" />
+                  {/* Overlay de luz sutil (estático, sin animación para evitar saltos) */}
+                  <div className="image-light-static" aria-hidden="true" />
+                  <div className="image-light-v-static" aria-hidden="true" />
                 </div>
               </div>
               <div className="text-white lg:text-left px-6 lg:px-0 lg:hidden mt-0">
@@ -258,27 +258,24 @@ export default function Home() {
             <div 
               ref={(el) => setCardRef("card-1", el)}
               data-card-id="card-1"
-              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
-                isCardVisible["card-1"] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-90"
-              }`}
-              style={{ transitionDelay: "0.1s" }}
+              className={"bg-white rounded-2xl shadow-lg overflow-hidden"}
             >
               {/* Logo Section */}
               <div
-                className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8 transform transition-all duration-500 group-hover:scale-110"
+                className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
                 style={{ background: 'linear-gradient(317.2deg, #FFC351 0%, #FF3F73 100%)' }}
               >
-                <Image className="w-65 transform transition-all duration-500 group-hover:scale-110" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
+                <Image className="w-65" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
               </div>
 
               {/* Content Section */}
               <div className="p-4 md:p-8 text-center">
-                <div className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto transform transition-all duration-500 group-hover:scale-105">
+                <div className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto">
                   Inteligencia Artificial
                 </div>
-                <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-500 inline-flex items-center transform group-hover:scale-105 hover:shadow-lg">
+                <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold inline-flex items-center">
                   Conoce más
-                  <svg className="ml-2 w-4 h-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
@@ -289,27 +286,24 @@ export default function Home() {
             <div 
               ref={(el) => setCardRef("card-2", el)}
               data-card-id="card-2"
-              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
-                isCardVisible["card-2"] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-90"
-              }`}
-              style={{ transitionDelay: "0.2s" }}
+              className={"bg-white rounded-2xl shadow-lg overflow-hidden"}
             >
               {/* Logo Section */}
               <div
-                className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8 transform transition-all duration-500 group-hover:scale-110"
+                className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
                 style={{ background: 'linear-gradient(320.61deg, #22D1C4 0%, #E2E830 100%)' }}
               >
-                <Image className="w-65 transform transition-all duration-500 group-hover:scale-110" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
+                <Image className="w-65" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
               </div>
 
               {/* Content Section */}
               <div className="p-4 md:p-8 text-center">
-                <div className="text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto transform transition-all duration-500 group-hover:scale-105">
+                <div className="text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto">
                   Publicidad Programática
                 </div>
-                <Link href="/athena-ads/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-500 inline-flex items-center transform group-hover:scale-105 hover:shadow-lg">
+                <Link href="/athena-ads/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold inline-flex items-center">
                   Conoce más
-                  <svg className="ml-2 w-4 h-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
@@ -320,27 +314,24 @@ export default function Home() {
             <div 
               ref={(el) => setCardRef("card-3", el)}
               data-card-id="card-3"
-              className={`bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
-                isCardVisible["card-3"] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-90"
-              }`}
-              style={{ transitionDelay: "0.3s" }}
+              className={"bg-white rounded-2xl shadow-lg overflow-hidden"}
             >
               {/* Logo Section */}
               <div
-                className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8 transform transition-all duration-500 group-hover:scale-110"
+                className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
                 style={{ background: 'linear-gradient(272.19deg, #22D1C4 0%, #2F7DE0 100%)' }}
               >
-                <Image className="w-55 transform transition-all duration-500 group-hover:scale-110" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
+                <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
               </div>
 
               {/* Content Section */}
               <div className="p-4 md:p-8 text-center">
-                <h3 className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto transform transition-all duration-500 group-hover:scale-105">
+                <h3 className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto">
                   Medios On y Off
                 </h3>
-                <Link href="/attach-media/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-500 inline-flex items-center transform group-hover:scale-105 hover:shadow-lg">
+                <Link href="/attach-media/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold inline-flex items-center">
                   Conoce más
-                  <svg className="ml-2 w-4 h-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
@@ -394,29 +385,24 @@ export default function Home() {
                     <p className="leading-relaxed text-[#464646]">
                     Desarrollamos e integramos un chatbot conversacional impulsado por LLM que permite a los lectores interactuar con las noticias en tiempo real. La solución, que incluyó un benchmark de 7 modelos de lenguaje, garantiza escalabilidad, eficiencia en costos y libera horas-hombre del equipo editorial para enfocarse en contenido de valor.
                     </p>
-                    {/* Imagen móvil para El Universal (solo visible en móvil) */}
+                    {/* Imagen móvil para El Universal (solo visible en móvil) enlaza al caso con hover */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
-                      <ImageWithPlus
-                        src="/images/casos-de-exito/eluniversal.webp"
-                        alt="El Universal"
-                        width={1800}
-                        height={1800}
-                        position="LEFT_DOWN"
-                        paddingMobile="0.1rem"
-                        paddingDesktop="2rem"
-                        imageClassName="w-full h-auto object-cover lg:object-contain lg:max-h-[350px]"
-                        containerClassName="w-full"
-                        sizePercent={0.42}
-                        overhangPercent={0.20}
-                      />
+                      <Link href="/casos-de-exito/universal/" aria-label="Ver caso El Universal" className="group inline-block">
+                        <ImageWithPlus
+                          src="/images/casos-de-exito/eluniversal.webp"
+                          alt="El Universal"
+                          width={1800}
+                          height={1800}
+                          position="LEFT_DOWN"
+                          paddingMobile="0.1rem"
+                          paddingDesktop="2rem"
+                          imageClassName="w-full h-auto object-cover lg:object-contain lg:max-h-[350px] transform transition-all duration-300 group-hover:scale-[1.02]"
+                          containerClassName="w-full transform transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg"
+                          sizePercent={0.42}
+                          overhangPercent={0.20}
+                        />
+                      </Link>
                     </div>
-                    {/* Botón Saber más para El Universal */}
-                    <Link href="/casos-de-exito/universal/" className="inline-flex items-center bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
-                      Saber más
-                      <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
                   </div>
                 )}
               </div> 
@@ -447,29 +433,24 @@ export default function Home() {
                     <p className="leading-relaxed text-[#464646]">
                     Transformamos el sitio web en un canal estratégico de generación de leads. El desarrollo web, optimizado en UX/UI y rendimiento técnico, resultó en un +45% en la tasa de conversión web (YoY) y un +89% en la contactabilidad de anuncios digitales.
                     </p>
-                    {/* Imagen móvil para Deposeguro (solo visible en móvil) */}
+                    {/* Imagen móvil para Deposeguro (solo visible en móvil) enlaza al caso con hover */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
-                      <ImageWithPlus
-                        src="/images/casos-de-exito/deposeguro.webp"
-                        alt="Deposeguro"
-                        width={1800}
-                        height={1800}
-                        position="LEFT_DOWN"
-                        paddingMobile="0.1rem"
-                        paddingDesktop="2rem"
-                        imageClassName="w-full object-cover"
-                        containerClassName="w-full"
-                        sizePercent={0.42}
-                        overhangPercent={0.20}
-                      />
+                      <Link href="/casos-de-exito/deposeguro/" aria-label="Ver caso Deposeguro" className="group inline-block">
+                        <ImageWithPlus
+                          src="/images/casos-de-exito/deposeguro.webp"
+                          alt="Deposeguro"
+                          width={1800}
+                          height={1800}
+                          position="LEFT_DOWN"
+                          paddingMobile="0.1rem"
+                          paddingDesktop="2rem"
+                          imageClassName="w-full object-cover transform transition-all duration-300 group-hover:scale-[1.02]"
+                          containerClassName="w-full transform transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg"
+                          sizePercent={0.42}
+                          overhangPercent={0.20}
+                        />
+                      </Link>
                     </div>
-                    {/* Botón Saber más para Deposeguro */}
-                    <Link href="/casos-de-exito/deposeguro/" className="inline-flex items-center bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
-                      Saber más
-                      <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
                   </div>
                 )}
               </div> 
@@ -500,36 +481,31 @@ export default function Home() {
                     <p className="leading-relaxed text-[#464646]">
                       Implementamos una estrategia de programática avanzada utilizando Smart Audience. Esto generó un aumento de más del 170% en el volumen de recargas durante el piloto, y un crecimiento superior al 700% en el valor promedio de cada transacción.
                     </p>
-                    {/* Imagen móvil para Apuesta Total (solo visible en móvil) */}
+                    {/* Imagen móvil para Apuesta Total (solo visible en móvil) enlaza al caso con hover */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
-                      <ImageWithPlus
-                        src="/images/casos-de-exito/apuestatotal.png"
-                        alt="Apuesta Total"
-                        width={1800}
-                        height={1800}
-                        position="LEFT_DOWN"
-                        paddingMobile="0.1rem"
-                        paddingDesktop="2rem"
-                        imageClassName="w-full object-cover"
-                        containerClassName="w-full"
-                        sizePercent={0.42}
-                        overhangPercent={0.20}
-                      />
+                      <Link href="/casos-de-exito/apuesta-total-ads/" aria-label="Ver caso Apuesta Total" className="group inline-block">
+                        <ImageWithPlus
+                          src="/images/casos-de-exito/apuestatotal.png"
+                          alt="Apuesta Total"
+                          width={1800}
+                          height={1800}
+                          position="LEFT_DOWN"
+                          paddingMobile="0.1rem"
+                          paddingDesktop="2rem"
+                          imageClassName="w-full object-cover transform transition-all duration-300 group-hover:scale-[1.02]"
+                          containerClassName="w-full transform transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg"
+                          sizePercent={0.42}
+                          overhangPercent={0.20}
+                        />
+                      </Link>
                     </div>
-                    {/* Botón Saber más para Apuesta Total */}
-                    <Link href="/casos-de-exito/apuesta-total-2025/" className="inline-flex items-center bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
-                      Saber más
-                      <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
                   </div>
                 )}
               </div> 
               {/* CTA Button: Ver todos los casos */}
               <div className="mt-12 scroll-reveal scroll-reveal-delay-3">
                 <Link href={'/casos-de-exito/'} style={{ filter: 'drop-shadow(0 4px 8px rgba(30, 63, 218, 0.15)) drop-shadow(0 0 25px rgba(30, 63, 218, 0.1))' }} className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-14 py-4 rounded-lg font-bold hover:opacity-90 transition-opacity inline-flex items-center">
-                  Conoce todos nuestros casos de éxito
+                  Conoce nuestros casos de éxito
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -538,7 +514,7 @@ export default function Home() {
             </div>
 
             {/* Right Content - Dynamic Image */}
-              {/* Main Image */}
+              {/* Main Image - Enlace con hover */}
               <div className="hidden lg:flex justify-end relative transition-all duration-500 ease-in-out scroll-reveal
                     relative 
                     before:absolute
@@ -556,7 +532,17 @@ export default function Home() {
                     lg:before:bg-[length:100%_100%]
                     lg:before:w-30 lg:before:h-30">
                 {/* Image Placeholder */}
-                <ImageWithPlus
+                <Link
+                  href={
+                    activeCase === 'caja-arequipa' ? '/casos-de-exito/universal/' :
+                    activeCase === 'deposeguro' ? '/casos-de-exito/deposeguro/' :
+                    activeCase === 'apuesta-total' ? '/casos-de-exito/apuesta-total-ads/' :
+                    '/casos-de-exito/'
+                  }
+                  aria-label="Ver caso de éxito"
+                  className="group inline-block"
+                >
+                  <ImageWithPlus
                       src={
                         activeCase === 'caja-arequipa' ? "/images/casos-de-exito/eluniversal.png" :
                           activeCase === 'deposeguro' ? "/images/casos-de-exito/deposeguro.png" :
@@ -574,11 +560,12 @@ export default function Home() {
                       position="LEFT_DOWN"
                       paddingMobile="2rem"
                       paddingDesktop="2rem" 
-                      imageClassName="w-full object-cover"
-                      containerClassName="w-full"
+                      imageClassName="w-full object-cover transform transition-all duration-300 group-hover:scale-[1.02]"
+                      containerClassName="w-full transform transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl"
                       sizePercent={0.42}
                       overhangPercent={0.20}
-                    /> 
+                    />
+                </Link>
               </div>
           </div>
         </div>
@@ -649,41 +636,55 @@ export default function Home() {
         </h2>
 
         <section className="bg-gradient-to-b from-white to-[#f8f9fb] pt-10 md:pt-16">
-            <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-x-10 lg:gap-y-20">
-              {/* Google Marketing Platform */}
-              <div className="block w-auto lg:w-[15rem] flex justify-center scroll-reveal">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_1.png" alt="Logo Attach" width={160} height={32}/>
+          <div className="marquee py-2">
+            <div className="marquee-track">
+              {/* Set 1 */}
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
               </div>
-              {/* Google Cloud */}
-              <div className="block w-auto lg:w-[15rem] flex justify-center scroll-reveal scroll-reveal-delay-1">
-              <Image className="w-[13rem]" src="/images/home/attach_partner_2.png" alt="Logo Attach" width={160} height={32}/>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[13rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
               </div>
-
-              {/* Google Partner */}
-              <div className="block w-auto lg:w-[15rem] flex justify-center scroll-reveal scroll-reveal-delay-2">
-              <Image className="w-[9rem]" src="/images/home/attach_partner_3.png" alt="Logo Attach" width={160} height={32}/>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[9rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
               </div>
-
-              {/* Meta Business Partner */}
-              <div className="block w-auto lg:w-[15rem] flex justify-center scroll-reveal scroll-reveal-delay-3">
-              <Image className="w-[7rem]" src="/images/home/attach_partner_4.png" alt="Logo Attach" width={160} height={32}/>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[7rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
               </div>
-
-              {/* VWO */}
-              <div className="block w-auto lg:w-[15rem] flex justify-center scroll-reveal">
-              <Image className="w-[8rem]" src="/images/home/attach_partner_5.png" alt="Logo Attach" width={160} height={32}/>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[8rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
               </div>
-
-              {/* Convert */}
-              <div className="block w-auto lg:w-[15rem] flex justify-center scroll-reveal scroll-reveal-delay-1">
-              <Image className="w-[11rem]" src="/images/home/attach_partner_6.png" alt="Logo Attach" width={160} height={32}/>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[11rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
+              </div>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
               </div>
 
-              {/* Google Display & Video 360 */}
-              <div className="block w-auto lg:w-[15rem] flex justify-center scroll-reveal scroll-reveal-delay-2">
-              <Image className="w-[12rem]" src="/images/home/attach_partner_7.png" alt="Logo Attach" width={160} height={32}/>
+              {/* Set 2 (duplicate for seamless loop) */}
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
+              </div>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[13rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
+              </div>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[9rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
+              </div>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[7rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
+              </div>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[8rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
+              </div>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[11rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
+              </div>
+              <div className="block w-auto lg:w-[15rem] flex justify-center">
+                <Image className="w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
               </div>
             </div>
+          </div>
         </section>
       </div>
       </div>

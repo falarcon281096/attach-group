@@ -63,12 +63,7 @@ export default function Home() {
                     className="border-0 rounded-bl-[40px] pt-24 md:pt-50 pb-12 px-6 sm:px-10 md:px-16 lg:pt-50 lg:pb-16 bg-gradient-to-r from-[#FF3F73] to-[#FFC351] relative overflow-hidden"
                 >
                     {/* Efecto de luz brillante que se mueve */}
-                    <div className="absolute inset-0 opacity-30" style={{
-                        background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)",
-                        animation: "shine 3s ease-in-out infinite",
-                        transform: "translateX(-100%)"
-                    }}></div>
-                    
+                  
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-7xl mx-auto relative z-10">
                         {/* === Bloque Izquierdo === */}
                         <div 
@@ -94,7 +89,7 @@ export default function Home() {
                                     isVisible["hero-left"] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
                                 }`}
                                 style={{
-                                    textShadow: "0 0 30px rgba(255,255,255,0.5)"
+                                    // textShadow: "0 0 30px rgba(255,255,255,0.5)"
                                 }}
                             >
                                 Inteligencia artificial aplicada a negocios
