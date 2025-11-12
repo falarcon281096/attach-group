@@ -93,10 +93,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
-      <Header showBorder={false}/>
+      <Header showBorder={false} isFixed={true}/>
 
       {/* Hero Section */}
-      <div className="mx-5 lg:mx-30 py-25 relative overflow-hidden">
+      <div className="mx-5 lg:mx-30 py-25 pt-32 md:pt-40 relative overflow-hidden">
         {/* Efecto de partículas de fondo */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           {[...Array(20)].map((_, i) => (
