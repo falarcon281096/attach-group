@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { useScrollReveal } from "@/components/useScrollReveal";
 import ImageWithPlus from "@/components/ImageWithPlus";
 import Image from "next/image";
 import { FormEvent, ChangeEvent, useState, useRef, useEffect } from "react";
@@ -177,11 +178,14 @@ export default function Home() {
     };
   }, []);
 
+  // Activar animaciones de aparición al hacer scroll
+  useScrollReveal();
+
   return (
-    <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
+    <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden animate-gradient" style={{ backgroundSize: '200% 200%' }}>
       <div className="atm-initial bg-white">
         {/* Header */}
-        <Header showBorder={false} variant='white-bg'/>
+        <Header showBorder={false} variant='white-bg' isFixed={true} />
       </div>
 
       <div className="atm-content pb-10 md:pb-30 bg-white">
@@ -191,26 +195,28 @@ export default function Home() {
             <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] items-center gap-12 lg:gap-16 pt-24">
               {/* Content */}
               <div className="space-y-8">
-                <h1 className="font-extrabold text-[32px] lg:text-[55px] bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent leading-tight">
+                <h1 className="font-extrabold text-[32px] lg:text-[55px] bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent leading-tight scroll-reveal">
                   Construyamos juntos el futuro de tu negocio
                 </h1>
-                <p className="text-base lg:text-lg text-[#3B2F74] leading-relaxed">
+                <p className="text-base lg:text-lg text-[#3B2F74] leading-relaxed scroll-reveal scroll-reveal-delay-1">
                   Ya sea que busques desarrollar un proyecto desde cero, escalar operaciones o explorar nuevas oportunidades, estamos listos para ayudarte a encontrar la solución que necesitas.
                 </p>
                 <div className="space-y-1">
-                  <p className="text-base lg:text-lg text-[#3B2F74]">
+                  <p className="text-base lg:text-lg text-[#3B2F74] scroll-reveal scroll-reveal-delay-2">
                     Utiliza el formulario o envíanos un correo a:
                   </p>
-                  <p className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent">
+                  <p className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent scroll-reveal scroll-reveal-delay-3">
                     hola@attach.group
                   </p>
                 </div>
               </div>
 
               {/* Image placeholder */}
-              <div className="relative">
-                <div className="relative rounded-[32px]  shadow-[0_20px_60px_rgba(34,63,218,0.25)] bg-gradient-to-br from-[#dfe6ff] to-[#f3e6ff]">
+              <div className="relative scroll-reveal">
+                <div className="relative rounded-[32px] hover-lift shadow-[0_20px_60px_rgba(34,63,218,0.25)] bg-gradient-to-br from-[#dfe6ff] to-[#f3e6ff]">
                   <div className="aspect-[3/4] relative pl-4 md:pl-0">
+                    {/* Light sweep overlay */}
+                    <div className="image-light"></div>
                      
                     <ImageWithPlus
                       src='/images/nosotros/contactanos.webp'
@@ -237,19 +243,19 @@ export default function Home() {
             <div className="relative isolate">
               <div className="absolute inset-x-0 -top-14 mx-auto h-28 max-w-[360px] rounded-full bg-gradient-to-r from-[#2147ff]/25 via-[#3d3fce]/20 to-[#612bb8]/25 blur-3xl"></div>
               <div
-                className="relative mx-2 md:mx-0 grid gap-7 md:gap-12 rounded-[26px] px-6 py-8 shadow-[0_30px_80px_rgba(34,63,218,0.35)] lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:px-12 lg:py-14"
+                className="relative mx-2 md:mx-0 grid gap-7 md:gap-12 rounded-[26px] px-6 py-8 shadow-[0_30px_80px_rgba(34,63,218,0.35)] lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:px-12 lg:py-14 scroll-reveal card-reveal"
                 style={{ background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)' }}
               >
                 <div className="space-y-6 text-white">
-                  <h4 className="text-[24px] md:text-[48px] font-['Graphik'] log:text-[48px] font-semibold leading-[24px] md:leading-[48px]">
+                  <h4 className="text-[24px] md:text-[48px] font-['Graphik'] log:text-[48px] font-semibold leading-[24px] md:leading-[48px] scroll-reveal">
                     Cuéntanos sobre tu proyecto
                   </h4>
-                  <div className="text-[14px] md:text-[20px]  text-white/80 leading-[18px] md:leading-[28px]">
+                  <div className="text-[14px] md:text-[20px]  text-white/80 leading-[18px] md:leading-[28px] text-slide scroll-reveal scroll-reveal-delay-1">
                     Completa el formulario y pronto estaremos en contacto contigo.
                   </div>
                 </div>
                 <form
-                  className="grid grid-cols-1 gap-5 lg:grid-cols-2"
+                  className="grid grid-cols-1 gap-5 lg:grid-cols-2 scroll-reveal"
                   onSubmit={handleSubmit}
                   encType="multipart/form-data"
                   noValidate
@@ -258,7 +264,7 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Nombres y apellidos"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-1 ${
                         errors.fullName ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.fullName}
@@ -278,7 +284,7 @@ export default function Home() {
                     <input
                       type="email"
                       placeholder="Email corporativo"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-2 ${
                         errors.email ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.email}
@@ -297,7 +303,7 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Compañía"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-3 ${
                         errors.company ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.company}
@@ -317,7 +323,7 @@ export default function Home() {
                     <input
                       type="tel"
                       placeholder="Teléfono"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-4 ${
                         errors.phone ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.phone}
@@ -335,7 +341,7 @@ export default function Home() {
                   <div className="flex flex-col lg:col-span-2">
                     <textarea
                       placeholder="¿Cómo podemos ayudarte?"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 h-36 resize-none ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 h-36 resize-none input-focus-glow scroll-reveal scroll-reveal-delay-5 ${
                         errors.message ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.message}
@@ -369,7 +375,7 @@ export default function Home() {
                   <div className="col-span-1 lg:col-span-2 flex">
                     <button
                       type="submit"
-                      className="rounded-lg bg-white px-8 py-4 font-semibold text-[#1c3fde] transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60"
+                      className="rounded-lg bg-white px-8 py-4 font-semibold text-[#1c3fde] transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60 glow-button scroll-reveal scroll-reveal-delay-6"
                       disabled={submitStatus === "sending"}
                     >
                       {submitStatus === "sending" ? "Enviando..." : "Enviar"}

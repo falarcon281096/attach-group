@@ -7,18 +7,20 @@ import Footer from "../../components/Footer";
 import GradientPlus from '@/components/GradientPlus';
 import PositionedPlus from '@/components/PositionedPlus';
 import ImageWithPlus from '@/components/ImageWithPlus';
+import { useScrollReveal } from "@/components/useScrollReveal";
 
 export default function Home() {
+  useScrollReveal();
 
   return (
-    <div className='min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden'>
+    <div className='min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden animate-gradient'>
       <div className='atm-initial bg-white'>
         {/* Header */}
         <Header showBorder={false} variant='white-bg'/>
 
         {/*Oficinas Section*/}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 pt-30 md:pt-20 pb-12 md:pb-20 justify-items-stretch '>
-          <div className=' w-[88%] md:w-[75%] text-[28px] lg:text-[56px] px-10 md:px-5 flex flex-col justify-center'>
+          <div className=' w-[88%] md:w-[75%] text-[28px] lg:text-[56px] px-10 md:px-5 flex flex-col justify-center scroll-reveal'>
             <span className=' bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent tracking-[-1%] font-extrabold leading-tight'>
               Donde las ideas,  la data y&nbsp;
               <span className='font-medium italic underline underline-offset-4 decoration-[#433AB3]'>
@@ -29,7 +31,7 @@ export default function Home() {
                 
             </span>
           </div>
-          <div className='relative pl-10 overflow-visible'>
+          <div className='relative pl-10 overflow-visible scroll-reveal scroll-reveal-delay-1'>
             <div className="rounded-l-3xl rounded-r-none">
               <ImageWithPlus
                 src='/images/cultura/culturaAttach.webp'
@@ -41,7 +43,7 @@ export default function Home() {
                 paddingDesktop="1rem"   
                 offsetXMobile = "-17px"
                 imageClassName="block w-full h-auto"
-                containerClassName="w-full"
+                containerClassName="w-full image-light-soft"
                 sizePercent={0.44}
                 overhangPercent={0.44}
               />
@@ -53,7 +55,7 @@ export default function Home() {
       {/*body*/}
       <div className='atm-content relative pt-5 md:pt-0 pb-0 md:pb-0  bg-white'>
         <div className='pr-4 md:pr-15 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'>
-          <div className='relative flex items-center justify-start pt-2 md:pt-10 pb-0 md:pb-0 order-2 lg:order-1 overflow-visible'>
+          <div className='relative flex items-center justify-start pt-2 md:pt-10 pb-0 md:pb-0 order-2 lg:order-1 overflow-visible scroll-reveal'>
             <div className="relative pr-15 md:pr-0 w-full max-w-md lg:max-w-2xl rounded-r-3xl rounded-l-none h-[270px] md:aspect-[3/4] md:h-[628px] lg:h-[628px]">
               <ImageWithPlus
                 src='/images/cultura/cultura-inspira.webp'
@@ -67,7 +69,7 @@ export default function Home() {
                 offsetX = "35px"
                 paddingDesktop="1rem" 
                 imageClassName="object-top"
-                containerClassName="w-full h-full overflow-hidden rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px]"
+                containerClassName="w-full h-full overflow-hidden rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px] image-light-soft"
                 sizePercent={0.45}
                 overhangPercent={0.45}
                 sizePercentMobile={0.50}
@@ -75,7 +77,7 @@ export default function Home() {
               />
             </div>   
           </div>
-          <div className='flex flex-col justify-start gap-1 pl-10 md:pl-0 md:gap-0 order-1 lg:order-2 px-5 lg:pr-50 pt-0  md:pt-23'>
+          <div className='flex flex-col justify-start gap-1 pl-10 md:pl-0 md:gap-0 order-1 lg:order-2 px-5 lg:pr-50 pt-0  md:pt-23 scroll-reveal scroll-reveal-delay-1'>
             <p className="text-[#1840E2] font-['Graphik'] text-[24px] md:text-[48px] leading-[32px] md:leading-[52px]">
               Nos inspira resolver desafíos,{' '}
               <strong className='font-semibold'>aprender constantemente y crecer</strong> en un entorno
@@ -92,30 +94,34 @@ export default function Home() {
       {/* vida en attach  group */}
       <div className='bg-white pl-5 md:pl-0'>
         <div className='pl-3 pb-0 md:pb-20 md:pl-5 pt-0 md:pt-15 relative before:content-[""] before:absolute before:inset-y-0 before:left-0 md:before:left-15 before:w-px before:bg-[#1840E2]'>
-          <div className='flex w-full items-center justify-center bg-white py-10 lg:py-20 px-2 lg:px-50'>
+          <div className='flex w-full items-center justify-center bg-white py-10 lg:py-20 px-2 lg:px-50 scroll-reveal'>
             
-            <Image
-              src='/images/cultura/vida-en-attach-group.png'
-              alt='cultura-vida-attach'
-              width={1200}
-              height={400}
-              className='lg:block w-full h-auto hidden'
-            /> 
+            <div className='relative lg:block w-full h-auto hidden image-light-soft'>
+              <Image
+                src='/images/cultura/vida-en-attach-group.png'
+                alt='cultura-vida-attach'
+                width={1200}
+                height={400}
+                className='w-full h-auto'
+              /> 
+            </div>
           
-          <Image
-            src='/images/cultura/vida-en-attach-group-movil.png'
-            alt='cultura-vida-attach-movil'
-            width={600}
-            height={800}
-            className='lg:hidden w-full h-auto block'
-          />
+          <div className='relative lg:hidden w-full h-auto block image-light-soft'>
+            <Image
+              src='/images/cultura/vida-en-attach-group-movil.png'
+              alt='cultura-vida-attach-movil'
+              width={600}
+              height={800}
+              className='w-full h-auto'
+            />
+          </div>
           </div>
 
       {/* innovar */}
 
           <div className='flex  bg-white py-1 md:py-20'>
             <div className='grid grid-cols-q lg:grid-cols-2 pl-5  lg:pl-50 lg:pr-0 gap-4 md:gap-10 lg:gap-20 w-full'>
-              <div className='flex flex-col gap-3 md:gap-8 pr-5 lg:pr-0 items-start justify-center'>
+              <div className='flex flex-col gap-3 md:gap-8 pr-5 lg:pr-0 items-start justify-center scroll-reveal'>
                 <h4 className='text-[#1840E2] font-semibold  text-[24px] md:text-[48px] leading-[27px] md:leading-[54px]'>
                   Innovar. Colaborar. Evolucionar juntos.
                 </h4>
@@ -123,7 +129,7 @@ export default function Home() {
                   Porque la forma en que trabajamos es tan importante como lo que
                   hacemos.
                 </p>
-                <div className='border px-4 py-2 rounded-xl '>
+                <div className='border px-4 py-2 rounded-xl scroll-reveal scroll-reveal-delay-1 card-bounce'>
                   <p className="flex items-center gap-2 bg-gradient-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-[14px] md:text-[20px]">
                     <img
                       src="/images/cultura/check_circle.svg"
@@ -133,7 +139,7 @@ export default function Home() {
                     Mindset innovador. Para generar impacto real y sostenible
                   </p>
                 </div>
-                <div className='border px-4 py-2 rounded-xl ml-0 lg:ml-10 '>
+                <div className='border px-4 py-2 rounded-xl ml-0 lg:ml-10 scroll-reveal scroll-reveal-delay-2 card-bounce'>
                   <p className='flex items-center gap-2 bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-[14px] md:text-[20px]'>
                     <img
                       src="/images/cultura/check_circle.svg"
@@ -144,7 +150,7 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className='flex w-full  '>
+              <div className='flex w-full scroll-reveal scroll-reveal-delay-1'>
                 
                 <ImageWithPlus
                           src='/images/cultura/cultura-innovar.webp'
@@ -155,7 +161,7 @@ export default function Home() {
                           paddingMobile="2rem"
                           paddingDesktop="1rem" 
                           imageClassName="block w-full h-auto"
-                          containerClassName="w-full"
+                          containerClassName="w-full image-light-soft"
                           sizePercent={0.32}
                           overhangPercent={0.32}
                         />
@@ -169,7 +175,7 @@ export default function Home() {
       {/* nuestro proposito */}
       <div className='flex pb-20 md:pb-4 bg-white w-full'>
         <div className='relative before:content-[""] md:before:content-none before:absolute before:inset-y-0 before:left-5 md:before:left-15 before:w-px before:bg-[#1840E2] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-22 w-full'>
-          <div className='relative order-2 lg:order-1 pr-10 lg:pr-0'>
+          <div className='relative order-2 lg:order-1 pr-10 lg:pr-0 scroll-reveal'>
             <ImageWithPlus
                 src='/images/cultura/nuestro-proposito.webp'
                 alt='cultura-proposito'
@@ -179,12 +185,12 @@ export default function Home() {
                 paddingMobile="2rem"
                 paddingDesktop="1rem" 
                 imageClassName="block w-full h-auto"
-                containerClassName="w-full"
+                containerClassName="w-full image-light-soft"
                 sizePercent={0.22}
                 overhangPercent={0.25}
               />
           </div>
-          <div className='  flex flex-col  gap-2 md:gap-5 justify-center pr-5 pl-10 lg:pl-0 lg:pr-50 order-1 lg:order-2'>
+          <div className='  flex flex-col  gap-2 md:gap-5 justify-center pr-5 pl-10 lg:pl-0 lg:pr-50 order-1 lg:order-2 scroll-reveal scroll-reveal-delay-1'>
             <h4 className='text-[#1840E2] font-semibold text-[24px] md:text-[48px] pt-10 md:pt-0'>
               Nuestro propósito
             </h4>
@@ -201,8 +207,8 @@ export default function Home() {
           Nuestros programas
         </div>
         <div className='mx-5 lg:mx-30 grid grid-cols-1 lg:grid-cols-3 gap-20'>
-          <div className='border-2 border-gray-200 rounded-3xl'>
-            <div className='rounded-3xl from-red-400 pb-1'>
+          <div className='border-2 border-gray-200 rounded-3xl hover-lift scroll-reveal'>
+            <div className='rounded-3xl from-red-400 pb-1 relative image-light-soft'>
               <Image
                 src='/images/cultura/programa-1.png'
                 alt='programa-1'
@@ -225,8 +231,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='border-2 border-gray-200 rounded-3xl'>
-            <div className='rounded-3xl from-red-400 pb-1'>
+          <div className='border-2 border-gray-200 rounded-3xl hover-lift scroll-reveal scroll-reveal-delay-1'>
+            <div className='rounded-3xl from-red-400 pb-1 relative image-light-soft'>
               <Image
                 src='/images/cultura/programa-2.png'
                 alt='programa-2'
@@ -249,8 +255,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='border-2 border-gray-200 rounded-3xl'>
-            <div className='rounded-3xl from-red-400 pb-1'>
+          <div className='border-2 border-gray-200 rounded-3xl hover-lift scroll-reveal scroll-reveal-delay-2'>
+            <div className='rounded-3xl from-red-400 pb-1 relative image-light-soft'>
               <Image
                 src='/images/cultura/programa-3.png'
                 alt='programa-3'
@@ -275,7 +281,7 @@ export default function Home() {
         </div>
 
         <div className='w-full px-5 lg:px-32 py-10 md:py-20 mt-5 md:mt-0'>
-          <div className='rounded-4xl bg-linear-to-r from-[#E9EEFF] to-[#F1F2F7] w-full grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-40 items-center px-5 lg:px-13 py-7 md:py-20'>
+          <div className='rounded-4xl bg-linear-to-r from-[#E9EEFF] to-[#F1F2F7] w-full grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-40 items-center px-5 lg:px-13 py-7 md:py-20 scroll-reveal'>
             <p
               className='font-semibold text-transparent bg-clip-text text-[20px] leading-[24px] md:text-[32px] md:leading-[42px]'
               style={{
@@ -288,7 +294,7 @@ export default function Home() {
               ¡Síguenos en nuestras redes sociales
               y entérate más sobre nosotros!
             </p>
-            <div className='flex gap-5 lg:gap-10  justify-start  lg:justify-center'>
+            <div className='flex gap-5 lg:gap-10  justify-start  lg:justify-center scroll-reveal scroll-reveal-delay-1'>
               <a href="https://www.linkedin.com/company/attachgroup/" target="blank">
                 <img
                   src='/images/cultura/linkedin.png'
@@ -309,11 +315,11 @@ export default function Home() {
       {/* banner contactanos */}
       <section className='pb-17 mx-10 md:mx-0 mt-20 md:mt-0 md:pr-30'>
         <div className='flex flex-col gap-5 md:gap-10 md:pl-30 md:pt-30 md:pb-17 md:border-r-2 md:border-b-2 md:border-white/30 md:rounded-br-[50px]'>
-          <h2 className='text-[24px] md:text-[48px] leadin-[20px] md:leadin-[44px] font-bold max-w-full md:max-w-7xl text-white w-150'>
+          <h2 className='text-[24px] md:text-[48px] leadin-[20px] md:leadin-[44px] font-bold max-w-full md:max-w-7xl text-white w-150 scroll-reveal'>
             ¿Quieres marcar la diferencia con nosotros?
           </h2>
-          <Link href="/contacto" className='self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition'>
-            Contáctanos <span className='ml-2'>➜</span>
+          <Link href="/contacto" className='self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition glow-button scroll-reveal scroll-reveal-delay-1'>
+            Contáctanos <span className='ml-2 arrow-wiggle'>➜</span>
           </Link>
         </div>
       </section>

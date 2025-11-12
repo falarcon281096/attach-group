@@ -7,9 +7,10 @@ import Image from "next/image";
 interface HeaderProps {
   variant?: 'default' | 'white-bg' | 'galileo' | 'athena' | 'attachmedia'| 'prospectia'| 'prisma';
   showBorder?: boolean;
+  isFixed?: boolean;
 }
 
-export default function Header({ variant = 'default', showBorder = true }: HeaderProps) {
+export default function Header({ variant = 'default', showBorder = true, isFixed = false }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsDropdownOpen, setIsSolutionsDropdownOpen] = useState(false);
 
@@ -47,7 +48,7 @@ export default function Header({ variant = 'default', showBorder = true }: Heade
   };
 
   return (
-    <header className={`fixed lg:static top-0 left-0 right-0 z-50 lg:shadow-none min-h-[80px] lg:min-h-0 ${getBackgroundGradient()}`}>
+    <header className={`${isFixed ? 'fixed' : 'fixed lg:static'} top-0 left-0 right-0 z-50 lg:shadow-none min-h-[80px] lg:min-h-0 ${getBackgroundGradient()}`}>
       <div className={`w-full px-3 lg:px-4 lg:ml-15 flex items-center justify-between py-5 lg:py-4 ${showBorder
         ? (isWhiteBg ? 'lg:border-l-2 border-[#1e3fda]/20' : 'lg:border-l-2 border-white/30')
         : ''

@@ -129,8 +129,8 @@ export default function Home() {
         </div>
 
         <div className="flex gap-10 lg:gap-15 lg:mx-30 pb-20 lg:flex-row flex-col justify-items-stretch">
-          <div className="flex justify-end relative lg:w-[50%]
-                    before:absolute before:left-0 
+          <div className="ml-10 md:ml-0 flex justify-end relative lg:w-[50%]
+                    before:absolute before:left-8 md:before:left-0 
                     before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
                     before:bg-no-repeat
                     before:bg-center
@@ -138,8 +138,8 @@ export default function Home() {
                     before:bg-[length:100%_100%]
                     before:w-15
                     before:h-15
-                    before:translate-x-[4em] before:transform
-                    md:before:-translate-x-[34em]
+                    -translate-x-[18em]
+                    before:transform md:before:-translate-x-[34em]
                     before:top-105
                     lg:order-[unset]
                     order-2">

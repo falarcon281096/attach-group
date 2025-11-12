@@ -3,8 +3,49 @@
 import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const elementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("data-animate-id");
+            if (id) {
+              setIsVisible((prev) => ({ ...prev, [id]: true }));
+            }
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    const timeoutId = setTimeout(() => {
+      Object.values(elementsRef.current).forEach((el) => {
+        if (el && observerRef.current) {
+          observerRef.current.observe(el);
+        }
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (observerRef.current) {
+        Object.values(elementsRef.current).forEach((el) => {
+          if (el) observerRef.current?.unobserve(el);
+        });
+      }
+    };
+  }, []);
+
+  const setElementRef = (id: string, el: HTMLElement | null) => {
+    elementsRef.current[id] = el;
+  };
   const dataCases = [
     {
       link: '/casos-de-exito/deposeguro',
@@ -55,18 +96,58 @@ export default function Home() {
       <Header showBorder={false}/>
 
       {/* Hero Section */}
-      <div className="mx-5 lg:mx-30 py-25">
-        <div className="flex flex-col gap-10 text-center px-5 lg:px-20 max-w-200 mx-auto">
+      <div className="mx-5 lg:mx-30 py-25 relative overflow-hidden">
+        {/* Efecto de partículas de fondo */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-white"
+              style={{
+                width: `${Math.random() * 4 + 2}px`,
+                height: `${Math.random() * 4 + 2}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `float ${Math.random() * 3 + 2}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 2}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className="flex flex-col gap-10 text-center px-5 lg:px-20 max-w-200 mx-auto relative z-10">
           {/* Content */}
-          <h1 className="text-4xl lg:text-6xl font-bold text-white">
+          <h1 
+            ref={(el) => setElementRef("hero-title", el)}
+            data-animate-id="hero-title"
+            className={`text-4xl lg:text-6xl font-bold text-white transform transition-all duration-1000 hover:scale-105 ${
+              isVisible["hero-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+            style={{
+              textShadow: "0 0 30px rgba(255,255,255,0.5)"
+            }}
+          >
             Estrategias digitales, éxitos reales
           </h1>
-          <p className="text-[16px] md:text-[24px] text-white w-full md:w-[75%] mx-auto">
+          <p 
+            ref={(el) => setElementRef("hero-text", el)}
+            data-animate-id="hero-text"
+            className={`text-[16px] md:text-[24px] text-white w-full md:w-[75%] mx-auto transform transition-all duration-1000 delay-200 ${
+              isVisible["hero-text"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
             Ayudamos a nuestros clientes a convertir desafíos en resultados medibles y escalables.
           </p>
-          <a href="#atm-casos" className="bg-white text-[16px] md:text-[20px] text-[#1840e2] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/90 flex justify-center max-w-200 mx-auto items-center">
+          <a 
+            ref={(el) => setElementRef("hero-button", el)}
+            data-animate-id="hero-button"
+            href="#atm-casos" 
+            className={`bg-white text-[16px] md:text-[20px] text-[#1840e2] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/90 flex justify-center max-w-200 mx-auto items-center transform transition-all duration-1000 delay-400 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] group ${
+              isVisible["hero-button"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
             Ver casos de éxito
-            <svg className="ml-2 w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="ml-2 w-5 h-5 transform rotate-90 transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
@@ -76,39 +157,109 @@ export default function Home() {
       {/* Grid Casos de exito */}
       <section id="atm-casos" className="bg-white rounded-b-[30px] lg:rounded-b-[50px] pl-5 pr-5 lg:pb-17 lg:pl-10 lg:pr-0">
         <div className="pl-0 pr-0 lg:pl-20 lg:pr-30 py-17 lg:border-l-2 lg:border-b-2 lg:border-[#1e3fda] rounded-bl-[50px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {dataCases.map((c) => (
-            <Link
+          {dataCases.map((c, i) => (
+            <div
               key={c.id}
-              className="relative cursor-pointer bg-white p-5 rounded-lg flex flex-col h-120 justify-end"
-              style={{
-                backgroundImage: `url(${c.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-              href={c.link}
+              ref={(el) => setElementRef(`case-${c.id}`, el)}
+              data-animate-id={`case-${c.id}`}
+              className={`transform transition-all duration-700 ${
+                isVisible[`case-${c.id}`] ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-0.9"
+              }`}
+              style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <div className="absolute rounded-[10px] inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-              <h3 className="relative z-10 text-3xl text-white font-bold">{c.title}</h3>
-              <p className="relative z-10 text-1xl text-white font-semibold">{c.tag}</p>
-            </Link>
+              <Link
+                className="relative cursor-pointer bg-white p-5 rounded-lg flex flex-col h-120 justify-end transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group overflow-hidden block"
+                href={c.link}
+              >
+                {/* Imagen con zoom en hover */}
+                <div 
+                  className="absolute inset-0 rounded-lg transition-transform duration-700 group-hover:scale-110"
+                  style={{
+                    backgroundImage: `url(${c.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    zIndex: 0
+                  }}
+                ></div>
+                {/* Overlay con animación */}
+                <div className="absolute rounded-[10px] inset-0 bg-gradient-to-t from-black/80 group-hover:from-black/90 to-transparent transition-all duration-500 z-10"></div>
+                
+                {/* Efecto de brillo en hover */}
+                <div className="absolute inset-0 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 z-20"></div>
+                
+                {/* Borde brillante en hover */}
+                <div className="absolute inset-0 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2 border-white/50 shadow-[0_0_30px_rgba(255,255,255,0.5)] z-30"></div>
+                
+                <h3 className="relative z-40 text-3xl text-white font-bold transform transition-all duration-500 group-hover:translate-x-2">{c.title}</h3>
+                <p className="relative z-40 text-1xl text-white font-semibold transform transition-all duration-500 delay-100 group-hover:translate-x-2">{c.tag}</p>
+              </Link>
+            </div>
           ))}
         </div>
       </section>
 
       {/* CTA Talk Us */}
-      <section className="pb-17 px-5 lg:pr-30">
-        <div className="flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold max-w-5xl text-white">
+      <section className="pb-17 px-5 lg:pr-30 relative overflow-hidden">
+        {/* Partículas de fondo */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-white"
+              style={{
+                width: `${Math.random() * 3 + 1}px`,
+                height: `${Math.random() * 3 + 1}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animation: `float ${Math.random() * 4 + 3}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 2}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        <div 
+          ref={(el) => setElementRef("cta-section", el)}
+          data-animate-id="cta-section"
+          className={`flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] relative z-10 transition-all duration-1000 ${
+            isVisible["cta-section"] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+          }`}
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold max-w-5xl text-white transform transition-all duration-700 hover:scale-105" style={{
+            textShadow: "0 0 30px rgba(255,255,255,0.3)"
+          }}>
             ¿Quieres ser nuestro próximo caso de éxito?
           </h2>
 
-          <a href="/contacto" className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition">
-            Conversemos <span className="ml-2">➜</span>
+          <a 
+            href="/contacto" 
+            className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] group transform"
+            style={{ transitionDelay: "0.2s" }}
+          >
+            Conversemos <span className="ml-2 inline-block transform transition-transform duration-500 group-hover:translate-x-2">➜</span>
           </a>
         </div>
       </section>
       {/* Footer */}
       <Footer />
+      
+      {/* Estilos CSS para animaciones */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) translateX(0px);
+          }
+          25% {
+            transform: translateY(-20px) translateX(10px);
+          }
+          50% {
+            transform: translateY(-10px) translateX(-10px);
+          }
+          75% {
+            transform: translateY(-15px) translateX(5px);
+          }
+        }
+      `}} />
     </div>
   );
 }

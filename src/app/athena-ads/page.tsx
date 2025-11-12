@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AthenaBenefits from "../../components/AthenaBenefits";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import HeaderAthena from "../../components/HeaderAthena";
 import Footer from "../../components/Footer";
 import AnimatedGradient from "../../components/AnimatedGradient";
@@ -31,6 +31,46 @@ function FaqItem({ question, answer, isOpen, onToggle }: { question: string; ans
 
 export default function AthenaAds() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const elementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("data-animate-id");
+            if (id) {
+              setIsVisible((prev) => ({ ...prev, [id]: true }));
+            }
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    const timeoutId = setTimeout(() => {
+      Object.values(elementsRef.current).forEach((el) => {
+        if (el && observerRef.current) {
+          observerRef.current.observe(el);
+        }
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (observerRef.current) {
+        Object.values(elementsRef.current).forEach((el) => {
+          if (el) observerRef.current?.unobserve(el);
+        });
+      }
+    };
+  }, []);
+
+  const setElementRef = (id: string, el: HTMLElement | null) => {
+    elementsRef.current[id] = el;
+  };
 
   const faqs = [
     {
@@ -184,26 +224,45 @@ export default function AthenaAds() {
         {/* Second Section - Tecnología diferencial */}
         <section className="py-10 md:py-16 lg:py-20 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
-            <div className="mb-6 md:mb-8 text-center">
-              <h2 className="hero-title-override text-[24px] md:text-[48px] gradient-text inline-block font-semibold" style={{filter: 'drop-shadow(0px 4px 102.3px rgba(226, 232, 48, 0.2))'}}>
+            <div 
+              ref={(el) => setElementRef("tecnologia-title", el)}
+              data-animate-id="tecnologia-title"
+              className={`mb-6 md:mb-8 text-center transition-all duration-1000 ${
+                isVisible["tecnologia-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+            >
+              <h2 className="hero-title-override text-[24px] md:text-[48px] gradient-text inline-block font-semibold transform transition-all duration-700 hover:scale-105" style={{filter: 'drop-shadow(0px 4px 102.3px rgba(226, 232, 48, 0.2))'}}>
                 Tecnología diferencial
               </h2>
             </div>
 
-            <div className="font-['graphik'] font-normal text-[14px] md:text-[20px]  text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[70%] lg:w-[45%] pl-0 md:pl-0">
+            <div 
+              ref={(el) => setElementRef("tecnologia-text", el)}
+              data-animate-id="tecnologia-text"
+              className={`font-['graphik'] font-normal text-[14px] md:text-[20px] text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[70%] lg:w-[45%] pl-0 md:pl-0 transition-all duration-1000 delay-200 ${
+                isVisible["tecnologia-text"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+            >
               Incorporamos herramientas exclusivas que nos permiten conectar data online y offline, logrando segmentaciones con precisión
             </div>
 
             {/* Grid for 2 images */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 lg:gap-10 mb-8 md:mb-12 max-w-7xl mx-auto">
               {/* First Image - 1/3 width */}
-              <div className="md:col-span-1 bg-white border-2 border-[#1E120D1A] rounded-2xl md:rounded-3xl">
+              <div 
+                ref={(el) => setElementRef("phone-id", el)}
+                data-animate-id="phone-id"
+                className={`md:col-span-1 bg-white border-2 border-[#1E120D1A] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                  isVisible["phone-id"] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+                }`}
+                style={{ transitionDelay: "0.3s" }}
+              >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-44 md:h-80 mb-3 md:mb-4 overflow-hidden">
                   <Image
                     src="/images/athena-ads/01.jpg"
                     alt="Phone ID Audiences"
                     fill
-                    className="object-cover"
+                    className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
                 <div className="text-center p-3 md:p-4">
@@ -217,13 +276,20 @@ export default function AthenaAds() {
               </div>
 
               {/* Second Image - 2/3 width */}
-              <div className="md:col-span-2 bg-white border-2 border-[#1E120D1A] rounded-2xl md:rounded-3xl">
+              <div 
+                ref={(el) => setElementRef("digital-outdoor", el)}
+                data-animate-id="digital-outdoor"
+                className={`md:col-span-2 bg-white border-2 border-[#1E120D1A] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                  isVisible["digital-outdoor"] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+                }`}
+                style={{ transitionDelay: "0.4s" }}
+              >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-44 md:h-80 mb-3 md:mb-4 overflow-hidden">
                   <Image
                     src="/images/athena-ads/02.png"
                     alt="Digital out of home by User Movility"
                     fill
-                    className="object-cover"
+                    className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
                 <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center p-4 md:p-0">
@@ -238,20 +304,33 @@ export default function AthenaAds() {
             </div>
 
             {/* Premium Inventory Section */}
-            <h3 className="text-[20px] md:text-[32px] font-['Graphik'] leading-[24px] md:leading-[42px] premium-inventory-h3 mb-8 md:mb-12 text-[rgba(129,129,129,1)] w-full md:w-[80%] lg:w-[55%] mx-auto text-center">
+            <h3 
+              ref={(el) => setElementRef("premium-inventory", el)}
+              data-animate-id="premium-inventory"
+              className={`text-[20px] md:text-[32px] font-['Graphik'] leading-[24px] md:leading-[42px] premium-inventory-h3 mb-8 md:mb-12 text-[rgba(129,129,129,1)] w-full md:w-[80%] lg:w-[55%] mx-auto text-center transition-all duration-1000 delay-500 ${
+                isVisible["premium-inventory"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+            >
               Y potenciamos el impacto en un entorno premium, dentro de nuestro inventario podrás encontrar opciones como
             </h3>
 
             {/* Grid for 3 images */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto">
               {/* Connected TV */}
-              <div className="bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl">
+              <div 
+                ref={(el) => setElementRef("ctv", el)}
+                data-animate-id="ctv"
+                className={`bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                  isVisible["ctv"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: "0.6s" }}
+              >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-40 md:h-64 mb-3 md:mb-4 overflow-hidden">
                   <Image
                     src="/images/athena-ads/03.png"
                     alt="Connected TV"
                     fill
-                    className="object-cover"
+                    className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
                 <div className="text-center p-3 md:p-4">
@@ -265,13 +344,20 @@ export default function AthenaAds() {
               </div>
 
               {/* Digital Screens */}
-              <div className="bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl">
+              <div 
+                ref={(el) => setElementRef("digital-screens", el)}
+                data-animate-id="digital-screens"
+                className={`bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                  isVisible["digital-screens"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: "0.7s" }}
+              >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-40 md:h-64 mb-3 md:mb-4 overflow-hidden">
                   <Image
                     src="/images/athena-ads/04.png"
                     alt="Digital Screens"
                     fill
-                    className="object-cover"
+                    className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
                 <div className="text-center p-3 md:p-4">
@@ -285,13 +371,20 @@ export default function AthenaAds() {
               </div>
 
               {/* Gaming */}
-              <div className="bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl">
+              <div 
+                ref={(el) => setElementRef("gaming", el)}
+                data-animate-id="gaming"
+                className={`bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                  isVisible["gaming"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: "0.8s" }}
+              >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-40 md:h-64 mb-3 md:mb-4 overflow-hidden">
                   <Image
                     src="/images/athena-ads/05.jpg"
                     alt="Gaming"
                     fill
-                    className="object-cover"
+                    className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
                 <div className="text-center p-3 md:p-4">
@@ -317,18 +410,37 @@ export default function AthenaAds() {
         {/* Section - Innovación que impulsa el rendimiento */}
         <section className="pt-5 md:pt-8 pb-5 md:pb-4 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
-            <h2 className="text-[24px] md:text-[48px] hero-title-override gradient-text  font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center">
+            <h2 
+              ref={(el) => setElementRef("innovacion-title", el)}
+              data-animate-id="innovacion-title"
+              className={`text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center transform transition-all duration-700 hover:scale-105 transition-all duration-1000 ${
+                isVisible["innovacion-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+            >
               Innovación que impulsa el rendimiento
             </h2>
 
-            <div className="text-[16px] md:text-[20px] text-gray-500 mb-8 md:mb-12 text-center font-['Graphik'] mx-auto w-full md:w-[70%] lg:w-[65%]">
+            <div 
+              ref={(el) => setElementRef("innovacion-text", el)}
+              data-animate-id="innovacion-text"
+              className={`text-[16px] md:text-[20px] text-gray-500 mb-8 md:mb-12 text-center font-['Graphik'] mx-auto w-full md:w-[70%] lg:w-[65%] transition-all duration-1000 delay-200 ${
+                isVisible["innovacion-text"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+            >
               Cada formato está diseñado para captar atención, generar interacción y <br /> maximizar el impacto de tus campañas programáticas. Algunos ejemplos <br /> de lo que hemos hecho.
             </div>
 
             {/* Three Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
               {/* Card 1 - Social Extender */}
-              <div className="border rounded-2xl md:rounded-3xl overflow-hidden " style={{ borderColor: 'rgba(30, 18, 13, 0.1)' }}>
+              <div 
+                ref={(el) => setElementRef("social-extender", el)}
+                data-animate-id="social-extender"
+                className={`border rounded-2xl md:rounded-3xl overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                  isVisible["social-extender"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+                style={{ borderColor: 'rgba(30, 18, 13, 0.1)', transitionDelay: "0.3s" }}
+              >
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[30px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
                   <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded ">
                     <Image
@@ -358,7 +470,14 @@ export default function AthenaAds() {
               </div>
 
               {/* Card 2 - Rich Media Interactivo */}
-              <div className="border rounded-2xl md:rounded-3xl overflow-hidden" style={{ borderColor: 'rgba(30, 18, 13, 0.1)' }}>
+              <div 
+                ref={(el) => setElementRef("rich-media", el)}
+                data-animate-id="rich-media"
+                className={`border rounded-2xl md:rounded-3xl overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                  isVisible["rich-media"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+                style={{ borderColor: 'rgba(30, 18, 13, 0.1)', transitionDelay: "0.4s" }}
+              >
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px] " style={{ padding:"10px 30px"}}>
                   <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded">
                     <Image
@@ -388,7 +507,14 @@ export default function AthenaAds() {
               </div>
 
               {/* Card 3 - Tap to Map */}
-              <div className="border rounded-2xl md:rounded-3xl overflow-hidden" style={{ borderColor: 'rgba(30, 18, 13, 0.1)' }}>
+              <div 
+                ref={(el) => setElementRef("tap-to-map", el)}
+                data-animate-id="tap-to-map"
+                className={`border rounded-2xl md:rounded-3xl overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                  isVisible["tap-to-map"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+                style={{ borderColor: 'rgba(30, 18, 13, 0.1)', transitionDelay: "0.5s" }}
+              >
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
                   <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded">
                     <Image
@@ -423,33 +549,56 @@ export default function AthenaAds() {
         {/* Section - Historias de impacto programático */}
         <section className="py-10 md:py-16 lg:py-20 px-6 md:px-8 lg:px-12">
           <div className="container mx-auto">
-            <div className="text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
+            <div 
+              ref={(el) => setElementRef("historias-title", el)}
+              data-animate-id="historias-title"
+              className={`text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%] transform transition-all duration-700 hover:scale-105 transition-all duration-1000 ${
+                isVisible["historias-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+            >
               Historias de impacto programático
             </div>
 
-            <div className="text-[16px] md:text-[20px] md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[80%] lg:w-[70%]">
+            <div 
+              ref={(el) => setElementRef("historias-text", el)}
+              data-animate-id="historias-text"
+              className={`text-[16px] md:text-[20px] md:text-xl text-gray-500 mb-8 md:mb-12 text-center mx-auto w-full md:w-[80%] lg:w-[70%] transition-all duration-1000 delay-200 ${
+                isVisible["historias-text"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+            >
               Datos, estrategia y creatividad se combinan para crear resultados que <br />trascienden las métricas. Así generamos crecimiento sostenible con <br />Athena Ads.
             </div>
 
             {/* Three Image Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
               {/* Card 1 - Apuesta Total */}
-              <Link href="/casos-de-exito/apuesta-total-ads" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
+              <div
+                ref={(el) => setElementRef("apuesta-total", el)}
+                data-animate-id="apuesta-total"
+                className={`transform transition-all duration-700 ${
+                  isVisible["apuesta-total"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: "0.3s" }}
+              >
+              <Link href="/casos-de-exito/apuesta-total-ads" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
                 <Image
                   src="/images/casos-de-exito/Apuestathenads1.webp"
                   alt="Caso de éxito"
                   fill
-                  className="object-cover"
+                  className="object-cover transform transition-all duration-700 group-hover:scale-110"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 to-transparent px-6 md:px-6">
-                  <h3 className="text-lg md:text-xl font-bold mb-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 group-hover:from-black/80 to-transparent px-6 md:px-6 transition-all duration-500">
+                  <h3 className="text-lg md:text-xl font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
                     <b>APUESTA TOTAL</b>
                   </h3>
-                  <p className="text-sm md:text-base text-white">
+                  <p className="text-sm md:text-base text-white transform transition-all duration-500 delay-100 group-hover:translate-x-2">
                     De la intención a la acción: programática que impulsa el número y valor de recargas
                   </p>
                 </div>
+                {/* Efecto de borde brillante en hover */}
+                <div className="absolute inset-0 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2 border-[#E2E830] shadow-[0_0_30px_rgba(226,232,48,0.6)]"></div>
               </Link>
+              </div>
 
               {/* Card 2 - El Universal */}
               {/* <Link href="/casos-de-exito/universal" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer hover:opacity-90 transition-opacity">
@@ -496,18 +645,40 @@ export default function AthenaAds() {
         <AthenaBenefits />
 
         {/* CTA Section - ¿Listo para una estrategia única? */}
-        <section className="px-6 md:px-50 pt-0 md:pt-30 pb-0 md:pb-30 min-h-[34vh]  flex items-center" style={{ background: 'linear-gradient(270deg, #00CED3 2.82%, #2ED3B1 23.42%, #A1E05E 71.16%, #E2E830 96.43%)' }}>
-          <div className="container mx-auto">
+        <section 
+          ref={(el) => setElementRef("cta-section", el)}
+          data-animate-id="cta-section"
+          className={`px-6 md:px-50 pt-0 md:pt-30 pb-0 md:pb-30 min-h-[34vh] flex items-center relative overflow-hidden transition-all duration-1000 ${
+            isVisible["cta-section"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+          style={{ background: 'linear-gradient(270deg, #00CED3 2.82%, #2ED3B1 23.42%, #A1E05E 71.16%, #E2E830 96.43%)' }}
+        >
+          {/* Efecto de partículas flotantes */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-10 left-10 w-1 h-1 bg-white rounded-full animate-pulse opacity-60" style={{ animationDelay: '0s', animationDuration: '2s' }}></div>
+            <div className="absolute top-20 right-20 w-1 h-1 bg-white rounded-full animate-pulse opacity-50" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
+            <div className="absolute bottom-20 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse opacity-40" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }}></div>
+          </div>
+          
+          <div className="container mx-auto relative z-10">
             <div className="w-full lg:w-1/2">
-              <h2 className="hero-title-override text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8">
+              <h2 className="hero-title-override text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 transform transition-all duration-700 hover:scale-105" style={{
+                textShadow: "0 0 30px rgba(255,255,255,0.5)"
+              }}>
                 ¿Listo para una estrategia única?
               </h2>
 
-              <Link href="/contacto" className="text-[16px] md:text-[16px] leading-[20px] md:leading-[24px] bg-white text-[rgba(0,206,211,1)] font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg hover:bg-opacity-90 transition-all flex items-center gap-2 w-fit">
-                Conversemos
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5">
+              <Link href="/contacto" className="group relative text-[16px] md:text-[16px] leading-[20px] md:leading-[24px] bg-white text-[rgba(0,206,211,1)] font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] flex items-center gap-2 w-fit">
+                {/* Efecto de brillo que se mueve */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                
+                <span className="relative z-10">Conversemos</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5 relative z-10 transform transition-transform duration-500 group-hover:translate-x-2">
                   <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="rgba(0,206,211,1)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
+                
+                {/* Efecto de glow alrededor del botón */}
+                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white blur-xl -z-10"></div>
               </Link>
             </div>
           </div>
