@@ -35,17 +35,95 @@ export default function Home() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const submissionAbortRef = useRef<AbortController | null>(null);
 
+  // Lista de dominios de email personal comunes a rechazar
+  const personalEmailDomains = [
+    'gmail.com',
+    'yahoo.com',
+    'hotmail.com',
+    'outlook.com',
+    'live.com',
+    'msn.com',
+    'icloud.com',
+    'mail.com',
+    'protonmail.com',
+    'aol.com',
+    'yandex.com',
+    'zoho.com',
+    'gmx.com',
+    'inbox.com',
+    'fastmail.com',
+    'tutanota.com',
+    'mailinator.com',
+    'guerrillamail.com',
+    '10minutemail.com',
+    'tempmail.com',
+  ];
+
+  const isCorporateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@([^\s@]+\.[^\s@]+)$/;
+    const match = email.match(emailRegex);
+    if (!match) return false;
+    
+    const domain = match[1].toLowerCase();
+    // Rechazar si el dominio está en la lista de emails personales
+    return !personalEmailDomains.some(personalDomain => 
+      domain === personalDomain || domain.endsWith(`.${personalDomain}`)
+    );
+  };
+
   const handleInputChange =
     (field: keyof FormData) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setFormData((prev) => ({ ...prev, [field]: event.target.value }));
-      if (errors[field]) {
+      let value = event.target.value;
+
+      // Validación en tiempo real para teléfono: solo números, espacios, guiones y + al inicio
+      if (field === 'phone') {
+        // Permitir solo números, espacios, guiones y + al inicio
+        value = value.replace(/[^\d+\s\-]/g, '');
+        // Asegurar que + solo esté al inicio
+        if (value.includes('+') && value.indexOf('+') !== 0) {
+          value = value.replace(/\+/g, '');
+        }
+        // Limitar longitud
+        if (value.length > 20) {
+          value = value.slice(0, 20);
+        }
+      }
+
+      // Validación en tiempo real para email: convertir a minúsculas y validar formato básico
+      if (field === 'email') {
+        value = value.toLowerCase();
+        // Limitar longitud
+        if (value.length > 160) {
+          value = value.slice(0, 160);
+        }
+      }
+
+      setFormData((prev) => ({ ...prev, [field]: value }));
+      
+      // Validación en tiempo real para email corporativo
+      if (field === 'email' && value.trim()) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailRegex.test(value.trim()) && !isCorporateEmail(value.trim())) {
+          setErrors((prev) => ({
+            ...prev,
+            email: "Por favor ingresa un correo corporativo (no se permiten emails personales como Gmail, Yahoo, Hotmail, etc.).",
+          }));
+        } else if (errors.email) {
+          setErrors((prev) => {
+            const next = { ...prev };
+            delete next.email;
+            return next;
+          });
+        }
+      } else if (errors[field]) {
         setErrors((prev) => {
           const next = { ...prev };
           delete next[field];
           return next;
         });
       }
+      
       if (submitStatus === "success") {
         setSubmitStatus("idle");
       }
@@ -81,14 +159,16 @@ export default function Home() {
       newErrors.email = "Ingresa un correo válido.";
     } else if (trimmedEmail.length > 160) {
       newErrors.email = "El correo no debe exceder 160 caracteres.";
+    } else if (!isCorporateEmail(trimmedEmail)) {
+      newErrors.email = "Por favor ingresa un correo corporativo (no se permiten emails personales como Gmail, Yahoo, Hotmail, etc.).";
     }
 
-    const phoneRegex = /^[0-9+\-\s]{6,20}$/;
+    // Validación de teléfono: solo números, + al inicio para código de país, espacios y guiones
+    const phoneRegex = /^\+?[0-9][0-9\s\-]{5,19}$/;
     if (!trimmedPhone) {
       newErrors.phone = "El teléfono es obligatorio.";
     } else if (!phoneRegex.test(trimmedPhone)) {
-      newErrors.phone =
-        "Ingresa un teléfono válido (solo números, espacios, + o -, entre 6 y 20 caracteres).";
+      newErrors.phone = "Ingresa un teléfono válido (solo números, espacios, guiones y + al inicio para código de país).";
     }
 
     if (!trimmedMessage) {
@@ -197,17 +277,45 @@ export default function Home() {
             <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] items-center gap-12 lg:gap-16 pt-24">
               {/* Content */}
               <div className="space-y-8">
-                <h1 className="font-extrabold text-[32px] lg:text-[55px] bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent leading-tight scroll-reveal">
+                <h1 
+                  className="font-extrabold text-[32px] lg:text-[55px] bg-clip-text text-transparent leading-tight scroll-reveal"
+                  style={{
+                    background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
                   Construyamos juntos el futuro de tu negocio
                 </h1>
-                <p className="text-base lg:text-lg text-[#3B2F74] leading-relaxed scroll-reveal scroll-reveal-delay-1">
+                <p 
+                  className="text-base lg:text-lg leading-relaxed scroll-reveal scroll-reveal-delay-1 bg-clip-text text-transparent"
+                  style={{
+                    background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
                   Ya sea que busques desarrollar un proyecto desde cero, escalar operaciones o explorar nuevas oportunidades, estamos listos para ayudarte a encontrar la solución que necesitas.
                 </p>
                 <div className="space-y-1">
-                  <p className="text-base lg:text-lg text-[#3B2F74] scroll-reveal scroll-reveal-delay-2">
+                  <p 
+                    className="text-base lg:text-lg scroll-reveal scroll-reveal-delay-2 bg-clip-text text-transparent"
+                    style={{
+                      background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
                     Utiliza el formulario o envíanos un correo a:
                   </p>
-                  <p className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#1c3fde] to-[#612bb8] bg-clip-text text-transparent scroll-reveal scroll-reveal-delay-3">
+                  <p 
+                    className="text-xl lg:text-2xl font-bold bg-clip-text text-transparent scroll-reveal scroll-reveal-delay-3"
+                    style={{
+                      background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
                     hola@attach.group
                   </p>
                 </div>
@@ -324,14 +432,15 @@ export default function Home() {
                   <div className="flex flex-col">
                     <input
                       type="tel"
-                      placeholder="Teléfono"
+                      placeholder="Teléfono (ej: +51 987 654 321)"
                       className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-4 ${
                         errors.phone ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.phone}
                       onChange={handleInputChange("phone")}
                       aria-invalid={errors.phone ? "true" : "false"}
-                      pattern="^[0-9+\-\s]{6,20}$"
+                      pattern="^\+?[0-9][0-9\s\-]{5,19}$"
+                      inputMode="tel"
                       name="phone"
                       required
                       disabled={submitStatus === "sending"}
