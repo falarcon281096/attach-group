@@ -266,7 +266,7 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Nombres y apellidos"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-1 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-1 ${
                         errors.fullName ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.fullName}
@@ -286,7 +286,7 @@ export default function Home() {
                     <input
                       type="email"
                       placeholder="Email corporativo"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-2 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-2 ${
                         errors.email ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.email}
@@ -305,7 +305,7 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Compañía"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-3 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-3 ${
                         errors.company ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.company}
@@ -325,7 +325,7 @@ export default function Home() {
                     <input
                       type="tel"
                       placeholder="Teléfono"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-4 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-4 ${
                         errors.phone ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.phone}
@@ -343,7 +343,7 @@ export default function Home() {
                   <div className="flex flex-col lg:col-span-2">
                     <textarea
                       placeholder="¿Cómo podemos ayudarte?"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-semibold text-white outline-none transition focus:bg-white/40 h-36 resize-none input-focus-glow scroll-reveal scroll-reveal-delay-5 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 h-36 resize-none input-focus-glow scroll-reveal scroll-reveal-delay-5 ${
                         errors.message ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.message}

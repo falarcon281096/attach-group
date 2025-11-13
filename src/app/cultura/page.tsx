@@ -19,7 +19,7 @@ export default function Home() {
     <div className='min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden animate-gradient'>
       <div className='atm-initial bg-white'>
         {/* Header */}
-        <Header showBorder={false} variant='white-bg'/>
+        <Header showBorder={false} variant='white-bg' isFixed={true}/>
 
         {/*Oficinas Section*/}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 pt-30 md:pt-20 pb-12 md:pb-20 justify-items-stretch '>
@@ -133,7 +133,14 @@ export default function Home() {
                   hacemos.
                 </p>
                 <div className='border px-4 py-2 rounded-xl scroll-reveal scroll-reveal-delay-1 card-bounce'>
-                  <p className="font-[Graphik] leading-[19px] md:leading-[28px] flex items-center gap-2 bg-gradient-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-[14px] md:text-[20px]">
+                  <p 
+                    className="font-[Graphik] leading-[19px] md:leading-[28px] flex items-center gap-2 bg-clip-text text-transparent text-[14px] md:text-[20px]"
+                    style={{
+                      background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
                     <img
                       src="/images/cultura/check_circle.svg"
                       alt="check"
@@ -143,7 +150,13 @@ export default function Home() {
                   </p>
                 </div>
                 <div className='border px-4 py-2 rounded-xl ml-0 lg:ml-10 scroll-reveal scroll-reveal-delay-2 card-bounce'>
-                  <p className='font-[Graphik] leading-[19px] md:leading-[28px] flex items-center gap-2 bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-[14px] md:text-[20px]'>
+                  <p className='font-[Graphik] leading-[19px] md:leading-[28px] flex items-center gap-2 bg-clip-text text-transparent text-[14px] md:text-[20px]' 
+                    style={{
+                      background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                    }}
+                  >
                     <img
                       src="/images/cultura/check_circle.svg"
                       alt="check"
@@ -319,11 +332,11 @@ export default function Home() {
       <section className='pb-17 mx-10 md:mx-0 mt-20 md:mt-0 md:pr-30'>
         <div className='flex flex-col gap-5 md:gap-10 md:pl-30 md:pt-30 md:pb-17 md:border-r-2 md:border-b-2 md:border-white/30 md:rounded-br-[50px]'>
           <h2 className='text-[24px] md:text-[48px] leadin-[20px] md:leadin-[44px] font-bold max-w-full md:max-w-7xl text-white w-150 scroll-reveal'>
-            ¿Quieres marcar la diferencia con nosotros?
+            Si compartes nuestra pasión por la innovación, mándanos tu CV a talento@attachconsultores.com
           </h2>
-          <Link href="/contacto" className='self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition glow-button scroll-reveal scroll-reveal-delay-1'>
+          {/* <Link href="/contacto" className='self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition glow-button scroll-reveal scroll-reveal-delay-1'>
             Contáctanos <span className='ml-2 arrow-wiggle'>➜</span>
-          </Link>
+          </Link> */}
         </div>
       </section>
 
