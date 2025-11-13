@@ -104,15 +104,16 @@ export default function Home() {
                   <ImageWithPlus
                                             src="/images/nosotros/AttachGroup.webp"
                                             alt="Attach Group"
-                                            width={1800}
-                                            height={1800}
-                                            position="LEFT_DOWN"
-                                            paddingMobile="0.1rem"
-                                            paddingDesktop="2rem"
-                                            imageClassName="w-full h-auto object-cover lg:object-contain lg:max-h-[350px] transform transition-all duration-300 group-hover:scale-[1.02]"
-                                            containerClassName="w-full transform transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg"
-                                            sizePercent={0.42}
-                                            overhangPercent={0.20}
+                                            width={400}
+                height={600}
+                position="LEFT_DOWN"
+                paddingLeftDesktop="-1.6rem"
+                paddingDesktop="1rem"   
+                offsetXMobile = "-17px"
+                imageClassName="block w-full h-auto"
+                containerClassName="w-full image-light-soft"
+                sizePercent={0.44}
+                overhangPercent={0.44}
                                           />
                   {/* <div className="rounded-l-3xl lg:rounded-tl-[40px] lg:rounded-bl-[40px]">
                     <Image
@@ -208,7 +209,7 @@ export default function Home() {
             {/* Services Cards */}
             <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
               {/* Card 1: Inteligencia Artificial */}
-              <div className="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:-translate-y-2 group scroll-reveal">
+              <Link href="/galileo/" className="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:-translate-y-2 group scroll-reveal block cursor-pointer">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-2xl from-red-400 to-orange-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-4 lg:px-10 py-6 lg:py-8 transform transition-all duration-500 group-hover:scale-[1.03]">
                   <Image
@@ -222,20 +223,14 @@ export default function Home() {
 
                 {/* Content Section */}
                 <div className="px-8 py-3 md:px-8 md:py-9 text-gray-600">
-                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-1 md:mb-6">
+                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em]">
                     Especialistas en inteligencia artificial, cloud, martech y analítica avanzada para acelerar el crecimiento de las organizaciones.
                   </p>
-                  <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-500 inline-flex items-center transform group-hover:scale-[1.02] hover:shadow-lg">
-                    Conoce más
-                    <svg className="ml-2 w-4 h-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
                 </div>
-              </div>
+              </Link>
 
               {/* Card 2: Publicidad Programática */}
-              <div className="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:-translate-y-2 group scroll-reveal scroll-reveal-delay-1">
+              <Link href="/athena-ads/" className="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:-translate-y-2 group scroll-reveal scroll-reveal-delay-1 block cursor-pointer">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-2xl from-lime-400 to-green-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-4 lg:px-10 py-6 lg:py-8 transform transition-all duration-500 group-hover:scale-[1.03]">
                   <Image
@@ -249,20 +244,14 @@ export default function Home() {
 
                 {/* Content Section */}
                 <div className="px-8 py-3 md:px-8 md:py-9 text-gray-600">
-                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-1 md:mb-6">
+                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em]">
                     Especialistas en publicidad programática, que desarrolla soluciones personalizadas y efectivas para cada marca.
                   </p>
-                  <Link href="/athena-ads/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-500 inline-flex items-center transform group-hover:scale-[1.02] hover:shadow-lg">
-                    Conoce más
-                    <svg className="ml-2 w-4 h-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
                 </div>
-              </div>
+              </Link>
 
               {/* Card 3: Medios On y Off */}
-              <div className="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:-translate-y-2 group scroll-reveal scroll-reveal-delay-2">
+              <Link href="/attach-media/" className="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:-translate-y-2 group scroll-reveal scroll-reveal-delay-2 block cursor-pointer">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8 transform transition-all duration-500 group-hover:scale-[1.03]">
                   <Image
@@ -276,17 +265,11 @@ export default function Home() {
 
                 {/* Content Section */}
                 <div className="px-8 py-3 md:px-8 md:py-9 text-gray-600">
-                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em] mb-1 md:mb-6">
+                  <p className="font-[Graphik] font-normal text-[#818181] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] tracking-[-0.01em]">
                     Agencia integral de medios y soluciones digitales que combina estrategia, data y tecnología para diseñar campañas efectivas.
                   </p>
-                  <Link href="/attach-media/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-500 inline-flex items-center transform group-hover:scale-[1.02] hover:shadow-lg">
-                    Conoce más
-                    <svg className="ml-2 w-4 h-4 transform transition-transform duration-500 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -329,13 +312,13 @@ export default function Home() {
 
         {/*Clientes Section*/}
         <div className={`py-13 md:py-20  mx-30 ${styles.clientes}`}>
-          <h2 className="text-center text-[24px] md:text-[48px] leading-[28px] md:leading-[53px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-semibold mb-6 scroll-reveal">
+          <h2 className="text-center text-[24px] md:text-[48px] leading-[28px] md:leading-[53px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-semibold mb-6 md:mb-13 scroll-reveal">
             Algunos de nuestros clientes
           </h2>
 
           <section className="py-0 relative overflow-hidden">
             {/* Partículas de fondo flotantes */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none z-0">
+            {/* <div className="absolute inset-0 opacity-20 pointer-events-none z-0">
               {particles.map((particle, i) => (
                 <div
                   key={i}
@@ -350,10 +333,10 @@ export default function Home() {
                   }}
                 />
               ))}
-            </div>
+            </div> */}
             
             {/* Efecto de luz brillante que se mueve */}
-            <div 
+            {/* <div 
               className="absolute inset-0 opacity-10 pointer-events-none z-10"
               style={{
                 background: "linear-gradient(90deg, transparent 0%, rgba(30,63,218,0.3) 50%, transparent 100%)",
@@ -361,7 +344,7 @@ export default function Home() {
                 width: "50%",
                 height: "100%"
               }}
-            ></div>
+            ></div> */}
             
             <div 
               ref={(el) => setClientesRef("clientes-container", el)}
@@ -383,16 +366,15 @@ export default function Home() {
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2 border-[#1e3fda]/30 shadow-[0_0_30px_rgba(30,63,218,0.3)] z-30"></div>
                   
                   <Image 
-                    className="w-full transform transition-all duration-700 group-hover:scale-110 relative z-0" 
+                    className="w-full transform transition-all duration-700 group-hover:scale-100 relative z-0" 
                     src="/images/nosotros/clientes-desktop.png" 
                     alt="clientes" 
                     width={1296} 
                     height={747} 
                   />
                 </div>
-                
                 {/* Efecto de luz suave estático */}
-                <span className="image-light-soft absolute inset-0 z-40 pointer-events-none" aria-hidden="true"></span>
+                {/* <span className="image-light-soft absolute inset-0 z-40 pointer-events-none" aria-hidden="true"></span> */}
               </div>
             </div>
             
@@ -450,10 +432,10 @@ export default function Home() {
               <div 
                 className="absolute pointer-events-none"
                 style={{
-                  left: "15%",
-                  top: "65%",
-                  width: "50px",
-                  height: "50px",
+                  left: "54%",
+                  top: "66%",
+                  width: "38px",
+                  height: "38px",
                   zIndex: 50
                 }}
               >
@@ -484,10 +466,10 @@ export default function Home() {
               <div 
                 className="absolute pointer-events-none"
                 style={{
-                  left: "35%",
-                  top: "45%",
-                  width: "50px",
-                  height: "50px",
+                  left: "37%",
+                  top: "46%",
+                  width: "38px",
+                  height: "38px",
                   zIndex: 50
                 }}
               >
@@ -518,10 +500,10 @@ export default function Home() {
               <div 
                 className="absolute pointer-events-none"
                 style={{
-                  left: "60%",
-                  top: "30%",
-                  width: "50px",
-                  height: "50px",
+                  left: "57%",
+                  top: "36%",
+                  width: "38px",
+                  height: "38px",
                   zIndex: 50
                 }}
               >

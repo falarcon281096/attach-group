@@ -301,7 +301,7 @@ export default function ImageWithPlus({
 
     // Reset styles
     plusRef.current.style.position = 'absolute';
-    plusRef.current.style.zIndex = '50';
+    plusRef.current.style.zIndex = '9999';
     plusRef.current.style.transform = '';
     plusRef.current.style.left = '';
     plusRef.current.style.right = '';
@@ -384,6 +384,9 @@ export default function ImageWithPlus({
         plusRef.current.style.bottom = `calc(${currentBottom} + ${offsetY})`;
       }
     }
+
+    // Asegurar que el z-index se establezca al final para que tenga prioridad
+    plusRef.current.style.zIndex = '9999';
   }, [position, currentSize, currentPadding, padTop, padBottom, padLeft, padRight, curOffsetX, offsetY, curOverhangPercent]);
 
   // Update font size
@@ -416,7 +419,7 @@ export default function ImageWithPlus({
 
   const plusStyle = getPlusStyle();
   plusStyle.position = 'absolute';
-  plusStyle.zIndex = 50;
+  plusStyle.zIndex = 9999;
   plusStyle.pointerEvents = 'none';
 
   // Determinar las clases de bordes redondeados según la posición
@@ -439,12 +442,17 @@ export default function ImageWithPlus({
     }
   };
 
+  // Separar image-light-soft del containerClassName para evitar overflow-hidden en el contenedor principal
+  const hasImageLightSoft = containerClassName.includes('image-light-soft');
+  const cleanContainerClassName = containerClassName.replace('image-light-soft', '').trim();
+  
   return (
     <div 
       ref={containerRef}
-      className={`relative overflow-visible ${fill ? 'h-full' : ''} ${containerClassName}`}
+      className={`relative overflow-visible ${fill ? 'h-full' : ''} ${cleanContainerClassName}`}
+      style={{ position: 'relative', zIndex: 0 }}
     >
-      <div ref={imageRef} className={`relative w-full ${fill ? 'h-full' : ''} ${getRoundedClasses()}`} style={{ zIndex: 1 }}>
+      <div ref={imageRef} className={`relative w-full ${fill ? 'h-full' : ''} ${getRoundedClasses()} ${hasImageLightSoft ? 'image-light-soft' : ''}`} style={{ zIndex: 0, position: 'relative' }}>
         {fill ? (
           <Image
             src={src}

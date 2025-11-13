@@ -72,7 +72,7 @@ export default function Home() {
                 offsetX = "35px"
                 paddingDesktop="1rem" 
                 imageClassName="object-top"
-                containerClassName="w-full h-full overflow-hidden rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px] image-light-soft"
+                containerClassName="w-full h-full rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px] image-light-soft"
                 sizePercent={0.45}
                 overhangPercent={0.45}
                 sizePercentMobile={0.50}
@@ -128,12 +128,12 @@ export default function Home() {
                 <h4 className='text-[#1840E2] font-semibold  text-[24px] md:text-[48px] leading-[27px] md:leading-[54px]'>
                   Innovar. Colaborar. Evolucionar juntos.
                 </h4>
-                <p className='leading-5 text-[#818181] text-[14px] md:text-[20px] '>
+                <p className='font-[Graphik] leading-[19px] md:leading-[28px] text-[#818181] text-[14px] md:text-[20px] '>
                   Porque la forma en que trabajamos es tan importante como lo que
                   hacemos.
                 </p>
                 <div className='border px-4 py-2 rounded-xl scroll-reveal scroll-reveal-delay-1 card-bounce'>
-                  <p className="flex items-center gap-2 bg-gradient-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-[14px] md:text-[20px]">
+                  <p className="font-[Graphik] leading-[19px] md:leading-[28px] flex items-center gap-2 bg-gradient-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-[14px] md:text-[20px]">
                     <img
                       src="/images/cultura/check_circle.svg"
                       alt="check"
@@ -143,7 +143,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className='border px-4 py-2 rounded-xl ml-0 lg:ml-10 scroll-reveal scroll-reveal-delay-2 card-bounce'>
-                  <p className='flex items-center gap-2 bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-[14px] md:text-[20px]'>
+                  <p className='font-[Graphik] leading-[19px] md:leading-[28px] flex items-center gap-2 bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent text-[14px] md:text-[20px]'>
                     <img
                       src="/images/cultura/check_circle.svg"
                       alt="check"
@@ -197,7 +197,7 @@ export default function Home() {
             <h4 className='text-[#1840E2] font-semibold text-[24px] md:text-[48px] pt-10 md:pt-0'>
               Nuestro propósito
             </h4>
-            <div className='text-gray-500 text-[16px] md:text-[24px] mr-0 lg:mr-10'>
+            <div className='font-[Graphik] leading-[19px] md:leading-[28px] text-[#818181] text-[16px] md:text-[20px] mr-0 lg:mr-10'>
               Resolvemos problemas en las organizaciones a través del conocimiento, tecnología, innovación y talento experto; para así impulsar las economías y comunidades donde operamos.
             </div>
           </div>
@@ -269,7 +269,7 @@ export default function Home() {
               />
             </div>
             <div className='px-8 py-7'>
-              <p className='text-[14px] md:text-[20px] font-["Graphik"]  text-gray-500'>
+              <p className='text-[14px] md:text-[20px] font-["Graphik"]  text-gray-600'>
                 <b>Liderar, crecer, transformar.</b> Es nuestro espacio de
                 desarrollo para quienes quieren ir más allá.{' '}
                 <b className='text-gray-600'>
