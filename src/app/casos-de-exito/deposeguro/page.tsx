@@ -108,14 +108,9 @@ export default function Home() {
         {/* Hero Section */}
         <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c] rounded-b-[30px] lg:rounded-b-[50px] relative z-10 overflow-hidden">
           {/* Efecto de luz brillante que se mueve */}
-          <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
-            background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)",
-            animation: "shine 3s ease-in-out infinite",
-            width: "50%",
-            height: "100%"
-          }}></div>
+           
           
-          <div className="rounded-b-[50px] lg:ml-15 lg:pt-17 pb-0 lg:pb-16 pt-40 md:pt-40 relative z-10">
+          <div className="rounded-b-[50px] lg:ml-27 lg:pt-27 pb-0 lg:pb-16 pt-40 md:pt-40 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center lg:ml-15">
               {/* Content */}
               <div 
@@ -160,7 +155,7 @@ export default function Home() {
                     lg:pl-0
                     lg:relative 
                     before:absolute before:inset-0 
-                    before:z-index-10
+                    before:z-10
                     before:bg-[url('/images/general/attach_cross_white.png')]
                     before:bg-no-repeat
                     before:bg-center
@@ -178,7 +173,7 @@ export default function Home() {
                     ${isVisible["hero-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 translate-x-10 scale-100"}
                 `}
               >
-                <div className="relative overflow-hidden rounded-l-[4rem] group">
+                <div className="relative z-0 overflow-hidden rounded-l-[4rem] group">
                   <Image 
                     className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" 
                     src="/images/casos-de-exito/deposeguro.png" 
@@ -271,10 +266,12 @@ export default function Home() {
                     before:bg-center
                     before:content-['']
                     before:bg-[length:100%_100%]
+                    before:z-10
                     before:w-10
                     before:h-10
-                    before:-translate-x-[-17.5rem]
-                    before:top-20
+                    before:-translate-x-[-13rem]
+                    before:bottom-[14%]
+                     before:left-5
                     lg:before:w-15
                     lg:before:h-15
                     lg:before:-translate-x-1/2
@@ -306,12 +303,13 @@ export default function Home() {
                     before:absolute before:inset-0 
                     before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
                     before:bg-no-repeat
+                    before:z-10
                     before:bg-center
                     before:content-['']
                     before:bg-[length:100%_100%]
                     before:w-15
                     before:h-15
-                    before:-translate-x-[-36rem]
+                    before:-translate-x-[-34rem]
                     before:top-105
                     lg:order-[unset]
                     order-2
@@ -441,7 +439,7 @@ export default function Home() {
 
           <a 
             href="/contacto" 
-            className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] group transform"
+            className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-110 group transform"
             style={{ transitionDelay: "0.2s" }}
           >
             Conversemos <span className="ml-2 inline-block transform transition-transform duration-500 group-hover:translate-x-2">➜</span>

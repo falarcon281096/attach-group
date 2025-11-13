@@ -264,7 +264,7 @@ body {
 
 /* Reveal up animations with staggered delays */
 @keyframes revealUp {
-  0% { opacity: 0; transform: translateY(20px); }
+  0% { opacity: 0; transform: translateY(14px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
@@ -286,11 +286,21 @@ body {
 .hover-lift:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
 
 /* Scroll reveal variants */
-.scroll-reveal { opacity: 0; transform: translateY(16px); }
-.scroll-reveal.is-visible { animation: revealUp 800ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.scroll-reveal { opacity: 0; transform: translateY(14px); }
+.scroll-reveal.is-visible { animation: revealUp 1100ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+/* Row reveal: descubre fila creciendo con clip-path */
+@keyframes rowSweep {
+  0% { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(8px) scaleY(0.98); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); transform: translateY(0) scaleY(1); }
+}
+.row-reveal { opacity: 0; clip-path: inset(0 0 100% 0); }
+.row-reveal.is-visible { animation: rowSweep 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 .scroll-reveal-delay-1 { animation-delay: 120ms; }
 .scroll-reveal-delay-2 { animation-delay: 240ms; }
 .scroll-reveal-delay-3 { animation-delay: 360ms; }
+.scroll-reveal-delay-4 { animation-delay: 480ms; }
+.scroll-reveal-delay-5 { animation-delay: 600ms; }
 
 /* Arrow wiggle for "Conoce más" */
 @keyframes arrowWiggle {
@@ -660,12 +670,12 @@ body {
 @keyframes revealFromLeft {
   0% {
     opacity: 0;
-    transform: translateX(-42px) scale(0.98);
+    transform: translateX(-30px) scale(0.98);
     filter: blur(2px);
   }
   60% {
     opacity: 1;
-    transform: translateX(6px) scale(1.01);
+    transform: translateX(3px) scale(1.01);
     filter: blur(0);
   }
   100% {
@@ -677,12 +687,12 @@ body {
 @keyframes revealFromRight {
   0% {
     opacity: 0;
-    transform: translateX(400px) scale(0.98);
+    transform: translateX(240px) scale(0.98);
     filter: blur(2px);
   }
   60% {
     opacity: 1;
-    transform: translateX(-6px) scale(1.01);
+    transform: translateX(-3px) scale(1.01);
     filter: blur(0);
   }
   100% {
@@ -698,15 +708,15 @@ body {
 }
 
 .scroll-reveal-right {
-  transform: translateX(400px);
+  transform: translateX(240px);
 }
 
 .scroll-reveal-left.is-visible {
-  animation: revealFromLeft 900ms cubic-bezier(0.2, 0.65, 0, 1) forwards;
+  animation: revealFromLeft 1100ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .scroll-reveal-right.is-visible {
-  animation: revealFromRight 900ms cubic-bezier(0.2, 0.65, 0, 1) forwards;
+  animation: revealFromRight 1100ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* Delay utilities compatible with existing markup */

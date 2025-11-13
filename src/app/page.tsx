@@ -136,7 +136,7 @@ export default function Home() {
                   before:bg-[length:80%_80%] before:w-20 before:h-20 before:-translate-x-1/2 before:bottom-[10%] before:left-12
                   lg:before:bg-[length:100%_100%] lg:before:w-30 lg:before:h-30 lg:before:-translate-x-1/2 lg:before:left-0"
               >
-                <div className="relative overflow-hidden lg:rounded-tl-[40px] lg:rounded-bl-[40px] aspect-[3/2] lg:aspect-[16/9]">
+                <div className="relative overflow-hidden lg:rounded-tl-[40px] lg:rounded-bl-[40px]">
                   {/* Imagen móvil: sin bordes CSS y con archivo portada_movil.png */}
                   <Image
                     className={`block lg:hidden w-full h-auto relative z-0 transition-opacity duration-700 ${heroMobileLoaded ? 'opacity-100' : 'opacity-0'}`}
@@ -149,7 +149,7 @@ export default function Home() {
                   />
                   {/* Imagen desktop: mantiene bordes y estilos actuales */}
                   <Image
-                    className={`hidden lg:block w-full h-auto lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:object-cover lg:object-center lg:scale-125 relative z-0 transition-opacity duration-700 ${heroDesktopLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    className={`hidden lg:block w-full h-auto lg:h-[85%] lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:object-cover lg:object-center lg:scale-125 relative z-0 transition-opacity duration-700 ${heroDesktopLoaded ? 'opacity-100' : 'opacity-0'}`}
                     src="/images/home/portada.png"
                     alt="Home caminando hacia un portal con el logo de Attach"
                     width={1200}

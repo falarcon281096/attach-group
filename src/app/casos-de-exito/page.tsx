@@ -128,6 +128,28 @@ export default function Home() {
             ref={(el) => setElementRef("hero-button", el)}
             data-animate-id="hero-button"
             href="#atm-casos" 
+            onClick={(e) => {
+              e.preventDefault();
+              const target = document.getElementById('atm-casos');
+              if (target) {
+                const headerOffset = 80; // compensar header fijo
+                const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                const startY = window.pageYOffset;
+                const duration = 2000; // muy despacio
+                const startTime = performance.now();
+                const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+                const step = (now: number) => {
+                  const elapsed = now - startTime;
+                  const t = Math.min(elapsed / duration, 1);
+                  const y = startY + (targetY - startY) * easeOutCubic(t);
+                  window.scrollTo({ top: y, behavior: 'auto' });
+                  if (t < 1) requestAnimationFrame(step);
+                };
+
+                requestAnimationFrame(step);
+              }
+            }}
             className={`bg-white text-[16px] md:text-[20px] text-[#1840e2] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/90 flex justify-center max-w-200 mx-auto items-center transform transition-all duration-1000 delay-400 hover:scale-110  group ${
               isVisible["hero-button"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
@@ -187,22 +209,8 @@ export default function Home() {
       {/* CTA Talk Us */}
       <section className="pb-17 px-5 lg:pr-30 relative overflow-hidden">
         {/* Partículas de fondo */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-white"
-              style={{
-                width: `${Math.random() * 3 + 1}px`,
-                height: `${Math.random() * 3 + 1}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${Math.random() * 4 + 3}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`
-              }}
-            />
-          ))}
-        </div>
+        {/* Hydration-safe particles: render only after mount to avoid SSR randomness */}
+        <ParticlesBackground />
         
         <div 
           ref={(el) => setElementRef("cta-section", el)}
@@ -226,7 +234,7 @@ export default function Home() {
           </h2>
 
           <a 
-            href="mailto:talento@attachconsultores.com" 
+            href="mailto:talento@attach.group" 
             className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-110  group transform"
             style={{ transitionDelay: "0.2s" }}
           >
@@ -254,6 +262,53 @@ export default function Home() {
           }
         }
       `}} />
+    </div>
+  );
+}
+
+// Client-only particles to prevent hydration mismatches from Math.random
+function ParticlesBackground() {
+  const [mounted, setMounted] = useState(false);
+  const [particles, setParticles] = useState<Array<{
+    width: number;
+    height: number;
+    left: number;
+    top: number;
+    duration: number;
+    delay: number;
+  }>>([]);
+
+  useEffect(() => {
+    setMounted(true);
+    const gen = Array.from({ length: 15 }).map(() => ({
+      width: Math.random() * 3 + 1,
+      height: Math.random() * 3 + 1,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      duration: Math.random() * 4 + 3,
+      delay: Math.random() * 2,
+    }));
+    setParticles(gen);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+    <div className="absolute inset-0 opacity-10 pointer-events-none">
+      {particles.map((p, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-white"
+          style={{
+            width: `${p.width}px`,
+            height: `${p.height}px`,
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            animation: `float ${p.duration}s ease-in-out infinite`,
+            animationDelay: `${p.delay}s`,
+          }}
+        />
+      ))}
     </div>
   );
 }

@@ -43,7 +43,9 @@ export default function Home() {
                 height={600}
                 position="LEFT_DOWN"
                 paddingLeftDesktop="-1.6rem"
+                paddingTopMobile='20px'
                 offsetXDesktop="-30px"
+                offsetXMobile="-35px" 
                 paddingDesktop="1rem"  
                 imageClassName="block w-full h-auto"
                 containerClassName="w-full image-light-soft"
@@ -68,15 +70,15 @@ export default function Home() {
                 position="RIGHT_DOWN"
                 paddingMobile="2rem"
                 paddingBottomMobile='-9px'
-                offsetXMobile = "39px"
+                offsetXMobile = "10px"
                 offsetX = "35px"
                 paddingDesktop="1rem" 
                 imageClassName="object-cover"
                 containerClassName="w-full h-full rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px] image-light-soft"
-                sizePercent={0.35}
-                overhangPercent={0.35}
-                sizePercentMobile={0.30}
-                overhangPercentMobile={0.30}
+                sizePercent={0.52}
+                overhangPercent={0.52}
+                sizePercentMobile={0.40}
+                overhangPercentMobile={0.40}
               />
             </div>   
           </div>
@@ -328,7 +330,7 @@ export default function Home() {
       </section>
 
       {/* banner contactanos */}
-      <section className='pb-17 mx-10 md:mx-0 mt-20 md:mt-0 md:pr-30'>
+      <section className='pb-17 mx-10 md:mx-0 mt-10 md:mt-0 md:pr-30'>
         <div className='flex flex-col gap-5 md:gap-10 md:pl-30 md:pt-20 md:pb-17 md:border-r-2 md:border-b-2 md:border-white/30 md:rounded-br-[50px]'>
           <h2 className='text-[24px] md:text-[48px] leadin-[20px] md:leadin-[44px] font-bold max-w-full md:max-w-7xl text-white w-150 scroll-reveal'>
             ¿Quiere marcar la diferencia con nosotros?

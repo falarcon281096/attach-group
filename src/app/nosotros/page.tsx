@@ -318,33 +318,7 @@ export default function Home() {
 
           <section className="py-0 relative overflow-hidden">
             {/* Partículas de fondo flotantes */}
-            {/* <div className="absolute inset-0 opacity-20 pointer-events-none z-0">
-              {particles.map((particle, i) => (
-                <div
-                  key={i}
-                  className="absolute rounded-full bg-gradient-to-r from-[#1e3fda] to-[#58308c]"
-                  style={{
-                    width: `${particle.width}px`,
-                    height: `${particle.height}px`,
-                    left: `${particle.left}%`,
-                    top: `${particle.top}%`,
-                    animation: `float ${particle.animationDuration}s ease-in-out infinite`,
-                    animationDelay: `${particle.animationDelay}s`
-                  }}
-                />
-              ))}
-            </div> */}
             
-            {/* Efecto de luz brillante que se mueve */}
-            {/* <div 
-              className="absolute inset-0 opacity-10 pointer-events-none z-10"
-              style={{
-                background: "linear-gradient(90deg, transparent 0%, rgba(30,63,218,0.3) 50%, transparent 100%)",
-                animation: "shine 4s ease-in-out infinite",
-                width: "50%",
-                height: "100%"
-              }}
-            ></div> */}
             
             <div 
               ref={(el) => setClientesRef("clientes-container", el)}
@@ -355,16 +329,8 @@ export default function Home() {
             >
               <div className="relative group">
                 {/* Imagen con efectos */}
-                <div className="relative overflow-hidden rounded-2xl transform transition-all duration-700 group-hover:scale-[1.02]">
-                  {/* Overlay con gradiente en hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1e3fda]/0 to-[#58308c]/0 group-hover:from-[#1e3fda]/10 group-hover:to-[#58308c]/10 transition-all duration-500 z-10"></div>
-                  
-                  {/* Efecto de brillo en hover */}
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 z-20"></div>
-                  
-                  {/* Borde brillante en hover */}
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2 border-[#1e3fda]/30 shadow-[0_0_30px_rgba(30,63,218,0.3)] z-30"></div>
-                  
+                <div className="relative overflow-hidden rounded-2xl transform transition-all duration-700">
+                 
                   <Image 
                     className="w-full transform transition-all duration-700 group-hover:scale-100 relative z-0" 
                     src="/images/nosotros/clientes-desktop.png" 

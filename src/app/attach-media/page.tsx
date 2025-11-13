@@ -9,7 +9,39 @@ import AttachBenefits from "../../components/AttachBenefits";
 import { useEffect, useRef, useState } from "react";
  
 
-export default function AttachMediaPage() {
+  export default function AttachMediaPage() {
+    const [isEquipoOpen, setIsEquipoOpen] = useState(false);
+    const equipoContentRef = useRef<HTMLDivElement | null>(null);
+    const [equipoContentHeight, setEquipoContentHeight] = useState(0);
+
+    const [isEstructuraOpen, setIsEstructuraOpen] = useState(false);
+    const estructuraContentRef = useRef<HTMLDivElement | null>(null);
+    const [estructuraContentHeight, setEstructuraContentHeight] = useState(0);
+
+    useEffect(() => {
+      if (isEquipoOpen && equipoContentRef.current) {
+        setEquipoContentHeight(equipoContentRef.current.scrollHeight);
+      }
+    }, [isEquipoOpen]);
+
+    useEffect(() => {
+      if (isEstructuraOpen && estructuraContentRef.current) {
+        setEstructuraContentHeight(estructuraContentRef.current.scrollHeight);
+      }
+    }, [isEstructuraOpen]);
+
+    useEffect(() => {
+      const onResize = () => {
+        if (isEquipoOpen && equipoContentRef.current) {
+          setEquipoContentHeight(equipoContentRef.current.scrollHeight);
+        }
+        if (isEstructuraOpen && estructuraContentRef.current) {
+          setEstructuraContentHeight(estructuraContentRef.current.scrollHeight);
+        }
+      };
+      window.addEventListener("resize", onResize);
+      return () => window.removeEventListener("resize", onResize);
+    }, [isEquipoOpen]);
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
   const observerRef = useRef<IntersectionObserver | null>(null);
   const elementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
@@ -257,12 +289,50 @@ export default function AttachMediaPage() {
                 </p>
               </div>
             </div>
-            
+            {/* Contenido adicional (acordeón suave) */}
+            <div
+              className="px-6 md:px-10"
+              style={{
+                overflow: "hidden",
+                transition: "max-height 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease",
+                maxHeight: isEquipoOpen ? equipoContentHeight : 0,
+                opacity: isEquipoOpen ? 1 : 0,
+              }}
+            >
+              <div ref={equipoContentRef}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  {/* Columna 1 */}
+                  <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
+                    <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">Auditor 2.0</h4>
+                    <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
+                      <span className="font-semibold text-[#00B0C8]">Analiza más de 100 variables de una cuenta publicitaria</span> para sugerir mejoras en aspectos como la segmentación. Estas recomendaciones son brindadas al equipo operativo y reevaluadas de forma periódica para garantizar una calidad consistente independientemente de la persona asignada a la cuenta.
+                    </p>
+                  </div>
+
+                  {/* Columna 2 */}
+                  <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
+                    <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">3P Performance Framework</h4>
+                    <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
+                      Nuestra herramienta se conecta directamente con la data del cliente para guiar a nuestros analistas y consultores en la ruta de optimización. Basada en nuestro expertise y aprendizaje continuo de más de 20 años, convierte la información en acción y asegura decisiones consistentes que no dependen solo del criterio individual. 3P Performance Framework se basa en 3 pilares: <span className="font-semibold text-[#00B0C8]">presencia, persuasión y performance</span>, utilizando árboles de decisión en cada etapa para impulsar resultados predecibles y escalables.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* Botón Ver más - Flotando en el borde inferior del modal */}
             <div className="absolute -bottom-4 md:-bottom-6 left-1/2 transform -translate-x-1/2 z-10">
-              <button className="bg-linear-to-r from-[#2f7de1] to-[#25bbcd] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(47,125,224,0.6)] flex items-center shadow-lg text-sm md:text-base group">
-                Ver más
-                <svg className="ml-2 w-3 h-3 md:w-4 md:h-4 transform transition-transform duration-500 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <button
+                onClick={() => setIsEquipoOpen((v) => !v)}
+                aria-expanded={isEquipoOpen}
+                className="bg-linear-to-r from-[#2f7de1] to-[#25bbcd] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(47,125,224,0.6)] flex items-center shadow-lg text-sm md:text-base group"
+              >
+                {isEquipoOpen ? "Ver menos" : "Ver más"}
+                <svg
+                  className="ml-2 w-3 h-3 md:w-4 md:h-4 transform transition-transform duration-500 group-hover:translate-y-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
@@ -305,11 +375,44 @@ export default function AttachMediaPage() {
                 </p>
               </div>
             </div>
-            
+            {/* Contenido adicional (acordeón suave) */}
+            <div
+              className="px-6 md:px-10"
+              style={{
+                overflow: "hidden",
+                transition: "max-height 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease",
+                maxHeight: isEstructuraOpen ? estructuraContentHeight : 0,
+                opacity: isEstructuraOpen ? 1 : 0,
+              }}
+            >
+              <div ref={estructuraContentRef}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  {/* Columna 1 */}
+                  <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
+                    <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">Auditor 2.0</h4>
+                    <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
+                      <span className="font-semibold">Analiza más de 100 variables de una cuenta publicitaria</span> para sugerir mejoras en aspectos como la segmentación. Estas recomendaciones son brindadas al equipo operativo y reevaluadas de forma periódica para garantizar una calidad consistente independientemente de la persona asignada a la cuenta.
+                    </p>
+                  </div>
+
+                  {/* Columna 2 */}
+                  <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
+                    <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">3P Performance Framework</h4>
+                    <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
+                      Nuestra herramienta se conecta directamente con la data del cliente para guiar a nuestros analistas y consultores en la ruta de optimización. Basada en nuestro expertise y aprendizaje continuo de más de 20 años, convierte la información en acción y asegura decisiones consistentes que no dependen solo del criterio individual. 3P Performance Framework se basa en 3 pilares: <span className="font-semibold">presencia, persuasión y performance</span>, utilizando árboles de decisión en cada etapa para impulsar resultados predecibles y escalables.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* Botón Ver más - Flotando en el borde inferior del modal */}
             <div className="absolute -bottom-4 md:-bottom-6 left-1/2 transform -translate-x-1/2 z-10">
-              <button className="bg-linear-to-r from-[#2f7de1] to-[#25bbcd] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(47,125,224,0.6)] flex items-center shadow-lg text-sm md:text-base group">
-                Ver más
+              <button
+                onClick={() => setIsEstructuraOpen((v) => !v)}
+                aria-expanded={isEstructuraOpen}
+                className="bg-linear-to-r from-[#2f7de1] to-[#25bbcd] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(47,125,224,0.6)] flex items-center shadow-lg text-sm md:text-base group"
+              >
+                {isEstructuraOpen ? "Ver menos" : "Ver más"}
                 <svg className="ml-2 w-3 h-3 md:w-4 md:h-4 transform transition-transform duration-500 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
