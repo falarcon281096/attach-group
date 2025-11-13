@@ -88,7 +88,7 @@ export default function Home() {
 
         {/* Hero Section */}
         <div className={`z-10 pb-20 ${styles.hero}`}>
-          <div className="ml-15 border-l-2 border-b-2 border-[#818181]/20 rounded-bl-[50px] pt-20">
+          <div className="ml-15 border-l-2 border-b-2 border-[#818181]/20 rounded-bl-[50px] pt-20 md:pt-24">
             <div className="grid lg:grid-cols-2 gap-6 lg:gap-x-12 lg:gap-y-4 items-center ml-15 overflow-visible">
               {/* Título (móvil primero). Párrafo solo visible en desktop dentro de este bloque */}
               <div className="order-1 lg:order-1 lg:col-start-1 pl-5 md:pl-0">
