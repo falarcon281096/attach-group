@@ -43,8 +43,8 @@ export default function Home() {
                 height={600}
                 position="LEFT_DOWN"
                 paddingLeftDesktop="-1.6rem"
-                paddingDesktop="1rem"   
-                offsetXMobile = "-17px"
+                offsetXDesktop="-30px"
+                paddingDesktop="1rem"  
                 imageClassName="block w-full h-auto"
                 containerClassName="w-full image-light-soft"
                 sizePercent={0.44}
@@ -80,14 +80,13 @@ export default function Home() {
               />
             </div>   
           </div>
-          <div className='flex flex-col justify-start gap-1 pl-10 md:pl-0 md:gap-0 order-1 lg:order-2 px-5 lg:pr-50 pt-0  md:pt-23 scroll-reveal scroll-reveal-right scroll-reveal-delay-1'>
-            <p className="text-[#1840E2] font-['Graphik'] text-[24px] md:text-[48px] leading-[32px] md:leading-[52px]">
+          <div className='flex flex-col justify-start gap-1 pl-10 md:pl-0 md:gap-0 order-1 lg:order-2 px-5 lg:pl-28 lg:pr-20 pt-0  md:pt-23 scroll-reveal scroll-reveal-right scroll-reveal-delay-1' style={{ transitionDuration: '700ms' }}>
+            <p className="text-[#1840E2] font-['Graphik'] font-normal text-[24px] md:text-[48px] leading-[32px] md:leading-[52px]">
               Nos inspira resolver desafíos,{' '}
               <strong className='font-semibold'>aprender constantemente y crecer</strong> en un entorno
               colaborativo.
             </p>
-            <br />
-            <p className='text-[#1840E2] text-[24px] md:text-[48px] leading-[32px] md:leading-[52px]'>
+            <p className='text-[#1840E2] pt-5 md:pt-14 text-[24px] md:text-[48px] leading-[32px] md:leading-[52px]'>
               No solo hablamos de resultados: <strong className='font-semibold'>los generamos.</strong>
             </p>
           </div>
@@ -132,7 +131,7 @@ export default function Home() {
                   Porque la forma en que trabajamos es tan importante como lo que
                   hacemos.
                 </p>
-                <div className='border px-4 py-2 rounded-xl scroll-reveal scroll-reveal-delay-1 card-bounce'>
+                <div className='border border-[#C8C8C8] px-4 py-2 rounded-xl scroll-reveal scroll-reveal-delay-1 card-bounce'>
                   <p 
                     className="font-[Graphik] leading-[19px] md:leading-[28px] flex items-center gap-2 bg-clip-text text-transparent text-[14px] md:text-[20px]"
                     style={{
@@ -149,7 +148,7 @@ export default function Home() {
                     Mindset innovador. Para generar impacto real y sostenible
                   </p>
                 </div>
-                <div className='border px-4 py-2 rounded-xl ml-0 lg:ml-10 scroll-reveal scroll-reveal-delay-2 card-bounce'>
+                <div className='border border-[#C8C8C8] px-4 py-2 rounded-xl ml-0 lg:ml-10 scroll-reveal scroll-reveal-delay-2 card-bounce'>
                   <p className='font-[Graphik] leading-[19px] md:leading-[28px] flex items-center gap-2 bg-clip-text text-transparent text-[14px] md:text-[20px]' 
                     style={{
                       background: 'linear-gradient(276.34deg, #5E2F84 0.11%, #1840E2 100.11%)',
@@ -334,7 +333,7 @@ export default function Home() {
           <h2 className='text-[24px] md:text-[48px] leadin-[20px] md:leadin-[44px] font-bold max-w-full md:max-w-7xl text-white w-150 scroll-reveal'>
             ¿Quiere marcar la diferencia con nosotros?
           </h2>
-          <p className='text-[14px] md:text-[22px] font-["Graphik"] text-white w-full md:w-[80%]'>Si compartes nuestra pasión por la innovación, mándanos tu CV a <a className='font-semibold' href='mailto:talento@attachconsultores.com'>talento@attachconsultores.com</a></p>
+          <p className='text-[14px] md:text-[22px] font-["Graphik"] text-white w-full md:w-[80%]'>Si compartes nuestra pasión por la innovación, mándanos tu CV a <a className='font-semibold' href='mailto:talento@attach.group'>talento@attach.group</a></p>
           {/* <Link href="/contacto" className='self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition glow-button scroll-reveal scroll-reveal-delay-1'>
             Contáctanos <span className='ml-2 arrow-wiggle'>➜</span>
           </Link> */}

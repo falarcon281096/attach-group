@@ -16,6 +16,9 @@ export default function Home() {
   const [activeCase, setActiveCase] = useState<cases>('caja-arequipa');
   // Estado para animaciones de las tarjetas de servicios
   const [isCardVisible, setIsCardVisible] = useState<{ [key: string]: boolean }>({});
+  // Estado para controlar el fade-in de las imágenes del hero
+  const [heroMobileLoaded, setHeroMobileLoaded] = useState(false);
+  const [heroDesktopLoaded, setHeroDesktopLoaded] = useState(false);
   const cardsObserverRef = useRef<IntersectionObserver | null>(null);
   const cardsElementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
 
@@ -133,22 +136,26 @@ export default function Home() {
                   before:bg-[length:80%_80%] before:w-20 before:h-20 before:-translate-x-1/2 before:bottom-[10%] before:left-12
                   lg:before:bg-[length:100%_100%] lg:before:w-30 lg:before:h-30 lg:before:-translate-x-1/2 lg:before:left-0"
               >
-                <div className="relative overflow-hidden lg:rounded-tl-[40px] lg:rounded-bl-[40px]">
+                <div className="relative overflow-hidden lg:rounded-tl-[40px] lg:rounded-bl-[40px] aspect-[3/2] lg:aspect-[16/9]">
                   {/* Imagen móvil: sin bordes CSS y con archivo portada_movil.png */}
                   <Image
-                    className="block lg:hidden w-full h-auto relative z-0"
+                    className={`block lg:hidden w-full h-auto relative z-0 transition-opacity duration-700 ${heroMobileLoaded ? 'opacity-100' : 'opacity-0'}`}
                     src="/images/home/portada_movil.png"
                     alt="Home caminando hacia un portal con el logo de Attach"
                     width={1200}
                     height={1000}
+                    priority
+                    onLoadingComplete={() => setHeroMobileLoaded(true)}
                   />
                   {/* Imagen desktop: mantiene bordes y estilos actuales */}
                   <Image
-                    className="hidden lg:block w-full h-auto lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:h-[85%] lg:object-cover lg:object-center lg:scale-125 relative z-0"
+                    className={`hidden lg:block w-full h-auto lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:object-cover lg:object-center lg:scale-125 relative z-0 transition-opacity duration-700 ${heroDesktopLoaded ? 'opacity-100' : 'opacity-0'}`}
                     src="/images/home/portada.png"
                     alt="Home caminando hacia un portal con el logo de Attach"
                     width={1200}
                     height={1000}
+                    priority
+                    onLoadingComplete={() => setHeroDesktopLoaded(true)}
                   />
                   {/* Overlay de luz sutil (estático, sin animación para evitar saltos) */}
                   <div className="image-light-static" aria-hidden="true" />
