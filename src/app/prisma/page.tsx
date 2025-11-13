@@ -9,6 +9,7 @@ import GalileoSolutions from "../../components/GalileoSolutions";
 import ResponsiveHeading from "@/components/ResponsiveHeading";
 import TwoColumnGradientSection from "@/components/TwoColumnGradientSection";
 import TextImageSection from "@/components/TextImageSection";
+ 
 
 
 export default function Home() {

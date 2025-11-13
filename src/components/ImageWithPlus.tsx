@@ -301,6 +301,7 @@ export default function ImageWithPlus({
 
     // Reset styles
     plusRef.current.style.position = 'absolute';
+    plusRef.current.style.zIndex = '50';
     plusRef.current.style.transform = '';
     plusRef.current.style.left = '';
     plusRef.current.style.right = '';
@@ -415,7 +416,7 @@ export default function ImageWithPlus({
 
   const plusStyle = getPlusStyle();
   plusStyle.position = 'absolute';
-  plusStyle.zIndex = 10;
+  plusStyle.zIndex = 50;
   plusStyle.pointerEvents = 'none';
 
   // Determinar las clases de bordes redondeados según la posición
@@ -443,7 +444,7 @@ export default function ImageWithPlus({
       ref={containerRef}
       className={`relative overflow-visible ${fill ? 'h-full' : ''} ${containerClassName}`}
     >
-      <div ref={imageRef} className={`relative w-full ${fill ? 'h-full' : ''} ${getRoundedClasses()}`}>
+      <div ref={imageRef} className={`relative w-full ${fill ? 'h-full' : ''} ${getRoundedClasses()}`} style={{ zIndex: 1 }}>
         {fill ? (
           <Image
             src={src}

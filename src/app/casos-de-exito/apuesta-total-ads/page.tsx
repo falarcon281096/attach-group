@@ -4,6 +4,7 @@ import Image from "next/image";
 import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+ 
 
 export default function Home() {
   const stats = [
@@ -159,14 +160,14 @@ export default function Home() {
               Estrategia
             </h3>
             <p className="tex-xl text-gray-600">
-              <b>Selección de plataforma con audiencias de intención de compra</b><br />
+              <b>1. Selección de plataforma con audiencias de intención de compra: </b>
               Athena Ads implementó un piloto de cuatro semanas en una plataforma especializada en audiencias con intención de compra.
               A diferencia de otras soluciones tradicionales basadas en intereses o contextos, esta permitía identificar usuarios propensos a realizar transacciones en línea, lo que la hacía ideal para el modelo de negocio de Apuesta Total.
               <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>Configuración avanzada con Smart Audience</b><br />
+              <b>2. Configuración avanzada con Smart Audience: </b>
               Se utilizó la funcionalidad Smart Audience, un tipo de segmentación avanzada que combina distintos intereses y comportamientos de compra de los usuarios en función de la URL de destino definida por campaña y del píxel de conversión configurado para medir el evento de recargas.
               Gracias a esta configuración, el algoritmo pudo aprender automáticamente qué perfiles tenían mayor propensión a realizar recargas, optimizando el alcance hacia audiencias con mayor probabilidad de conversión y retroalimentando la plataforma con datos reales de comportamiento.
               A diferencia de la segmentación tradicional, donde se seleccionan intereses específicos por campaña, Smart Audience automatiza y mejora la precisión de la segmentación a partir del aprendizaje continuo del sistema.
@@ -174,17 +175,16 @@ export default function Home() {
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>Creatividades responsive y contexto deportivo</b><br />
+              <b>3. Creatividades responsive y contexto deportivo: </b>
               Se activaron formatos responsive ads, que adaptaban su diseño y mensaje según el espacio disponible y el contexto del sitio web.
               Además, se realizaron test A/B entre creatividades genéricas y otras inspiradas en eventos deportivos de alta relevancia, para identificar los momentos con mayor intención de recarga.
               <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>Optimización de inversión y aprendizaje progresivo</b><br />
+              <b>4. Optimización de inversión y aprendizaje progresivo: </b>
               Inicialmente, el foco estuvo en la acumulación de datos y el entrenamiento del algoritmo. Luego, la plataforma comenzó a optimizar automáticamente hacia audiencias de mejor rendimiento, logrando un incremento significativo en recargas con el mismo presupuesto.
               Posteriormente, al combinar insights de comportamiento y coyuntura deportiva, se logró también aumentar el valor promedio de cada recarga.
-
             </p>
           </div>
         </div>

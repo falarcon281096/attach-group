@@ -4,6 +4,7 @@ import Image from "next/image";
 import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+ 
 
 export default function Home() {
 
@@ -137,8 +138,8 @@ export default function Home() {
                     before:content-['']
                     before:bg-[length:100%_100%]
                     before:w-15
-                    before:h-15
-                    -translate-x-[18em]
+                    before:h-15 
+                    -translate-x-[16em]
                     before:transform md:before:-translate-x-[34em]
                     before:top-105
                     lg:order-[unset]
@@ -153,10 +154,10 @@ export default function Home() {
             <p className="tex-xl text-gray-600">
               Para abordar este reto, aplicamos nuestro enfoque experto y metodológico:
             </p>
+            <br />
+            <p className="tex-xl text-gray-600"><b>1. Empatizar primero: </b> realizamos entrevistas en profundidad con directivos, editores y usuarios para comprender tanto los objetivos de negocio como las normas éticas y las necesidades reales de consumo de información.</p><br />
 
-            <p className="tex-xl text-gray-600"><b> - Empatizar primero: </b> realizamos entrevistas en profundidad con directivos, editores y usuarios para comprender tanto los objetivos de negocio como las normas éticas y las necesidades reales de consumo de información.</p><br />
-
-            <p className="tex-xl text-gray-600"><b> - Comparar y medir: </b>  analizamos diferentes modelos de lenguaje (ChatGPT, Claude, DeepSeek, Grok, Meta AI, Microsoft Copilot y Gemini), evaluando comprensión, factualidad, accesibilidad y usabilidad.</p><br />
+            <p className="tex-xl text-gray-600"><b>2. Comparar y medir: </b>  analizamos diferentes modelos de lenguaje (ChatGPT, Claude, DeepSeek, Grok, Meta AI, Microsoft Copilot y Gemini), evaluando comprensión, factualidad, accesibilidad y usabilidad.</p><br />
 
             <p className="tex-xl text-gray-600">
               <b>- BigQuery Notebooks: </b>Permitió automatizar procesos mediante código directamente en la misma base de datos, sin necesidad de mover la información a otras herramientas.<br />
@@ -165,9 +166,9 @@ export default function Home() {
             <p className="tex-xl text-gray-600"><b>- Diseñar con propósito: </b> consolidamos los hallazgos en formatos conversacionales claros y seguros, que reflejaran la voz periodística de El Universal.</p><br />
 
 
-            <p className="tex-xl text-gray-600"><b>- Prototipar la experiencia completa: </b> diseñamos un sistema visual accesible y responsive, y creamos un prototipo end-to-end en Figma.</p><br />
+            <p className="tex-xl text-gray-600"><b>3. Prototipar la experiencia completa: </b> diseñamos un sistema visual accesible y responsive, y creamos un prototipo end-to-end en Figma.</p><br />
 
-            <p className="tex-xl text-gray-600"><b>- Asegurar continuidad técnica: </b> entregamos un hand-off completo con tokens, especificaciones y flujos, listos para su implementación.</p>
+            <p className="tex-xl text-gray-600"><b>4. Asegurar continuidad técnica: </b> entregamos un hand-off completo con tokens, especificaciones y flujos, listos para su implementación.</p>
           </div>
 
         </div>

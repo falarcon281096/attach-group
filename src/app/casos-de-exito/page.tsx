@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useEffect, useRef, useState } from "react";
+ 
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
@@ -98,22 +99,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="mx-5 lg:mx-30 py-25 pt-32 md:pt-40 relative overflow-hidden">
         {/* Efecto de partículas de fondo */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-white"
-              style={{
-                width: `${Math.random() * 4 + 2}px`,
-                height: `${Math.random() * 4 + 2}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${Math.random() * 3 + 2}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`
-              }}
-            />
-          ))}
-        </div>
+         
         
         <div className="flex flex-col gap-10 text-center px-5 lg:px-20 max-w-200 mx-auto relative z-10">
           {/* Content */}
@@ -124,7 +110,7 @@ export default function Home() {
               isVisible["hero-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
             style={{
-              textShadow: "0 0 30px rgba(255,255,255,0.5)"
+              // textShadow: "0 0 30px rgba(255,255,255,0.5)"
             }}
           >
             Estrategias digitales, éxitos reales
@@ -142,7 +128,7 @@ export default function Home() {
             ref={(el) => setElementRef("hero-button", el)}
             data-animate-id="hero-button"
             href="#atm-casos" 
-            className={`bg-white text-[16px] md:text-[20px] text-[#1840e2] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/90 flex justify-center max-w-200 mx-auto items-center transform transition-all duration-1000 delay-400 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] group ${
+            className={`bg-white text-[16px] md:text-[20px] text-[#1840e2] px-10 py-4 rounded-lg font-semibold text-lg hover:bg-white/90 flex justify-center max-w-200 mx-auto items-center transform transition-all duration-1000 delay-400 hover:scale-110  group ${
               isVisible["hero-button"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
@@ -225,18 +211,26 @@ export default function Home() {
             isVisible["cta-section"] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold max-w-5xl text-white transform transition-all duration-700 hover:scale-105" style={{
-            textShadow: "0 0 30px rgba(255,255,255,0.3)"
-          }}>
-            ¿Quieres ser nuestro próximo caso de éxito?
+          <h2 
+            ref={(el) => setElementRef("cta-title", el)}
+            data-animate-id="cta-title"
+            className={`text-3xl md:text-4xl lg:text-5xl font-semibold max-w-5xl text-white transform transition-all duration-700 ${
+              isVisible["cta-title"] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+            }`}
+            style={{
+              // textShadow: "0 0 30px rgba(255,255,255,0.3)",
+              transitionDelay: "0.1s"
+            }}
+          >
+            ¿Quieres marcar la diferencia con nosotros?
           </h2>
 
           <a 
-            href="/contacto" 
-            className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] group transform"
+            href="mailto:talento@attachconsultores.com" 
+            className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-110  group transform"
             style={{ transitionDelay: "0.2s" }}
           >
-            Conversemos <span className="ml-2 inline-block transform transition-transform duration-500 group-hover:translate-x-2">➜</span>
+            Mándanos tu CV <span className="ml-2 inline-block transform transition-transform duration-500 group-hover:translate-x-2">➜</span>
           </a>
         </div>
       </section>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+ 
 
 export default function Home() {
   const stats = [
@@ -164,25 +165,25 @@ export default function Home() {
               Estrategia
             </h3>
             <p className="tex-xl text-gray-600">
-              <b>Automatización con CLO (Catalog Live Odds)</b><br />
+              <b>1. Automatización con CLO (Catalog Live Odds): </b>
               Se implementó Catalog Live Odds, un Alpha de Meta, que permitió conectar en tiempo real la base de datos de cuotas y partidos de Apuesta Total con sus campañas digitales.
              <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>Creación de Catálogo Dinámico</b><br />
+              <b>2. Creación de Catálogo Dinámico: </b>
               Se desarrolló un catálogo de apuestas dinámicas que actualiza información clave (equipos, torneos, cuotas) de forma instantánea.
               <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>Generación de Banners Dinámicos</b><br />
+              <b>3. Generación de Banners Dinámicos: </b>
               Se diseñaron plantillas para imágenes y videos, automatizando la creación de más de 15,000 banners mensuales para más de 200 partidos, eliminando revisiones
               <br /><br />
             </p>
 
             <p className="tex-xl text-gray-600">
-              <b>Sincronización Total y Escalabilidad</b><br />
+              <b>4. Sincronización Total y Escalabilidad: </b>
               Cualquier cambio en partidos o cuotas se refleja automáticamente en los anuncios, garantizando mensajes actualizados y relevantes para los usuarios en el momento justo.
             </p>
           </div>

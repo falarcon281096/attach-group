@@ -7,6 +7,7 @@ import Link from 'next/link';
 import AttachMediaProcessSection from "../../components/AttachMediaProcessSection";
 import AttachBenefits from "../../components/AttachBenefits";
 import { useEffect, useRef, useState } from "react";
+ 
 
 export default function AttachMediaPage() {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
@@ -94,7 +95,7 @@ export default function AttachMediaPage() {
               <h1 className={`text-[24px] md:text-[40px] leading-[30px] md:leading-[42px] font-['Graphik'] font-semibold mb-4 md:mb-2 leading-tight md:w-[80%] transition-all duration-1000 delay-200 ${
                 isVisible["hero-left"] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
               }`} style={{
-                textShadow: "0 0 30px rgba(255,255,255,0.5)"
+                // textShadow: "0 0 30px rgba(255,255,255,0.5)"
               }}>
                 Tecnología y data aplicada a los medios
               </h1>

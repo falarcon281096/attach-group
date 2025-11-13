@@ -7,6 +7,8 @@ import ImageWithPlus from "@/components/ImageWithPlus";
 import Image from "next/image";
 import { FormEvent, ChangeEvent, useState, useRef, useEffect } from "react";
 
+ 
+
 export default function Home() {
   // Estado para manejar el caso activo
   type FormData = {

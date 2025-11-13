@@ -4,12 +4,37 @@ import Image from "next/image";
 import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+ 
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
   const observerRef = useRef<IntersectionObserver | null>(null);
   const elementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  // Estado para partículas flotantes (generadas solo en el cliente)
+  const [particles, setParticles] = useState<Array<{
+    width: number;
+    height: number;
+    left: number;
+    top: number;
+    animationDuration: number;
+    animationDelay: number;
+  }>>([]);
+
+  // Generar partículas solo en el cliente para evitar hydration mismatch
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 15 }, () => ({
+        width: Math.random() * 3 + 1,
+        height: Math.random() * 3 + 1,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        animationDuration: Math.random() * 4 + 3,
+        animationDelay: Math.random() * 2,
+      }))
+    );
+  }, []);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -96,15 +121,15 @@ export default function Home() {
               <div 
                 ref={(el) => setElementRef("hero-content", el)}
                 data-animate-id="hero-content"
-                className={`text-white px-7 transition-all duration-1000 ${
-                  isVisible["hero-content"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"
-                }`}
+                className={`text-white px-7 transition-all duration-1000 
+                   
+                `}
               >
                 <p 
                   className="text-3xl lg:text-5xl font-800 transform transition-all duration-700 hover:scale-105" 
                   style={{
                     fontWeight:'100',
-                    textShadow: "0 0 20px rgba(255,255,255,0.3)"
+                    // textShadow: "0 0 20px rgba(255,255,255,0.3)"
                   }}
                 >
                   Optimización web
@@ -112,7 +137,7 @@ export default function Home() {
                 <h1 className={`text-4xl lg:text-6xl font-bold mb-8 mr-4 transform transition-all duration-1000 delay-200 hover:scale-105 ${
                   isVisible["hero-content"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"
                 }`} style={{
-                  textShadow: "0 0 30px rgba(255,255,255,0.5)"
+                  // textShadow: "0 0 30px rgba(255,255,255,0.5)"
                 }}>
                   que impulsa la conversión
                 </h1>
@@ -135,6 +160,7 @@ export default function Home() {
                     lg:pl-0
                     lg:relative 
                     before:absolute before:inset-0 
+                    before:z-index-10
                     before:bg-[url('/images/general/attach_cross_white.png')]
                     before:bg-no-repeat
                     before:bg-center
@@ -147,7 +173,7 @@ export default function Home() {
                     lg:before:-translate-x-1/2
                     before:-translate-x-[-0.5rem]
                     lg:before:top-100
-                    before:top-45
+                    before:top-45 
                     transform transition-all duration-1000 delay-300
                     ${isVisible["hero-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 translate-x-10 scale-100"}
                 `}
@@ -178,7 +204,7 @@ export default function Home() {
                 style={{ transitionDelay: "0.2s" }}
               >
                 <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500 group-hover:scale-110" style={{
-                  textShadow: "0 0 20px rgba(255,255,255,0.5)"
+                  // textShadow: "0 0 20px rgba(255,255,255,0.5)"
                 }}>+45%</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100 group-hover:translate-x-2">en tasa de conversión web (YoY)</p>
               </div>
@@ -192,7 +218,7 @@ export default function Home() {
                 style={{ transitionDelay: "0.3s" }}
               >
                 <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500 group-hover:scale-110" style={{
-                  textShadow: "0 0 20px rgba(255,255,255,0.5)"
+                  // textShadow: "0 0 20px rgba(255,255,255,0.5)"
                 }}>+89%</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100 group-hover:translate-x-2">en contactabilidad promedio en anuncios digitales</p>
               </div>
@@ -226,8 +252,10 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-700 hover:scale-105">
               El reto
             </h3>
-            <p className="tex-xl text-gray-600">DepoSeguro buscaba optimizar su sitio web para que dejara de ser solo un punto de contacto digital y se convirtiera en un canal estratégico para generar leads y potenciar su crecimiento comercial.</p>
-            <p className="tex-xl text-gray-600">El desafío implicaba mejorar la experiencia de usuario, rediseñar la arquitectura tecnológica y elevar el rendimiento en velocidad, SEO y conversión, asegurando una transición fluida y sin interrupciones operativas.</p>
+            <div className="w-full md:w-[70%]">
+              <p className="tex-xl text-gray-600">DepoSeguro buscaba optimizar su sitio web para que dejara de ser solo un punto de contacto digital y se convirtiera en un canal estratégico para generar leads y potenciar su crecimiento comercial.</p> <br />
+              <p className="tex-xl text-gray-600">El desafío implicaba mejorar la experiencia de usuario, rediseñar la arquitectura tecnológica y elevar el rendimiento en velocidad, SEO y conversión, asegurando una transición fluida y sin interrupciones operativas.</p>
+            </div> 
           </div>
           <div 
             ref={(el) => setElementRef("reto-image", el)}
@@ -337,7 +365,7 @@ export default function Home() {
                 isVisible["estrategia-p2"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
               }`}
             >
-              <b>1. Diagnóstico profundo y definición de objetivos:</b>
+              <b>1. Diagnóstico profundo y definición de objetivos: </b>
               Auditoría completa del sitio anterior —usabilidad, velocidad, arquitectura y SEO— complementada con investigación de usuarios y benchmarking competitivo. Esto nos permitió definir funcionalidades clave, flujos eficientes y KPIs alineados al negocio.
             </p>
               <br />
@@ -348,7 +376,7 @@ export default function Home() {
                 isVisible["estrategia-p3"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
               }`}
             >
-              <b>2. Diseño UX/UI y desarrollo web optimizado:</b>
+              <b>2. Diseño UX/UI y desarrollo web optimizado: </b>
               Diseñamos una experiencia centrada en el usuario, con enfoque mobile-first, interfaces intuitivas y navegación clara. El desarrollo fue realizado en WordPress utilizando tecnologías avanzadas, priorizando velocidad, seguridad y escalabilidad, y aplicando prácticas que aseguran un alto rendimiento en Google Page Speed.
             </p><br />
             <p 
@@ -358,7 +386,7 @@ export default function Home() {
                 isVisible["estrategia-p4"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
               }`}
             >
-              <b>3. SEO técnico y migración a Google Cloud Platform (GCP):</b>
+              <b>3. SEO técnico y migración a Google Cloud Platform (GCP): </b>
               Construimos el sitio con una estructura semántica y URLs optimizadas desde su base. Además, migramos la infraestructura a GCP para garantizar disponibilidad, monitoreo continuo y capacidad de escalar de manera flexible según demanda.
             </p><br />
             <p 
@@ -368,7 +396,7 @@ export default function Home() {
                 isVisible["estrategia-p5"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
               }`}
             >
-              <b>4. Lanzamiento controlado y mejora continua:</b><br />
+              <b>4. Lanzamiento controlado y mejora continua: </b>
               Realizamos pruebas exhaustivas antes del lanzamiento, seguimiento post-live y optimizaciones basadas en métricas reales de uso, conversión y posicionamiento. También brindamos soporte continuo con actualizaciones, mantenimiento y mejoras evolutivas.
             </p>
           </div>
@@ -382,17 +410,17 @@ export default function Home() {
       <section className="pb-17 px-5 lg:pr-30 relative overflow-hidden">
         {/* Partículas de fondo */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
-          {[...Array(15)].map((_, i) => (
+          {particles.map((particle, i) => (
             <div
               key={i}
               className="absolute rounded-full bg-white"
               style={{
-                width: `${Math.random() * 3 + 1}px`,
-                height: `${Math.random() * 3 + 1}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${Math.random() * 4 + 3}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`
+                width: `${particle.width}px`,
+                height: `${particle.height}px`,
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                animation: `float ${particle.animationDuration}s ease-in-out infinite`,
+                animationDelay: `${particle.animationDelay}s`
               }}
             />
           ))}
@@ -406,7 +434,7 @@ export default function Home() {
           }`}
         >
           <h2 className="text-3xl md:text-4xl text-white lg:text-5xl font-bold max-w-2xl transform transition-all duration-700 hover:scale-105" style={{
-            textShadow: "0 0 30px rgba(255,255,255,0.3)"
+            // textShadow: "0 0 30px rgba(255,255,255,0.3)"
           }}>
             Desarrollemos algo increíble juntos.
           </h2>

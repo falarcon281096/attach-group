@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import CountUp from "@/components/CountUp";
 import { useScrollReveal } from "@/components/useScrollReveal";
 import ImageWithPlus from "@/components/ImageWithPlus";
+ 
 
 export default function Home() {
   useScrollReveal();
@@ -17,6 +18,30 @@ export default function Home() {
   const [isClientesVisible, setIsClientesVisible] = useState<{ [key: string]: boolean }>({});
   const clientesObserverRef = useRef<IntersectionObserver | null>(null);
   const clientesElementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  // Estado para partículas flotantes (generadas solo en el cliente)
+  const [particles, setParticles] = useState<Array<{
+    width: number;
+    height: number;
+    left: number;
+    top: number;
+    animationDuration: number;
+    animationDelay: number;
+  }>>([]);
+
+  // Generar partículas solo en el cliente para evitar hydration mismatch
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 15 }, () => ({
+        width: Math.random() * 4 + 2,
+        height: Math.random() * 4 + 2,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        animationDuration: Math.random() * 3 + 2,
+        animationDelay: Math.random() * 2,
+      }))
+    );
+  }, []);
 
   // Observer para la sección de clientes
   useEffect(() => {
@@ -311,17 +336,17 @@ export default function Home() {
           <section className="py-0 relative overflow-hidden">
             {/* Partículas de fondo flotantes */}
             <div className="absolute inset-0 opacity-20 pointer-events-none z-0">
-              {[...Array(15)].map((_, i) => (
+              {particles.map((particle, i) => (
                 <div
                   key={i}
                   className="absolute rounded-full bg-gradient-to-r from-[#1e3fda] to-[#58308c]"
                   style={{
-                    width: `${Math.random() * 4 + 2}px`,
-                    height: `${Math.random() * 4 + 2}px`,
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animation: `float ${Math.random() * 3 + 2}s ease-in-out infinite`,
-                    animationDelay: `${Math.random() * 2}s`
+                    width: `${particle.width}px`,
+                    height: `${particle.height}px`,
+                    left: `${particle.left}%`,
+                    top: `${particle.top}%`,
+                    animation: `float ${particle.animationDuration}s ease-in-out infinite`,
+                    animationDelay: `${particle.animationDelay}s`
                   }}
                 />
               ))}

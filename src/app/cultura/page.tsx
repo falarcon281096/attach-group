@@ -8,9 +8,12 @@ import GradientPlus from '@/components/GradientPlus';
 import PositionedPlus from '@/components/PositionedPlus';
 import ImageWithPlus from '@/components/ImageWithPlus';
 import { useScrollReveal } from "@/components/useScrollReveal";
+ 
 
 export default function Home() {
   useScrollReveal();
+  // Activar también para variantes izquierda/derecha
+  useScrollReveal(".scroll-reveal-left, .scroll-reveal-right");
 
   return (
     <div className='min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden animate-gradient'>
@@ -20,7 +23,7 @@ export default function Home() {
 
         {/*Oficinas Section*/}
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 pt-30 md:pt-20 pb-12 md:pb-20 justify-items-stretch '>
-          <div className=' w-[88%] md:w-[75%] text-[28px] lg:text-[56px] px-10 md:px-5 flex flex-col justify-center scroll-reveal'>
+          <div className=' w-[88%] md:w-[75%] text-[28px] lg:text-[56px] px-10 md:px-5 flex flex-col justify-center scroll-reveal scroll-reveal-left'>
             <span className=' bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent tracking-[-1%] font-extrabold leading-tight'>
               Donde las ideas,  la data y&nbsp;
               <span className='font-medium italic underline underline-offset-4 decoration-[#433AB3]'>
@@ -77,7 +80,7 @@ export default function Home() {
               />
             </div>   
           </div>
-          <div className='flex flex-col justify-start gap-1 pl-10 md:pl-0 md:gap-0 order-1 lg:order-2 px-5 lg:pr-50 pt-0  md:pt-23 scroll-reveal scroll-reveal-delay-1'>
+          <div className='flex flex-col justify-start gap-1 pl-10 md:pl-0 md:gap-0 order-1 lg:order-2 px-5 lg:pr-50 pt-0  md:pt-23 scroll-reveal scroll-reveal-right scroll-reveal-delay-1'>
             <p className="text-[#1840E2] font-['Graphik'] text-[24px] md:text-[48px] leading-[32px] md:leading-[52px]">
               Nos inspira resolver desafíos,{' '}
               <strong className='font-semibold'>aprender constantemente y crecer</strong> en un entorno

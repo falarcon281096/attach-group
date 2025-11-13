@@ -7,6 +7,7 @@ import Footer from "../../components/Footer";
 import GalileoBenefits from "../../components/GalileoBenefits";
 import GalileoSolutions from "../../components/GalileoSolutions";
 import { useEffect, useRef, useState } from "react";
+ 
 
 
 export default function Home() {
@@ -525,7 +526,7 @@ export default function Home() {
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
                     <div>
                         <h2 className="text-[24px] md:text-[48px] font-semibold leading-[110%] mb-10 transform transition-all duration-700 hover:scale-105" style={{
-                            textShadow: "0 0 30px rgba(255,255,255,0.5)"
+                            // textShadow: "0 0 30px rgba(255,255,255,0.5)"
                         }}>
                             Descubre cómo aplicar IA en tu empresa
                         </h2>

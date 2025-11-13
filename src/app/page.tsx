@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import { useScrollReveal } from "@/components/useScrollReveal";
 import Footer from "../components/Footer";
 import ImageWithPlus from "@/components/ImageWithPlus";
+ 
 
 type cases = 'caja-arequipa' | 'deposeguro' | 'apuesta-total';
 

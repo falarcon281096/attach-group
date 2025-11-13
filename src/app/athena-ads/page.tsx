@@ -10,6 +10,7 @@ import AnimatedGradient from "../../components/AnimatedGradient";
 import AthenaProcessSection from "../../components/AthenaProcessSection";
 import AthenaPersonalization from "../../components/AthenaPersonalization";
 import { useScrollReveal } from "@/components/useScrollReveal";
+ 
 
 function FaqItem({ question, answer, isOpen, onToggle }: { question: string; answer: string; isOpen: boolean; onToggle: () => void }) {
   return (
@@ -668,7 +669,7 @@ export default function AthenaAds() {
           <div className="container mx-auto relative z-10">
             <div className="w-full lg:w-1/2">
               <h2 className="hero-title-override text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 transform transition-all duration-700 hover:scale-105" style={{
-                textShadow: "0 0 30px rgba(255,255,255,0.5)"
+                // textShadow: "0 0 30px rgba(255,255,255,0.5)"
               }}>
                 ¿Listo para una estrategia única?
               </h2>

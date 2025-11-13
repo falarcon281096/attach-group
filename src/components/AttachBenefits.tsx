@@ -73,7 +73,7 @@ export default function AttachBenefits() {
             className="pl-5 md:pl-0 text-[24px] md:text-[48px] font-semibold leading-[110%] mb-2 md:mb-8 transform transition-all duration-700 hover:scale-105"
             style={{ 
               color: "#22D1C4",
-              textShadow: "0 0 20px rgba(34,209,196,0.3)"
+              // textShadow: "0 0 20px rgba(34,209,196,0.3)"
             }}
           >
             Asociarse con <span className="opacity-90">AttachMedia</span> significa:

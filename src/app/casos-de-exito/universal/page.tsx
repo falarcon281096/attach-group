@@ -4,6 +4,7 @@ import Image from "next/image";
 import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+ 
 
 export default function Home() {
   const stats = [
@@ -95,9 +96,12 @@ export default function Home() {
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">
               El reto
             </h3>
-            <p className="tex-xl text-gray-600">El Universal publica cientos de notas periodísticas al día y debía clasificarlas en categorías publicitarias (taxonomías) para garantizar una segmentación efectiva a sus anunciantes.
-            </p><p className="tex-xl text-gray-600">Hacerlo de forma manual resultaba lento y demandaba demasiado esfuerzo del equipo editorial. La empresa necesitaba una solución rápida, precisa y totalmente automática, capaz de asegurar la categorización correcta de cada nota sin invertir horas-hombre.
-            </p>
+            <div className="w-full md:w-[70%]">
+              <p className="tex-xl text-gray-600">El Universal publica cientos de notas periodísticas al día y debía clasificarlas en categorías publicitarias (taxonomías) para garantizar una segmentación efectiva a sus anunciantes. <br /><br />
+              </p>
+              <p className="tex-xl text-gray-600">Hacerlo de forma manual resultaba lento y demandaba demasiado esfuerzo del equipo editorial. La empresa necesitaba una solución rápida, precisa y totalmente automática, capaz de asegurar la categorización correcta de cada nota sin invertir horas-hombre.
+              </p>
+            </div> 
           </div>
           <div className="flex
                     justify-end
