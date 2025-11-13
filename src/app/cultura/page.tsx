@@ -22,7 +22,7 @@ export default function Home() {
         <Header showBorder={false} variant='white-bg' isFixed={true}/>
 
         {/*Oficinas Section*/}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20  lg:ml-30 pt-30 md:pt-20 pb-12 md:pb-20 justify-items-stretch '>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-0 pt-0 md:pt-40 lg:ml-30 pt-30 md:pt-20 pb-12 md:pb-20 justify-items-stretch '>
           <div className=' w-[88%] md:w-[75%] text-[28px] lg:text-[56px] px-10 md:px-5 flex flex-col justify-center scroll-reveal scroll-reveal-left'>
             <span className=' bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent tracking-[-1%] font-extrabold leading-tight'>
               Donde las ideas,  la data y&nbsp;
@@ -34,12 +34,12 @@ export default function Home() {
                 
             </span>
           </div>
-          <div className='relative pl-10 overflow-visible scroll-reveal scroll-reveal-delay-1'>
+          <div className='relative pl-10 md:pl-0 overflow-visible scroll-reveal scroll-reveal-delay-1'>
             <div className="rounded-l-3xl rounded-r-none">
               <ImageWithPlus
-                src='/images/cultura/culturaAttach.webp'
+                src='/images/cultura/culturaAttach.jpg'
                 alt='cultura-banner'
-                width={400}
+                width={500}
                 height={600}
                 position="LEFT_DOWN"
                 paddingLeftDesktop="-1.6rem"
@@ -59,9 +59,9 @@ export default function Home() {
       <div className='atm-content relative pt-5 md:pt-0 pb-0 md:pb-0  bg-white'>
         <div className='pr-4 md:pr-15 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'>
           <div className='relative flex items-center justify-start pt-2 md:pt-10 pb-0 md:pb-0 order-2 lg:order-1 overflow-visible scroll-reveal'>
-            <div className="relative pr-15 md:pr-0 w-full max-w-md lg:max-w-2xl rounded-r-3xl rounded-l-none h-[270px] md:aspect-[3/4] md:h-[628px] lg:h-[628px]">
+            <div className="relative pr-15 md:pr-0 w-full max-w-md lg:max-w-2xl rounded-r-3xl rounded-l-none h-[260px] md:aspect-[3/4] md:h-[628px] lg:h-[628px]">
               <ImageWithPlus
-                src='/images/cultura/cultura-inspira.webp'
+                src='/images/cultura/cultura-inspira.jpg'
                 alt='cultura-inspira'
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -71,12 +71,12 @@ export default function Home() {
                 offsetXMobile = "39px"
                 offsetX = "35px"
                 paddingDesktop="1rem" 
-                imageClassName="object-top"
+                imageClassName="object-cover"
                 containerClassName="w-full h-full rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px] image-light-soft"
-                sizePercent={0.45}
-                overhangPercent={0.45}
-                sizePercentMobile={0.50}
-                overhangPercentMobile={0.50}
+                sizePercent={0.35}
+                overhangPercent={0.35}
+                sizePercentMobile={0.30}
+                overhangPercentMobile={0.30}
               />
             </div>   
           </div>
@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* vida en attach  group */}
       <div className='bg-white pl-5 md:pl-0'>
-        <div className='pl-3 pb-0 md:pb-20 md:pl-5 pt-0 md:pt-15 relative before:content-[""] before:absolute before:inset-y-0 before:left-0 md:before:left-15 before:w-px before:bg-[#1840E2]'>
+        <div className='pl-3 pb-0 md:pb-20 md:pl-5 pt-0 md:pt-15 relative before:content-[""] before:absolute before:inset-y-0 before:left-0 md:before:left-15 before:w-px before:z-10 before:bg-[#1840E2]'>
           <div className='flex w-full items-center justify-center bg-white py-10 lg:py-20 px-2 lg:px-50 scroll-reveal'>
             
             <div className='relative lg:block w-full h-auto hidden image-light-soft'>
@@ -330,10 +330,11 @@ export default function Home() {
 
       {/* banner contactanos */}
       <section className='pb-17 mx-10 md:mx-0 mt-20 md:mt-0 md:pr-30'>
-        <div className='flex flex-col gap-5 md:gap-10 md:pl-30 md:pt-30 md:pb-17 md:border-r-2 md:border-b-2 md:border-white/30 md:rounded-br-[50px]'>
+        <div className='flex flex-col gap-5 md:gap-10 md:pl-30 md:pt-20 md:pb-17 md:border-r-2 md:border-b-2 md:border-white/30 md:rounded-br-[50px]'>
           <h2 className='text-[24px] md:text-[48px] leadin-[20px] md:leadin-[44px] font-bold max-w-full md:max-w-7xl text-white w-150 scroll-reveal'>
-            Si compartes nuestra pasión por la innovación, mándanos tu CV a <a href='mailto:talento@attachconsultores.com'>talento@attachconsultores.com</a>
+            ¿Quiere marcar la diferencia con nosotros?
           </h2>
+          <p className='text-[14px] md:text-[22px] font-["Graphik"] text-white w-full md:w-[80%]'>Si compartes nuestra pasión por la innovación, mándanos tu CV a <a className='font-semibold' href='mailto:talento@attachconsultores.com'>talento@attachconsultores.com</a></p>
           {/* <Link href="/contacto" className='self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition glow-button scroll-reveal scroll-reveal-delay-1'>
             Contáctanos <span className='ml-2 arrow-wiggle'>➜</span>
           </Link> */}

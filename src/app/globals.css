@@ -677,7 +677,7 @@ body {
 @keyframes revealFromRight {
   0% {
     opacity: 0;
-    transform: translateX(42px) scale(0.98);
+    transform: translateX(400px) scale(0.98);
     filter: blur(2px);
   }
   60% {
@@ -695,6 +695,10 @@ body {
 .scroll-reveal-right {
   will-change: transform, opacity;
   opacity: 0;
+}
+
+.scroll-reveal-right {
+  transform: translateX(400px);
 }
 
 .scroll-reveal-left.is-visible {

@@ -71,6 +71,74 @@ export default function Home() {
     );
   };
 
+  const validatePhone = (phone: string): { isValid: boolean; error?: string } => {
+    const trimmedPhone = phone.trim();
+    
+    if (!trimmedPhone) {
+      return { isValid: false, error: "El teléfono es obligatorio." };
+    }
+
+    // Remover espacios y guiones para validación
+    const cleanPhone = trimmedPhone.replace(/[\s\-]/g, '');
+    
+    // Detectar si es número peruano
+    const isPeruNumber = cleanPhone.startsWith('+51') || (!cleanPhone.startsWith('+') && /^[0-9]{7,9}$/.test(cleanPhone));
+    
+    if (isPeruNumber) {
+      // Número peruano
+      let digits: string;
+      
+      if (cleanPhone.startsWith('+51')) {
+        // Con código de país
+        digits = cleanPhone.substring(3); // Remover +51
+      } else {
+        // Sin código de país
+        digits = cleanPhone;
+      }
+      
+      // Validar: 9 dígitos para celular o 7 dígitos para fijo
+      if (digits.length === 9) {
+        // Celular peruano: debe empezar con 9
+        if (digits.startsWith('9')) {
+          return { isValid: true };
+        } else {
+          return { isValid: false, error: "Los números celulares peruanos deben comenzar con 9 y tener 9 dígitos." };
+        }
+      } else if (digits.length === 7) {
+        // Fijo peruano: 7 dígitos
+        return { isValid: true };
+      } else {
+        return { isValid: false, error: "Para Perú: ingresa 9 dígitos para celular (ej: +51 945062208) o 7 dígitos para fijo." };
+      }
+    } else {
+      // Otros países: debe incluir código de país
+      if (!cleanPhone.startsWith('+')) {
+        return { isValid: false, error: "Para números internacionales, incluye el código de país (ej: +1 234 567 8900)." };
+      }
+      
+      // Validar formato internacional: +[código][número]
+      // Código de país: 1-3 dígitos (no puede empezar con 0)
+      // Número total: mínimo 8 dígitos (incluyendo código), máximo 15 dígitos
+      // Formato: + seguido de dígitos (código país + número)
+      const totalDigits = cleanPhone.replace(/\+/g, '').length;
+      
+      if (totalDigits < 8 || totalDigits > 15) {
+        return { isValid: false, error: "El número debe tener entre 8 y 15 dígitos incluyendo el código de país." };
+      }
+      
+      // Verificar que empiece con + y tenga formato válido
+      // Código de país: 1-3 dígitos que no empiecen con 0
+      // Número: el resto de dígitos
+      const internationalRegex = /^\+[1-9]\d{0,2}\d+$/;
+      
+      if (internationalRegex.test(cleanPhone)) {
+        return { isValid: true };
+      } else {
+        return { isValid: false, error: "Formato inválido. Incluye el código de país y el número (ej: +1 234 567 8900)." };
+      }
+    }
+  };
+
   const handleInputChange =
     (field: keyof FormData) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -84,9 +152,66 @@ export default function Home() {
         if (value.includes('+') && value.indexOf('+') !== 0) {
           value = value.replace(/\+/g, '');
         }
-        // Limitar longitud
+        // Limitar longitud (considerando espacios y guiones)
         if (value.length > 20) {
           value = value.slice(0, 20);
+        }
+        
+        // Validación en tiempo real usando validatePhone
+        if (value.trim()) {
+          const validation = validatePhone(value);
+          if (!validation.isValid && validation.error) {
+            setErrors((prev) => ({
+              ...prev,
+              phone: validation.error,
+            }));
+          } else if (errors.phone) {
+            setErrors((prev) => {
+              const next = { ...prev };
+              delete next.phone;
+              return next;
+            });
+          }
+        }
+      }
+
+      // Validación en tiempo real para nombres: solo letras, espacios, guiones, apostrofes y acentos
+      if (field === 'fullName') {
+        // Permitir solo letras (incluyendo acentos), espacios, guiones y apostrofes
+        value = value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s\-\']/g, '');
+        // Limitar longitud
+        if (value.length > 120) {
+          value = value.slice(0, 120);
+        }
+      }
+
+      // Validación en tiempo real para compañía: rechazar números al inicio sin sentido y caracteres incongruentes
+      if (field === 'company') {
+        // Permitir letras, números, espacios, guiones, puntos, y algunos caracteres especiales comunes
+        value = value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ0-9\s\-\.,&()]/g, '');
+        // Limitar longitud
+        if (value.length > 120) {
+          value = value.slice(0, 120);
+        }
+        
+        // Validación en tiempo real: rechazar si empieza con más de 3 números seguidos
+        const invalidStartRegex = /^[0-9]{4,}/;
+        if (invalidStartRegex.test(value.trim())) {
+          setErrors((prev) => ({
+            ...prev,
+            company: "El nombre de la compañía no puede comenzar con números sin sentido.",
+          }));
+        } else if (value.trim() && !/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/.test(value.trim())) {
+          setErrors((prev) => ({
+            ...prev,
+            company: "El nombre de la compañía debe comenzar con una letra.",
+          }));
+        } else if (errors.company) {
+          setErrors((prev) => {
+            const next = { ...prev };
+            delete next.company;
+            return next;
+          });
         }
       }
 
@@ -107,7 +232,7 @@ export default function Home() {
         if (emailRegex.test(value.trim()) && !isCorporateEmail(value.trim())) {
           setErrors((prev) => ({
             ...prev,
-            email: "Por favor ingresa un correo corporativo (no se permiten emails personales como Gmail, Yahoo, Hotmail, etc.).",
+            email: "Por favor ingresa un correo corporativo.",
           }));
         } else if (errors.email) {
           setErrors((prev) => {
@@ -140,14 +265,25 @@ export default function Home() {
     const trimmedPhone = formData.phone.trim();
     const trimmedMessage = formData.message.trim();
 
+    // Validación de nombres: solo letras, espacios, guiones y apostrofes
+    const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s\-\']+$/;
     if (!trimmedFullName) {
       newErrors.fullName = "Por favor ingresa tu nombre completo.";
+    } else if (!nameRegex.test(trimmedFullName)) {
+      newErrors.fullName = "El nombre solo puede contener letras, espacios, guiones y apostrofes.";
     } else if (trimmedFullName.length < 2 || trimmedFullName.length > 120) {
       newErrors.fullName = "El nombre debe tener entre 2 y 120 caracteres.";
     }
 
+    // Validación de compañía: rechazar números al inicio sin sentido y caracteres incongruentes
+    const companyRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]/;
+    const invalidStartRegex = /^[0-9]{4,}/; // Más de 3 números al inicio
     if (!trimmedCompany) {
       newErrors.company = "La compañía es obligatoria.";
+    } else if (invalidStartRegex.test(trimmedCompany)) {
+      newErrors.company = "El nombre de la compañía no puede comenzar con números sin sentido.";
+    } else if (!companyRegex.test(trimmedCompany)) {
+      newErrors.company = "El nombre de la compañía debe comenzar con una letra.";
     } else if (trimmedCompany.length < 2 || trimmedCompany.length > 120) {
       newErrors.company = "La compañía debe tener entre 2 y 120 caracteres.";
     }
@@ -163,12 +299,10 @@ export default function Home() {
       newErrors.email = "Por favor ingresa un correo corporativo (no se permiten emails personales como Gmail, Yahoo, Hotmail, etc.).";
     }
 
-    // Validación de teléfono: solo números, + al inicio para código de país, espacios y guiones
-    const phoneRegex = /^\+?[0-9][0-9\s\-]{5,19}$/;
-    if (!trimmedPhone) {
-      newErrors.phone = "El teléfono es obligatorio.";
-    } else if (!phoneRegex.test(trimmedPhone)) {
-      newErrors.phone = "Ingresa un teléfono válido (solo números, espacios, guiones y + al inicio para código de país).";
+    // Validación de teléfono usando validatePhone
+    const phoneValidation = validatePhone(trimmedPhone);
+    if (!phoneValidation.isValid) {
+      newErrors.phone = phoneValidation.error || "El teléfono es obligatorio.";
     }
 
     if (!trimmedMessage) {
@@ -316,7 +450,7 @@ export default function Home() {
                       WebkitTextFillColor: 'transparent',
                     }}
                   >
-                    hola@attach.group
+                    <a href="mailto:hola@attach.group">hola@attach.group</a>
                   </p>
                 </div>
               </div>
@@ -387,16 +521,16 @@ export default function Home() {
                       disabled={submitStatus === "sending"}
                     />
                     {errors.fullName && (
-                      <p className="text-sm text-white mt-2">{errors.fullName}</p>
+                      <p className="text-sm text-white/90 mt-2 min-h-[1.25rem] leading-tight relative z-0">{errors.fullName}</p>
                     )}
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col relative">
                     <input
                       type="email"
                       placeholder="Email corporativo"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-2 ${
-                        errors.email ? "border-red-400" : "border-white"
-                      } placeholder:text-white/70`}
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-2 relative z-10 border-white placeholder:text-white/70 is-visible ${
+                        errors.email ? "border-red-400" : ""
+                      }`}
                       value={formData.email}
                       onChange={handleInputChange("email")}
                       aria-invalid={errors.email ? "true" : "false"}
@@ -406,14 +540,14 @@ export default function Home() {
                       disabled={submitStatus === "sending"}
                     />
                     {errors.email && (
-                      <p className="text-sm text-white mt-2">{errors.email}</p>
+                      <p className="text-sm text-white/90 mt-2 min-h-[1.25rem] leading-tight relative z-0">{errors.email}</p>
                     )}
                   </div>
                   <div className="flex flex-col">
                     <input
                       type="text"
                       placeholder="Compañía"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-3 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-3 is-visible ${
                         errors.company ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.company}
@@ -426,33 +560,32 @@ export default function Home() {
                       disabled={submitStatus === "sending"}
                     />
                     {errors.company && (
-                      <p className="text-sm text-white mt-2">{errors.company}</p>
+                      <p className="text-sm text-white/90 mt-2 min-h-[1.25rem] leading-tight relative z-0">{errors.company}</p>
                     )}
                   </div>
                   <div className="flex flex-col">
                     <input
                       type="tel"
-                      placeholder="Teléfono (ej: +51 987 654 321)"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-4 ${
+                      placeholder="Teléfono (ej: +51 945062208 o 945062208)"
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-4 is-visible${
                         errors.phone ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.phone}
                       onChange={handleInputChange("phone")}
                       aria-invalid={errors.phone ? "true" : "false"}
-                      pattern="^\+?[0-9][0-9\s\-]{5,19}$"
                       inputMode="tel"
                       name="phone"
                       required
                       disabled={submitStatus === "sending"}
                     />
                     {errors.phone && (
-                      <p className="text-sm text-white mt-2">{errors.phone}</p>
+                      <p className="text-sm text-white/90 mt-2 min-h-[1.25rem] leading-tight relative z-0">{errors.phone}</p>
                     )}
                   </div>
                   <div className="flex flex-col lg:col-span-2">
                     <textarea
                       placeholder="¿Cómo podemos ayudarte?"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 h-36 resize-none input-focus-glow scroll-reveal scroll-reveal-delay-5 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 h-36 resize-none input-focus-glow scroll-reveal scroll-reveal-delay-5 is-visible${
                         errors.message ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.message}
@@ -465,7 +598,7 @@ export default function Home() {
                       disabled={submitStatus === "sending"}
                     />
                     {errors.message && (
-                      <p className="text-sm text-white mt-2">{errors.message}</p>
+                      <p className="text-sm text-white/90 mt-2 min-h-[1.25rem] leading-tight relative z-0">{errors.message}</p>
                     )}
                   </div>
                   {submitStatus === "sending" && (
