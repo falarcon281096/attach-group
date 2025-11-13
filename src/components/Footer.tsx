@@ -24,7 +24,7 @@ export default function Footer() {
             <div className="text-[#818181] font-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] pb-3">México</div>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">Dirección:</span>{' '}
-              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">Paseo de la reforma 509, col.  cuauhtémoc ddmx 06600</span>
+              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">Paseo de la Reforma 509, col. Cuauhtémoc, CDMX 06600</span>
             </p>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">E-mail:</span>{' '}

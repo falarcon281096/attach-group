@@ -332,7 +332,7 @@ export default function Home() {
       <section className='pb-17 mx-10 md:mx-0 mt-20 md:mt-0 md:pr-30'>
         <div className='flex flex-col gap-5 md:gap-10 md:pl-30 md:pt-30 md:pb-17 md:border-r-2 md:border-b-2 md:border-white/30 md:rounded-br-[50px]'>
           <h2 className='text-[24px] md:text-[48px] leadin-[20px] md:leadin-[44px] font-bold max-w-full md:max-w-7xl text-white w-150 scroll-reveal'>
-            Si compartes nuestra pasión por la innovación, mándanos tu CV a talento@attachconsultores.com
+            Si compartes nuestra pasión por la innovación, mándanos tu CV a <a href='mailto:talento@attachconsultores.com'>talento@attachconsultores.com</a>
           </h2>
           {/* <Link href="/contacto" className='self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition glow-button scroll-reveal scroll-reveal-delay-1'>
             Contáctanos <span className='ml-2 arrow-wiggle'>➜</span>
