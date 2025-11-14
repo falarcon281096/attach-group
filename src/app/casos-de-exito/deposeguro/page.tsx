@@ -5,6 +5,8 @@ import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import ImageWithCrossIcon from "../../../components/ImageWithCrossIcon";
+import CaseNavigation from "../../../components/CaseNavigation";
+import { casesData } from "@/data/casesData";
  
 import { useEffect, useRef, useState } from "react";
 
@@ -400,7 +402,10 @@ export default function Home() {
             />
           ))}
         </div>
-        
+        {/* Navegación entre casos de éxito */}
+        <div className="flex flex-col gap-10 lg:pl-30 pt-10 md:pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] relative z-10 transition-all duration-1000">
+          <CaseNavigation cases={casesData} />
+        </div>
         <div 
           ref={(el) => setElementRef("cta-section", el)}
           data-animate-id="cta-section"

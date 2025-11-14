@@ -230,7 +230,7 @@ export default function Home() {
               transitionDelay: "0.1s"
             }}
           >
-            ¿Quieres marcar la diferencia con nosotros?
+            ¿Quieres ser nuestro próximo caso de éxito?
           </h2>
 
           <a 
@@ -238,7 +238,7 @@ export default function Home() {
             className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-110  group transform"
             style={{ transitionDelay: "0.2s" }}
           >
-            Mándanos tu CV <span className="ml-2 inline-block transform transition-transform duration-500 group-hover:translate-x-2">➜</span>
+            Contáctanos <span className="ml-2 inline-block transform transition-transform duration-500 group-hover:translate-x-2">➜</span>
           </a>
         </div>
       </section>
