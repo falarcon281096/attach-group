@@ -24,7 +24,7 @@ export const casesData: Case[] = [
   {
     link: '/casos-de-exito/cayetano',
     id: 'cayetano-heredia',
-    title: 'Universidad Cayetano Heredia',
+    title: 'UPCH',
     tag: 'Sitio web e infraestructura',
     image: '/images/casos-de-exito/cayetano.webp',
   },
@@ -32,7 +32,7 @@ export const casesData: Case[] = [
     link: '/casos-de-exito/universal',
     id: 'universal',
     title: 'El Universal',
-    tag: 'Inteligencia artificial',
+    tag: 'IA',
     image: '/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.jpg',
   },
   {

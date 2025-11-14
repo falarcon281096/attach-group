@@ -136,10 +136,10 @@ export default function Home() {
                   before:bg-[length:80%_80%] before:w-20 before:h-20 before:-translate-x-1/2 before:bottom-[10%] before:left-12
                   lg:before:bg-[length:100%_100%] lg:before:w-30 lg:before:h-30 lg:before:-translate-x-1/2 lg:before:left-0"
               >
-                <div className="relative overflow-hidden lg:rounded-tl-[40px] lg:rounded-bl-[40px]">
+                <div className="relative overflow-hidden rounded-tl-[40px] rounded-bl-[40px] lg:rounded-tl-[40px] lg:rounded-bl-[40px]">
                   {/* Imagen móvil: sin bordes CSS y con archivo portada_movil.png */}
                   <Image
-                    className={`block lg:hidden w-full h-auto relative z-0 transition-opacity duration-700 ${heroMobileLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    className={`block lg:hidden w-full h-auto rounded-tl-[40px] rounded-bl-[40px] relative z-0 transition-opacity duration-700 ${heroMobileLoaded ? 'opacity-100' : 'opacity-0'}`}
                     src="/images/home/portada_movil.png"
                     alt="Home caminando hacia un portal con el logo de Attach"
                     width={1200}
@@ -653,49 +653,49 @@ export default function Home() {
           <div className="marquee py-2">
             <div className="marquee-track">
               {/* Set 1 */}
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
               </div>
 
               {/* Set 2 (duplicate for seamless loop) */}
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
               </div>
-              <div className="block w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
+              <div className="block w-[10rem] md:w-[15rem] flex justify-center">
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
               </div>
             </div>
           </div>

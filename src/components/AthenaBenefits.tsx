@@ -85,7 +85,7 @@ export default function AthenaBenefits() {
               key={i}
               ref={(el) => setElementRef(`athena-benefit-${i}`, el)}
               data-animate-id={`athena-benefit-${i}`}
-              className={`benefit-item relative bg-white text-[#818181] font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 pl-8 md:pl-8 pr-6 rounded-2xl border border-[#E2E830] transition-all duration-500 inline-block w-full md:w-fit max-w-full transform hover:scale-105 hover:shadow-2xl hover:-translate-y-1 group ${offsets[i]} ${
+              className={`benefit-item relative bg-white text-[#818181] font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 pl-3 md:pl-8 pr-6 rounded-2xl border border-[#E2E830] transition-all duration-500 inline-block w-full md:w-fit max-w-full transform hover:scale-105 hover:shadow-2xl hover:-translate-y-1 group ${offsets[i]} ${
                 isVisible[`athena-benefit-${i}`] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
               }`}
               style={{

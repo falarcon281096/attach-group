@@ -338,6 +338,29 @@ body {
   50% { text-shadow: 0 0 12px rgba(255,255,255,0.45); }
 }
 .text-glow { animation: textGlow 2400ms ease-in-out infinite; }
+
+/* Autofill styles: mantener color/fondo consistente en inputs */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff;
+  /* Simula bg-white/20 como fondo del input */
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255,255,255,0.20) inset !important;
+  transition: background-color 99999s ease-out, color 99999s ease-out;
+}
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+  /* Simula focus:bg-white/40 */
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255,255,255,0.40) inset !important;
+}
+/* Asegura que elementos revelados no pierdan visibilidad por autofill */
+input.reveal-lock,
+textarea.reveal-lock {
+  opacity: 1 !important;
+  transform: none !important;
+}
 /* One-time glow: appears then fades out */
 .text-glow-once { animation: textGlow 1800ms ease-in-out 1 forwards; }
 

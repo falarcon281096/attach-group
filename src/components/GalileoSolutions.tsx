@@ -5,7 +5,7 @@ import Image from "next/image";
 import ResponsiveHeading from "./ResponsiveHeading";
 
 export default function GalileoSolutions() {
-    const [openSection, setOpenSection] = useState<string>("saas");
+    const [openSection, setOpenSection] = useState<string | null>(null);
 
     const handleToggle = (section: string) => {
         // Solo cambia si es una sección diferente, nunca cierra la actual
@@ -15,7 +15,7 @@ export default function GalileoSolutions() {
     };
 
     return (
-        <section className="bg-white py-8 md:py-24 text-gray-900">
+        <section className="bg-white py-8   md:py-24 text-gray-900">
             <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 {/* Título y subtítulo */}
                 <div className="text-center mb-8 md:mb-14">
@@ -57,7 +57,7 @@ export default function GalileoSolutions() {
                             : "hidden opacity-0 -translate-y-4 scale-95"
                     }`}
                 >
-                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500">
                         Desde agentes conversacionales que mejoran la atención al cliente, hasta proyectos de computer vision que automatizan tareas críticas, en Galileo IA desarrollamos soluciones de inteligencia artificial adaptadas a las necesidades de tu organización.
                     </div>
                     <div className="relative h-[280px] w-full group">
@@ -70,10 +70,10 @@ export default function GalileoSolutions() {
                             }}
                         >
                             {/* Borde punteado vertical */}
-                            <div className="absolute left-4 md:left-0 top-0 h-full w-px z-10" style={{ background: '#9370DB' }}></div>
+                            
                             {/* Imagen IA Enterprise */}
                             <Image
-                                src="/images/galileo/IA-rnterprise.png"
+                                src="/images/galileo/IA-rnterprise.jpg"
                                 alt="IA Enterprise"
                                 width={800}
                                 height={600}
@@ -142,7 +142,7 @@ export default function GalileoSolutions() {
                     {/* Tarjeta 2 */}
                     <article className="rounded-2xl  bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,63,115,0.25)] hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
                         <Image
-                            src="/images/galileo/imagen-2-galileo.webp"
+                            src="/images/galileo/imagen-2-galileo.png"
                             alt="PROSPECTA"
                             width={900}
                             height={600}
@@ -189,7 +189,7 @@ export default function GalileoSolutions() {
                             : "hidden opacity-0 -translate-y-4 scale-95"
                     }`}
                 >
-                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[16pxpx] md:leading-[20px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[16pxpx] md:leading-[20px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 ">
                         Diseñamos y gestionamos infraestructuras en la nube que escalan y protegen tus datos. Te guiamos en la elección de la arquitectura más eficiente y flexible, integrándola con tus plataformas de negocio. Así obtienes una nube segura, clara y lista para crecer al ritmo de tu empresa.
                     </div>
                     <div className="relative pl-5 md:pl-0 h-[280px] w-full group">
@@ -245,7 +245,7 @@ export default function GalileoSolutions() {
                             : "hidden opacity-0 -translate-y-4 scale-95"
                     }`}
                 >
-                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 md:pl-12 pr-8 text-justify transition-all duration-500 hover:text-[#FF3F73] hover:drop-shadow-[0_0_8px_rgba(255,63,115,0.3)]">
+                    <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 md:pl-12 pr-8 text-justify transition-all duration-500   ">
                         Implementamos soluciones que abarcan desde plataformas de datos de clientes (CDP) hasta optimización creativa en tiempo real (DCO), personalizando experiencias y optimizando campañas. Asimismo, aplicamos modelos predictivos, dashboards y algoritmos a medida que convierten la información en decisiones estratégicas y crecimiento sostenible.
                     </div>
                     <div className="relative pl-8 md:pl-0 h-[280px] w-full group">
@@ -258,11 +258,10 @@ export default function GalileoSolutions() {
                             }}
                         >
                             {/* Borde punteado vertical */}
-                            <div className="absolute left-0 top-0 h-full w-px z-10" style={{ background: '#9370DB' }}></div>
-                            
+                             
                             {/* Imagen */}
                             <Image
-                                src="/images/galileo/martech.jpg"
+                                src="/images/galileo/martech.png"
                                 alt="Martech + Advanced Analytics"
                                 width={800}
                                 height={600}

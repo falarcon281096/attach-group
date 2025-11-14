@@ -83,7 +83,7 @@ export default function GalileoBenefits() {
                             key={i}
                             ref={(el) => setElementRef(`benefit-${i}`, el)}
                             data-animate-id={`benefit-${i}`}
-                            className={`benefit-item relative bg-white text-[#818181] font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 px-12 md:pl-10 md:pr-6 rounded-2xl border border-[#FF3F73] transition-all duration-500 inline-block w-full md:w-fit max-w-full transform hover:scale-105 hover:shadow-2xl hover:-translate-y-1 group ${
+                            className={`benefit-item relative bg-white text-[#818181] font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 px-12 pl-0 md:pl-13 md:pr-6 rounded-2xl border border-[#FF3F73] transition-all duration-500 inline-block w-full md:w-fit max-w-full transform hover:scale-105 hover:shadow-2xl hover:-translate-y-1 group ${
                                 isVisible[`benefit-${i}`] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
                             }`}
                             style={{
@@ -95,7 +95,7 @@ export default function GalileoBenefits() {
                             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-[#FFC351]/20 to-transparent"></div>
                             
                             <span
-                                className="absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center transform transition-all duration-500 group-hover:scale-125 group-hover:rotate-360"
+                                className=" absolute left-3 top-[69%] md:top-3/4 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center transform transition-all duration-500 group-hover:scale-125 group-hover:rotate-360"
                                 style={{
                                     background:
                                         "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",
@@ -112,7 +112,7 @@ export default function GalileoBenefits() {
                             >
                                 <span className="text-white text-[10px] font-bold transform transition-all duration-300 group-hover:scale-110">✓</span>
                             </span>
-                            <span className="relative z-10">{item}</span>
+                            <p className="pl-15 md:pl-0 relative z-10">{item}</p>
                         </div>
                     ))}
                 </div>

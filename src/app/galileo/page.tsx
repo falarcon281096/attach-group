@@ -54,7 +54,7 @@ export default function Home() {
     };
 
     return (
-        <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
+        <div className="min-h-screen  relative overflow-hidden">
             {/* Header */}
             <Header variant="galileo" showBorder={false} isFixed={true}/>
 
@@ -113,7 +113,7 @@ export default function Home() {
                         >
                             {/* Card 1 con "+" amarillo */}
                             <div 
-                                className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 shadow-lg w-full font-['graphik'] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group" 
+                                className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 shadow-lg w-full font-['graphik'] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group rounded-lg" 
                                 style={{
                                     color:'#818181',
                                     boxShadow: "0 10px 40px rgba(0,0,0,0.1), 0 0 20px rgba(255,195,81,0.2)"
@@ -147,7 +147,7 @@ export default function Home() {
                                     color:'#818181',
                                     boxShadow: "0 10px 40px rgba(0,0,0,0.1), 0 0 20px rgba(255,63,115,0.2)"
                                 }} 
-                                className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 shadow-lg w-full font-['graphik'] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group"
+                                className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 shadow-lg w-full font-['graphik'] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group rounded-lg"
                             >
                                 {/* Efecto de glow en hover */}
                                 <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-l from-[#FF3F73]/20 to-transparent"></div>
@@ -178,7 +178,7 @@ export default function Home() {
 
             <GalileoSolutions />
 
-            <section className="py-0 md:py-20 bg-gradient-to-b from-white to-[#fff9f4] text-center relative overflow-hidden">
+            <section className="py-0 pt-0 md:pt-0 pb-10 md:pb-10  bg-gradient-to-b from-white to-[#fff9f4] text-center relative overflow-hidden">
                 {/* === Título === */}
                 <div
                     ref={(el) => setElementRef("proceso-title", el)}
@@ -368,7 +368,7 @@ export default function Home() {
 
 
             {/* === SECTION 1: Asociarse con Galileo IA === */}
-            <section className="py-20 bg-gradient-to-b from-[#fff9f4] to-[#ffffff] text-center relative overflow-hidden">
+            <section className="pt-0 md:pt-10 pl-10 md:pl-0 mr-10 md:mr-0 pb-10 md:pb-10 bg-gradient-to-b from-[#fff9f4] to-[#ffffff] text-center relative overflow-hidden">
                 {/* === Título === */}
                 <h2
                     ref={(el) => setElementRef("casos-title", el)}
@@ -437,10 +437,10 @@ export default function Home() {
                     >
                     <Link
                         href="/casos-de-exito/universal"
-                        className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2"
+                        className="relative rounded-[16px] overflow-hidden shadow-lg group h-[280px] md:h-[480px] sm:h-[460px] lg:h-[489px] block transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2"
                     >
                         <Image
-                            src="/images/casos-de-exito/eluniversal.webp"
+                            src="/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.jpg"
                             alt="El Universal México"
                             fill
                             className="object-cover w-full h-full transform transition-all duration-700 group-hover:scale-110"
@@ -517,11 +517,7 @@ export default function Home() {
                 }}
             >
                 {/* Efecto de partículas flotantes */}
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-10 w-1 h-1 bg-white rounded-full animate-pulse opacity-60" style={{ animationDelay: '0s', animationDuration: '2s' }}></div>
-                    <div className="absolute top-20 right-20 w-1 h-1 bg-white rounded-full animate-pulse opacity-50" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
-                    <div className="absolute bottom-20 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse opacity-40" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }}></div>
-                </div>
+               
                 
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
                     <div>
@@ -533,7 +529,7 @@ export default function Home() {
                         <div>
                             <Link
                                 href="/contacto"
-                                className="group relative inline-flex items-center justify-center bg-white font-semibold text-[16px] md:text-[18px] leading-[24px] px-8 py-4 rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]"
+                                className="group relative inline-flex items-center justify-center bg-white font-semibold text-[16px] md:text-[18px] leading-[24px] px-8 py-4 rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-110 "
                                 style={{
                                     color: "var(--new-colors-galileo-ia-2, #FFC351)",
                                 }}

@@ -5,6 +5,8 @@ import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import ImageWithCrossIcon from "../../../components/ImageWithCrossIcon";
+import CaseNavigation from "../../../components/CaseNavigation";
+import { casesData } from "@/data/casesData";
  
 
 export default function Home() {
@@ -124,7 +126,7 @@ export default function Home() {
         <div className="flex gap-10 lg:gap-15 lg:mx-30 pb-20 lg:flex-row flex-col justify-items-stretch">
           <div className="ml-10 md:ml-0 flex justify-end relative lg:w-[50%] lg:order-[unset] order-2">
             <ImageWithCrossIcon
-              src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp"
+              src="/images/casos-de-exito/eluniversal.webp"
               alt="Home caminando hacia un portal con el logo de Attach"
               position="left-bottom"
               width={1200}
@@ -162,14 +164,16 @@ export default function Home() {
         </div>
 
 <ResultsSection stats={stats} />
-
+        <div className="lg:mx-30">
+          <CaseNavigation cases={casesData} />
+        </div>
       </section>
 
 
 
       {/* CTA Talk Us */}
-      <section className="pb-17 px-5 lg:pr-30">
-        <div className="flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px]">
+      <section className="pb-10 px-5 lg:pr-30">
+        <div className="flex flex-col gap-10 lg:pl-30 pt-10 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] text-white">
           <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl">
             Desarrollemos algo
             increíble juntos.

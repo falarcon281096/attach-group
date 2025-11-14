@@ -71,11 +71,11 @@ export default function Home() {
                 paddingMobile="2rem"
                 paddingBottomMobile='-9px'
                 offsetXMobile = "10px"
-                offsetX = "35px"
+                offsetX = "65px"
                 paddingDesktop="1rem" 
                 imageClassName="object-cover"
                 containerClassName="w-full h-full rounded-tr-[30px] rounded-bl-[30px] md:rounded-tr-[50px] md:rounded-bl-[50px] image-light-soft"
-                sizePercent={0.52}
+                sizePercent={0.32}
                 overhangPercent={0.52}
                 sizePercentMobile={0.40}
                 overhangPercentMobile={0.40}

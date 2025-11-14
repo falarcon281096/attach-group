@@ -378,13 +378,14 @@ export default function Home() {
             </p>
           </div>
         </div>
-      <ResultsSection stats={stats} />
-      </section>
-
-
+        <ResultsSection stats={stats} />
+        <div className="lg:mx-30">
+             <CaseNavigation cases={casesData} />
+        </div>
+      </section> 
 
       {/* CTA Talk Us */}
-      <section className="pb-17 px-5 lg:pr-30 relative overflow-hidden">
+      <section className="pb-10 px-5 lg:pr-30 relative overflow-hidden">
         {/* Partículas de fondo */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           {particles.map((particle, i) => (
@@ -402,14 +403,12 @@ export default function Home() {
             />
           ))}
         </div>
-        {/* Navegación entre casos de éxito */}
-        <div className="flex flex-col gap-10 lg:pl-30 pt-10 md:pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] relative z-10 transition-all duration-1000">
-          <CaseNavigation cases={casesData} />
-        </div>
+        
+
         <div 
           ref={(el) => setElementRef("cta-section", el)}
           data-animate-id="cta-section"
-          className={`flex flex-col gap-10 lg:pl-30 pt-10 md:pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] relative z-10 transition-all duration-1000 ${
+          className={`flex flex-col gap-10 lg:pl-30 pt-10 md:pt-10 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] relative z-10 transition-all duration-1000 ${
             isVisible["cta-section"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"
           }`}
         >

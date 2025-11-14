@@ -448,12 +448,13 @@ export default function AthenaAds() {
                 style={{ borderColor: 'rgba(30, 18, 13, 0.1)', transitionDelay: "0.3s" }}
               >
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[30px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
-                  <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded ">
+                  <div className="flex-1 relative h-80 md:h-68 md:h-74 overflow-hidden rounded flex items-center justify-center">
                     <Image
                       src="/images/athena-ads/Cayetano-Social-Extender.gif"
                       alt="Social Extender 1"
-                      fill
-                      className=""
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
@@ -485,12 +486,13 @@ export default function AthenaAds() {
                 style={{ borderColor: 'rgba(30, 18, 13, 0.1)', transitionDelay: "0.4s" }}
               >
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px] " style={{ padding:"10px 30px"}}>
-                  <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded">
+                  <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded flex items-center justify-center">
                     <Image
                       src="/images/athena-ads/Ficohsa-Richmedia.gif"
                       alt="Rich Media 1"
-                      fill
-                      className=""
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
@@ -522,12 +524,13 @@ export default function AthenaAds() {
                 style={{ borderColor: 'rgba(30, 18, 13, 0.1)', transitionDelay: "0.5s" }}
               >
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
-                  <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded">
+                  <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded flex items-center justify-center">
                     <Image
                       src="/images/athena-ads/SBD-Tap-to-Map.gif"
                       alt="Tap to Map 1"
-                      fill
-                      className=""
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
@@ -594,7 +597,7 @@ export default function AthenaAds() {
                   className="object-cover transform transition-all duration-700 group-hover:scale-110"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 group-hover:from-black/80 to-transparent px-6 md:px-6 transition-all duration-500">
-                  <h3 className="text-lg md:text-xl font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
+                  <h3 className="text-lg md:text-xl text-white font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2 drop-shadow-lg" style={{ color: 'rgba(200, 200, 200, 1)', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>
                     <b>APUESTA TOTAL</b>
                   </h3>
                   <p className="text-sm md:text-base text-white transform transition-all duration-500 delay-100 group-hover:translate-x-2">

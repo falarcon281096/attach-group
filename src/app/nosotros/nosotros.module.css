@@ -58,3 +58,151 @@
         padding-right: 1.5rem !important;
     }
 }
+
+/* Estilos responsivos para los marcadores de países en el mapa */
+.country-marker {
+    position: absolute;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.country-marker-peru {
+    left: 54%;
+    top: 66%;
+    width: 24px;
+    height: 24px;
+}
+
+.country-marker-mexico {
+    left: 37%;
+    top: 46%;
+    width: 24px;
+    height: 24px;
+}
+
+.country-marker-usa {
+    left: 57%;
+    top: 36%;
+    width: 24px;
+    height: 24px;
+}
+
+/* Tablet */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .country-marker-peru {
+        left: 54%;
+        top: 66%;
+        width: 32px;
+        height: 32px;
+    }
+
+    .country-marker-mexico {
+        left: 37%;
+        top: 46%;
+        width: 32px;
+        height: 32px;
+    }
+
+    .country-marker-usa {
+        left: 57%;
+        top: 36%;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .country-marker-peru {
+        left: 54%;
+        top: 66%;
+        width: 38px;
+        height: 38px;
+    }
+
+    .country-marker-mexico {
+        left: 37%;
+        top: 46%;
+        width: 38px;
+        height: 38px;
+    }
+
+    .country-marker-usa {
+        left: 57%;
+        top: 36%;
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 639px) {
+    .country-marker-peru {
+        width: 17px;
+        height: 16px;
+        top: 68%;
+        left: 56%;
+    }
+
+    .country-marker-usa {
+        width: 17px;
+        height: 17px;
+        top: 38%;
+        left: 58.2%;
+    }
+
+    .country-marker-mexico {
+        width: 15px;
+        height: 16px;
+        top: 48%;
+        left: 38.5%;
+    }
+}
+
+/* Pantallas pequeñas (480px y menores) */
+@media (max-width: 480px) {
+    .country-marker-peru {
+        width: 14px;
+        height: 13px;
+        top: 68%;
+        left: 56%;
+    }
+
+    .country-marker-usa {
+        width: 14px;
+        height: 14px;
+        top: 38%;
+        left: 58.2%;
+    }
+
+    .country-marker-mexico {
+        width: 12px;
+        height: 13px;
+        top: 48%;
+        left: 38.5%;
+    }
+}
+
+/* Pantallas muy pequeñas (360px y menores) */
+@media (max-width: 360px) {
+    .country-marker-peru {
+        width: 12px;
+        height: 11px;
+        top: 68%;
+        left: 56%;
+    }
+
+    .country-marker-usa {
+        width: 12px;
+        height: 12px;
+        top: 38%;
+        left: 58.2%;
+    }
+
+    .country-marker-mexico {
+        width: 10px;
+        height: 11px;
+        top: 48%;
+        left: 38.5%;
+    }
+}

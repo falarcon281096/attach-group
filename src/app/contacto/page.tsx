@@ -57,6 +57,62 @@ export default function Home() {
     'guerrillamail.com',
     '10minutemail.com',
     'tempmail.com',
+    'pm.me',
+    'hey.com',
+    'hushmail.com',
+    'rocketmail.com',
+    'ymail.com',
+    'me.com',
+    'mac.com',
+    'bigpond.com',
+    'rediffmail.com',
+     'hotmail.es',
+    'hotmail.fr',
+    'hotmail.it',
+    'hotmail.de',
+    'outlook.es',
+    'outlook.fr',
+    'outlook.it',
+    'live.fr',
+    'live.co.uk',
+    'yahoo.es',
+    'yahoo.fr',
+    'yahoo.co.uk',
+    'gmx.de',
+  'gmx.net',
+  'gmx.at',
+  'web.de',
+  'wp.pl',
+  'onet.pl',
+  'op.pl',
+  'inbox.lv',
+  'inbox.ru',
+  'yopmail.com',
+  'dispostable.com',
+  'getnada.com',
+  'nada.ltd',
+  'maildrop.cc',
+  'trashmail.com',
+  'trashmail.se',
+  'moakt.com',
+  'tempmailo.com',
+  'tempr.email',
+  'fakeinbox.com',
+  'emailondeck.com',
+  'mailnesia.com',
+  'burnermail.io',
+  'spamgourmet.com',
+  'sharklasers.com',
+  'grr.la',
+  '24mail.chacuo.net',
+  'guerrillamail.net',
+  'guerrillamail.de',
+  'guerrillamail.org',
+  'guerrillamail.biz',
+  'mytemp.email',
+  'mailtemp.net',
+  'mintemail.com'
+
   ];
 
   const isCorporateEmail = (email: string): boolean => {
@@ -345,7 +401,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "https://us-east1-attach-group-web.cloudfunctions.net/attach-form-hub-fn/attach-group-contact-form",
+        "/api/contact",
         {
           method: "POST",
           body: payload,
@@ -508,7 +564,7 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Nombres y apellidos"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-1 ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal reveal-lock scroll-reveal-delay-1 ${
                         errors.fullName ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.fullName}
@@ -528,11 +584,12 @@ export default function Home() {
                     <input
                       type="email"
                       placeholder="Email corporativo"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-2 relative z-10 border-white placeholder:text-white/70 is-visible ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal reveal-lock scroll-reveal-delay-2 relative z-10 border-white placeholder:text-white/70 is-visible ${
                         errors.email ? "border-red-400" : ""
                       }`}
                       value={formData.email}
                       onChange={handleInputChange("email")}
+                      autoComplete="email"
                       aria-invalid={errors.email ? "true" : "false"}
                       maxLength={160}
                       name="email"
@@ -547,7 +604,7 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Compañía"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-3 is-visible ${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal reveal-lock scroll-reveal-delay-3 is-visible ${
                         errors.company ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.company}
@@ -567,13 +624,14 @@ export default function Home() {
                     <input
                       type="tel"
                       placeholder="Teléfono (ej: +51 945062208 o 945062208)"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal scroll-reveal-delay-4 is-visible${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 input-focus-glow scroll-reveal reveal-lock scroll-reveal-delay-4 is-visible${
                         errors.phone ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.phone}
                       onChange={handleInputChange("phone")}
                       aria-invalid={errors.phone ? "true" : "false"}
                       inputMode="tel"
+                      autoComplete="tel"
                       name="phone"
                       required
                       disabled={submitStatus === "sending"}
@@ -585,7 +643,7 @@ export default function Home() {
                   <div className="flex flex-col lg:col-span-2">
                     <textarea
                       placeholder="¿Cómo podemos ayudarte?"
-                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 h-36 resize-none input-focus-glow scroll-reveal scroll-reveal-delay-5 is-visible${
+                      className={`rounded-lg border bg-white/20 px-5 py-4 font-normal text-white outline-none transition focus:bg-white/40 h-36 resize-none input-focus-glow scroll-reveal reveal-lock scroll-reveal-delay-5 is-visible${
                         errors.message ? "border-red-400" : "border-white"
                       } placeholder:text-white/70`}
                       value={formData.message}

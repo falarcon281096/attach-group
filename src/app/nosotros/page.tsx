@@ -396,12 +396,7 @@ export default function Home() {
               
               {/* Efectos de resaltado para los países - Perú (izquierda) */}
               <div 
-                className="absolute pointer-events-none w-6 h-6 lg:w-[38px] lg:h-[38px]"
-                style={{
-                  left: "54%",
-                  top: "66%",
-                  zIndex: 50
-                }}
+                className={`${styles["country-marker"]} ${styles["country-marker-peru"]}`}
               >
                 <div 
                   className="absolute inset-0 rounded-full bg-gradient-to-r from-[#1e3fda] to-[#58308c] opacity-30 animate-pulse-glow"
@@ -428,12 +423,7 @@ export default function Home() {
               
               {/* Efectos de resaltado para los países - México (centro) */}
               <div 
-                className="absolute pointer-events-none w-6 h-6 lg:w-[38px] lg:h-[38px]"
-                style={{
-                  left: "37%",
-                  top: "46%",
-                  zIndex: 50
-                }}
+                className={`${styles["country-marker"]} ${styles["country-marker-mexico"]}`}
               >
                 <div 
                   className="absolute inset-0 rounded-full bg-gradient-to-r from-[#1e3fda] to-[#58308c] opacity-30 animate-pulse-glow"
@@ -460,12 +450,7 @@ export default function Home() {
               
               {/* Efectos de resaltado para los países - USA (derecha) */}
               <div 
-                className="absolute pointer-events-none w-6 h-6 lg:w-[38px] lg:h-[38px]"
-                style={{
-                  left: "57%",
-                  top: "36%",
-                  zIndex: 50
-                }}
+                className={`${styles["country-marker"]} ${styles["country-marker-usa"]}`}
               >
                 <div 
                   className="absolute inset-0 rounded-full bg-gradient-to-r from-[#1e3fda] to-[#58308c] opacity-30 animate-pulse-glow"
@@ -507,27 +492,6 @@ export default function Home() {
                 50% {
                   transform: scale(1.5);
                   opacity: 0.1;
-                }
-              }
-              
-              @media (max-width: 768px) {
-                .absolute[style*="left: 15%"] {
-                  left: 10% !important;
-                  top: 60% !important;
-                  width: 40px !important;
-                  height: 40px !important;
-                }
-                .absolute[style*="left: 35%"] {
-                  left: 30% !important;
-                  top: 40% !important;
-                  width: 40px !important;
-                  height: 40px !important;
-                }
-                .absolute[style*="left: 60%"] {
-                  left: 55% !important;
-                  top: 25% !important;
-                  width: 40px !important;
-                  height: 40px !important;
                 }
               }
             `}} />

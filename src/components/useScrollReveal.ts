@@ -13,7 +13,12 @@ export function useScrollReveal(selector: string = ".scroll-reveal") {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
           } else {
-            entry.target.classList.remove("is-visible");
+            // No ocultar elementos marcados como bloqueados, útil para inputs
+            const el = entry.target as HTMLElement;
+            const isLocked = el.hasAttribute("data-reveal-lock") || el.classList.contains("reveal-lock");
+            if (!isLocked) {
+              el.classList.remove("is-visible");
+            }
           }
         });
       },

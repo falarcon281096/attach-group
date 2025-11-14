@@ -5,6 +5,8 @@ import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import ImageWithCrossIcon from "../../../components/ImageWithCrossIcon";
+import CaseNavigation from "../../../components/CaseNavigation";
+import { casesData } from "@/data/casesData";
 import { useEffect, useRef, useState } from "react";
  
 
@@ -259,10 +261,13 @@ export default function Home() {
         </div>
 
         <ResultsSection stats={stats} />
+        <div className="lg:mx-30">
+          <CaseNavigation cases={casesData} />
+        </div>
       </section>
 
       {/* CTA Talk Us */}
-      <section className="pb-17 px-5 lg:pr-30 relative overflow-hidden">
+      <section className="pb-10 px-5 lg:pr-30 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           {particles.map((p, i) => (
             <div key={i} className="absolute rounded-full bg-white" style={{ width: `${p.width}px`, height: `${p.height}px`, left: `${p.left}%`, top: `${p.top}%`, animation: `float ${p.animationDuration}s ease-in-out infinite`, animationDelay: `${p.animationDelay}s` }} />
