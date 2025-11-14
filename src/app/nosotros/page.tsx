@@ -396,12 +396,10 @@ export default function Home() {
               
               {/* Efectos de resaltado para los países - Perú (izquierda) */}
               <div 
-                className="absolute pointer-events-none"
+                className="absolute pointer-events-none w-6 h-6 lg:w-[38px] lg:h-[38px]"
                 style={{
                   left: "54%",
                   top: "66%",
-                  width: "38px",
-                  height: "38px",
                   zIndex: 50
                 }}
               >
@@ -430,12 +428,10 @@ export default function Home() {
               
               {/* Efectos de resaltado para los países - México (centro) */}
               <div 
-                className="absolute pointer-events-none"
+                className="absolute pointer-events-none w-6 h-6 lg:w-[38px] lg:h-[38px]"
                 style={{
                   left: "37%",
                   top: "46%",
-                  width: "38px",
-                  height: "38px",
                   zIndex: 50
                 }}
               >
@@ -464,12 +460,10 @@ export default function Home() {
               
               {/* Efectos de resaltado para los países - USA (derecha) */}
               <div 
-                className="absolute pointer-events-none"
+                className="absolute pointer-events-none w-6 h-6 lg:w-[38px] lg:h-[38px]"
                 style={{
                   left: "57%",
                   top: "36%",
-                  width: "38px",
-                  height: "38px",
                   zIndex: 50
                 }}
               >
@@ -499,7 +493,7 @@ export default function Home() {
               <span className="image-light-soft absolute inset-0 pointer-events-none" style={{ zIndex: 45 }} aria-hidden="true"></span>
             </div>
             
-            <h2 className="mb-0 md:mb-10 md:hidden absolute z-10 bottom-[-45px] left-0 right-0 text-left px-3 text-[24px] leading-[28px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold scroll-reveal">
+            <h2 className="mb-0 z-40 md:mb-10 md:hidden absolute z-10 bottom-[-45px] left-0 right-0 text-left px-3 text-[24px] leading-[28px] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold scroll-reveal">
               Oficinas en tres países. Alcance más allá de fronteras
             </h2>
             
@@ -543,7 +537,7 @@ export default function Home() {
       </div>
       {/* CTA Talk Us */}
       <section className={`pb-0 md:pb-11 pr-30 ${styles["cta-talkus"]}`}>
-        <div className="flex flex-col gap-5 md:gap-10 pl-[10px] pr-[10px] md:pl-30 md:pr-30 pt-13 md:pt-20 pb-11 md:pb-12 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
+        <div className="flex flex-col gap-5 md:gap-10 pl-[10px] pr-[10px] md:pl-30 md:pr-30 pt-5 md:pt-20 pb-11 md:pb-12 border-r-2 border-b-2 border-white/30 rounded-br-[50px]">
           <h2 className="text-[24px] md:text-[48px] leading-[26px] md:leading-[50px] font-semibold max-w-5xl text-white scroll-reveal">
             Ya nos conociste. Lo que sigue lo construimos contigo.
           </h2>

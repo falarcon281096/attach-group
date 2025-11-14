@@ -215,7 +215,7 @@ export default function Home() {
         <div 
           ref={(el) => setElementRef("cta-section", el)}
           data-animate-id="cta-section"
-          className={`flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] relative z-10 transition-all duration-1000 ${
+          className={`flex flex-col gap-10 lg:pl-30 pt-10 md:mt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] relative z-10 transition-all duration-1000 ${
             isVisible["cta-section"] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
         >

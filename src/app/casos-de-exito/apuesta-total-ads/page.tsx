@@ -300,25 +300,23 @@ export default function Home() {
             data-animate-id="estrategia-image"
             className={`
                     flex justify-end relative lg:w-[50%]
-                    before:absolute before:inset-0 
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
-                    before:bg-no-repeat
-                    before:z-10
-                    before:bg-center
-                    before:content-['']
-                    before:bg-[length:100%_100%]
-                    before:w-15
-                    before:h-15
-                    before:-translate-x-[-34rem]
-                    before:top-105
                     lg:order-[unset]
                     order-2
                     transform transition-all duration-1000
                     ${isVisible["estrategia-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 -translate-x-10 scale-100"}
             `}
-            style={{ transitionDelay: "0.3s" }}
+            style={{ transitionDelay: "0.3s", zIndex: 10, isolation: 'isolate' }}
           >
-            <div className="relative overflow-hidden lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] group w-full">
+            <div className="absolute right-24 bottom-40 w-10 h-10 lg:w-15 lg:h-15 lg:-translate-x-[-34rem] lg:top-105 lg:bottom-auto lg:left-auto pointer-events-none" style={{ zIndex: 9999 }}>
+              <Image 
+                src="/images/general/attach_cross_blue_to_purple.png" 
+                alt="" 
+                width={60} 
+                height={60} 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] group w-full" style={{ zIndex: 1 }}>
               <Image 
                 className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover transform transition-all duration-700 group-hover:scale-110" 
                 src="/images/casos-de-exito/Apuestathenads1.webp" 

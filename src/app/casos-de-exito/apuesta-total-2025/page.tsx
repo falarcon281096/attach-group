@@ -117,13 +117,17 @@ export default function Home() {
               </div>
 
               {/* Image placeholder - where the person and city image goes */}
-              <div ref={(el) => setElementRef("hero-image", el)} data-animate-id="hero-image" className={`absolute
+              <div
+                  ref={(el) => setElementRef("hero-image", el)}
+                  data-animate-id="hero-image"
+                  className={`absolute
                     top-[21%]
                     lg:top-[unset]
                     pl-12
                     lg:pl-0
-                    lg:relative 
-                    before:absolute before:inset-0 
+                    lg:relative
+                    before:absolute before:inset-0
+                    before:z-10
                     before:bg-[url('/images/general/attach_cross_white.png')]
                     before:bg-no-repeat
                     before:bg-center
@@ -136,7 +140,9 @@ export default function Home() {
                     lg:before:-translate-x-1/2
                     before:-translate-x-[-0.5rem]
                     lg:before:top-100
-                    before:top-45 transform transition-all duration-1000 ${isVisible["hero-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}>
+                    before:top-45
+                    transform transition-all duration-1000 ${isVisible["hero-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}
+                  `}>
                 <div className="relative z-0 overflow-hidden rounded-l-[4rem] group">
                   <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/apuestatotal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
                 </div>
@@ -209,19 +215,18 @@ export default function Home() {
 
         <div className="flex gap-10 lg:gap-15 lg:mx-30 pb-20 lg:flex-row flex-col justify-items-stretch">
           <div ref={(el) => setElementRef("estrategia-image", el)} data-animate-id="estrategia-image" className={`flex justify-end relative lg:w-[50%]
-                    before:absolute before:inset-0 
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
-                    before:bg-no-repeat
-                    before:bg-center
-                    before:content-['']
-                    before:bg-[length:100%_100%]
-                    before:w-15
-                    before:h-15
-                    before:-translate-x-[-34rem]
-                    before:top-105
                     lg:order-[unset]
-                    order-2 transform transition-all duration-1000 ${isVisible["estrategia-image"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"}`}>
-            <div className="relative overflow-hidden group w-full">
+                    order-2 transform transition-all duration-1000 ${isVisible["estrategia-image"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"}`} style={{ zIndex: 10, isolation: 'isolate' }}>
+            <div className="absolute right-24 bottom-40 w-10 h-10 lg:w-15 lg:h-15 lg:-translate-x-[-34rem] lg:top-105 lg:bottom-auto lg:left-auto pointer-events-none" style={{ zIndex: 9999 }}>
+              <Image 
+                src="/images/general/attach_cross_blue_to_purple.png" 
+                alt="" 
+                width={60} 
+                height={60} 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden group w-full" style={{ zIndex: 1 }}>
               <video
                 className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] object-cover transform transition-all duration-700 group-hover:scale-110"
                 src="/videos/casos-de-exito/Apuesta-Total-Attach-video-lite.mp4"

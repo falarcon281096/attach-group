@@ -110,7 +110,7 @@ export default function Home() {
           {/* Efecto de luz brillante que se mueve */}
            
           
-          <div className="rounded-b-[50px] lg:ml-27 lg:pt-27 pb-0 lg:pb-16 pt-40 md:pt-40 relative z-10">
+          <div className="rounded-b-[50px] lg:ml-27 lg:pt-27 pb-0 lg:pb-16 pt-25 md:pt-40 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center lg:ml-15">
               {/* Content */}
               <div 
@@ -173,7 +173,7 @@ export default function Home() {
                     ${isVisible["hero-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 translate-x-10 scale-100"}
                 `}
               >
-                <div className="relative z-0 overflow-hidden rounded-l-[4rem] group">
+                <div className="relative z-0 pt-10 md:pt-0 overflow-hidden rounded-l-[4rem] group">
                   <Image 
                     className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" 
                     src="/images/casos-de-exito/deposeguro.png" 
@@ -253,33 +253,44 @@ export default function Home() {
             </div> 
           </div>
           <div 
-            ref={(el) => setElementRef("reto-image", el)}
-            data-animate-id="reto-image"
-            className={`
+              ref={(el) => setElementRef("reto-image", el)}
+              data-animate-id="reto-image"
+              className={` 
                     flex
                     justify-end
                     relative
-                    lg:w-[50%]
-                    before:absolute before:inset-0 
+                    w-full
+
+                    /* --- MOBILE: abajo derecha con 10px extra --- */
+                    before:absolute 
+                    before:bottom-2 
+                    before:right-[-9]    /* ~10px más hacia la derecha */
                     before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
                     before:bg-no-repeat
                     before:bg-center
                     before:content-['']
                     before:bg-[length:100%_100%]
+                    before:w-10 before:h-10
                     before:z-10
-                    before:w-10
-                    before:h-10
-                    before:-translate-x-[-13rem]
-                    before:bottom-[14%]
-                     before:left-5
+
+                    /* --- DESKTOP: abajo izquierda --- */
+                    lg:w-[50%]
                     lg:before:w-15
                     lg:before:h-15
-                    lg:before:-translate-x-1/2
-                    lg:before:top-45
+                    lg:before:bottom-4
+                    lg:before:-left-3
+                    lg:before:right-auto
+                    lg:before:top-auto
+
                     transform transition-all duration-1000 delay-300
-                    ${isVisible["reto-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 translate-x-10 scale-100"}
-            `}
-          >
+                    ${
+                      isVisible["reto-image"] 
+                      ? "opacity-100 translate-x-0 scale-100" 
+                      : "opacity-100 translate-x-10 scale-100"
+                    }
+              `}
+            >
+
             <div className="relative overflow-hidden rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] group">
               <Image 
                 className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] transform transition-all duration-700 group-hover:scale-110" 
@@ -300,25 +311,23 @@ export default function Home() {
             data-animate-id="estrategia-image"
             className={`
                     flex justify-end relative lg:w-[50%]
-                    before:absolute before:inset-0 
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
-                    before:bg-no-repeat
-                    before:z-10
-                    before:bg-center
-                    before:content-['']
-                    before:bg-[length:100%_100%]
-                    before:w-15
-                    before:h-15
-                    before:-translate-x-[-34rem]
-                    before:top-105
                     lg:order-[unset]
                     order-2
                     transform transition-all duration-1000
                     ${isVisible["estrategia-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 -translate-x-10 scale-100"}
             `}
-            style={{ transitionDelay: "0.3s" }}
+            style={{ transitionDelay: "0.3s", zIndex: 10, isolation: 'isolate' }}
           >
-            <div className="relative overflow-hidden lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] group w-full">
+            <div className="absolute right-24 bottom-40 w-10 h-10 lg:w-15 lg:h-15 lg:-translate-x-[-34rem] lg:top-105 lg:bottom-auto lg:left-auto pointer-events-none" style={{ zIndex: 9999 }}>
+              <Image 
+                src="/images/general/attach_cross_blue_to_purple.png" 
+                alt="" 
+                width={60} 
+                height={60} 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] group w-full" style={{ zIndex: 1 }}>
               <Image 
                 className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover transform transition-all duration-700 group-hover:scale-110" 
                 src="/images/casos-de-exito/deposeguro/Depo2.webp" 
@@ -427,7 +436,7 @@ export default function Home() {
         <div 
           ref={(el) => setElementRef("cta-section", el)}
           data-animate-id="cta-section"
-          className={`flex flex-col gap-10 lg:pl-30 pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] relative z-10 transition-all duration-1000 ${
+          className={`flex flex-col gap-10 lg:pl-30 pt-10 md:pt-20 lg:pb-17 lg:border-r-2 lg:border-b-2 lg:border-white/30 lg:rounded-br-[50px] relative z-10 transition-all duration-1000 ${
             isVisible["cta-section"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"
           }`}
         >

@@ -131,20 +131,20 @@ export default function Home() {
 
         <div className="flex gap-10 lg:gap-15 lg:mx-30 pb-20 lg:flex-row flex-col justify-items-stretch">
           <div className="ml-10 md:ml-0 flex justify-end relative lg:w-[50%]
-                    before:absolute before:left-8 md:before:left-0 
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
-                    before:bg-no-repeat
-                    before:bg-center
-                    before:content-['']
-                    before:bg-[length:100%_100%]
-                    before:w-15
-                    before:h-15 
-                    -translate-x-[16em]
-                    before:transform md:before:-translate-x-[34em]
-                    before:top-105
                     lg:order-[unset]
-                    order-2">
-            <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+                    order-2" style={{ zIndex: 10, isolation: 'isolate' }}>
+            <div className="absolute right-24 bottom-40 w-10 h-10 lg:w-15 lg:h-15 lg:-translate-x-[-34rem] lg:top-105 lg:bottom-auto lg:left-auto pointer-events-none" style={{ zIndex: 9999 }}>
+              <Image 
+                src="/images/general/attach_cross_blue_to_purple.png" 
+                alt="" 
+                width={60} 
+                height={60} 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden w-full" style={{ zIndex: 1 }}>
+              <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+            </div>
           </div>
           {/* Carlo R.*/}
           <div className="lg:w-1/2">

@@ -300,7 +300,7 @@ import { useEffect, useRef, useState } from "react";
               }}
             >
               <div ref={equipoContentRef}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pb-10 md:pb-10">
                   {/* Columna 1 */}
                   <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
                     <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">Auditor 2.0</h4>
@@ -308,7 +308,6 @@ import { useEffect, useRef, useState } from "react";
                       <span className="font-semibold text-[#00B0C8]">Analiza más de 100 variables de una cuenta publicitaria</span> para sugerir mejoras en aspectos como la segmentación. Estas recomendaciones son brindadas al equipo operativo y reevaluadas de forma periódica para garantizar una calidad consistente independientemente de la persona asignada a la cuenta.
                     </p>
                   </div>
-
                   {/* Columna 2 */}
                   <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
                     <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">3P Performance Framework</h4>
