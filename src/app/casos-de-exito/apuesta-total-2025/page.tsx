@@ -4,6 +4,7 @@ import Image from "next/image";
 import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import ImageWithCrossIcon from "../../../components/ImageWithCrossIcon";
 import { useEffect, useRef, useState } from "react";
  
 
@@ -189,44 +190,32 @@ export default function Home() {
             <p className="tex-xl text-gray-600">En el dinámico mundo de las apuestas deportivas, cada segundo cuenta. Apuesta Total enfrentaba el desafío de mantener actualizados, en tiempo real, los anuncios de sus cuotas deportivas en Meta.</p>
             <p className="tex-xl text-gray-600">Los procesos manuales de revisión y publicación generaban demoras críticas y limitaban la competitividad y rentabilidad de las campañas, especialmente durante eventos en vivo donde cada punto puede cambiarlo todo.</p>
           </div>
-          <div ref={(el) => setElementRef("reto-image", el)} data-animate-id="reto-image" className={`flex
-                    justify-end
-                    relative
-                    lg:w-[50%]
-                    before:absolute before:inset-0 
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
-                    before:bg-no-repeat
-                    before:bg-center
-                    before:content-['']
-                    before:bg-[length:100%_100%]
-                    before:w-10
-                    before:h-10
-                    before:-translate-x-[-17.5rem]
-                    before:top-20
-                    lg:before:w-15
-                    lg:before:h-15
-                    lg:before:-translate-x-1/2
-                    lg:before:top-45 transform transition-all duration-1000 ${isVisible["reto-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}>
-            <div className="relative overflow-hidden rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] group w-full">
-              <Image className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/APUESTA-TOTAL-Paid-2.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
-            </div>
+          <div 
+            ref={(el) => setElementRef("reto-image", el)}
+            data-animate-id="reto-image"
+            className={`flex justify-end relative lg:w-[50%] transform transition-all duration-1000 ${isVisible["reto-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}
+          >
+            <ImageWithCrossIcon
+              src="/images/casos-de-exito/APUESTA-TOTAL-Paid-2.webp"
+              alt="Home caminando hacia un portal con el logo de Attach"
+              position="right-bottom"
+              width={1200}
+              height={1000}
+              quality={100}
+              containerClassName="w-full"
+            />
           </div>
         </div>
 
         <div className="flex gap-10 lg:gap-15 lg:mx-30 pb-20 lg:flex-row flex-col justify-items-stretch">
-          <div ref={(el) => setElementRef("estrategia-image", el)} data-animate-id="estrategia-image" className={`flex justify-end relative lg:w-[50%]
-                    lg:order-[unset]
-                    order-2 transform transition-all duration-1000 ${isVisible["estrategia-image"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"}`} style={{ zIndex: 10, isolation: 'isolate' }}>
-            <div className="absolute right-24 bottom-40 w-10 h-10 lg:w-15 lg:h-15 lg:-translate-x-[-34rem] lg:top-105 lg:bottom-auto lg:left-auto pointer-events-none" style={{ zIndex: 9999 }}>
-              <Image 
-                src="/images/general/attach_cross_blue_to_purple.png" 
-                alt="" 
-                width={60} 
-                height={60} 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="relative overflow-hidden group w-full" style={{ zIndex: 1 }}>
+          <div 
+            ref={(el) => setElementRef("estrategia-image", el)}
+            data-animate-id="estrategia-image"
+            className={`flex justify-end relative lg:w-[50%] lg:order-[unset] order-2 transform transition-all duration-1000 ${isVisible["estrategia-image"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"}`}
+            style={{ transitionDelay: "0.3s" }}
+          >
+            {/* Nota: Este es un video, no una imagen, así que mantenemos la estructura original pero sin el icono manual */}
+            <div className="relative overflow-hidden rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] group w-full">
               <video
                 className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] object-cover transform transition-all duration-700 group-hover:scale-110"
                 src="/videos/casos-de-exito/Apuesta-Total-Attach-video-lite.mp4"
@@ -239,7 +228,6 @@ export default function Home() {
                 poster="/images/casos-de-exito/apuestatotal.webp"
               ></video>
             </div>
-            {/* <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/apuestatotal2.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} /> */}
           </div>
           <div ref={(el) => setElementRef("estrategia-content", el)} data-animate-id="estrategia-content" className={`lg:w-1/2 transition-all duration-1000 ${isVisible["estrategia-content"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}>
             <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6">

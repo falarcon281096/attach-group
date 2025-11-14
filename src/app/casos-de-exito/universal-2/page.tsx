@@ -4,6 +4,7 @@ import Image from "next/image";
 import ResultsSection from "../../../components/ResultsSection";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import ImageWithCrossIcon from "../../../components/ImageWithCrossIcon";
  
 
 export default function Home() {
@@ -106,45 +107,32 @@ export default function Home() {
             </h3>
             <p className="tex-xl text-gray-600">El desafío planteado era claro: crear una interfaz conversacional impulsada por un LLM que permitiera a los lectores conversar en español sobre las noticias en tiempo real. La innovación debía estar al servicio de la audiencia, pero sin comprometer la precisión editorial ni la confianza que la marca ha construido a lo largo de décadas.</p>
           </div>
-          <div className="flex
-                    justify-end
-                    relative
-                    lg:w-[50%]
-                    before:absolute before:inset-0 
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
-                    before:bg-no-repeat
-                    before:bg-center
-                    before:content-['']
-                    before:bg-[length:100%_100%]
-                    before:w-10
-                    before:h-10
-                    before:-translate-x-[-17.5rem]
-                    before:top-20
-                    lg:before:w-15
-                    lg:before:h-15
-                    lg:before:-translate-x-1/2
-                    lg:before:top-45">
-            <Image className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px]" src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
+          <div className="flex justify-end relative lg:w-[50%]">
+            <ImageWithCrossIcon
+              src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp"
+              alt="Home caminando hacia un portal con el logo de Attach"
+              position="right-bottom"
+              width={1200}
+              height={1000}
+              quality={100}
+              containerClassName="w-full"
+            />
           </div>
 
         </div>
 
         <div className="flex gap-10 lg:gap-15 lg:mx-30 pb-20 lg:flex-row flex-col justify-items-stretch">
-          <div className="ml-10 md:ml-0 flex justify-end relative lg:w-[50%]
-                    lg:order-[unset]
-                    order-2" style={{ zIndex: 10, isolation: 'isolate' }}>
-            <div className="absolute right-24 bottom-40 w-10 h-10 lg:w-15 lg:h-15 lg:-translate-x-[-34rem] lg:top-105 lg:bottom-auto lg:left-auto pointer-events-none" style={{ zIndex: 9999 }}>
-              <Image 
-                src="/images/general/attach_cross_blue_to_purple.png" 
-                alt="" 
-                width={60} 
-                height={60} 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="relative overflow-hidden w-full" style={{ zIndex: 1 }}>
-              <Image className="w-full lg:h-150 lg:rounded-tr-[50px] lg:rounded-bl-[50px] rounded-tr-[30px] rounded-bl-[30px] object-cover" src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
-            </div>
+          <div className="ml-10 md:ml-0 flex justify-end relative lg:w-[50%] lg:order-[unset] order-2">
+            <ImageWithCrossIcon
+              src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp"
+              alt="Home caminando hacia un portal con el logo de Attach"
+              position="left-bottom"
+              width={1200}
+              height={1000}
+              quality={100}
+              containerClassName="w-full"
+              imageClassName="lg:h-150"
+            />
           </div>
           {/* Carlo R.*/}
           <div className="lg:w-1/2">

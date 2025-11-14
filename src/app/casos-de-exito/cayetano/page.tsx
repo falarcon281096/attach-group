@@ -2,6 +2,7 @@
 
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import ImageWithCrossIcon from "../../../components/ImageWithCrossIcon";
  
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -206,47 +207,41 @@ export default function Home() {
             <p className="tex-xl text-gray-600">La institución educativa buscaba incrementar y optimizar los resultados de su campaña de Admisión Pregrado 2025-1, superando el desempeño del periodo anterior (2024-1).</p>
             <p className="tex-xl text-gray-600">El desafío era doble: fortalecer el impacto de marca y consideración, mientras se mejoraban los resultados de performance y conversión en el canal digital, manteniendo eficiencia en inversión y retorno.</p>
           </div>
-          <div ref={(el) => setElementRef("reto-image", el)} data-animate-id="reto-image" className={`flex
-                    justify-end
-                    relative
-                    lg:w-[50%]
-                    before:absolute before:inset-0 
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
-                    before:bg-no-repeat
-                    before:bg-center
-                    before:content-['']
-                    before:bg-[length:100%_100%]
-                    before:w-10
-                    before:h-10
-                    before:-translate-x-[-17.5rem]
-                    before:top-20
-                    lg:before:w-15
-                    lg:before:h-15
-                    lg:before:-translate-x-1/2
-                    lg:before:top-45 transform transition-all duration-1000 ${isVisible["reto-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}>
-            <div className="relative overflow-hidden rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] group w-full">
-              <Image className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/cayetano/cayetano_elreto.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
-            </div>
+          <div 
+            ref={(el) => setElementRef("reto-image", el)}
+            data-animate-id="reto-image"
+            className={`flex justify-end relative lg:w-[50%] transform transition-all duration-1000 ${isVisible["reto-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}
+          >
+            <ImageWithCrossIcon
+              src="/images/casos-de-exito/cayetano/cayetano_elreto.png"
+              alt="Home caminando hacia un portal con el logo de Attach"
+              position="right-bottom"
+              width={1200}
+              height={1000}
+              quality={100}
+              containerClassName="w-full"
+            />
           </div>
 
         </div>
 
           <div className="flex gap-10 lg:gap-15 lg:mx-30 pb-20 lg:flex-row flex-col justify-items-stretch">
-          <div className={`flex justify-end relative lg:w-[50%]
-                    lg:order-[unset]
-                    order-2 transform transition-all duration-1000 ${isVisible["estrategia-image"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"}`} style={{ zIndex: 10, isolation: 'isolate' }}>
-            <div className="absolute right-24 bottom-40 w-10 h-10 lg:w-15 lg:h-15 lg:-translate-x-[-34rem] lg:top-105 lg:bottom-auto lg:left-auto pointer-events-none" style={{ zIndex: 9999 }}>
-              <Image 
-                src="/images/general/attach_cross_blue_to_purple.png" 
-                alt="" 
-                width={60} 
-                height={60} 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="relative overflow-hidden lg:h-150 rounded-tr-[30px] rounded-bl-[30px] lg:rounded-tr-[50px] lg:rounded-bl-[50px] group w-full" style={{ zIndex: 1 }}>
-              <Image className="w-full lg:h-150 rounded-tr-[30px] rounded-bl-[30px] lg:rounded-tr-[50px] lg:rounded-bl-[50px] object-cover transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/cayetano/cayetano_estrategia.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} quality={100} />
-            </div>
+          <div 
+            ref={(el) => setElementRef("estrategia-image", el)}
+            data-animate-id="estrategia-image"
+            className={`flex justify-end relative lg:w-[50%] lg:order-[unset] order-2 transform transition-all duration-1000 ${isVisible["estrategia-image"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"}`}
+            style={{ transitionDelay: "0.3s" }}
+          >
+            <ImageWithCrossIcon
+              src="/images/casos-de-exito/cayetano/cayetano_estrategia.png"
+              alt="Home caminando hacia un portal con el logo de Attach"
+              position="left-bottom"
+              width={1200}
+              height={1000}
+              quality={100}
+              containerClassName="w-full"
+              imageClassName="lg:h-150"
+            />
           </div>
           {/* Carlo R.*/}
           <div ref={(el) => setElementRef("estrategia-content", el)} data-animate-id="estrategia-content" className={`lg:w-1/2 transition-all duration-1000 ${isVisible["estrategia-content"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}>
