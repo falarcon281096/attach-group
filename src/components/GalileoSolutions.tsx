@@ -8,10 +8,8 @@ export default function GalileoSolutions() {
     const [openSection, setOpenSection] = useState<string | null>(null);
 
     const handleToggle = (section: string) => {
-        // Solo cambia si es una sección diferente, nunca cierra la actual
-        if (openSection !== section) {
-            setOpenSection(section);
-        }
+        // Alterna: si se hace clic en la misma sección, colapsa; si es otra, abre
+        setOpenSection((prev) => (prev === section ? null : section));
     };
 
     return (
