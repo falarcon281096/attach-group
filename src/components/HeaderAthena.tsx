@@ -21,7 +21,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
   return (
     <header 
       className={
-        `fixed top-0 left-0 right-0 z-50 shadow-none min-h-[80px] bg-transparent`
+        `fixed top-0 left-0 right-0 z-50 min-h-[80px] bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3]`
       }
     >
       <div className={`w-full px-3 lg:px-4 lg:ml-15 flex items-center justify-between py-5 lg:py-4 ${showBorder
