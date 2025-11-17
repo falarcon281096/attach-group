@@ -118,7 +118,7 @@ import { useEffect, useRef, useState } from "react";
                     height={90} 
                     className="w-[280px] md:w-auto transform transition-all duration-700 hover:scale-105"
                     style={{
-                      filter: "drop-shadow(0 0 20px rgba(255,255,255,0.5))"
+                      // filter: "drop-shadow(0 0 20px rgba(255,255,255,0.5))"
                     }}
                   />
                 </div>
@@ -267,7 +267,7 @@ import { useEffect, useRef, useState } from "react";
             style={{ transitionDelay: "0.3s" }}
           >
             {/* Imagen de fondo */}
-            <div className="relative h-48 md:h-64 lg:h-80 overflow-hidden rounded-t-2xl md:rounded-t-3xl">
+            <div className="relative h-48 md:h-58 lg:h-64 overflow-hidden rounded-t-2xl md:rounded-t-3xl">
               <Image 
                 src="/images/soluciones/attach-media/equipo-hibrido.webp" 
                 alt="Equipo híbrido trabajando con IA" 
@@ -283,7 +283,7 @@ import { useEffect, useRef, useState } from "react";
                 Equipo híbrido: Personas + IA, la combinación que potencia resultados
               </h3>
               
-              <div className="space-y-4 mb-7 md:mb-5">
+              <div className="space-y-4 mb-7 md:mb-9">
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                   En nuestro modelo operativo, <span className="text-cyan-500 font-semibold">combinamos la experiencia del talento humano con el poder de la inteligencia artificial aplicada</span>. Además del personal asignado, contamos con Agentes de IA creados por Attach Group que optimizan presupuestos de campañas, depuran keywords eficientes y sugieren mejoras de las piezas publicitarias. Esta sinergia permite <span className="text-cyan-500 font-semibold">automatizar tareas, escalar aprendizajes y asegurar una calidad consistente en los resultados.</span>
                 </p>
@@ -303,9 +303,9 @@ import { useEffect, useRef, useState } from "react";
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pb-10 md:pb-10">
                   {/* Columna 1 */}
                   <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
-                    <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">Auditor 2.0</h4>
+                    <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">Optimind</h4>
                     <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
-                      <span className="font-semibold text-[#00B0C8]">Analiza más de 100 variables de una cuenta publicitaria</span> para sugerir mejoras en aspectos como la segmentación. Estas recomendaciones son brindadas al equipo operativo y reevaluadas de forma periódica para garantizar una calidad consistente independientemente de la persona asignada a la cuenta.
+                      Nuestro agente <span className="font-semibold text-[#00B0C8]">identifica patrones y oportunidades de rendimiento con el objetivo de optimizar la inversión publicitaria.</span> Lo hace redistribuyendo el presupuesto diario en Google y Meta según los costos y la relevancia para tu negocio. Además, tras haber sido entrenado con los objetivos y la información de tu marca, analiza los términos de búsqueda para detectar aquellos que no son adecuados y los negativiza, mostrando la inversión ahorrada a partir de esa acción. Asimismo, Optimind identifica mejoras en segmentación, pujas, audiencias y copys para incrementar los resultados, asegurando que cada inversión trabaje al máximo para tu marca.
                     </p>
                   </div>
                   {/* Columna 2 */}
@@ -319,7 +319,7 @@ import { useEffect, useRef, useState } from "react";
               </div>
             </div>
             {/* Botón Ver más - Flotando en el borde inferior del modal */}
-            <div className="absolute -bottom-4 md:-bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+            <div className={`absolute left-1/2 transform -translate-x-1/2 z-10 ${isEquipoOpen ? 'bottom-0 md:-bottom-4' : 'bottom-4 md:bottom-1'}`}>
               <button
                 onClick={() => setIsEquipoOpen((v) => !v)}
                 aria-expanded={isEquipoOpen}
@@ -327,7 +327,7 @@ import { useEffect, useRef, useState } from "react";
               >
                 {isEquipoOpen ? "Ver menos" : "Ver más"}
                 <svg
-                  className="ml-2 w-3 h-3 md:w-4 md:h-4 transform transition-transform duration-500 group-hover:translate-y-1"
+                  className={`ml-2 w-3 h-3 md:w-4 md:h-4 transform origin-center transition-transform duration-500 ${isEquipoOpen ? 'rotate-180 group-hover:-translate-y-1' : 'group-hover:translate-y-1'}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -365,12 +365,12 @@ import { useEffect, useRef, useState } from "react";
             {/* Contenido sobre la imagen */}
             <div className="p-6 md:p-12">
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 text-center">
-                Estructura y metodologías propias
+                CreativIA
               </h3>
               
               <div className="space-y-4 mb-6 md:mb-8">
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  En nuestro modelo operativo, <span className="text-cyan-500 font-semibold">combinamos la experiencia del talento humano con el poder de la inteligencia artificial aplicada</span>. Además del personal asignado, contamos con Agentes de IA creados por Attach Group que optimizan presupuestos de campañas, depuran keywords eficientes y sugieren mejoras de las piezas publicitarias. Esta sinergia permite <span className="text-cyan-500 font-semibold">automatizar tareas, escalar aprendizajes y asegurar una calidad consistente en los resultados.</span>
+                  Nuestro agente <span className="text-cyan-500 font-semibold">entrenado con best practices de Nielsen, Google y Meta.</span> se conecta directamente con tus plataformas publicitarias a fin de analizar la data histórica de tus piezas publicitarias y sugerir mejoras. Con ello, CreativIA tiene lo mejor de ambos mundos: analiza como el mejor trafficker y sugiere como el mejor creativo.
                 </p>
               </div>
             </div>
@@ -801,7 +801,7 @@ import { useEffect, useRef, useState } from "react";
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 group-hover:from-black/80 to-transparent px-6 md:px-6 transition-all duration-500">
                     <h3 className="text-lg md:text-xl font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
-                      <b>Apuesta total</b>
+                      <b>Apuesta Total</b>
                     </h3>
                     <p className="text-sm md:text-base text-white transform transition-all duration-500 delay-100 group-hover:translate-x-2">
                       Publicidad programática
