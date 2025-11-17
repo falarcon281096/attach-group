@@ -218,7 +218,7 @@ export default function AthenaAds() {
         }
       `}</style>
       {/* Wrapper con degradado único para header + hero */}
-      <div className="relative overflow-hidden rounded-b-[30px] md:rounded-b-[50px] bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3]">
+      <div className="relative overflow-hidden rounded-b-[30px] md:rounded-b-[50px] bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] pt-[90px] md:pt-[100px]">
         <HeaderAthena showBorder={false}/>
         {/* Hero Section */}
         <AnimatedGradient />

@@ -273,7 +273,7 @@ import { useEffect, useRef, useState } from "react";
                 alt="Equipo híbrido trabajando con IA" 
                 width={1200} 
                 height={400}
-                className="w-full h-full object_cover transform transition-all duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
               />
             </div>
             
@@ -319,7 +319,7 @@ import { useEffect, useRef, useState } from "react";
               </div>
             </div>
             {/* Botón Ver más - Flotando en el borde inferior del modal */}
-            <div className={`absolute left-1/2 transform -translate-x-1/2 z-10 ${isEquipoOpen ? 'bottom-0 md:-bottom-4' : 'bottom-4 md:bottom-1'}`}>
+            <div className={`absolute -bottom-13 md:-bottom-6 left-1/2 transform -translate-x-1/2 z-10 ${isEquipoOpen ? 'bottom-0 md:-bottom-4' : 'bottom-4 md:bottom-1'}`}>
               <button
                 onClick={() => setIsEquipoOpen((v) => !v)}
                 aria-expanded={isEquipoOpen}
@@ -405,7 +405,7 @@ import { useEffect, useRef, useState } from "react";
               </div>
             </div>
             {/* Botón Ver más - Flotando en el borde inferior del modal */}
-            <div className="absolute -bottom-4 md:-bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+            <div className="absolute -bottom-13 md:-bottom-6 left-1/2 transform -translate-x-1/2 z-10">
               <button
                 onClick={() => setIsEstructuraOpen((v) => !v)}
                 aria-expanded={isEstructuraOpen}

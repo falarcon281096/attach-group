@@ -7,35 +7,8 @@ import Image from "next/image";
 export default function HeaderAthena({ showBorder = false }: { showBorder?: boolean }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSolutionsDropdownOpen, setIsSolutionsDropdownOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Si el scroll es muy pequeño (cerca del top), mostrar el header
-      if (currentScrollY < 10) {
-        setIsVisible(true);
-        setIsScrolled(false);
-      } else {
-        setIsScrolled(true);
-        
-        // Ocultar al hacer scroll hacia abajo, mostrar al hacer scroll hacia arriba
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          setIsVisible(false);
-        } else {
-          setIsVisible(true);
-        }
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  // Header siempre visible y fijo
+  // Eliminamos la lógica de ocultar/mostrar en scroll para asegurar que quede "fixeado"
 
   const getButtonGradient = () => {
     return 'bg-gradient-to-r from-[#f7931e] to-[#e6851a]';
@@ -48,7 +21,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
   return (
     <header 
       className={
-        `static z-50 shadow-none min-h-[80px] bg-transparent`
+        `fixed top-0 left-0 right-0 z-50 shadow-none min-h-[80px] bg-transparent`
       }
     >
       <div className={`w-full px-3 lg:px-4 lg:ml-15 flex items-center justify-between py-5 lg:py-4 ${showBorder
