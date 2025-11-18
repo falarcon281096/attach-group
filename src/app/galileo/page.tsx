@@ -81,6 +81,8 @@ export default function Home() {
                                     alt="Logo Galileo"
                                     width={393}
                                     height={105}
+                                    sizes="(max-width: 640px) 220px, (max-width: 768px) 260px, (max-width: 1024px) 300px, 393px"
+                                    priority
                                 />
                             </div>
 
@@ -220,6 +222,8 @@ export default function Home() {
                                 alt="Identificación de problemas y objetivos"
                                 width={80}
                                 height={80}
+                                sizes="80px"
+                                loading="lazy"
                                 className="object-contain filter drop-shadow-lg group-hover:drop-shadow-[0_0_20px_rgba(255,195,81,0.6)]"
                             />
                         </div>
@@ -247,6 +251,8 @@ export default function Home() {
                                 alt="Propuesta de soluciones"
                                 width={80}
                                 height={80}
+                                sizes="80px"
+                                loading="lazy"
                                 className="object-contain filter drop-shadow-lg group-hover:drop-shadow-[0_0_20px_rgba(255,195,81,0.6)]"
                             />
                         </div>
@@ -274,6 +280,8 @@ export default function Home() {
                                 alt="Diseño del prototipo"
                                 width={80}
                                 height={80}
+                                sizes="80px"
+                                loading="lazy"
                                 className="object-contain filter drop-shadow-lg group-hover:drop-shadow-[0_0_20px_rgba(255,195,81,0.6)]"
                             />
                         </div>
@@ -301,6 +309,8 @@ export default function Home() {
                                 alt="Entrenamiento y optimización"
                                 width={80}
                                 height={80}
+                                sizes="80px"
+                                loading="lazy"
                                 className="object-contain filter drop-shadow-lg group-hover:drop-shadow-[0_0_20px_rgba(255,195,81,0.6)]"
                             />
                         </div>
@@ -328,6 +338,8 @@ export default function Home() {
                                 alt="Implementación"
                                 width={80}
                                 height={80}
+                                sizes="80px"
+                                loading="lazy"
                                 className="object-contain filter drop-shadow-lg group-hover:drop-shadow-[0_0_20px_rgba(255,195,81,0.6)]"
                             />
                         </div>
@@ -355,6 +367,8 @@ export default function Home() {
                                 alt="Medición de impacto y escalamiento"
                                 width={80}
                                 height={80}
+                                sizes="80px"
+                                loading="lazy"
                                 className="object-contain filter drop-shadow-lg group-hover:drop-shadow-[0_0_20px_rgba(255,195,81,0.6)]"
                             />
                         </div>
@@ -412,6 +426,8 @@ export default function Home() {
                             src="/images/casos-de-exito/cayetano.webp"
                             alt="Universidad Cayetano Heredia"
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            loading="lazy"
                             className="object-cover w-full h-full"
                         />
                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300 flex flex-col justify-end p-6">
@@ -443,6 +459,8 @@ export default function Home() {
                             src="/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.jpg"
                             alt="El Universal México"
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            loading="lazy"
                             className="object-cover w-full h-full transform transition-all duration-700 group-hover:scale-110"
                         />
                         {/* Efecto de brillo en hover */}

@@ -217,6 +217,8 @@ export default function Home() {
                     alt="icon Galileo IA"
                     width={279}
                     height={74}
+                    sizes="(max-width: 1024px) 70vw, 279px"
+                    loading="lazy"
                     className="w-[70%] h-auto lg:w-auto transform transition-all duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
@@ -238,6 +240,8 @@ export default function Home() {
                     alt="icon AthenaAds"
                     width={300}
                     height={83}
+                    sizes="(max-width: 1024px) 70vw, 300px"
+                    loading="lazy"
                     className="w-[70%] h-auto lg:w-auto transform transition-all duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
@@ -259,6 +263,8 @@ export default function Home() {
                     alt="icon Attach Media"
                     width={239}
                     height={96}
+                    sizes="(max-width: 1024px) 70vw, 239px"
+                    loading="lazy"
                     className="w-[70%] h-auto lg:w-auto transform transition-all duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
@@ -286,7 +292,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-10">
                 {/* Carlo R.*/}
                 <div className="relative scroll-reveal">
-                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/carlo-rodriguez-foto.webp" alt="Carlo Rodriguez" width={361} height={423} />
+                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/carlo-rodriguez-foto.webp" alt="Carlo Rodriguez" width={361} height={423} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 361px" loading="lazy" />
                   <span className="image-light-soft" aria-hidden="true"></span>
                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Carlo Rodriguez</p>
@@ -297,7 +303,7 @@ export default function Home() {
 
                 {/*Fernando S.*/}
                 <div className="relative scroll-reveal scroll-reveal-delay-1">
-                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/fernando-salazar-foto.webp" alt="Fernando Salazar" width={361} height={423} />
+                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/fernando-salazar-foto.webp" alt="Fernando Salazar" width={361} height={423} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 361px" loading="lazy" />
                   <span className="image-light-soft" aria-hidden="true"></span>
                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Fernando Salazar</p>
@@ -336,7 +342,9 @@ export default function Home() {
                     src="/images/nosotros/clientes-desktop.png" 
                     alt="clientes" 
                     width={1296} 
-                    height={747} 
+                    height={747}
+                    sizes="(max-width: 768px) 100vw, 100vw"
+                    loading="lazy"
                   />
                 </div>
                 {/* Efecto de luz suave estático */}
@@ -391,7 +399,9 @@ export default function Home() {
                 alt="Mapa Attach" 
                 className="mx-30 md:mx-0 mx-auto scroll-reveal relative z-40 transform transition-all duration-500 group-hover:scale-105" 
                 width={486} 
-                height={550} 
+                height={550}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 486px"
+                loading="lazy"
               />
               
               {/* Efectos de resaltado para los países - Perú (izquierda) */}

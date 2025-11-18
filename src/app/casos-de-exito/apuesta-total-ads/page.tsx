@@ -175,7 +175,9 @@ export default function Home() {
                     src="/images/casos-de-exito/apuestatotal.png" 
                     alt="Home caminando hacia un portal con el logo de Attach" 
                     width={1200} 
-                    height={1000} 
+                    height={1000}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
                   />
                 </div>
               </div>

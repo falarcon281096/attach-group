@@ -124,7 +124,7 @@ export default function Home() {
                 `}
               >
                 <p 
-                  className="text-3xl lg:text-5xl font-800 transform transition-all duration-700 hover:scale-105" 
+                  className="text-3xl lg:text-5xl font-800 transform transition-all duration-700" 
                   style={{
                     fontWeight:'100',
                     // textShadow: "0 0 20px rgba(255,255,255,0.3)"
@@ -132,7 +132,7 @@ export default function Home() {
                 >
                   Optimización web
                 </p>
-                <h1 className={`text-4xl lg:text-6xl font-bold mb-8 mr-4 transform transition-all duration-1000 delay-200 hover:scale-105 ${
+                <h1 className={`text-4xl lg:text-6xl font-bold mb-8 mr-4 transform transition-all duration-1000 delay-200 ${
                   isVisible["hero-content"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"
                 }`} style={{
                   // textShadow: "0 0 30px rgba(255,255,255,0.5)"
@@ -182,7 +182,9 @@ export default function Home() {
                     src="/images/casos-de-exito/deposeguro.png" 
                     alt="Sede Deposeguro" 
                     width={1200} 
-                    height={1000} 
+                    height={1000}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
                   />
                 </div>
               </div>
@@ -201,7 +203,7 @@ export default function Home() {
                 }`}
                 style={{ transitionDelay: "0.2s" }}
               >
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500 group-hover:scale-110" style={{
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-6" style={{
                   // textShadow: "0 0 20px rgba(255,255,255,0.5)"
                 }}>+45%</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100 group-hover:translate-x-2">en tasa de conversión web (YoY)</p>
@@ -215,7 +217,7 @@ export default function Home() {
                 }`}
                 style={{ transitionDelay: "0.3s" }}
               >
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500 group-hover:scale-110" style={{
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-6" style={{
                   // textShadow: "0 0 20px rgba(255,255,255,0.5)"
                 }}>+89%</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100 group-hover:translate-x-2">en contactabilidad promedio en anuncios digitales</p>

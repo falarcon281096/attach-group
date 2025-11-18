@@ -144,6 +144,7 @@ export default function Home() {
                     alt="Home caminando hacia un portal con el logo de Attach"
                     width={1200}
                     height={1000}
+                    sizes="100vw"
                     priority
                     onLoadingComplete={() => setHeroMobileLoaded(true)}
                   />
@@ -154,6 +155,7 @@ export default function Home() {
                     alt="Home caminando hacia un portal con el logo de Attach"
                     width={1200}
                     height={1000}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
                     onLoadingComplete={() => setHeroDesktopLoaded(true)}
                   />
@@ -275,7 +277,7 @@ export default function Home() {
                 className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
                 style={{ background: 'linear-gradient(317.2deg, #FFC351 0%, #FF3F73 100%)' }}
               >
-                <Image className="w-65" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} />
+                <Image className="w-65" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} sizes="(max-width: 768px) 200px, 260px" loading="lazy" />
               </div>
 
               {/* Content Section */}
@@ -305,7 +307,7 @@ export default function Home() {
                 className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
                 style={{ background: 'linear-gradient(320.61deg, #22D1C4 0%, #E2E830 100%)' }}
               >
-                <Image className="w-65" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} />
+                <Image className="w-65" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} sizes="(max-width: 768px) 200px, 260px" loading="lazy" />
               </div>
 
               {/* Content Section */}
@@ -335,7 +337,7 @@ export default function Home() {
                 className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
                 style={{ background: 'linear-gradient(272.19deg, #22D1C4 0%, #2F7DE0 100%)' }}
               >
-                <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} />
+                <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} sizes="(max-width: 768px) 200px, 220px" loading="lazy" />
               </div>
 
               {/* Content Section */}
@@ -622,11 +624,11 @@ export default function Home() {
 
                   {/* Right Content - Awards Logos */}
                   <div className="flex flex-col lg:flex-row justify-evenly items-center gap-8 w-full">
-                      <Image className="w-100 h-auto lg:w-[30%] lg:h-[10%] object-cover" src="/images/home/peru-service.png" alt="Logo Attach" width={160} height={32}/>
+                      <Image className="w-100 h-auto lg:w-[30%] lg:h-[10%] object-cover" src="/images/home/peru-service.png" alt="Logo Attach" width={160} height={32} sizes="(max-width: 1024px) 100px, 30vw" loading="lazy"/>
 
-                      <Image className="w-[50%] h-auto lg:w-[10%] lg-h-[10%] object-cover" src="/images/home/ecommerce-award.png" alt="Logo Attach" width={160} height={32}/>
+                      <Image className="w-[50%] h-auto lg:w-[10%] lg-h-[10%] object-cover" src="/images/home/ecommerce-award.png" alt="Logo Attach" width={160} height={32} sizes="(max-width: 1024px) 50vw, 10vw" loading="lazy"/>
 
-                      <Image className="w-[70%] h-auto lg:w-[17%] lg:h-[10%] object-cover" src="/images/home/iabperu.png" alt="Logo Attach" width={160} height={32}/>
+                      <Image className="w-[70%] h-auto lg:w-[17%] lg:h-[10%] object-cover" src="/images/home/iabperu.png" alt="Logo Attach" width={160} height={32} sizes="(max-width: 1024px) 70vw, 17vw" loading="lazy"/>
                   </div>
                 </div>
               </div>
@@ -654,48 +656,48 @@ export default function Home() {
             <div className="marquee-track">
               {/* Set 1 */}
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
 
               {/* Set 2 (duplicate for seamless loop) */}
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_1.png" alt="Google Marketing Platform" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32}/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
             </div>
           </div>

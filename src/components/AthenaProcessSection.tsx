@@ -213,7 +213,7 @@ export default function AthenaProcessSection() {
                       </defs>
                     </svg>
                   </div>
-                  <div className="text-[rgba(129,129,129,1)] text-[13px] md:text-[16px] font-medium">Segmentación Avanzada</div>
+                  <div className="text-[rgba(129,129,129,1)] text-[13px] md:text-[16px] font-medium">Segmentación avanzada</div>
                 </div>
               </div>
 

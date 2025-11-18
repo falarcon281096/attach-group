@@ -68,7 +68,8 @@ export default function Home() {
                     alt="Home caminando hacia un portal con el logo de Attach" 
                     width={800} 
                     height={1000}
-                    style={{ width: '100%', height: 'auto' }}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
                   />
                 </div>
               </div>

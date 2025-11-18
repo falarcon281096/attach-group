@@ -106,6 +106,8 @@ export default function Home() {
                 alt='cultura-vida-attach'
                 width={1200}
                 height={400}
+                sizes="(max-width: 1024px) 100vw, 100vw"
+                loading="lazy"
                 className='w-full h-auto'
               /> 
             </div>
@@ -116,6 +118,8 @@ export default function Home() {
               alt='cultura-vida-attach-movil'
               width={600}
               height={800}
+              sizes="100vw"
+              loading="lazy"
               className='w-full h-auto'
             />
           </div>
@@ -231,6 +235,8 @@ export default function Home() {
                 alt='programa-1'
                 width={400}
                 height={600}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="lazy"
                 className='block w-full h-auto'
               />
             </div>
@@ -255,6 +261,8 @@ export default function Home() {
                 alt='programa-2'
                 width={400}
                 height={600}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="lazy"
                 className='block w-full h-auto'
               />
             </div>
@@ -279,6 +287,8 @@ export default function Home() {
                 alt='programa-3'
                 width={400}
                 height={600}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="lazy"
                 className='block w-full h-auto'
               />
             </div>

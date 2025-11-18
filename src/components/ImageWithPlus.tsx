@@ -458,7 +458,8 @@ export default function ImageWithPlus({
             src={src}
             alt={alt}
             fill
-            sizes={sizes}
+            sizes={sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+            loading="lazy"
             className={`${imageClassName || 'object-cover'}`}
           />
         ) : (
@@ -467,6 +468,8 @@ export default function ImageWithPlus({
             alt={alt}
             width={typeof width === 'number' ? width : 600}
             height={typeof height === 'number' ? height : 400}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
             className={`block w-full h-auto ${imageClassName}`}
           />
         )}

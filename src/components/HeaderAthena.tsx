@@ -11,7 +11,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
   // Eliminamos la lógica de ocultar/mostrar en scroll para asegurar que quede "fixeado"
 
   const getButtonGradient = () => {
-    return 'bg-gradient-to-r from-[#f7931e] to-[#e6851a]';
+    return 'bg-gradient-to-r from-[#0066cc] to-[#004499]';
   };
 
   const getButtonTextColor = () => {
@@ -61,8 +61,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
             </button>
 
             {/* Puente invisible para evitar que se oculte el dropdown */}
-            <div className="absolute top-full left-0 right-0 h-3 bg-transparent"></div>
-
+          
             {/* Dropdown Menu */}
             <div className={`absolute top-full left-1/2 transform -translate-x-1/2 w-[620px] bg-white rounded-2xl border border-gray-100 z-50 transition-all duration-300 ease-in-out ${isSolutionsDropdownOpen
               ? 'opacity-100 translate-y-0 visible'

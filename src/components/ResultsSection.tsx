@@ -143,7 +143,7 @@ export default function ResultsSection({ stats, title = "Resultados" }: ResultsS
                 before:h-13
                 before:bg-[#1840E2] 
                 flex flex-col gap-2 pl-5 relative z-10">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500 group-hover:scale-110" style={{
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-6" style={{
                 // textShadow: "0 0 20px rgba(24,64,226,0.3)"
               }}>
                 {countValues[`stat-${i}`] || item.value}

@@ -34,7 +34,7 @@ export default function Header({ variant = 'default', showBorder = true, isFixed
   const getButtonGradient = () => {
     if (isGalileo) return 'bg-gradient-to-r from-[#0066cc] to-[#004499]';
     if (isPrisma) return 'bg-gradient-to-r from-[#0066cc] to-[#004499]';
-    if (isAthena) return 'bg-gradient-to-r from-[#f7931e] to-[#e6851a]';
+    if (isAthena) return 'bg-gradient-to-r from-[#0066cc] to-[#004499]';
     if (isAttachmedia) return 'bg-gradient-to-r from-[#1e3a8a] to-[#1e40af]';
     return 'bg-gradient-to-r from-[#1e3fda] to-[#58308c]';
   };
@@ -447,7 +447,7 @@ export default function Header({ variant = 'default', showBorder = true, isFixed
               <div className="pt-4">
                 <Link
                   href="/contacto"
-                  className={`block text-center text-white px-8 py-4 rounded-lg font-bold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg ${getButtonGradient()}`}
+                  className={`block text-center text-white px-8 py-4 rounded-lg font-bold hover:opacity-90 transition-all duration-300 transform hover:scale-105 fid shadow-lg ${getButtonGradient()}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contáctanos

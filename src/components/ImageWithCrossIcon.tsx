@@ -80,6 +80,8 @@ export default function ImageWithCrossIcon({
             width={width}
             height={height}
             quality={quality}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
           />
         </div>
         

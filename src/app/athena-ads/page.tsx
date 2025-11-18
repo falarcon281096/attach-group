@@ -268,6 +268,8 @@ export default function AthenaAds() {
                     src="/images/athena-ads/01.jpg"
                     alt="Phone ID Audiences"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
                     className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
@@ -295,12 +297,14 @@ export default function AthenaAds() {
                     src="/images/athena-ads/02.png"
                     alt="Digital out of home by User Movility"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
                     className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
                 <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center p-4 md:p-0">
                   <h6 className="text-[16px] md:text-xl font-bold mb-2 font-['Graphik'] gradient-text">
-                    Digital out of home by User Movility
+                    Digital Out Of home by User Movility
                   </h6>
                   <div className="text-[14px] md:text-[20px] font-['Graphik'] leading-[20px] md:leading-[28px] font-normal text-gray-500 px-3 md:px-0">
                     Pantallas digitales que se activan cuando tu usuario está cerca.
@@ -336,6 +340,8 @@ export default function AthenaAds() {
                     src="/images/athena-ads/03.png"
                     alt="Connected TV"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
                     className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
@@ -363,6 +369,8 @@ export default function AthenaAds() {
                     src="/images/athena-ads/04.png"
                     alt="Digital Screens"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
                     className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
@@ -390,6 +398,8 @@ export default function AthenaAds() {
                     src="/images/athena-ads/05.jpg"
                     alt="Gaming"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
                     className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                 </div>
@@ -462,6 +472,8 @@ export default function AthenaAds() {
                       src="/images/athena-ads/09.jpg"
                       alt="Social Extender 2"
                       fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      loading="lazy"
                       className="object-cover"
                     />
                   </div> */}
@@ -500,6 +512,8 @@ export default function AthenaAds() {
                       src="/images/athena-ads/11.jpg"
                       alt="Rich Media 2"
                       fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      loading="lazy"
                       className="object-cover"
                     />
                   </div> */}
@@ -538,6 +552,8 @@ export default function AthenaAds() {
                       src="/images/athena-ads/13.jpg"
                       alt="Tap to Map 2"
                       fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      loading="lazy"
                       className="object-cover"
                     />
                   </div> */}
@@ -594,6 +610,8 @@ export default function AthenaAds() {
                   src="/images/casos-de-exito/Apuestathenads1.webp"
                   alt="Caso de éxito"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="lazy"
                   className="object-cover transform transition-all duration-700 group-hover:scale-110"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 group-hover:from-black/80 to-transparent px-6 md:px-6 transition-all duration-500">
@@ -663,14 +681,10 @@ export default function AthenaAds() {
           style={{ background: 'linear-gradient(270deg, #00CED3 2.82%, #2ED3B1 23.42%, #A1E05E 71.16%, #E2E830 96.43%)' }}
         >
           {/* Efecto de partículas flotantes */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-10 left-10 w-1 h-1 bg-white rounded-full animate-pulse opacity-60" style={{ animationDelay: '0s', animationDuration: '2s' }}></div>
-            <div className="absolute top-20 right-20 w-1 h-1 bg-white rounded-full animate-pulse opacity-50" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
-            <div className="absolute bottom-20 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse opacity-40" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }}></div>
-          </div>
+          
           
           <div className="container mx-auto relative z-10">
-            <div className="w-full lg:w-1/2">
+            <div className="w-full ">
               <h2 className="hero-title-override text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 transform transition-all duration-700 hover:scale-105" style={{
                 // textShadow: "0 0 30px rgba(255,255,255,0.5)"
               }}>

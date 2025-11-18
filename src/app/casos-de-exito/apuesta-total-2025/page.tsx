@@ -147,7 +147,7 @@ export default function Home() {
                     transform transition-all duration-1000 ${isVisible["hero-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}
                   `}>
                 <div className="relative z-0 overflow-hidden rounded-l-[4rem] group">
-                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/apuestatotal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
+                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/apuestatotal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
                 </div>
               </div>
             </div>

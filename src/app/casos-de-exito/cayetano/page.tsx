@@ -11,8 +11,10 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const [countValues, setCountValues] = useState<{ [key: string]: string }>({});
   const observerRef = useRef<IntersectionObserver | null>(null);
   const elementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
+  const animatedRef = useRef<Set<string>>(new Set());
 
   const [particles, setParticles] = useState<Array<{
     width: number;
@@ -36,6 +38,73 @@ export default function Home() {
     );
   }, []);
 
+  const getInitialValue = (value: string): string => {
+    const match = value.match(/[\d.]+/);
+    if (!match) return value;
+    const numStr = match[0];
+    const prefix = value.substring(0, value.indexOf(numStr));
+    const suffix = value.substring(value.indexOf(numStr) + numStr.length);
+    return `${prefix}0${suffix}`;
+  };
+
+  const animateNumber = (value: string, statKey: string) => {
+    // Si ya está animado, no hacer nada
+    if (animatedRef.current.has(statKey)) {
+      return;
+    }
+    animatedRef.current.add(statKey);
+
+    // Extraer números del valor
+    const match = value.match(/[\d.]+/);
+    if (!match) {
+      setCountValues((prev) => ({ ...prev, [statKey]: value }));
+      return;
+    }
+
+    const numStr = match[0];
+    const num = parseFloat(numStr);
+    const prefix = value.substring(0, value.indexOf(numStr));
+    const suffix = value.substring(value.indexOf(numStr) + numStr.length);
+
+    // Inicializar en 0 con el formato correcto
+    const initialValue = `${prefix}0${suffix}`;
+    setCountValues((prev) => ({ 
+      ...prev, 
+      [statKey]: initialValue
+    }));
+
+    const duration = 2000;
+    const steps = 60;
+    const increment = num / steps;
+    let current = 0;
+    let step = 0;
+
+    // Pequeño delay para que se vea el 0 antes de empezar
+    setTimeout(() => {
+      const timer = setInterval(() => {
+        step++;
+        current = Math.min(increment * step, num);
+        
+        const formattedValue = numStr.includes('.') 
+          ? current.toFixed(2) 
+          : Math.floor(current).toString();
+        
+        setCountValues((prev) => ({ 
+          ...prev, 
+          [statKey]: `${prefix}${formattedValue}${suffix}` 
+        }));
+
+        if (step >= steps) {
+          clearInterval(timer);
+          setCountValues((prev) => ({ 
+            ...prev, 
+            [statKey]: value 
+          }));
+        }
+      }, duration / steps);
+    }, 100);
+  };
+
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -44,11 +113,32 @@ export default function Home() {
             const id = entry.target.getAttribute("data-animate-id");
             if (id) {
               setIsVisible((prev) => ({ ...prev, [id]: true }));
+              
+              // Animar números si el valor contiene números
+              if (id.startsWith("stat-awareness-")) {
+                const statIndex = parseInt(id.split("-")[2]);
+                const stat = stats[statIndex];
+                if (stat) {
+                  animateNumber(stat.value, id);
+                }
+              } else if (id.startsWith("stat-consideracion-")) {
+                const statIndex = parseInt(id.split("-")[2]);
+                const stat = stats2[statIndex];
+                if (stat) {
+                  animateNumber(stat.value, id);
+                }
+              } else if (id.startsWith("stat-conversion-")) {
+                const statIndex = parseInt(id.split("-")[2]);
+                const stat = stats3[statIndex];
+                if (stat) {
+                  animateNumber(stat.value, id);
+                }
+              }
             }
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.3, rootMargin: "0px 0px -50px 0px" }
     );
 
     const timeoutId = setTimeout(() => {
@@ -164,7 +254,7 @@ export default function Home() {
                     lg:before:top-100
                     before:top-45 transform transition-all duration-1000 ${isVisible["hero-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}>
                 <div className="relative z-0 overflow-hidden rounded-l-[4rem] group">
-                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/cayetano.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} />
+                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/cayetano.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
                 </div>
               </div>
             </div>
@@ -289,8 +379,16 @@ export default function Home() {
               {stats.map((item, i) => (
           <div
             key={i}
-            className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+            ref={(el) => setElementRef(`stat-awareness-${i}`, el)}
+            data-animate-id={`stat-awareness-${i}`}
+            className={`bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+              isVisible[`stat-awareness-${i}`] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
+            }`}
+            style={{ transitionDelay: `${i * 0.15}s` }}
           >
+            {/* Efecto de glow en hover */}
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#1840E2]/10 to-transparent"></div>
+            
             <div className="
                 relative
                 border-l 
@@ -302,9 +400,13 @@ export default function Home() {
                 before:w-[2px]
                 before:h-13
                 before:bg-[#1840E2] 
-                flex flex-col gap-2 pl-5">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2]">{item.value}</h2>
-              <p className="text-s text-gray-600 leading-relaxed lg:text-l md:text-base">
+                flex flex-col gap-2 pl-5 relative z-10">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-6" style={{
+                // textShadow: "0 0 20px rgba(24,64,226,0.3)"
+              }}>
+                {countValues[`stat-awareness-${i}`] !== undefined ? countValues[`stat-awareness-${i}`] : (isVisible[`stat-awareness-${i}`] ? getInitialValue(item.value) : item.value)}
+              </h2>
+              <p className="text-s text-gray-600 leading-relaxed lg:text-xl md:text-base transform transition-all duration-500 delay-100 group-hover:translate-x-2">
                 {item.text}
               </p>
             </div>
@@ -323,8 +425,16 @@ export default function Home() {
               {stats2.map((item, i) => (
           <div
             key={i}
-            className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+            ref={(el) => setElementRef(`stat-consideracion-${i}`, el)}
+            data-animate-id={`stat-consideracion-${i}`}
+            className={`bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+              isVisible[`stat-consideracion-${i}`] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
+            }`}
+            style={{ transitionDelay: `${i * 0.15}s` }}
           >
+            {/* Efecto de glow en hover */}
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#1840E2]/10 to-transparent"></div>
+            
             <div className="
                 relative
                 border-l 
@@ -336,9 +446,13 @@ export default function Home() {
                 before:w-[2px]
                 before:h-13
                 before:bg-[#1840E2] 
-                flex flex-col gap-2 pl-5">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2]">{item.value}</h2>
-              <p className="text-s text-gray-600 leading-relaxed lg:text-l md:text-base">
+                flex flex-col gap-2 pl-5 relative z-10">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-6" style={{
+                // textShadow: "0 0 20px rgba(24,64,226,0.3)"
+              }}>
+                {countValues[`stat-consideracion-${i}`] !== undefined ? countValues[`stat-consideracion-${i}`] : (isVisible[`stat-consideracion-${i}`] ? getInitialValue(item.value) : item.value)}
+              </h2>
+              <p className="text-s text-gray-600 leading-relaxed lg:text-xl md:text-base transform transition-all duration-500 delay-100 group-hover:translate-x-2">
                 {item.text}
               </p>
             </div>
@@ -356,8 +470,16 @@ export default function Home() {
               {stats3.map((item, i) => (
           <div
             key={i}
-            className="bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative"
+            ref={(el) => setElementRef(`stat-conversion-${i}`, el)}
+            data-animate-id={`stat-conversion-${i}`}
+            className={`bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+              isVisible[`stat-conversion-${i}`] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
+            }`}
+            style={{ transitionDelay: `${i * 0.15}s` }}
           >
+            {/* Efecto de glow en hover */}
+            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#1840E2]/10 to-transparent"></div>
+            
             <div className="
                 relative
                 border-l 
@@ -369,9 +491,13 @@ export default function Home() {
                 before:w-[2px]
                 before:h-13
                 before:bg-[#1840E2] 
-                flex flex-col gap-2 pl-5">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2]">{item.value}</h2>
-              <p className="text-s text-gray-600 leading-relaxed lg:text-l md:text-base">
+                flex flex-col gap-2 pl-5 relative z-10">
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-6" style={{
+                // textShadow: "0 0 20px rgba(24,64,226,0.3)"
+              }}>
+                {countValues[`stat-conversion-${i}`] !== undefined ? countValues[`stat-conversion-${i}`] : (isVisible[`stat-conversion-${i}`] ? getInitialValue(item.value) : item.value)}
+              </h2>
+              <p className="text-s text-gray-600 leading-relaxed lg:text-xl md:text-base transform transition-all duration-500 delay-100 group-hover:translate-x-2">
                 {item.text}
               </p>
             </div>

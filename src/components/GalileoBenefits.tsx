@@ -126,14 +126,14 @@ export default function GalileoBenefits() {
                   
                   @keyframes checkmarkPop {
                     0% {
-                      transform: translateY(-50%) scale(0) rotate(0deg);
+                      transform: scale(0) rotate(0deg);
                       opacity: 0;
                     }
                     50% {
-                      transform: translateY(-50%) scale(1.3) rotate(180deg);
+                      transform: scale(1.3) rotate(180deg);
                     }
                     100% {
-                      transform: translateY(-50%) scale(1) rotate(360deg);
+                      transform: scale(1) rotate(360deg);
                       opacity: 1;
                     }
                   }
