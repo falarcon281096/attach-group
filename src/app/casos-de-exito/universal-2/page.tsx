@@ -108,7 +108,7 @@ export default function Home() {
         {/* Hero Section */}
         <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c] rounded-b-[30px] lg:rounded-b-[50px] relative z-10">
           <div className="rounded-b-[50px] mx-7 lg:mx-30 pt-25 lg:pt-17 pb-0 lg:pb-16">
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start mt-0 md:mt-0">
+            <div className="flex pt-0 md:pt-10 flex-col lg:flex-row gap-8 lg:gap-20 items-start mt-0 md:mt-0">
               {/* Content */}
               <div 
                 ref={(el) => setElementRef("hero-content", el)}
