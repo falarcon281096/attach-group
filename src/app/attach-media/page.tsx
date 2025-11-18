@@ -733,7 +733,7 @@ import { useEffect, useRef, useState } from "react";
               }`}
               style={{ transitionDelay: "0.3s" }}
             >
-              <Link href="/casos-de-exito/cayetano" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
+              <Link href="/casos-de-exito/cayetano-full-funnel" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
                 <Image
                   src="/images/casos-de-exito/cayetano.webp"
                   alt="Caso de éxito"
@@ -763,7 +763,7 @@ import { useEffect, useRef, useState } from "react";
                 }`}
                 style={{ transitionDelay: "0.4s" }}
               >
-                <Link href="/casos-de-exito/deposeguro" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
+                <Link href="/deposeguro-web" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
                   <Image
                     src="/images/casos-de-exito/deposeguro.webp"
                     alt="Caso de éxito"
@@ -792,7 +792,7 @@ import { useEffect, useRef, useState } from "react";
                 }`}
                 style={{ transitionDelay: "0.5s" }}
               >
-                <Link href="/casos-de-exito/apuesta-total-ads" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
+                <Link href="/casos-de-exito/apuesta-total-programatica" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
                   <Image
                     src="/images/casos-de-exito/apuestatotal.webp"
                     alt="Caso de éxito"

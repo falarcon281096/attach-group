@@ -419,7 +419,7 @@ export default function Home() {
 
                     {/* === Card 1: Cayetano === */}
                     {/* <Link
-                        href="/casos-de-exito/cayetano"
+                        href="/casos-de-exito/cayetano-full-funnel"
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block"
                     >
                         <Image
@@ -452,7 +452,7 @@ export default function Home() {
                         }}
                     >
                     <Link
-                        href="/casos-de-exito/universal"
+                        href="/casos-de-exito/el-universal-ia"
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[280px] md:h-[480px] sm:h-[460px] lg:h-[489px] block transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2"
                     >
                         <Image
@@ -479,7 +479,7 @@ export default function Home() {
                     </div>
                     {/* === Card 2: El Universal === */}
                     {/* <Link
-                        href="/casos-de-exito/universal"
+                        href="/casos-de-exito/el-universal-ia"
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block"
                     >
                         <Image
@@ -500,7 +500,7 @@ export default function Home() {
 
                     {/* === Card 3: Apuesta Total === */}
                     {/* <Link
-                        href="/casos-de-exito/apuesta-total-2025"
+                        href="/casos-de-exito/apuesta-total-catalogo-dinamico"
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[480px] sm:h-[460px] lg:h-[489px] block"
                     >
                         <Image

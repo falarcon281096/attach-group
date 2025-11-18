@@ -78,7 +78,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                     <h3 className="text-lg font-bold text-[#1e3fda] mb-6">Nuestras marcas</h3>
                     <div className="">
                       {/* Galileo IA */}
-                      <Link href="/galileo" className="group cursor-pointer">
+                      <Link href="/galileo-ia" className="group cursor-pointer">
                         <div className="flex items-start justify-between px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-200">
                           <div className="flex-1">
                             <div className="mb-2">
@@ -305,7 +305,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                       <h3 className="text-[#1e3fda] text-lg font-bold mb-4">Nuestras marcas</h3>
                       <div className="space-y-4">
                         {/* Galileo IA */}
-                        <Link href="/galileo" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/galileo-ia" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           <Image
                             src="/images/menu/GalileoIA Logo-color.png"
                             alt="Galileo IA"

@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import ResultsSection from "../../../components/ResultsSection";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
-import ImageWithCrossIcon from "../../../components/ImageWithCrossIcon";
-import CaseNavigation from "../../../components/CaseNavigation";
+import ResultsSection from "../../components/ResultsSection";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import ImageWithCrossIcon from "../../components/ImageWithCrossIcon";
+import CaseNavigation from "../../components/CaseNavigation";
 import { casesData } from "@/data/casesData";
  
 import { useEffect, useRef, useState } from "react";

@@ -285,7 +285,7 @@ export default function Home() {
                 <div className="w-full md:w-[70%] text-[20px] md:text-[32px] font-bold text-[#1e3fda] mb-4 md:mb-6 lg:text-center lg:mx-auto">
                   Inteligencia Artificial
                 </div>
-                <Link href="/galileo/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold inline-flex items-center">
+                <Link href="/galileo-ia/" className="bg-linear-to-r from-[#1e3fda] to-[#58308c] text-white px-8 py-4 rounded-xl font-semibold inline-flex items-center">
                   Conoce más
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -403,7 +403,7 @@ export default function Home() {
                     </p>
                     {/* Imagen móvil para El Universal (solo visible en móvil) enlaza al caso con hover */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
-                      <Link href="/casos-de-exito/universal/" aria-label="Ver caso El Universal" className="group inline-block">
+                      <Link href="/casos-de-exito/el-universal-ia/" aria-label="Ver caso El Universal" className="group inline-block">
                         <ImageWithPlus
                           src="/images/casos-de-exito/eluniversal.webp"
                           alt="El Universal"
@@ -451,7 +451,7 @@ export default function Home() {
                     </p>
                     {/* Imagen móvil para Deposeguro (solo visible en móvil) enlaza al caso con hover */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
-                      <Link href="/casos-de-exito/deposeguro/" aria-label="Ver caso Deposeguro" className="group inline-block">
+                      <Link href="/deposeguro-web/" aria-label="Ver caso Deposeguro" className="group inline-block">
                         <ImageWithPlus
                           src="/images/casos-de-exito/deposeguro.webp"
                           alt="Deposeguro"
@@ -499,7 +499,7 @@ export default function Home() {
                     </p>
                     {/* Imagen móvil para Apuesta Total (solo visible en móvil) enlaza al caso con hover */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
-                      <Link href="/casos-de-exito/apuesta-total-ads/" aria-label="Ver caso Apuesta Total" className="group inline-block">
+                      <Link href="/casos-de-exito/apuesta-total-programatica/" aria-label="Ver caso Apuesta Total" className="group inline-block">
                         <ImageWithPlus
                           src="/images/casos-de-exito/apuestatotal.png"
                           alt="Apuesta Total"
@@ -550,9 +550,9 @@ export default function Home() {
                 {/* Image Placeholder */}
                 <Link
                   href={
-                    activeCase === 'caja-arequipa' ? '/casos-de-exito/universal-2/' :
-                    activeCase === 'deposeguro' ? '/casos-de-exito/deposeguro/' :
-                    activeCase === 'apuesta-total' ? '/casos-de-exito/apuesta-total-ads/' :
+                    activeCase === 'caja-arequipa' ? '/casos-de-exito/el-universal-ux/' :
+                    activeCase === 'deposeguro' ? '/deposeguro-web/' :
+                    activeCase === 'apuesta-total' ? '/casos-de-exito/apuesta-total-programatica/' :
                     '/casos-de-exito/'
                   }
                   aria-label="Ver caso de éxito"
