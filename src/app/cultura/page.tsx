@@ -224,12 +224,12 @@ export default function Home() {
 
       {/* nuestros programas */}
       <section className='bg-white pt-4 md:pt-30 pb-5 md:pb-15 rounded-b-4xl bg-[rgba(240,248,255,0.2)]'>
-        <div className="mx-1 lg:mx-30 text-center leading-[29px] md:leading-[54px] text-[24px] md:text-[48px] font-['Graphik'] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-5 md:mb-10">
+        <div className="mx-1 lg:mx-30 text-center leading-[29px] md:leading-[54px] text-[24px] md:text-[48px] font-['Graphik'] bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-5 md:mb-10 scroll-reveal">
           Nuestros programas
         </div>
         <div className='mx-5 lg:mx-30 grid grid-cols-1 lg:grid-cols-3 gap-20'>
-          <div className='border-2 border-gray-200 rounded-3xl hover-lift scroll-reveal'>
-            <div className='rounded-3xl from-red-400 pb-1 relative image-light-soft'>
+          <div className='group border-2 border-gray-200 rounded-3xl scroll-reveal transition-transform duration-700 ease-out'>
+            <div className='rounded-3xl from-red-400 pb-1 relative overflow-hidden'>
               <Image
                 src='/images/cultura/programa-1.png'
                 alt='programa-1'
@@ -237,7 +237,7 @@ export default function Home() {
                 height={600}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 loading="lazy"
-                className='block w-full h-auto'
+                className='block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]'
               />
             </div>
             <div className='px-8 py-7'>
@@ -254,8 +254,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='border-2 border-gray-200 rounded-3xl hover-lift scroll-reveal scroll-reveal-delay-1'>
-            <div className='rounded-3xl from-red-400 pb-1 relative image-light-soft'>
+          <div className='group border-2 border-gray-200 rounded-3xl scroll-reveal scroll-reveal-delay-1 transition-transform duration-700 ease-out'>
+            <div className='rounded-3xl from-red-400 pb-1 relative overflow-hidden'>
               <Image
                 src='/images/cultura/programa-2.png'
                 alt='programa-2'
@@ -263,7 +263,7 @@ export default function Home() {
                 height={600}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 loading="lazy"
-                className='block w-full h-auto'
+                className='block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]'
               />
             </div>
             <div className='px-8 py-7'>
@@ -280,8 +280,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='border-2 border-gray-200 rounded-3xl hover-lift scroll-reveal scroll-reveal-delay-2'>
-            <div className='rounded-3xl from-red-400 pb-1 relative image-light-soft'>
+          <div className='group border-2 border-gray-200 rounded-3xl scroll-reveal scroll-reveal-delay-2 transition-transform duration-700 ease-out'>
+            <div className='rounded-3xl from-red-400 pb-1 relative overflow-hidden'>
               <Image
                 src='/images/cultura/programa-3.png'
                 alt='programa-3'
@@ -289,7 +289,7 @@ export default function Home() {
                 height={600}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 loading="lazy"
-                className='block w-full h-auto'
+                className='block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]'
               />
             </div>
             <div className='px-8 py-7'>

@@ -115,7 +115,7 @@ export default function Home() {
                         >
                             {/* Card 1 con "+" amarillo */}
                             <div 
-                                className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 shadow-lg w-full font-['graphik'] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group rounded-lg" 
+                                className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8  w-full font-['graphik'] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group rounded-lg" 
                                 style={{
                                     color:'#818181',
                                     boxShadow: "0 10px 40px rgba(0,0,0,0.1), 0 0 20px rgba(255,195,81,0.2)"
@@ -149,7 +149,7 @@ export default function Home() {
                                     color:'#818181',
                                     boxShadow: "0 10px 40px rgba(0,0,0,0.1), 0 0 20px rgba(255,63,115,0.2)"
                                 }} 
-                                className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 shadow-lg w-full font-['graphik'] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group rounded-lg"
+                                className="text-center relative bg-white text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8   w-full font-['graphik'] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group rounded-lg"
                             >
                                 {/* Efecto de glow en hover */}
                                 <div className="absolute inset-0 rounded-lg opacity-0 "></div>
@@ -158,9 +158,9 @@ export default function Home() {
                                 <span
                                     className="absolute -right-6 -bottom-5 text-[78px] md:text-[90px] font-bold text-[#FF3F73] select-none transform transition-all duration-700 group-hover:scale-110"
                                     style={{
-                                        lineHeight: "1",
-                                        animation: "float 3s ease-in-out infinite",
-                                        animationDelay: "1s",
+                                        // lineHeight: "1",
+                                        // animation: "float 3s ease-in-out infinite",
+                                        // animationDelay: "1s",
                                         // filter: "drop-shadow(0 0 10px rgba(255,63,115,0.5))"
                                     }}
                                 >
@@ -539,7 +539,7 @@ export default function Home() {
                 
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
                     <div>
-                        <h2 className="text-[24px] md:text-[48px] font-semibold leading-[110%] mb-10 transform transition-all duration-700 hover:scale-105" style={{
+                        <h2 className="text-[24px] md:text-[48px] font-semibold leading-[110%] mb-10 transform transition-all duration-700 " style={{
                             // textShadow: "0 0 30px rgba(255,255,255,0.5)"
                         }}>
                             Descubre cómo aplicar IA en tu empresa

@@ -36,23 +36,28 @@ export default function GalileoSolutions() {
 
                 {/* IA Enterprise */}
                 <div className="mb-2 md:mb-8">
-                    <h3
-                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105"
+                    <button
                         onClick={() => handleToggle("ia")}
+                        className="cursor-pointer flex items-center w-full text-left"
                     >
-                        {openSection === "ia" && (
-                            <span className="text-[#e37426] mr-2">→</span>
-                        )}
-                        IA Enterprise
-                    </h3>
+                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'ia' ? 'opacity-100 text-[#464646]' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                        <h3 className={`text-[20px] md:text-[32px] font-bold transition-colors ${openSection === 'ia'
+                            ? 'text-[#464646] underline'
+                            : 'text-[#818181] hover:text-gray-700'
+                            }`}>
+                            IA Enterprise
+                        </h3>
+                    </button>
                 </div>
 
                 {/* Contenido IA Enterprise */}
                 <div
-                    className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center transition-all duration-700 ${
+                    className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center overflow-hidden transition-all duration-700 ease-in-out ${
                         openSection === "ia" 
-                            ? "block opacity-100 translate-y-0 scale-100 animate-in fade-in slide-in-from-bottom-4 duration-700" 
-                            : "hidden opacity-0 -translate-y-4 scale-95"
+                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-2" 
+                            : "opacity-0 -translate-y-1 max-h-0"
                     }`}
                 >
                     <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500">
@@ -61,7 +66,7 @@ export default function GalileoSolutions() {
                     <div className="relative h-[280px] w-full group">
                         {/* Contenedor de imagen con bordes personalizados */}
                         <div 
-                            className="relative pl-5 md:pl-0 h-full w-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
+                            className="relative pl-5 md:pl-0 h-full w-full  overflow-hidden transition-all duration-500 "
                             style={{
                                 borderTopLeftRadius: '20px',
                                 borderBottomRightRadius: '20px',
@@ -75,7 +80,7 @@ export default function GalileoSolutions() {
                                 alt="IA Enterprise"
                                 width={800}
                                 height={600}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-[1.02]"
                             />
                         </div>
                         {/* Icono + naranja sin fondo - esquina inferior izquierda */}
@@ -85,32 +90,37 @@ export default function GalileoSolutions() {
                         >
                             +
                         </span>
-                    </div>
+                </div>
                 </div>
 
                 {/* Soluciones SAAS */}
                 <div className="mb-3 md:mb-8">
-                    <h3
-                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105"
+                    <button
                         onClick={() => handleToggle("saas")}
+                        className="cursor-pointer flex items-center w-full text-left"
                     >
-                        {openSection === "saas" && (
-                            <span className="text-[#e37426] mr-2">→</span>
-                        )}
-                        Soluciones SAAS
-                    </h3>
+                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'saas' ? 'opacity-100 text-gray-800' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                        <h3 className={`text-[20px] md:text-[32px] font-bold transition-colors ${openSection === 'saas'
+                            ? 'text-[#464646] underline'
+                            : 'text-[#818181] hover:text-gray-700'
+                            }`}>
+                            Soluciones SAAS
+                        </h3>
+                    </button>
                 </div>
 
                 {/* Grid de tarjetas SAAS */}
                 <div
-                    className={`grid md:grid-cols-2 gap-10 mb-10 transition-all duration-700 ${
+                    className={`grid md:grid-cols-2 gap-10 mb-10 overflow-hidden transition-all duration-700 ease-in-out ${
                         openSection === "saas" 
-                            ? "opacity-100 translate-y-0 scale-100 animate-in fade-in slide-in-from-bottom-4 duration-700" 
-                            : "hidden opacity-0 -translate-y-4 scale-95"
+                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4" 
+                            : "opacity-0 -translate-y-1 max-h-0"
                     }`}
                 >
                     {/* Tarjeta 1 */}
-                    <article className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,63,115,0.25)] hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
+                    <article className="rounded-2xl bg-white ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
                         <Image
                             src="/images/galileo/imagen-1-galileo.webp"
                             alt="PRISMA"
@@ -138,7 +148,7 @@ export default function GalileoSolutions() {
                     </article>
 
                     {/* Tarjeta 2 */}
-                    <article className="rounded-2xl  bg-white shadow-lg ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:shadow-[0_20px_60px_rgba(255,63,115,0.25)] hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
+                    <article className="rounded-2xl bg-white ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
                         <Image
                             src="/images/galileo/imagen-2-galileo.png"
                             alt="PROSPECTA"
@@ -168,23 +178,28 @@ export default function GalileoSolutions() {
 
                 {/* Infraestructura Cloud */}
                 <div className="mb-2 md:mb-8">
-                    <h4
-                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105"
+                    <button
                         onClick={() => handleToggle("cloud")}
+                        className="cursor-pointer flex items-center w-full text-left"
                     >
-                        {openSection === "cloud" && (
-                            <span className="text-[#e37426] mr-2">→</span>
-                        )}
-                        Infraestructura Cloud
-                    </h4>
+                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'cloud' ? 'opacity-100 text-gray-800' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                        <h4 className={`text-[20px] md:text-[32px] leading-[24px] md:leading-[42px] font-bold transition-colors ${openSection === 'cloud'
+                            ? 'text-[#464646] underline'
+                            : 'text-[#818181] hover:text-gray-700'
+                            }`}>
+                            Infraestructura Cloud
+                        </h4>
+                    </button>
                 </div>
 
                 {/* Contenido Infraestructura Cloud */}
                 <div
-                    className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center transition-all duration-700 ${
+                    className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center overflow-hidden transition-all duration-700 ease-in-out ${
                         openSection === "cloud" 
-                            ? "block opacity-100 translate-y-0 scale-100 animate-in fade-in slide-in-from-bottom-4 duration-700" 
-                            : "hidden opacity-0 -translate-y-4 scale-95"
+                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4" 
+                            : "opacity-0 -translate-y-1 max-h-0"
                     }`}
                 >
                     <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[16pxpx] md:leading-[20px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 ">
@@ -193,7 +208,7 @@ export default function GalileoSolutions() {
                     <div className="relative pl-5 md:pl-0 h-[280px] w-full group">
                         {/* Contenedor de imagen con bordes personalizados */}
                         <div 
-                            className="relative  h-full w-fullc shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
+                            className="relative  h-full w-fullc  overflow-hidden transition-all duration-500 "
                             style={{
                                 borderTopLeftRadius: '20px',
                                 borderBottomRightRadius: '20px',
@@ -208,7 +223,7 @@ export default function GalileoSolutions() {
                                 alt="Infraestructura Cloud"
                                 width={800}
                                 height={600}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-[1.02]"
                             />
                         </div>
                         
@@ -224,23 +239,28 @@ export default function GalileoSolutions() {
 
                 {/* Martech + Advanced Analytics */}
                 <div className="mb-8">
-                    <h4
-                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105"
+                    <button
                         onClick={() => handleToggle("martech")}
+                        className="cursor-pointer flex items-center w-full text-left"
                     >
-                        {openSection === "martech" && (
-                            <span className="text-[#e37426] mr-2">→</span>
-                        )}
-                        Martech + Advanced Analytics
-                    </h4>
+                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'martech' ? 'opacity-100 text-gray-800' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                        <h4 className={`text-[20px] md:text-[32px] leading-[24px] md:leading-[42px] font-bold transition-colors ${openSection === 'martech'
+                            ? 'text-[#464646] underline'
+                            : 'text-[#818181] hover:text-gray-700'
+                            }`}>
+                            Martech + Advanced Analytics
+                        </h4>
+                    </button>
                 </div>
 
                 {/* Contenido Martech + Advanced Analytics */}
                 <div
-                    className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center transition-all duration-700 ${
+                    className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center overflow-hidden transition-all duration-700 ease-in-out ${
                         openSection === "martech" 
-                            ? "block opacity-100 translate-y-0 scale-100 animate-in fade-in slide-in-from-bottom-4 duration-700" 
-                            : "hidden opacity-0 -translate-y-4 scale-95"
+                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4" 
+                            : "opacity-0 -translate-y-1 max-h-0"
                     }`}
                 >
                     <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 md:pl-12 pr-8 text-justify transition-all duration-500   ">
@@ -249,7 +269,7 @@ export default function GalileoSolutions() {
                     <div className="relative pl-8 md:pl-0 h-[280px] w-full group">
                         {/* Contenedor de imagen con bordes personalizados */}
                         <div 
-                            className="relative  h-full w-full shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,63,115,0.3)]"
+                            className="relative  h-full w-full  overflow-hidden transition-all duration-500 "
                             style={{
                                 borderTopLeftRadius: '20px',
                                 borderBottomRightRadius: '20px',
@@ -259,11 +279,11 @@ export default function GalileoSolutions() {
                              
                             {/* Imagen */}
                             <Image
-                                src="/images/galileo/martech.png"
+                                src="/images/galileo/martech.jpg"
                                 alt="Martech + Advanced Analytics"
                                 width={800}
                                 height={600}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-[1.02]"
                             />
                         </div>
                         

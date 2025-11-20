@@ -380,11 +380,9 @@ export default function Home() {
                   onClick={() => setActiveCase('caja-arequipa')}
                   className="cursor-pointer flex items-center mb-4 w-full text-left"
                 >
-                  {activeCase === 'caja-arequipa' && (
-                    <svg className="w-8 h-8 text-[#464646] mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  )}
+                  <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${activeCase === 'caja-arequipa' ? 'opacity-100 text-[#464646]' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                   <h3 className={`text-[20px] md:text-[32px] font-bold transition-colors ${activeCase === 'caja-arequipa'
                     ? 'text-[#464646] underline'
                     : 'text-[#818181] hover:text-gray-700'
@@ -393,17 +391,17 @@ export default function Home() {
                   </h3>
                 </button>
 
-                {activeCase === 'caja-arequipa' && (
-                  <div className="text-[13px] md:text-[16px] transition-all duration-300">
+                <div className={`text-[13px] md:text-[16px] overflow-hidden transition-all duration-700 ease-in-out ${activeCase === 'caja-arequipa' ? 'opacity-100 translate-y-0 max-h-[1000px] mt-2' : 'opacity-0 -translate-y-1 max-h-0'}`}>
                     {/* <h4 className=" font-bold mt-5 text-[#464646]">
                       Más desembolsos con la misma inversión.
                     </h4> */}
                     <p className="leading-relaxed text-[#464646]">
                     Desarrollamos e integramos un chatbot conversacional impulsado por LLM que permite a los lectores interactuar con las noticias en tiempo real. La solución, que incluyó un benchmark de 7 modelos de lenguaje, garantiza escalabilidad, eficiencia en costos y libera horas-hombre del equipo editorial para enfocarse en contenido de valor.
+                   <br />
                     <Link
                       href="/casos-de-exito/el-universal-ia/"
                       aria-label="Ver caso El Universal"
-                      className="ml-3 md:ml-4 inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
+                      className="inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
                     >
                       Ver más
                       <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -429,8 +427,7 @@ export default function Home() {
                         />
                       
                     </div>
-                  </div>
-                )}
+                </div>
               </div> 
               {/* Deposeguro */}
               <div className="mb-8 scroll-reveal scroll-reveal-delay-1">
@@ -438,11 +435,9 @@ export default function Home() {
                   onClick={() => setActiveCase('deposeguro')}
                   className="cursor-pointer flex items-center w-full text-left"
                 >
-                  {activeCase === 'deposeguro' && (
-                    <svg className="w-8 h-8 text-gray-800 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  )}
+                  <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${activeCase === 'deposeguro' ? 'opacity-100 text-gray-800' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                   <h4 className={`text-[20px] md:text-[32px] leading-[24px] md:leading-[42px] font-bold transition-colors ${activeCase === 'deposeguro'
                     ? 'text-[#464646] underline'
                     : 'text-[#818181] hover:text-gray-700'
@@ -451,17 +446,17 @@ export default function Home() {
                   </h4>
                 </button>
 
-                {activeCase === 'deposeguro' && (
-                  <div className="mt-4 transition-all duration-300">
+                <div className={`mt-0 overflow-hidden transition-all duration-700 ease-in-out ${activeCase === 'deposeguro' ? 'opacity-100 translate-y-0 max-h-[1000px] mt-4' : 'opacity-0 -translate-y-1 max-h-0'}`}>
                     {/* <h5 className="text-lg font-bold mb-3 text-[#464646]">
                       Transformación digital del sector asegurador.
                     </h5> */}
                     <p className="leading-relaxed text-[#464646]">
                     Transformamos el sitio web en un canal estratégico de generación de leads. El desarrollo web, optimizado en UX/UI y rendimiento técnico, resultó en un +45% en la tasa de conversión web (YoY) y un +89% en la contactabilidad de anuncios digitales.
+                    <br />
                     <Link
                       href="/deposeguro-web/"
                       aria-label="Ver caso Deposeguro"
-                      className="ml-3 md:ml-4 inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
+                      className="inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
                     >
                       Ver más
                       <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -487,8 +482,7 @@ export default function Home() {
                         />
                       
                     </div>
-                  </div>
-                )}
+                </div>
               </div> 
               {/* Apuesta Total */}
               <div className="mb-12 scroll-reveal scroll-reveal-delay-2">
@@ -496,11 +490,9 @@ export default function Home() {
                   onClick={() => setActiveCase('apuesta-total')}
                   className="cursor-pointer flex items-center w-full text-left"
                 >
-                  {activeCase === 'apuesta-total' && (
-                    <svg className="w-8 h-8 text-gray-800 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  )}
+                  <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${activeCase === 'apuesta-total' ? 'opacity-100 text-gray-800' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                   <h4 className={`text-[20px] md:text-[32px] leading-[24px] md:leading-[42px] font-bold transition-colors ${activeCase === 'apuesta-total'
                     ? 'text-[#464646] underline'
                     : 'text-[#818181] hover:text-gray-700'
@@ -509,17 +501,17 @@ export default function Home() {
                   </h4>
                 </button>
 
-                {activeCase === 'apuesta-total' && (
-                  <div className="mt-4 transition-all duration-300">
+                <div className={`mt-0 overflow-hidden transition-all duration-700 ease-in-out ${activeCase === 'apuesta-total' ? 'opacity-100 translate-y-0 max-h-[1000px] mt-4' : 'opacity-0 -translate-y-1 max-h-0'}`}>
                     {/* <h5 className="text-lg font-bold mb-3 text-[#464646]">
                       Liderazgo en entretenimiento digital.
                     </h5> */}
                     <p className="leading-relaxed text-[#464646]">
                       Implementamos una estrategia de programática avanzada utilizando Smart Audience. Esto generó un aumento de más del 170% en el volumen de recargas durante el piloto, y un crecimiento superior al 700% en el valor promedio de cada transacción.
+                      <br />
                       <Link
                         href="/casos-de-exito/apuesta-total-programatica/"
                         aria-label="Ver caso Apuesta Total"
-                        className="ml-3 md:ml-4 inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
+                        className="inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
                       >
                         Ver más
                         <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -545,8 +537,7 @@ export default function Home() {
                         />
                       
                     </div>
-                  </div>
-                )}
+                </div>
               </div> 
               {/* CTA Button: Ver todos los casos */}
               <div className="mt-12 scroll-reveal scroll-reveal-delay-3">
