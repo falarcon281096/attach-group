@@ -400,10 +400,20 @@ export default function Home() {
                     </h4> */}
                     <p className="leading-relaxed text-[#464646]">
                     Desarrollamos e integramos un chatbot conversacional impulsado por LLM que permite a los lectores interactuar con las noticias en tiempo real. La solución, que incluyó un benchmark de 7 modelos de lenguaje, garantiza escalabilidad, eficiencia en costos y libera horas-hombre del equipo editorial para enfocarse en contenido de valor.
+                    <Link
+                      href="/casos-de-exito/el-universal-ia/"
+                      aria-label="Ver caso El Universal"
+                      className="ml-3 md:ml-4 inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
+                    >
+                      Ver más
+                      <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
                     </p>
                     {/* Imagen móvil para El Universal (solo visible en móvil) enlaza al caso con hover */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
-                      <Link href="/casos-de-exito/el-universal-ia/" aria-label="Ver caso El Universal" className="group inline-block">
+                      
                         <ImageWithPlus
                           src="/images/casos-de-exito/eluniversal.webp"
                           alt="El Universal"
@@ -417,7 +427,7 @@ export default function Home() {
                           sizePercent={0.42}
                           overhangPercent={0.20}
                         />
-                      </Link>
+                      
                     </div>
                   </div>
                 )}
@@ -448,10 +458,20 @@ export default function Home() {
                     </h5> */}
                     <p className="leading-relaxed text-[#464646]">
                     Transformamos el sitio web en un canal estratégico de generación de leads. El desarrollo web, optimizado en UX/UI y rendimiento técnico, resultó en un +45% en la tasa de conversión web (YoY) y un +89% en la contactabilidad de anuncios digitales.
+                    <Link
+                      href="/deposeguro-web/"
+                      aria-label="Ver caso Deposeguro"
+                      className="ml-3 md:ml-4 inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
+                    >
+                      Ver más
+                      <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
                     </p>
                     {/* Imagen móvil para Deposeguro (solo visible en móvil) enlaza al caso con hover */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
-                      <Link href="/deposeguro-web/" aria-label="Ver caso Deposeguro" className="group inline-block">
+                      
                         <ImageWithPlus
                           src="/images/casos-de-exito/deposeguro.webp"
                           alt="Deposeguro"
@@ -465,7 +485,7 @@ export default function Home() {
                           sizePercent={0.42}
                           overhangPercent={0.20}
                         />
-                      </Link>
+                      
                     </div>
                   </div>
                 )}
@@ -496,10 +516,20 @@ export default function Home() {
                     </h5> */}
                     <p className="leading-relaxed text-[#464646]">
                       Implementamos una estrategia de programática avanzada utilizando Smart Audience. Esto generó un aumento de más del 170% en el volumen de recargas durante el piloto, y un crecimiento superior al 700% en el valor promedio de cada transacción.
+                      <Link
+                        href="/casos-de-exito/apuesta-total-programatica/"
+                        aria-label="Ver caso Apuesta Total"
+                        className="ml-3 md:ml-4 inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
+                      >
+                        Ver más
+                        <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
                     </p>
                     {/* Imagen móvil para Apuesta Total (solo visible en móvil) enlaza al caso con hover */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
-                      <Link href="/casos-de-exito/apuesta-total-programatica/" aria-label="Ver caso Apuesta Total" className="group inline-block">
+                      
                         <ImageWithPlus
                           src="/images/casos-de-exito/apuestatotal.png"
                           alt="Apuesta Total"
@@ -513,7 +543,7 @@ export default function Home() {
                           sizePercent={0.42}
                           overhangPercent={0.20}
                         />
-                      </Link>
+                      
                     </div>
                   </div>
                 )}
@@ -531,31 +561,10 @@ export default function Home() {
 
             {/* Right Content - Dynamic Image */}
               {/* Main Image - Enlace con hover */}
-              <div className="hidden lg:flex justify-end relative transition-all duration-500 ease-in-out scroll-reveal
-                    relative 
-                    before:absolute
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')] 
-                    before:bg-no-repeat
-                    before:bg-center
-                    before:content-['']
-                    before:bg-[length:100%_100%]
-                    before:w-15
-                    before:h-15
-                    before:-translate-x-[0.3rem]
-                    before:bottom-[10%]
-                    before:left-2
-                    before:bg-[length:80%_80%]
-                    lg:before:bg-[length:100%_100%]
-                    lg:before:w-30 lg:before:h-30">
-                {/* Image Placeholder */}
-                <Link
-                  href={
-                    activeCase === 'caja-arequipa' ? '/casos-de-exito/el-universal-ux/' :
-                    activeCase === 'deposeguro' ? '/deposeguro-web/' :
-                    activeCase === 'apuesta-total' ? '/casos-de-exito/apuesta-total-programatica/' :
-                    '/casos-de-exito/'
-                  }
-                  aria-label="Ver caso de éxito"
+              <div className="hidden lg:flex justify-end relative transition-all duration-500 ease-in-out scroll-reveal">
+                {/* Image Placeholder (no clicleable) */}
+                <div
+                  aria-label="Imagen caso de éxito no clicleable"
                   className="group inline-block"
                 >
                   <ImageWithPlus
@@ -572,7 +581,7 @@ export default function Home() {
                               "Caso de éxito"
                       }
                       width={1800}
-                      height={1800}
+                      height={1800} 
                       position="LEFT_DOWN"
                       paddingMobile="2rem"
                       paddingDesktop="2rem" 
@@ -581,7 +590,7 @@ export default function Home() {
                       sizePercent={0.42}
                       overhangPercent={0.20}
                     />
-                </Link>
+                </div>
               </div>
           </div>
         </div>
@@ -662,19 +671,19 @@ export default function Home() {
                 <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.png" alt="Google Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.svg" alt="Google Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.png" alt="Meta Business Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.svg" alt="Meta Business Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
                 <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.png" alt="Convert" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.svg" alt="Convert" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.png" alt="DV360" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
+                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.svg" alt="DV360" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
 
               {/* Set 2 (duplicate for seamless loop) */}

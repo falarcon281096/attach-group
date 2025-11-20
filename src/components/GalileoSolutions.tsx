@@ -37,7 +37,7 @@ export default function GalileoSolutions() {
                 {/* IA Enterprise */}
                 <div className="mb-2 md:mb-8">
                     <h3
-                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
+                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105"
                         onClick={() => handleToggle("ia")}
                     >
                         {openSection === "ia" && (
@@ -91,7 +91,7 @@ export default function GalileoSolutions() {
                 {/* Soluciones SAAS */}
                 <div className="mb-3 md:mb-8">
                     <h3
-                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
+                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105"
                         onClick={() => handleToggle("saas")}
                     >
                         {openSection === "saas" && (
@@ -169,7 +169,7 @@ export default function GalileoSolutions() {
                 {/* Infraestructura Cloud */}
                 <div className="mb-2 md:mb-8">
                     <h4
-                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
+                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105"
                         onClick={() => handleToggle("cloud")}
                     >
                         {openSection === "cloud" && (
@@ -225,7 +225,7 @@ export default function GalileoSolutions() {
                 {/* Martech + Advanced Analytics */}
                 <div className="mb-8">
                     <h4
-                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,63,115,0.6)]"
+                        className="text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] cursor-pointer transition-all duration-300 hover:scale-105"
                         onClick={() => handleToggle("martech")}
                     >
                         {openSection === "martech" && (

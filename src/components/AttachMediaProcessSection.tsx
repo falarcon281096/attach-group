@@ -85,9 +85,9 @@ export default function AttachMediaProcessSection() {
               }`}
               style={{ transitionDelay: `${i * 0.15}s` }}
             >
-              <div className="bg-white rounded-2xl border border-[#00CED380] p-4 md:p-6 flex flex-col items-center justify-between text-center transform transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-translate-y-2 group cursor-pointer">
+              <div className="bg-white rounded-2xl border border-[#00CED380] p-4 md:p-6 flex flex-col items-center justify-between text-center transform transition-all duration-500 hover:scale-110  hover:-translate-y-2 group cursor-pointer">
                 {/* Efecto de glow en hover */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#2F7DE1]/10 to-[#22D3C5]/10"></div>
+                <div className="absolute inset-0 rounded-2xl opacity-0 "></div>
                 
                 <div className="flex justify-center mb-2 relative z-10">
                   <div className="inline-flex flex-col items-center gap-2 rounded-2xl px-4 py-3">

@@ -339,7 +339,7 @@ export default function Home() {
                  
                   <Image 
                     className="w-full transform transition-all duration-700 group-hover:scale-100 relative z-0" 
-                    src="/images/nosotros/clientes-desktop.png" 
+                    src="/images/nosotros/clientes-desktop.jpg" 
                     alt="clientes" 
                     width={1296} 
                     height={747}
@@ -397,7 +397,7 @@ export default function Home() {
               <Image 
                 src="/images/nosotros/mapa-atatch.webp" 
                 alt="Mapa Attach" 
-                className="mx-30 md:mx-0 mx-auto scroll-reveal relative z-40 transform transition-all duration-500 group-hover:scale-105" 
+                className="mx-30 md:mx-0 mx-auto scroll-reveal relative z-40 transform transition-all duration-500" 
                 width={486} 
                 height={550}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 486px"
@@ -405,7 +405,7 @@ export default function Home() {
               />
               
               {/* Efectos de resaltado para los países - Perú (izquierda) */}
-              <div 
+              {/* <div 
                 className={`${styles["country-marker"]} ${styles["country-marker-peru"]}`}
               >
                 <div 
@@ -429,10 +429,10 @@ export default function Home() {
                     boxShadow: "0 0 10px rgba(30, 63, 218, 0.4)"
                   }}
                 ></div>
-              </div>
+              </div> */}
               
               {/* Efectos de resaltado para los países - México (centro) */}
-              <div 
+              {/* <div 
                 className={`${styles["country-marker"]} ${styles["country-marker-mexico"]}`}
               >
                 <div 
@@ -456,10 +456,10 @@ export default function Home() {
                     boxShadow: "0 0 10px rgba(30, 63, 218, 0.4)"
                   }}
                 ></div>
-              </div>
+              </div> */}
               
               {/* Efectos de resaltado para los países - USA (derecha) */}
-              <div 
+              {/* <div 
                 className={`${styles["country-marker"]} ${styles["country-marker-usa"]}`}
               >
                 <div 
@@ -483,7 +483,7 @@ export default function Home() {
                     boxShadow: "0 0 10px rgba(30, 63, 218, 0.4)"
                   }}
                 ></div>
-              </div>
+              </div> */}
               
               <span className="image-light-soft absolute inset-0 pointer-events-none" style={{ zIndex: 45 }} aria-hidden="true"></span>
             </div>

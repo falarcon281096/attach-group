@@ -258,7 +258,7 @@ export default function AthenaAds() {
               <div 
                 ref={(el) => setElementRef("phone-id", el)}
                 data-animate-id="phone-id"
-                className={`md:col-span-1 bg-white border-2 border-[#1E120D1A] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                className={`md:col-span-1 bg-white border-2 border-[#1E120D1A] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group ${
                   isVisible["phone-id"] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
                 }`}
                 style={{ transitionDelay: "0.3s" }}
@@ -287,7 +287,7 @@ export default function AthenaAds() {
               <div 
                 ref={(el) => setElementRef("digital-outdoor", el)}
                 data-animate-id="digital-outdoor"
-                className={`md:col-span-2 bg-white border-2 border-[#1E120D1A] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                className={`md:col-span-2 bg-white border-2 border-[#1E120D1A] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group ${
                   isVisible["digital-outdoor"] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
                 }`}
                 style={{ transitionDelay: "0.4s" }}
@@ -330,7 +330,7 @@ export default function AthenaAds() {
               <div 
                 ref={(el) => setElementRef("ctv", el)}
                 data-animate-id="ctv"
-                className={`bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                className={`bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group ${
                   isVisible["ctv"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: "0.6s" }}
@@ -359,7 +359,7 @@ export default function AthenaAds() {
               <div 
                 ref={(el) => setElementRef("digital-screens", el)}
                 data-animate-id="digital-screens"
-                className={`bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                className={`bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group ${
                   isVisible["digital-screens"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: "0.7s" }}
@@ -388,7 +388,7 @@ export default function AthenaAds() {
               <div 
                 ref={(el) => setElementRef("gaming", el)}
                 data-animate-id="gaming"
-                className={`bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                className={`bg-white border-2 border-[rgba(161,224,94,0.50)] rounded-2xl md:rounded-3xl transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group ${
                   isVisible["gaming"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: "0.8s" }}
@@ -452,7 +452,7 @@ export default function AthenaAds() {
               <div 
                 ref={(el) => setElementRef("social-extender", el)}
                 data-animate-id="social-extender"
-                className={`border rounded-2xl md:rounded-3xl overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                className={`border rounded-2xl md:rounded-3xl overflow-hidden transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group ${
                   isVisible["social-extender"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ borderColor: 'rgba(30, 18, 13, 0.1)', transitionDelay: "0.3s" }}
@@ -492,7 +492,7 @@ export default function AthenaAds() {
               <div 
                 ref={(el) => setElementRef("rich-media", el)}
                 data-animate-id="rich-media"
-                className={`border rounded-2xl md:rounded-3xl overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                className={`border rounded-2xl md:rounded-3xl overflow-hidden transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group ${
                   isVisible["rich-media"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ borderColor: 'rgba(30, 18, 13, 0.1)', transitionDelay: "0.4s" }}
@@ -532,7 +532,7 @@ export default function AthenaAds() {
               <div 
                 ref={(el) => setElementRef("tap-to-map", el)}
                 data-animate-id="tap-to-map"
-                className={`border rounded-2xl md:rounded-3xl overflow-hidden transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+                className={`border rounded-2xl md:rounded-3xl overflow-hidden transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group ${
                   isVisible["tap-to-map"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ borderColor: 'rgba(30, 18, 13, 0.1)', transitionDelay: "0.5s" }}
@@ -605,7 +605,7 @@ export default function AthenaAds() {
                 }`}
                 style={{ transitionDelay: "0.3s" }}
               >
-              <Link href="/casos-de-exito/apuesta-total-programatica" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
+              <Link href="/casos-de-exito/apuesta-total-programatica" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
                 <Image
                   src="/images/casos-de-exito/Apuestathenads1.webp"
                   alt="Caso de éxito"

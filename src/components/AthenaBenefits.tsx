@@ -85,25 +85,25 @@ export default function AthenaBenefits() {
               key={i}
               ref={(el) => setElementRef(`athena-benefit-${i}`, el)}
               data-animate-id={`athena-benefit-${i}`}
-              className={`benefit-item relative bg-white text-[#818181] font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 pl-3 md:pl-8 pr-6 rounded-2xl border border-[#E2E830] transition-all duration-500 inline-block w-full md:w-fit max-w-full transform hover:scale-105 hover:shadow-2xl hover:-translate-y-1 group ${offsets[i]} ${
+              className={`benefit-item relative bg-white text-[#818181] font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 pl-3 md:pl-8 pr-6 rounded-2xl border border-[#E2E830] transition-all duration-500 inline-block w-full md:w-fit max-w-full transform hover:scale-105  hover:-translate-y-1 group ${offsets[i]} ${
                 isVisible[`athena-benefit-${i}`] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
               }`}
               style={{
                 transitionDelay: `${i * 0.15}s`,
-                boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                // boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
                 display: "flex",
                 alignItems: "center"
               }}
             >
               {/* Efecto de glow en hover */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-[#E2E830]/20 to-transparent"></div>
+              <div className="absolute inset-0 rounded-2xl opacity-0 "></div>
               
               <span
                 className="relative left-0 w-6 h-6 rounded-full flex items-center justify-center transform transition-all duration-500 group-hover:scale-125 group-hover:rotate-360 flex-shrink-0 mr-2"
                 style={{
                   background:
                     "linear-gradient(270deg, #00CED3 0%, #E2E830 100%)",
-                  boxShadow: "0 0 15px rgba(0,206,211,0.5)",
+                  // boxShadow: "0 0 15px rgba(0,206,211,0.5)",
                   animationName: isVisible[`athena-benefit-${i}`] ? "checkmarkPop" : "none",
                   animationDuration: "0.6s",
                   animationTimingFunction: "ease-out",

@@ -91,12 +91,7 @@ import { useEffect, useRef, useState } from "react";
       {/* Hero Section */}
       <div className="relative rounded-b-4xl z-10 bg-linear-to-r from-[#2f7de1] to-[#25bbcd] relative overflow-hidden pt-20 md:pt-24">
         {/* Efecto de luz brillante que se mueve */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
-          background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)",
-          animation: "shine 3s ease-in-out infinite",
-          width: "50%",
-          height: "100%"
-        }}></div>
+        
         
         <div className="px-6 md:px-30 pt-4 md:pt-20 pb-10 md:pb-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-0 md:gap-12 items-center">
@@ -156,13 +151,13 @@ import { useEffect, useRef, useState } from "react";
               {/* Cards Container */}
               <div className="space-y-4 md:space-y-6 px-5 md:px-0 relative z-10">
                 {/* First Card */}
-                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative shadow-lg rounded-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-1 group">
+                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative shadow-lg rounded-lg transform transition-all duration-500 hover:scale-105  hover:-translate-y-1 group">
                   {/* Efecto de glow en hover */}
-                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-[#2F7DE0]/20 to-transparent"></div>
                   
-                  <div className="absolute bottom-[10px] left-[-19px] md:bottom-[12px] md:left-[-25px] md:left-[-18px] md:block transform transition-all duration-700 group-hover:rotate-90 group-hover:scale-110" style={{
-                    filter: "drop-shadow(0 0 10px rgba(47,125,224,0.5))",
-                    animation: "float 3s ease-in-out infinite"
+                  
+                  <div className="absolute bottom-[10px] left-[-19px] md:bottom-[12px] md:left-[-25px] md:left-[-18px] md:block transform transition-all duration-700   group-hover:scale-110" style={{
+                    // filter: "drop-shadow(0 0 10px rgba(47,125,224,0.5))",
+                    // animation: "float 3s ease-in-out infinite"
                   }}>
                     <Image 
                       src="/images/general/attach_cross_blue.svg" 
@@ -178,16 +173,15 @@ import { useEffect, useRef, useState } from "react";
                 </div>
 
                 {/* Second Card */}
-                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative shadow-lg rounded-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-1 group" style={{
+                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative shadow-lg rounded-lg transform transition-all duration-500 hover:scale-105  hover:-translate-y-1 group" style={{
                   transitionDelay: "0.1s"
                 }}>
                   {/* Efecto de glow en hover */}
-                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-l from-[#2F7DE0]/20 to-transparent"></div>
-                  
-                  <div className="absolute bottom-6 right-[-20] md:block transform transition-all duration-700 group-hover:rotate-90 group-hover:scale-110" style={{
-                    filter: "drop-shadow(0 0 10px rgba(47,125,224,0.5))",
-                    animation: "float 3s ease-in-out infinite",
-                    animationDelay: "1s"
+                   
+                  <div className="absolute bottom-6 right-[-20] md:block transform transition-all duration-700  group-hover:scale-110" style={{
+                    // filter: "drop-shadow(0 0 10px rgba(47,125,224,0.5))",
+                    // animation: "float 3s ease-in-out infinite",
+                    // animationDelay: "1s"
                   }}>
                     <Image 
                       src="/images/general/attach_cross_blue.svg" 
@@ -218,7 +212,7 @@ import { useEffect, useRef, useState } from "react";
               isVisible["estrategia-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-[24px] md:text-[48px] font-['graphik'] font-semibold text-gray-800 mb-4 md:mb-8 transform transition-all duration-700 hover:scale-105">
+            <h2 className="text-[24px] md:text-[48px] font-['graphik'] font-semibold text-gray-800 mb-4 md:mb-8 transform transition-all duration-700 ">
               De la estrategia a la acción
             </h2>
             <p className={`px-3 md:px-0 text-[14px] md:text-[20px] text-gray-500 max-w-4xl mx-auto transition-all duration-1000 delay-200 ${
@@ -236,7 +230,7 @@ import { useEffect, useRef, useState } from "react";
               isVisible["advertising"] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
           >
-            <h3 className="text-2xl md:text-3xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-6 md:mb-8 inline-block transform transition-all duration-700 hover:scale-105">
+            <h3 className="text-2xl md:text-3xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-6 md:mb-8 inline-block transform transition-all duration-700 ">
               Advertising
             </h3>
             
@@ -261,7 +255,7 @@ import { useEffect, useRef, useState } from "react";
           <div 
             ref={(el) => setElementRef("equipo-hibrido", el)}
             data-animate-id="equipo-hibrido"
-            className={`relative bg-white rounded-2xl md:rounded-3xl shadow-lg border border-gray-100 transform transition-all duration-700 hover:shadow-2xl hover:-translate-y-2 group ${
+            className={`relative bg-white rounded-2xl md:rounded-3xl shadow-lg border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
               isVisible["equipo-hibrido"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
             style={{ transitionDelay: "0.3s" }}
@@ -310,9 +304,9 @@ import { useEffect, useRef, useState } from "react";
                   </div>
                   {/* Columna 2 */}
                   <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
-                    <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">3P Performance Framework</h4>
+                    <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">CreativIA</h4>
                     <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
-                      Nuestra herramienta se conecta directamente con la data del cliente para guiar a nuestros analistas y consultores en la ruta de optimización. Basada en nuestro expertise y aprendizaje continuo de más de 20 años, convierte la información en acción y asegura decisiones consistentes que no dependen solo del criterio individual. 3P Performance Framework se basa en 3 pilares: <span className="font-semibold text-[#00B0C8]">presencia, persuasión y performance</span>, utilizando árboles de decisión en cada etapa para impulsar resultados predecibles y escalables.
+                     Nuestro agente: <span className="font-semibold text-[#00B0C8]">entrenado con best practices de Nielsen, Google y Meta</span>se conecta directamente con tus plataformas publicitarias a fin de analizar la data histórica de tus piezas publicitarias y sugerir mejoras. Con ello, CreativIA tiene lo mejor de ambos mundos: analiza como el mejor trafficker y sugiere como el mejor creativo.
                     </p>
                   </div>
                 </div>
@@ -346,7 +340,7 @@ import { useEffect, useRef, useState } from "react";
           <div 
             ref={(el) => setElementRef("estructura", el)}
             data-animate-id="estructura"
-            className={`relative bg-white rounded-2xl md:rounded-3xl shadow-lg border border-gray-100 transform transition-all duration-700 hover:shadow-2xl hover:-translate-y-2 group ${
+            className={`relative bg-white rounded-2xl md:rounded-3xl shadow-lg border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
               isVisible["estructura"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
             style={{ transitionDelay: "0.4s" }}
@@ -365,12 +359,13 @@ import { useEffect, useRef, useState } from "react";
             {/* Contenido sobre la imagen */}
             <div className="p-6 md:p-12">
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 text-center">
-                CreativIA
+                Estructura y metodologías propias
               </h3>
               
               <div className="space-y-4 mb-6 md:mb-8">
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  Nuestro agente <span className="text-cyan-500 font-semibold">entrenado con best practices de Nielsen, Google y Meta.</span> se conecta directamente con tus plataformas publicitarias a fin de analizar la data histórica de tus piezas publicitarias y sugerir mejoras. Con ello, CreativIA tiene lo mejor de ambos mundos: analiza como el mejor trafficker y sugiere como el mejor creativo.
+                  En nuestro modelo operativo,  <span className="text-cyan-500 font-semibold"> combinamos la experiencia del talento humano con el poder de la inteligencia artificial aplicada.</span> Además del personal asignado, contamos con Agentes de IA creados por Attach Group que optimizan presupuestos de campañas, depuran keywords ineficientes y sugieren mejoras de las piezas publicitarias. Esta sinergia permite
+                   <span className="text-cyan-500 font-semibold">automatizar tareas, escalar aprendizajes y asegurar una calidad consistente en los resultados.</span>
                 </p>
               </div>
             </div>
@@ -433,7 +428,7 @@ import { useEffect, useRef, useState } from "react";
                 isVisible["ia-creativity-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 hover:scale-105">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 ">
                 IA Creativity
               </h2>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed">
@@ -483,7 +478,7 @@ import { useEffect, useRef, useState } from "react";
                 }`}
               >
                 {/* Synthetic UGC Section */}
-                <div className="transform transition-all duration-500 hover:scale-105 group">
+                <div className="transform transition-all duration-500  group">
                   <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 flex items-center">
                     <span className="mr-2 md:mr-3 text-2xl md:text-3xl font-extrabold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent transform transition-all duration-500 group-hover:translate-x-2">→</span>
                     <span className="text-xl md:text-2xl bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent">
@@ -496,7 +491,7 @@ import { useEffect, useRef, useState } from "react";
                 </div>
 
                 {/* Creativity IA Section */}
-                <div className="transform transition-all duration-500 hover:scale-105 group" style={{ transitionDelay: "0.1s" }}>
+                <div className="transform transition-all duration-500  group" style={{ transitionDelay: "0.1s" }}>
                   <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 flex items-center">
                     <span className="mr-2 md:mr-3 text-2xl md:text-3xl font-extrabold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent transform transition-all duration-500 group-hover:translate-x-2">→</span>
                     <span className="text-xl md:text-2xl bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent">
@@ -528,7 +523,7 @@ import { useEffect, useRef, useState } from "react";
                 }`}
                 style={{ transitionDelay: "0.3s" }}
               >
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 hover:scale-105">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 ">
                   Influencer marketing
                 </h2>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
@@ -593,7 +588,7 @@ import { useEffect, useRef, useState } from "react";
                   isVisible["seo-text"] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
                 }`}
               >
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 hover:scale-105">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 ">
                   SEO & GEO
                 </h2>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
@@ -620,7 +615,7 @@ import { useEffect, useRef, useState } from "react";
                 }`}
                 style={{ transitionDelay: "0.3s" }}
               >
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 hover:scale-105">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 ">
                   Analytics & Growth
                 </h2>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
@@ -685,7 +680,7 @@ import { useEffect, useRef, useState } from "react";
                   isVisible["ux-text"] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
                 }`}
               >
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 hover:scale-105">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 transform transition-all duration-700 ">
                   UX/UI & Development
                 </h2>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
@@ -733,7 +728,7 @@ import { useEffect, useRef, useState } from "react";
               }`}
               style={{ transitionDelay: "0.3s" }}
             >
-              <Link href="/casos-de-exito/cayetano-full-funnel" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
+              <Link href="/casos-de-exito/cayetano-full-funnel" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
                 <Image
                   src="/images/casos-de-exito/cayetano.webp"
                   alt="Caso de éxito"
@@ -763,7 +758,7 @@ import { useEffect, useRef, useState } from "react";
                 }`}
                 style={{ transitionDelay: "0.4s" }}
               >
-                <Link href="/deposeguro-web" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
+                <Link href="/deposeguro-web" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
                   <Image
                     src="/images/casos-de-exito/deposeguro.webp"
                     alt="Caso de éxito"
@@ -792,7 +787,7 @@ import { useEffect, useRef, useState } from "react";
                 }`}
                 style={{ transitionDelay: "0.5s" }}
               >
-                <Link href="/casos-de-exito/apuesta-total-programatica" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group block">
+                <Link href="/casos-de-exito/apuesta-total-programatica" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
                   <Image
                     src="/images/casos-de-exito/apuestatotal.webp"
                     alt="Caso de éxito"
