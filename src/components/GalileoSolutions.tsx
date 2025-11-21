@@ -107,20 +107,20 @@ export default function GalileoSolutions() {
 
                 {/* Grid de tarjetas SAAS */}
                 <div
-                    className={`grid md:grid-cols-2 gap-10 mb-10 overflow-hidden transition-all duration-700 ease-in-out ${
+                    className={`grid md:grid-cols-2 gap-10 mb-10 overflow-visible transition-all duration-700 ease-in-out ${
                         openSection === "saas" 
                             ? "opacity-100 translate-y-0 max-h-[1000px] mt-4" 
                             : "opacity-0 -translate-y-1 max-h-0"
                     }`}
                 >
                     {/* Tarjeta 1 */}
-                    <article className="rounded-2xl bg-white ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
+                    <article className="rounded-2xl bg-white ring-1 ring-gray-200 overflow-visible transition-all duration-300 hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
                         <Image
                             src="/images/galileo/imagen-1-galileo.webp"
                             alt="PRISMA"
                             width={900}
                             height={600}
-                            className="w-full h-60 object-cover"
+                            className="w-full h-60 object-cover rounded-t-2xl"
                         />
                         <div className="p-6 text-center">
                             <div className="flex  justify-center items-center mb-6">
@@ -142,13 +142,13 @@ export default function GalileoSolutions() {
                     </article>
 
                     {/* Tarjeta 2 */}
-                    <article className="rounded-2xl bg-white ring-1 ring-gray-200 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
+                    <article className="rounded-2xl bg-white ring-1 ring-gray-200 overflow-visible transition-all duration-300 hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
                         <Image
                             src="/images/galileo/imagen-2-galileo.png"
                             alt="PROSPECTA"
                             width={900}
                             height={600}
-                            className="w-full h-60 object-cover"
+                            className="w-full h-60 object-cover rounded-t-2xl"
                         />
                         <div className="p-6 text-center">
                             <div className="flex justify-center items-center mb-6">
