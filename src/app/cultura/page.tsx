@@ -343,7 +343,7 @@ export default function Home() {
       <section className='pb-17 mx-10 md:mx-0 mt-10 md:mt-0 md:pr-30'>
         <div className='flex flex-col gap-5 md:gap-10 md:pl-30 md:pt-20 md:pb-17 md:border-r-2 md:border-b-2 md:border-white/30 md:rounded-br-[50px]'>
           <h2 className='text-[24px] md:text-[48px] leadin-[20px] md:leadin-[44px] font-bold max-w-full md:max-w-7xl text-white w-150 scroll-reveal'>
-            ¿Quiere marcar la diferencia con nosotros?
+            ¿Quieres marcar la diferencia con nosotros?
           </h2>
           <p className='text-[14px] md:text-[22px] font-["Graphik"] text-white w-full md:w-[80%]'>Si compartes nuestra pasión por la innovación, mándanos tu CV a <a className='font-semibold' href='mailto:talento@attach.group'>talento@attach.group</a></p>
           {/* <Link href="/contacto" className='self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition glow-button scroll-reveal scroll-reveal-delay-1'>

@@ -151,7 +151,7 @@ import { useEffect, useRef, useState } from "react";
               {/* Cards Container */}
               <div className="space-y-4 md:space-y-6 px-5 md:px-0 relative z-10">
                 {/* First Card */}
-                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative shadow-lg rounded-lg transform transition-all duration-500 hover:scale-105  hover:-translate-y-1 group">
+                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative  rounded-lg transform transition-all duration-500 hover:scale-105  hover:-translate-y-1 group">
                   {/* Efecto de glow en hover */}
                   
                   
@@ -173,7 +173,7 @@ import { useEffect, useRef, useState } from "react";
                 </div>
 
                 {/* Second Card */}
-                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative shadow-lg rounded-lg transform transition-all duration-500 hover:scale-105  hover:-translate-y-1 group" style={{
+                <div className="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 md:py-4 relative  rounded-lg transform transition-all duration-500 hover:scale-105  hover:-translate-y-1 group" style={{
                   transitionDelay: "0.1s"
                 }}>
                   {/* Efecto de glow en hover */}
@@ -255,10 +255,10 @@ import { useEffect, useRef, useState } from "react";
           <div 
             ref={(el) => setElementRef("equipo-hibrido", el)}
             data-animate-id="equipo-hibrido"
-            className={`relative bg-white rounded-2xl md:rounded-3xl shadow-lg border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
-              isVisible["equipo-hibrido"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            className={`relative bg-white rounded-2xl md:rounded-3xl  border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
+              isVisible["equipo-hibrido"] ? " translate-y-0" : "translate-y-10"
             }`}
-            style={{ transitionDelay: "0.3s" }}
+            style={{ transitionDelay: "0.3s",  border: '1px solid #1E120D33;' }}
           >
             {/* Imagen de fondo */}
             <div className="relative h-48 md:h-58 lg:h-64 overflow-hidden rounded-t-2xl md:rounded-t-3xl">
@@ -272,12 +272,15 @@ import { useEffect, useRef, useState } from "react";
             </div>
             
             {/* Contenido sobre la imagen */}
-            <div className="p-6 md:p-12">
+            <div  
+            className="p-6 pt-6 md:pt-6 pb-6 md:pb-2"
+             >
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-6 md:mb-10 text-center">
                 Equipo híbrido: Personas + IA, la combinación que potencia resultados
               </h3>
               
-              <div className="space-y-4 mb-7 md:mb-9">
+              <div className="space-y-4 mb-7 md:mb-9"
+              >
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                   En nuestro modelo operativo, <span className="text-cyan-500 font-semibold">combinamos la experiencia del talento humano con el poder de la inteligencia artificial aplicada</span>. Además del personal asignado, contamos con Agentes de IA creados por Attach Group que optimizan presupuestos de campañas, depuran keywords eficientes y sugieren mejoras de las piezas publicitarias. Esta sinergia permite <span className="text-cyan-500 font-semibold">automatizar tareas, escalar aprendizajes y asegurar una calidad consistente en los resultados.</span>
                 </p>
@@ -285,16 +288,19 @@ import { useEffect, useRef, useState } from "react";
             </div>
             {/* Contenido adicional (acordeón suave) */}
             <div
-              className="px-6 md:px-10"
+              
+              className= {`"px-6 md:px-10  ${
+              isVisible["equipo-hibrido"] ? "block" : "hidden"
+            }`}
               style={{
                 overflow: "hidden",
-                transition: "max-height 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease",
-                maxHeight: isEquipoOpen ? equipoContentHeight : 0,
-                opacity: isEquipoOpen ? 1 : 0,
+                maxHeight: isEquipoOpen ? (equipoContentRef.current?.scrollHeight ?? 0) : 0,
+                transition: "max-height 700ms cubic-bezier(0.22, 1, 0.36, 1)",
               }}
+              aria-hidden={!isEquipoOpen}
             >
               <div ref={equipoContentRef}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pb-10 md:pb-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pb-10 md:pb-14">
                   {/* Columna 1 */}
                   <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
                     <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">Optimind</h4>
@@ -306,18 +312,22 @@ import { useEffect, useRef, useState } from "react";
                   <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
                     <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">CreativIA</h4>
                     <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
-                     Nuestro agente: <span className="font-semibold text-[#00B0C8]">entrenado con best practices de Nielsen, Google y Meta</span>se conecta directamente con tus plataformas publicitarias a fin de analizar la data histórica de tus piezas publicitarias y sugerir mejoras. Con ello, CreativIA tiene lo mejor de ambos mundos: analiza como el mejor trafficker y sugiere como el mejor creativo.
+                     Nuestro agente: <span className="font-semibold text-[#00B0C8]">entrenado con best practices de Nielsen, Google y Meta</span> se conecta directamente con tus plataformas publicitarias a fin de analizar la data histórica de tus piezas publicitarias y sugerir mejoras. Con ello, CreativIA tiene lo mejor de ambos mundos: analiza como el mejor trafficker y sugiere como el mejor creativo.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            {/* Botón Ver más - Flotando en el borde inferior del modal */}
-            <div className={`absolute -bottom-13 md:-bottom-6 left-1/2 transform -translate-x-1/2 z-10 ${isEquipoOpen ? 'bottom-0 md:-bottom-4' : 'bottom-4 md:bottom-1'}`}>
+            {/* Botón Ver más - centrado en el borde inferior del card cuando está cerrado */}
+            <div
+              className={`absolute left-1/2 -translate-x-1/2 z-10 transition-all duration-500 ${
+                isEquipoOpen ? 'bottom-0 md:-bottom-4 translate-y-0' : 'bottom-0 translate-y-1/2'
+              }`}
+            >
               <button
                 onClick={() => setIsEquipoOpen((v) => !v)}
                 aria-expanded={isEquipoOpen}
-                className="bg-linear-to-r from-[#2f7de1] to-[#25bbcd] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(47,125,224,0.6)] flex items-center shadow-lg text-sm md:text-base group"
+                className="bg-linear-to-r from-[#2f7de1] to-[#25bbcd] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(47,125,224,0.6)] flex items-center  text-sm md:text-base group"
               >
                 {isEquipoOpen ? "Ver menos" : "Ver más"}
                 <svg
@@ -340,10 +350,10 @@ import { useEffect, useRef, useState } from "react";
           <div 
             ref={(el) => setElementRef("estructura", el)}
             data-animate-id="estructura"
-            className={`relative bg-white rounded-2xl md:rounded-3xl shadow-lg border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
-              isVisible["estructura"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            className={`relative bg-white rounded-2xl md:rounded-3xl  border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
+              isVisible["estructura"] ? "translate-y-0" : "translate-y-10"
             }`}
-            style={{ transitionDelay: "0.4s" }}
+             style={{ transitionDelay: "0.4s",  border: '1px solid #1E120D33;' }}
           >
             {/* Imagen de fondo */}
             <div className="relative h-48 md:h-64 lg:h-80 overflow-hidden rounded-t-2xl md:rounded-t-3xl">
@@ -357,7 +367,7 @@ import { useEffect, useRef, useState } from "react";
             </div>
             
             {/* Contenido sobre la imagen */}
-            <div className="p-6 md:p-12">
+            <div className="p-6 pt-6 md:pt-6 pb-6 md:pb-2">
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-4 md:mb-6 text-center">
                 Estructura y metodologías propias
               </h3>
@@ -365,27 +375,29 @@ import { useEffect, useRef, useState } from "react";
               <div className="space-y-4 mb-6 md:mb-8">
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                   En nuestro modelo operativo,  <span className="text-cyan-500 font-semibold"> combinamos la experiencia del talento humano con el poder de la inteligencia artificial aplicada.</span> Además del personal asignado, contamos con Agentes de IA creados por Attach Group que optimizan presupuestos de campañas, depuran keywords ineficientes y sugieren mejoras de las piezas publicitarias. Esta sinergia permite
-                   <span className="text-cyan-500 font-semibold">automatizar tareas, escalar aprendizajes y asegurar una calidad consistente en los resultados.</span>
+                   <span className="text-cyan-500 font-semibold"> automatizar tareas, escalar aprendizajes y asegurar una calidad consistente en los resultados.</span>
                 </p>
               </div>
             </div>
             {/* Contenido adicional (acordeón suave) */}
             <div
-              className="px-6 md:px-10"
+              className={`px-6 md:px-10  ${
+                isVisible["estructura"] ? "block" : "hidden"
+              }`}
               style={{
                 overflow: "hidden",
-                transition: "max-height 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease",
-                maxHeight: isEstructuraOpen ? estructuraContentHeight : 0,
-                opacity: isEstructuraOpen ? 1 : 0,
+                maxHeight: isEstructuraOpen ? (estructuraContentRef.current?.scrollHeight ?? 0) : 0,
+                transition: "max-height 700ms cubic-bezier(0.22, 1, 0.36, 1)",
               }}
+              aria-hidden={!isEstructuraOpen}
             >
-              <div ref={estructuraContentRef}>
+              <div className='md:pb-20' ref={estructuraContentRef}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {/* Columna 1 */}
                   <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
                     <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">Auditor 2.0</h4>
                     <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
-                      <span className="font-semibold">Analiza más de 100 variables de una cuenta publicitaria</span> para sugerir mejoras en aspectos como la segmentación. Estas recomendaciones son brindadas al equipo operativo y reevaluadas de forma periódica para garantizar una calidad consistente independientemente de la persona asignada a la cuenta.
+                      <span className="text-cyan-500 font-semibold">Analiza más de 100 variables de una cuenta publicitaria</span> para sugerir mejoras en aspectos como la segmentación. Estas recomendaciones son brindadas al equipo operativo y reevaluadas de forma periódica para garantizar una calidad consistente independientemente de la persona asignada a la cuenta.
                     </p>
                   </div>
 
@@ -393,21 +405,30 @@ import { useEffect, useRef, useState } from "react";
                   <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
                     <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">3P Performance Framework</h4>
                     <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
-                      Nuestra herramienta se conecta directamente con la data del cliente para guiar a nuestros analistas y consultores en la ruta de optimización. Basada en nuestro expertise y aprendizaje continuo de más de 20 años, convierte la información en acción y asegura decisiones consistentes que no dependen solo del criterio individual. 3P Performance Framework se basa en 3 pilares: <span className="font-semibold">presencia, persuasión y performance</span>, utilizando árboles de decisión en cada etapa para impulsar resultados predecibles y escalables.
+                      Nuestra herramienta se conecta directamente con la data del cliente para guiar a nuestros analistas y consultores en la ruta de optimización. Basada en nuestro expertise y aprendizaje continuo de más de 20 años, convierte la información en acción y asegura decisiones consistentes que no dependen solo del criterio individual. 3P Performance Framework se basa en 3 pilares: <span className="text-cyan-500 font-semibold">presencia, persuasión y performance</span>, utilizando árboles de decisión en cada etapa para impulsar resultados predecibles y escalables.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            {/* Botón Ver más - Flotando en el borde inferior del modal */}
-            <div className="absolute -bottom-13 md:-bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+            {/* Botón Ver más - centrado en el borde inferior del card cuando está cerrado */}
+            <div
+              className={`absolute left-1/2 -translate-x-1/2 z-10 transition-all duration-500 ${
+                isEstructuraOpen ? 'bottom-0 md:-bottom-4 translate-y-0' : 'bottom-0 translate-y-1/2'
+              }`}
+            >
               <button
                 onClick={() => setIsEstructuraOpen((v) => !v)}
                 aria-expanded={isEstructuraOpen}
-                className="bg-linear-to-r from-[#2f7de1] to-[#25bbcd] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(47,125,224,0.6)] flex items-center shadow-lg text-sm md:text-base group"
+                className="bg-linear-to-r from-[#2f7de1] to-[#25bbcd] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-semibold hover:opacity-90 transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(47,125,224,0.6)] flex items-center  text-sm md:text-base group"
               >
                 {isEstructuraOpen ? "Ver menos" : "Ver más"}
-                <svg className="ml-2 w-3 h-3 md:w-4 md:h-4 transform transition-transform duration-500 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className={`ml-2 w-3 h-3 md:w-4 md:h-4 transform origin-center transition-transform duration-500 ${isEstructuraOpen ? 'rotate-180 group-hover:-translate-y-1' : 'group-hover:translate-y-1'}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
@@ -452,13 +473,13 @@ import { useEffect, useRef, useState } from "react";
                     alt="IA Creativity - Mujer con proyecciones digitales" 
                     width={600} 
                     height={400}
-                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700 group-hover:scale-110"
+                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700"
                   />
                 </div>
                 {/* Cruz azul decorativa */}
                 <div className="absolute top-45 right-[4] hidden md:block transform transition-all duration-700 group-hover:rotate-90 group-hover:scale-110" style={{
-                  filter: "drop-shadow(0 0 10px rgba(47,125,224,0.5))",
-                  animation: "float 3s ease-in-out infinite"
+                  // filter: "drop-shadow(0 0 10px rgba(47,125,224,0.5))",
+                  // animation: "float 3s ease-in-out infinite"
                 }}>
                   <Image 
                     src="/images/general/attach_cross_blue.svg" 
@@ -545,7 +566,7 @@ import { useEffect, useRef, useState } from "react";
                     alt="Influencer Marketing"
                     width={600}
                     height={400}
-                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700 group-hover:scale-110"
+                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700"
                   />
                 </div>
               </div>
@@ -575,7 +596,7 @@ import { useEffect, useRef, useState } from "react";
                     alt="SEO y GEO"
                     width={600}
                     height={400}
-                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700 group-hover:scale-110"
+                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700 "
                   />
                 </div>
               </div>
@@ -637,7 +658,7 @@ import { useEffect, useRef, useState } from "react";
                     alt="Analytics and Growth"
                     width={600}
                     height={400}
-                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700 group-hover:scale-110"
+                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700 "
                   />
                 </div>
               </div>
@@ -667,7 +688,7 @@ import { useEffect, useRef, useState } from "react";
                     alt="UX/UI and Development"
                     width={600}
                     height={400}
-                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700 group-hover:scale-110"
+                    className="w-full rounded-xl md:rounded-2xl transform transition-all duration-700 "
                   />
                 </div>
               </div>
@@ -699,7 +720,7 @@ import { useEffect, useRef, useState } from "react";
             <h2 
               ref={(el) => setElementRef("resultados-title", el)}
               data-animate-id="resultados-title"
-              className={`text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%] transform transition-all duration-700 hover:scale-105 transition-all duration-1000 ${
+              className={`text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%] transform transition-all duration-700   transition-all duration-1000 ${
                 isVisible["resultados-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
               style={{ backgroundImage: 'linear-gradient(109.97deg, #2F7DE1 1.8%, #22D3C5 99.93%)' }}
@@ -736,11 +757,11 @@ import { useEffect, useRef, useState } from "react";
                   className="object-cover transform transition-all duration-700 group-hover:scale-110"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 group-hover:from-black/80 to-transparent px-6 md:px-6 transition-all duration-500">
-                  <h3 className="text-lg md:text-xl font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
+                  <h3 className="text-white text-lg md:text-xl font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2" style={{  }}>
                     <b>UPCH</b>
                   </h3>
                   <p className="text-sm md:text-base text-white transform transition-all duration-500 delay-100 group-hover:translate-x-2">
-                    La estrategia digital que impulsó la consideración y el éxito de la admisión 2025-01
+                   Estrategia full funnel
                   </p>
                 </div>
                 {/* Efecto de borde brillante en hover */}
@@ -766,11 +787,11 @@ import { useEffect, useRef, useState } from "react";
                     className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 group-hover:from-black/80 to-transparent px-6 md:px-6 transition-all duration-500">
-                    <h3 className="text-lg md:text-xl font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
+                    <h3 className="text-lg text-white md:text-xl font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2" style={{  }}>
                       <b>Deposeguro</b>
                     </h3>
                     <p className="text-sm md:text-base text-white transform transition-all duration-500 delay-100 group-hover:translate-x-2">
-                      Integra IA conversacional a su experiencia digital
+                      Sitio Web
                     </p>
                   </div>
                   {/* Efecto de borde brillante en hover */}
@@ -787,7 +808,7 @@ import { useEffect, useRef, useState } from "react";
                 }`}
                 style={{ transitionDelay: "0.5s" }}
               >
-                <Link href="/casos-de-exito/apuesta-total-programatica" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
+                <Link href="/casos-de-exito/apuesta-total-catalogo-dinamico" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
                   <Image
                     src="/images/casos-de-exito/apuestatotal.webp"
                     alt="Caso de éxito"
@@ -795,11 +816,11 @@ import { useEffect, useRef, useState } from "react";
                     className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 group-hover:from-black/80 to-transparent px-6 md:px-6 transition-all duration-500">
-                    <h3 className="text-lg md:text-xl font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2" style={{ color: 'rgba(200, 200, 200, 1)' }}>
+                    <h3 className="text-white text-lg md:text-xl font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2" style={{  }}>
                       <b>Apuesta Total</b>
                     </h3>
                     <p className="text-sm md:text-base text-white transform transition-all duration-500 delay-100 group-hover:translate-x-2">
-                      Publicidad programática
+                      Catálogo dinámico
                     </p>
                   </div>
                   {/* Efecto de borde brillante en hover */}

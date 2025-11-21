@@ -66,7 +66,7 @@ export default function Home() {
       link: '/casos-de-exito/cayetano-full-funnel',
       id: 'cayetano-heredia',
       title: 'Universidad Cayetano Heredia',
-      tag: 'Sitio web e infraestructura',
+      tag: 'Estrategia full funnel',
       image: '/images/casos-de-exito/cayetano.webp',
     },
     {
@@ -106,7 +106,7 @@ export default function Home() {
           <h1 
             ref={(el) => setElementRef("hero-title", el)}
             data-animate-id="hero-title"
-            className={`text-4xl lg:text-6xl font-bold text-white transform transition-all duration-1000 hover:scale-105 ${
+            className={`text-4xl lg:text-6xl font-bold text-white transform transition-all duration-1000   ${
               isVisible["hero-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
             style={{

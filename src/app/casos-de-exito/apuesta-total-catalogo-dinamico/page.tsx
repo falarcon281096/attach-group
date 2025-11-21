@@ -81,6 +81,67 @@ export default function Home() {
   const setElementRef = (id: string, el: HTMLElement | null) => {
     elementsRef.current[id] = el;
   };
+
+  // Contadores animados para indicadores
+  const indicatorValues = ["50%", "12%", "42%", "+255,000 apuestas"];
+  const animatedRef = useRef<boolean[]>([false, false, false, false]);
+
+  const splitParts = (target: string): { prefix: string; suffix: string; final: number } => {
+    const trimmed = target.trim();
+    const prefix = trimmed.startsWith("+") ? "+" : "";
+    const body = trimmed.replace(/^\+/, "");
+    const match = body.match(/(\d[\d,\.]*)/);
+    const numberStr = match ? match[1] : "0";
+    const suffix = body.replace(numberStr, "");
+    const normalized = numberStr.replace(/[\s,\.]/g, "");
+    const final = parseInt(normalized, 10) || 0;
+    return { prefix, suffix, final };
+  };
+
+  const formatValue = (n: number, suffix: string): string => {
+    if (suffix.includes("%")) return `${n}${suffix}`;
+    if (suffix.toLowerCase().includes("apuestas")) return `${n.toLocaleString('en-US')}${suffix}`;
+    return `${n}${suffix}`;
+  };
+
+  const getInitialValue = (target: string): string => {
+    const { prefix, suffix } = splitParts(target);
+    const start = 0;
+    const valueStr = formatValue(start, suffix);
+    return `${prefix}${valueStr}`;
+  };
+
+  const [countValues, setCountValues] = useState<string[]>(indicatorValues.map(getInitialValue));
+
+  const animateNumber = (index: number, target: string, duration: number = 2000) => {
+    const { prefix, suffix, final } = splitParts(target);
+    const steps = Math.max(1, Math.floor(duration / 16));
+    const increment = final / steps;
+    let frame = 0;
+
+    const tick = () => {
+      frame++;
+      const current = Math.min(final, Math.round(increment * frame));
+      const valueStr = formatValue(current, suffix);
+      setCountValues((prev) => {
+        const next = [...prev];
+        next[index] = `${prefix}${valueStr}`;
+        return next;
+      });
+      if (current < final) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+
+  useEffect(() => {
+    const keys = ["indicator-1", "indicator-2", "indicator-3", "indicator-4"] as const;
+    keys.forEach((key, i) => {
+      if (isVisible[key] && !animatedRef.current[i]) {
+        animatedRef.current[i] = true;
+        animateNumber(i, indicatorValues[i], 1800);
+      }
+    });
+  }, [isVisible]);
   const stats = [
     {
       value: "50%",
@@ -103,7 +164,7 @@ export default function Home() {
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
       <div className="bg-white">
         {/* Header */}
-        <Header />
+        <Header isFixed={true} />
         {/* Hero Section */}
         <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c] rounded-b-[30px] lg:rounded-b-[50px] relative z-10">
           <div className="rounded-b-[50px] lg:ml-15 lg:pt-17 pb-0 lg:pb-16 pt-35">
@@ -146,8 +207,8 @@ export default function Home() {
                     before:top-45
                     transform transition-all duration-1000 ${isVisible["hero-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}
                   `}>
-                <div className="relative z-0 overflow-hidden rounded-l-[4rem] group">
-                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/apuestatotal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
+                <div className="pt-0 md:pt-15 relative z-0 overflow-hidden rounded-l-[4rem] group">
+                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 " src="/images/casos-de-exito/apuestatotal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
                 </div>
               </div>
             </div>
@@ -158,22 +219,22 @@ export default function Home() {
             <div className="mx-7 text-white lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-4 lg:gap-2 gap-y-10">
               {/* Indicador 1 */}
               <div ref={(el) => setElementRef("indicator-1", el)} data-animate-id="indicator-1" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-1"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">50%</p>
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">{countValues[0]}</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100">menos Costo por Recarga</p>
               </div>
               {/* Indicador 2 */}
               <div ref={(el) => setElementRef("indicator-2", el)} data-animate-id="indicator-2" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-2"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">12%</p>
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">{countValues[1]}</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100">menos Costo por Apuesta</p>
               </div>
               {/* Indicador 3 */}
               <div ref={(el) => setElementRef("indicator-3", el)} data-animate-id="indicator-3" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-3"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">42%</p>
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">{countValues[2]}</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100">de ahorro en CPM y CPC</p>
               </div>
               {/* Indicador 4 */}
               <div ref={(el) => setElementRef("indicator-4", el)} data-animate-id="indicator-4" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-4"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">+255,000 apuestas</p>
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">{countValues[3]}</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100">y 95,000 recargas impulsadas con anuncios dinámicos y cuotas en tiempo real.</p>
               </div>
             </div>
@@ -219,7 +280,7 @@ export default function Home() {
             {/* Nota: Este es un video, no una imagen, así que mantenemos la estructura original pero sin el icono manual */}
             <div className="relative overflow-hidden rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] group w-full">
               <video
-                className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] object-cover transform transition-all duration-700 group-hover:scale-110"
+                className="w-full rounded-tl-[30px] rounded-br-[30px] lg:rounded-tl-[50px] lg:rounded-br-[50px] object-cover transform transition-all duration-700 "
                 src="/videos/casos-de-exito/Apuesta-Total-Attach-video-lite.mp4"
                 controls
                 muted

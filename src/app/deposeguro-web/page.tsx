@@ -12,8 +12,71 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
+  const [countValues, setCountValues] = useState<{ [key: string]: string }>({});
+  const animatedRef = useRef<Set<string>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
   const elementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  const indicatorValues: Record<string, string> = {
+    "indicator-1": "+45%",
+    "indicator-2": "+89%",
+  };
+
+  const getInitialValue = (value: string): string => {
+    const match = value.match(/[\d.]+/);
+    if (!match) return value;
+    const numStr = match[0];
+    const prefix = value.substring(0, value.indexOf(numStr));
+    const suffix = value.substring(value.indexOf(numStr) + numStr.length);
+    return `${prefix}0${suffix}`;
+  };
+
+  const animateNumber = (value: string, key: string) => {
+    if (animatedRef.current.has(key)) return;
+    animatedRef.current.add(key);
+
+    const match = value.match(/[\d.]+/);
+    if (!match) {
+      setCountValues((prev) => ({ ...prev, [key]: value }));
+      return;
+    }
+
+    const numStr = match[0];
+    const num = parseFloat(numStr);
+    const prefix = value.substring(0, value.indexOf(numStr));
+    const suffix = value.substring(value.indexOf(numStr) + numStr.length);
+
+    // Inicializa en 0 con el formato correcto
+    setCountValues((prev) => ({ ...prev, [key]: `${prefix}0${suffix}` }));
+
+    const duration = 2000; // ms
+    const steps = 60;
+    const increment = num / steps;
+    let current = 0;
+    let step = 0;
+
+    setTimeout(() => {
+      const timer = setInterval(() => {
+        step++;
+        current = Math.min(increment * step, num);
+        const formatted = numStr.includes(".") ? current.toFixed(2) : Math.floor(current).toString();
+        setCountValues((prev) => ({ ...prev, [key]: `${prefix}${formatted}${suffix}` }));
+        if (step >= steps) {
+          clearInterval(timer);
+          setCountValues((prev) => ({ ...prev, [key]: value }));
+        }
+      }, duration / steps);
+    }, 100);
+  };
+
+  // Dispara la animación cuando los indicadores entran al viewport
+  useEffect(() => {
+    Object.keys(indicatorValues).forEach((key) => {
+      if (isVisible[key]) {
+        animateNumber(indicatorValues[key], key);
+      }
+    });
+  }, [isVisible]);
 
   // Estado para partículas flotantes (generadas solo en el cliente)
   const [particles, setParticles] = useState<Array<{
@@ -178,7 +241,7 @@ export default function Home() {
               >
                 <div className="relative z-0 pt-10 md:pt-0 overflow-hidden rounded-l-[4rem] group">
                   <Image 
-                    className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" 
+                    className="w-full rounded-l-[4rem] transform transition-all duration-700 " 
                     src="/images/casos-de-exito/deposeguro.png" 
                     alt="Sede Deposeguro" 
                     width={1200} 
@@ -205,7 +268,13 @@ export default function Home() {
               >
                 <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-6" style={{
                   // textShadow: "0 0 20px rgba(255,255,255,0.5)"
-                }}>+45%</p>
+                }}>{
+                  countValues["indicator-1"] !== undefined
+                    ? countValues["indicator-1"]
+                    : (isVisible["indicator-1"]
+                        ? getInitialValue(indicatorValues["indicator-1"]) 
+                        : indicatorValues["indicator-1"]) 
+                }</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100 group-hover:translate-x-2">en tasa de conversión web (YoY)</p>
               </div>
               {/* Indicador 2 */}
@@ -219,7 +288,13 @@ export default function Home() {
               >
                 <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-6" style={{
                   // textShadow: "0 0 20px rgba(255,255,255,0.5)"
-                }}>+89%</p>
+                }}>{
+                  countValues["indicator-2"] !== undefined
+                    ? countValues["indicator-2"]
+                    : (isVisible["indicator-2"]
+                        ? getInitialValue(indicatorValues["indicator-2"]) 
+                        : indicatorValues["indicator-2"]) 
+                }</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100 group-hover:translate-x-2">en contactabilidad promedio en anuncios digitales</p>
               </div>
               {/* Indicador 3 */}
@@ -249,7 +324,7 @@ export default function Home() {
               isVisible["reto-content"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"
             }`}
           >
-            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-700 hover:scale-105">
+            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-700">
               El reto
             </h3>
             <div className="w-full md:w-[70%]">
@@ -268,8 +343,8 @@ export default function Home() {
                     transform transition-all duration-1000 delay-300
                     ${
                       isVisible["reto-image"] 
-                      ? "opacity-100 translate-x-0 scale-100" 
-                      : "opacity-100 translate-x-10 scale-100"
+                      ? "opacity-100" 
+                      : "opacity-100 "
                     }
               `}
             >
@@ -280,6 +355,7 @@ export default function Home() {
               width={1200}
               height={1000}
               quality={100}
+              hoverScale={false}
               containerClassName="w-full"
             />
           </div>
@@ -306,6 +382,7 @@ export default function Home() {
               width={1200}
               height={1000}
               quality={100}
+              hoverScale={false}
               containerClassName="w-full"
               imageClassName="lg:h-150"
             />
@@ -321,7 +398,7 @@ export default function Home() {
             <h3 
               ref={(el) => setElementRef("estrategia-title", el)}
               data-animate-id="estrategia-title"
-              className={`text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-1000 hover:scale-105 ${
+              className={`text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-1000 ${
                 isVisible["estrategia-title"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
               }`}
             >
@@ -414,7 +491,7 @@ export default function Home() {
             isVisible["cta-section"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl text-white lg:text-5xl font-bold max-w-2xl transform transition-all duration-700 hover:scale-105" style={{
+          <h2 className="text-3xl md:text-4xl text-white lg:text-5xl font-bold max-w-2xl transform transition-all duration-700 " style={{
             // textShadow: "0 0 30px rgba(255,255,255,0.3)"
           }}>
             Desarrollemos algo increíble juntos.

@@ -40,13 +40,10 @@ export default function GalileoSolutions() {
                         onClick={() => handleToggle("ia")}
                         className="cursor-pointer flex items-center w-full text-left"
                     >
-                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'ia' ? 'opacity-100 text-[#464646]' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'ia' ? 'opacity-100 text-[#FF3F73]' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                        <h3 className={`text-[20px] md:text-[32px] font-bold transition-colors ${openSection === 'ia'
-                            ? 'text-[#464646] underline'
-                            : 'text-[#818181] hover:text-gray-700'
-                            }`}>
+                        <h3 className={`text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] transition-transform duration-300 ${openSection === 'ia' ? 'underline' : ''} hover:scale-105`}>
                             IA Enterprise
                         </h3>
                     </button>
@@ -99,13 +96,10 @@ export default function GalileoSolutions() {
                         onClick={() => handleToggle("saas")}
                         className="cursor-pointer flex items-center w-full text-left"
                     >
-                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'saas' ? 'opacity-100 text-gray-800' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'saas' ? 'opacity-100 text-[#FF3F73]' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                        <h3 className={`text-[20px] md:text-[32px] font-bold transition-colors ${openSection === 'saas'
-                            ? 'text-[#464646] underline'
-                            : 'text-[#818181] hover:text-gray-700'
-                            }`}>
+                        <h3 className={`text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] transition-transform duration-300 ${openSection === 'saas' ? 'underline' : ''} hover:scale-105`}>
                             Soluciones SAAS
                         </h3>
                     </button>
@@ -182,13 +176,10 @@ export default function GalileoSolutions() {
                         onClick={() => handleToggle("cloud")}
                         className="cursor-pointer flex items-center w-full text-left"
                     >
-                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'cloud' ? 'opacity-100 text-gray-800' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'cloud' ? 'opacity-100 text-[#FF3F73]' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                        <h4 className={`text-[20px] md:text-[32px] leading-[24px] md:leading-[42px] font-bold transition-colors ${openSection === 'cloud'
-                            ? 'text-[#464646] underline'
-                            : 'text-[#818181] hover:text-gray-700'
-                            }`}>
+                        <h4 className={`text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] transition-transform duration-300 ${openSection === 'cloud' ? 'underline' : ''} hover:scale-105`}>
                             Infraestructura Cloud
                         </h4>
                     </button>
@@ -243,13 +234,10 @@ export default function GalileoSolutions() {
                         onClick={() => handleToggle("martech")}
                         className="cursor-pointer flex items-center w-full text-left"
                     >
-                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'martech' ? 'opacity-100 text-gray-800' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className={`w-8 h-8 mr-4 transition-opacity duration-500 ease-in-out ${openSection === 'martech' ? 'opacity-100 text-[#FF3F73]' : 'opacity-0 text-[#818181]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                        <h4 className={`text-[20px] md:text-[32px] leading-[24px] md:leading-[42px] font-bold transition-colors ${openSection === 'martech'
-                            ? 'text-[#464646] underline'
-                            : 'text-[#818181] hover:text-gray-700'
-                            }`}>
+                        <h4 className={`text-[20px] md:text-[32px] leading-[42px] font-semibold text-[#FF3F73] tracking-[0] transition-transform duration-300 ${openSection === 'martech' ? 'underline' : ''} hover:scale-105`}>
                             Martech + Advanced Analytics
                         </h4>
                     </button>

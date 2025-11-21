@@ -150,9 +150,9 @@ export default function Home() {
                   ${isVisible["hero-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 translate-x-10 scale-100"}
                 `}
               >
-                <div className="relative w-full z-0 overflow-hidden rounded-[1.25rem] lg:rounded-l-[4rem] lg:rounded-r-none group">
+                <div className="pt-0 md:pt-5 relative w-full z-0 overflow-hidden rounded-[1.25rem] lg:rounded-l-[4rem] lg:rounded-r-none group">
                   <Image 
-                    className="w-full h-auto relative z-0 rounded-[1.25rem] lg:rounded-l-[4rem] lg:rounded-r-none transform transition-all duration-700 group-hover:scale-110" 
+                    className="w-full h-auto relative z-0 rounded-[1.25rem] lg:rounded-l-[4rem] lg:rounded-r-none transform transition-all duration-700 " 
                     src="/images/casos-de-exito/eluniversal.png" 
                     alt="Home caminando hacia un portal con el logo de Attach" 
                     width={800} 
@@ -228,7 +228,7 @@ export default function Home() {
               isVisible["reto-content"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"
             }`}
           >
-            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-700 hover:scale-105">
+            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-700">
               El reto
             </h3>
             <p className="tex-xl text-gray-600">El desafío planteado era claro: crear una interfaz conversacional impulsada por un LLM que permitiera a los lectores conversar en español sobre las noticias en tiempo real. La innovación debía estar al servicio de la audiencia, pero sin comprometer la precisión editorial ni la confianza que la marca ha construido a lo largo de décadas.</p>
@@ -284,7 +284,7 @@ export default function Home() {
             <h3 
               ref={(el) => setElementRef("estrategia-title", el)}
               data-animate-id="estrategia-title"
-              className={`text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-1000 hover:scale-105 ${
+              className={`text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-1000  ${
                 isVisible["estrategia-title"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
               }`}
             >

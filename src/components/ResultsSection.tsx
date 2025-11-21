@@ -111,7 +111,7 @@ export default function ResultsSection({ stats, title = "Resultados" }: ResultsS
       <h3 
         ref={(el) => setElementRef("results-title", el)}
         data-animate-id="results-title"
-        className={`text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-1000 hover:scale-105 ${
+        className={`text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-1000  ${
           isVisible["results-title"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
         }`}
       >
@@ -123,7 +123,7 @@ export default function ResultsSection({ stats, title = "Resultados" }: ResultsS
             key={i}
             ref={(el) => setElementRef(`stat-${i}`, el)}
             data-animate-id={`stat-${i}`}
-            className={`bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 group ${
+            className={`bg-[#F7F7F7] rounded-2xl flex flex-col gap-2 p-6 relative transform transition-all duration-700 hover:scale-105 h hover:-translate-y-2 group ${
               isVisible[`stat-${i}`] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
             }`}
             style={{ transitionDelay: `${i * 0.15}s` }}

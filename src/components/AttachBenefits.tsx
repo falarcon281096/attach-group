@@ -87,7 +87,7 @@ export default function AttachBenefits() {
               key={i}
               ref={(el) => setElementRef(`attach-benefit-${i}`, el)}
               data-animate-id={`attach-benefit-${i}`}
-              className={`benefit-item relative bg-transparent text-white font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 pr-6 rounded-2xl border transition-all duration-500 inline-block w-full md:w-fit max-w-full transform hover:scale-105 hover:shadow-2xl hover:-translate-y-1 group ${offsets[i]} ${
+              className={`benefit-item relative bg-transparent text-white font-['graphik'] font-normal text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] py-3 pr-6 rounded-2xl border transition-all duration-500 inline-block w-full md:w-fit max-w-full transform hover:scale-105  hover:-translate-y-1 group ${offsets[i]} ${
                 isVisible[`attach-benefit-${i}`] ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
               }`}
               style={{
@@ -105,7 +105,7 @@ export default function AttachBenefits() {
               }}
             >
               {/* Efecto de glow en hover */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-[#22D1C4]/20 to-transparent"></div>
+              <div className="absolute inset-0 rounded-2xl opacity-0 "></div>
               
               <span
                 className="relative left-0 w-6 h-6 rounded-full flex items-center justify-center transform transition-all duration-500 group-hover:scale-125 group-hover:rotate-360 flex-shrink-0"

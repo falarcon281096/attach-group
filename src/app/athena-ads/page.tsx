@@ -237,7 +237,7 @@ export default function AthenaAds() {
                 isVisible["tecnologia-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
-              <h2 className="hero-title-override text-[24px] md:text-[48px] gradient-text inline-block font-semibold transform transition-all duration-700 hover:scale-105" style={{filter: 'drop-shadow(0px 4px 102.3px rgba(226, 232, 48, 0.2))'}}>
+              <h2 className="hero-title-override text-[24px] md:text-[48px] gradient-text inline-block font-semibold transform transition-all duration-700" style={{filter: 'drop-shadow(0px 4px 102.3px rgba(226, 232, 48, 0.2))'}}>
                 Tecnología diferencial
               </h2>
             </div>
@@ -429,7 +429,7 @@ export default function AthenaAds() {
             <h2 
               ref={(el) => setElementRef("innovacion-title", el)}
               data-animate-id="innovacion-title"
-              className={`text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center transform transition-all duration-700 hover:scale-105 transition-all duration-1000 ${
+              className={`text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center transform transition-all duration-700 transition-all duration-1000 ${
                 isVisible["innovacion-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
@@ -577,7 +577,7 @@ export default function AthenaAds() {
             <div 
               ref={(el) => setElementRef("historias-title", el)}
               data-animate-id="historias-title"
-              className={`text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%] transform transition-all duration-700 hover:scale-105 transition-all duration-1000 ${
+              className={`text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%] transform transition-all duration-700 transition-all duration-1000 ${
                 isVisible["historias-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
@@ -615,7 +615,7 @@ export default function AthenaAds() {
                   className="object-cover transform transition-all duration-700 group-hover:scale-110"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/70 group-hover:from-black/80 to-transparent px-6 md:px-6 transition-all duration-500">
-                  <h3 className="text-lg md:text-xl text-white font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2 drop-shadow-lg" style={{ color: 'rgba(200, 200, 200, 1)', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>
+                  <h3 className="text-lg md:text-xl text-white font-bold mb-2 transform transition-all duration-500 group-hover:translate-x-2 drop-shadow-lg" style={{   }}>
                     <b>APUESTA TOTAL</b>
                   </h3>
                   <p className="text-sm md:text-base text-white transform transition-all duration-500 delay-100 group-hover:translate-x-2">
@@ -685,16 +685,15 @@ export default function AthenaAds() {
           
           <div className="container mx-auto relative z-10">
             <div className="w-full ">
-              <h2 className="hero-title-override text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 transform transition-all duration-700 hover:scale-105" style={{
+              <h2 className="hero-title-override text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-6 md:mb-8 transform transition-all duration-700" style={{
                 // textShadow: "0 0 30px rgba(255,255,255,0.5)"
               }}>
                 ¿Listo para una estrategia única?
               </h2>
 
-              <Link href="/contacto" className="group relative text-[16px] md:text-[16px] leading-[20px] md:leading-[24px] bg-white text-[rgba(0,206,211,1)] font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] flex items-center gap-2 w-fit">
+              <Link href="/contacto" className="group relative text-[16px] md:text-[16px] leading-[20px] md:leading-[24px] bg-white text-[rgba(0,206,211,1)] font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-110 flex items-center gap-2 w-fit">
                 {/* Efecto de brillo que se mueve */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                
+                 
                 <span className="relative z-10">Conversemos</span>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 md:w-5 md:h-5 relative z-10 transform transition-transform duration-500 group-hover:translate-x-2">
                   <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="rgba(0,206,211,1)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

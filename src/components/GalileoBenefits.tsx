@@ -68,7 +68,7 @@ export default function GalileoBenefits() {
                         isVisible["benefits-title"] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
                     }`}
                 >
-                    <h2 className="text-white pl-5 md:pl-0 text-[24px] md:text-[48px] font-semibold leading-[110%] mb-2 md:mb-8 transform transition-all duration-700 hover:scale-105" style={{
+                    <h2 className="text-white pl-5 md:pl-0 text-[24px] md:text-[48px] font-semibold leading-[110%] mb-2 md:mb-8 transform transition-all duration-700" style={{
                         // textShadow: "0 0 20px rgba(255,255,255,0.3)"
                     }}>
                         Asociarse con 

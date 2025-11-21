@@ -14,6 +14,8 @@ export default function Home() {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
   const observerRef = useRef<IntersectionObserver | null>(null);
   const elementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
+  const [countValues, setCountValues] = useState<{ [key: string]: string }>({});
+  const animatedRef = useRef<Set<string>>(new Set());
 
   // Estado para partículas flotantes (generadas solo en el cliente)
   const [particles, setParticles] = useState<Array<{
@@ -38,6 +40,63 @@ export default function Home() {
       }))
     );
   }, []);
+
+  // Funciones para animación de números en indicadores superiores
+  const getInitialValue = (value: string): string => {
+    const match = value.match(/[\d.]+/);
+    if (!match) return value;
+    const numStr = match[0];
+    const prefix = value.substring(0, value.indexOf(numStr));
+    const suffix = value.substring(value.indexOf(numStr) + numStr.length);
+    return `${prefix}0${suffix}`;
+  };
+
+  const animateNumber = (value: string, statKey: string) => {
+    if (animatedRef.current.has(statKey)) {
+      return;
+    }
+    animatedRef.current.add(statKey);
+
+    const match = value.match(/[\d.]+/);
+    if (!match) {
+      setCountValues((prev) => ({ ...prev, [statKey]: value }));
+      return;
+    }
+
+    const numStr = match[0];
+    const num = parseFloat(numStr);
+    const prefix = value.substring(0, value.indexOf(numStr));
+    const suffix = value.substring(value.indexOf(numStr) + numStr.length);
+
+    setCountValues((prev) => ({ ...prev, [statKey]: `${prefix}0${suffix}` }));
+
+    const duration = 1800;
+    const steps = 60;
+    const increment = num / steps;
+    let current = 0;
+    let step = 0;
+
+    setTimeout(() => {
+      const timer = setInterval(() => {
+        step++;
+        current = Math.min(increment * step, num);
+
+        const formattedValue = numStr.includes('.')
+          ? current.toFixed(2)
+          : Math.floor(current).toString();
+
+        setCountValues((prev) => ({
+          ...prev,
+          [statKey]: `${prefix}${formattedValue}${suffix}`,
+        }));
+
+        if (step >= steps) {
+          clearInterval(timer);
+          setCountValues((prev) => ({ ...prev, [statKey]: value }));
+        }
+      }, duration / steps);
+    }, 100);
+  };
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -84,6 +143,19 @@ export default function Home() {
   const setElementRef = (id: string, el: HTMLElement | null) => {
     elementsRef.current[id] = el;
   };
+  const topIndicators = ["+170%", "+700%"];
+
+  // Disparar animación para los indicadores del hero cuando entren al viewport
+  useEffect(() => {
+    ["indicator-1", "indicator-2"].forEach((id, idx) => {
+      if (isVisible[id] && !animatedRef.current.has(id)) {
+        const value = topIndicators[idx];
+        if (value) {
+          animateNumber(value, id);
+        }
+      }
+    });
+  }, [isVisible]);
   const stats = [
     {
       value: "+170%",
@@ -122,12 +194,12 @@ export default function Home() {
                 className={`text-white px-7 transition-all duration-1000`}
               >
                 <p 
-                  className="text-3xl lg:text-5xl font-800 transform transition-all duration-700 hover:scale-105" 
+                  className="text-3xl lg:text-5xl font-800 transform transition-all duration-700 " 
                   style={{fontWeight:'100'}}
                 >
                   De la intención a la acción:
                 </p>
-                <h1 className={`text-4xl lg:text-6xl font-bold mb-8 mr-4 transform transition-all duration-1000 delay-200 hover:scale-105 ${
+                <h1 className={`text-4xl lg:text-6xl font-bold mb-8 mr-4 transform transition-all duration-1000 delay-200  ${
                   isVisible["hero-content"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"
                 }`}>
                   programática que impulsa el número y valor de recargas
@@ -166,12 +238,12 @@ export default function Home() {
                     lg:before:top-100
                     before:top-45
                     transform transition-all duration-1000 delay-300
-                    ${isVisible["hero-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 translate-x-10 scale-100"}
+                    ${isVisible["hero-image"] ? "opacity-100" : "opacity-100"}
                 `}
               >
-                <div className="relative z-0 overflow-hidden rounded-l-[4rem] group">
+                <div className="pt-0 md:pt-15 relative z-0 overflow-hidden rounded-l-[4rem] group">
                   <Image 
-                    className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" 
+                    className="w-full rounded-l-[4rem] transform transition-all duration-700" 
                     src="/images/casos-de-exito/apuestatotal.png" 
                     alt="Home caminando hacia un portal con el logo de Attach" 
                     width={1200} 
@@ -196,7 +268,7 @@ export default function Home() {
                 }`}
                 style={{ transitionDelay: "0.2s" }}
               >
-                <p className="font-bold text-2xl lg:text-4xl transform transition-all duration-500 group-hover:scale-110 origin-left relative group-hover:left-5">+170%</p>
+                <p className="font-bold text-2xl lg:text-4xl transform transition-all duration-500 group-hover:scale-110 origin-left relative group-hover:left-5">{countValues["indicator-1"] !== undefined ? countValues["indicator-1"] : (isVisible["indicator-1"] ? getInitialValue(topIndicators[0]) : topIndicators[0])}</p>
                 <p className="mt-2 lg:text-xl text-l text-left group-hover:-ml-4 lg:group-hover:-ml-7 transition-all duration-500">Incremento en el volumen de recargas durante el piloto.</p>
               </div>
               {/* Indicador 2 */}
@@ -208,7 +280,7 @@ export default function Home() {
                 }`}
                 style={{ transitionDelay: "0.3s" }}
               >
-                <p className="font-bold text-2xl lg:text-4xl transform transition-all duration-500 group-hover:scale-110 origin-left">+700%</p>
+                <p className="font-bold text-2xl lg:text-4xl transform transition-all duration-500 group-hover:scale-110 origin-left">{countValues["indicator-2"] !== undefined ? countValues["indicator-2"] : (isVisible["indicator-2"] ? getInitialValue(topIndicators[1]) : topIndicators[1])}</p>
                 <p className="mt-2 lg:text-xl text-l text-left">en valor promedio de recarga</p>
               </div>
               {/* Indicador 3 */}
@@ -251,7 +323,7 @@ export default function Home() {
               isVisible["reto-content"] ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-10"
             }`}
           >
-            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-700 hover:scale-105">
+            <h3 className="text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-700 ">
               El reto
             </h3>
             <p className="tex-xl text-gray-600">El principal desafío consistía en identificar una plataforma y un tipo de audiencia capaz de generar un incremento sostenido en las recargas, priorizando la calidad del tráfico sobre el volumen.
@@ -261,7 +333,7 @@ export default function Home() {
           <div 
             ref={(el) => setElementRef("reto-image", el)}
             data-animate-id="reto-image"
-            className={`flex justify-end relative lg:w-[50%] transform transition-all duration-1000 delay-300 ${isVisible["reto-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 translate-x-10 scale-100"}`}
+            className={`flex justify-end relative lg:w-[50%] transform transition-all duration-1000 delay-300 ${isVisible["reto-image"] ? "opacity-100" : "opacity-100"}`}
           >
             <ImageWithCrossIcon
               src="/images/casos-de-exito/ApuestaAthenads2.webp"
@@ -270,6 +342,7 @@ export default function Home() {
               width={1200}
               height={1000}
               quality={100}
+              hoverScale={false}
               containerClassName="w-full"
             />
           </div>
@@ -280,7 +353,7 @@ export default function Home() {
           <div 
             ref={(el) => setElementRef("estrategia-image", el)}
             data-animate-id="estrategia-image"
-            className={`flex justify-end relative lg:w-[50%] lg:order-[unset] order-2 transform transition-all duration-1000 ${isVisible["estrategia-image"] ? "opacity-100 translate-x-0 scale-100" : "opacity-100 -translate-x-10 scale-100"}`}
+            className={`flex justify-end relative lg:w-[50%] lg:order-[unset] order-2 transform transition-all duration-1000 ${isVisible["estrategia-image"] ? "opacity-100" : "opacity-100"}`}
             style={{ transitionDelay: "0.3s" }}
           >
             <ImageWithCrossIcon
@@ -290,6 +363,7 @@ export default function Home() {
               width={1200}
               height={1000}
               quality={100}
+              hoverScale={false}
               containerClassName="w-full"
               imageClassName="lg:h-150"
             />
@@ -305,7 +379,7 @@ export default function Home() {
             <h3 
               ref={(el) => setElementRef("estrategia-title", el)}
               data-animate-id="estrategia-title"
-              className={`text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-1000 hover:scale-105 ${
+              className={`text-4xl lg:text-5xl bg-linear-to-r from-[#1e3fda] to-[#58308c] bg-clip-text text-transparent font-bold mb-6 transform transition-all duration-1000  ${
                 isVisible["estrategia-title"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"
               }`}
             >
@@ -398,7 +472,7 @@ export default function Home() {
             isVisible["cta-section"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"
           }`}
         >
-          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl transform transition-all duration-700 hover:scale-105">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl transform transition-all duration-700 ">
             Desarrollemos algo
             increíble juntos.
           </h2>

@@ -16,6 +16,7 @@ interface ImageWithCrossIconProps {
   imageClassName?: string;
   iconSizeMobile?: string; // e.g., "w-10 h-10"
   iconSizeDesktop?: string; // e.g., "lg:w-15 lg:h-15"
+  hoverScale?: boolean; // controla si la imagen escala en hover; por defecto false
 }
 
 export default function ImageWithCrossIcon({
@@ -29,6 +30,7 @@ export default function ImageWithCrossIcon({
   imageClassName = '',
   iconSizeMobile = 'w-10 h-10',
   iconSizeDesktop = 'lg:w-15 lg:h-15',
+  hoverScale = false,
 }: ImageWithCrossIconProps) {
   // Determinar las clases de bordes redondeados según la posición
   const getRoundedClasses = (): string => {
@@ -68,13 +70,13 @@ export default function ImageWithCrossIcon({
     >
       {/* Contenedor de la imagen con el icono dentro */}
       <div 
-        className={`relative ${getRoundedClasses()} group w-full ${imageClassName}`}
+        className={`relative ${getRoundedClasses()} ${hoverScale ? 'group' : ''} w-full ${imageClassName}`}
         style={{ zIndex: 1 }}
       >
         {/* Imagen con overflow-hidden solo en la imagen */}
         <div className={`relative overflow-hidden w-full h-full ${getRoundedClasses()}`}>
           <Image 
-            className={`w-full ${getRoundedClasses()} object-cover transform transition-all duration-700 group-hover:scale-110 ${imageClassName}`}
+            className={`w-full ${getRoundedClasses()} object-cover transform transition-all duration-700 ${hoverScale ? 'group-hover:scale-110' : ''} ${imageClassName}`}
             src={src}
             alt={alt}
             width={width}

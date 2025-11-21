@@ -210,11 +210,26 @@ export default function Home() {
       text: "de aumento en volumen de Leads.",
     },
   ];
+  // Indicadores superiores del hero para animación
+  const topIndicators = ["+82%", "+430%", "+320%", "29%"];
+
+  // Disparar animación para los indicadores del hero cuando entren al viewport
+  useEffect(() => {
+    ["indicator-1", "indicator-2", "indicator-3", "indicator-4"].forEach((id, idx) => {
+      if (isVisible[id] && !animatedRef.current.has(id)) {
+        const value = topIndicators[idx];
+        if (value) {
+          animateNumber(value, id);
+        }
+      }
+    });
+  }, [isVisible]);
+
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden">
       <div className="bg-white">
         {/* Header */}
-        <Header />
+        <Header isFixed={true} />
 
         {/* Hero Section */}
         <div className="bg-linear-to-r from-[#1e3fda] to-[#58308c]  rounded-b-[30px] lg:rounded-b-[50px] relative z-10">
@@ -253,8 +268,8 @@ export default function Home() {
                     before:-translate-x-[-0.5rem]
                     lg:before:top-100
                     before:top-45 transform transition-all duration-1000 ${isVisible["hero-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}>
-                <div className="relative z-0 overflow-hidden rounded-l-[4rem] group">
-                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 group-hover:scale-110" src="/images/casos-de-exito/cayetano.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
+                <div className="pt-0 md:pt-15 relative z-0 overflow-hidden rounded-l-[4rem] group">
+                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 " src="/images/casos-de-exito/cayetano.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
                 </div>
               </div>
             </div>
@@ -265,22 +280,22 @@ export default function Home() {
             <div className="text-white mx-7 lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-4 lg:gap-2 gap-y-10">
               {/* Indicador 1 */}
               <div ref={(el) => setElementRef("indicator-1", el)} data-animate-id="indicator-1" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-1"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl">+82%</p>
+                <p className="font-bold text-3xl lg:text-5xl">{countValues["indicator-1"] !== undefined ? countValues["indicator-1"] : (isVisible["indicator-1"] ? getInitialValue(topIndicators[0]) : topIndicators[0])}</p>
                 <p className="mt-2 lg:text-xl text-l">de incremento en alcance</p>
               </div>
               {/* Indicador 2 */}
               <div ref={(el) => setElementRef("indicator-2", el)} data-animate-id="indicator-2" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-2"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl">+430%</p>
+                <p className="font-bold text-3xl lg:text-5xl">{countValues["indicator-2"] !== undefined ? countValues["indicator-2"] : (isVisible["indicator-2"] ? getInitialValue(topIndicators[1]) : topIndicators[1])}</p>
                 <p className="mt-2 lg:text-xl text-l">más clics</p>
               </div>
               {/* Indicador 3 */}
               <div ref={(el) => setElementRef("indicator-3", el)} data-animate-id="indicator-3" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-3"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl">+320%</p>
+                <p className="font-bold text-3xl lg:text-5xl">{countValues["indicator-3"] !== undefined ? countValues["indicator-3"] : (isVisible["indicator-3"] ? getInitialValue(topIndicators[2]) : topIndicators[2])}</p>
                 <p className="mt-2 lg:text-xl text-l">más visualizaciones de video</p>
               </div>
               {/* Indicador 4 */}
               <div ref={(el) => setElementRef("indicator-4", el)} data-animate-id="indicator-4" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-4"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl">29%</p>
+                <p className="font-bold text-3xl lg:text-5xl">{countValues["indicator-4"] !== undefined ? countValues["indicator-4"] : (isVisible["indicator-4"] ? getInitialValue(topIndicators[3]) : topIndicators[3])}</p>
                 <p className="mt-2 lg:text-xl text-l">de reducción en CPL</p>
               </div>
             </div>
@@ -401,7 +416,7 @@ export default function Home() {
                 before:h-13
                 before:bg-[#1840E2] 
                 flex flex-col gap-2 pl-5 relative z-10">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-3" style={{
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500  group-hover:translate-x-3" style={{
                 // textShadow: "0 0 20px rgba(24,64,226,0.3)"
               }}>
                 {countValues[`stat-awareness-${i}`] !== undefined ? countValues[`stat-awareness-${i}`] : (isVisible[`stat-awareness-${i}`] ? getInitialValue(item.value) : item.value)}
@@ -447,7 +462,7 @@ export default function Home() {
                 before:h-13
                 before:bg-[#1840E2] 
                 flex flex-col gap-2 pl-5 relative z-10">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-3" style={{
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500  group-hover:translate-x-3" style={{
                 // textShadow: "0 0 20px rgba(24,64,226,0.3)"
               }}>
                 {countValues[`stat-consideracion-${i}`] !== undefined ? countValues[`stat-consideracion-${i}`] : (isVisible[`stat-consideracion-${i}`] ? getInitialValue(item.value) : item.value)}
@@ -492,7 +507,7 @@ export default function Home() {
                 before:h-13
                 before:bg-[#1840E2] 
                 flex flex-col gap-2 pl-5 relative z-10">
-              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500 group-hover:scale-110 group-hover:translate-x-3" style={{
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#1840E2] transform transition-all duration-500  group-hover:translate-x-3" style={{
                 // textShadow: "0 0 20px rgba(24,64,226,0.3)"
               }}>
                 {countValues[`stat-conversion-${i}`] !== undefined ? countValues[`stat-conversion-${i}`] : (isVisible[`stat-conversion-${i}`] ? getInitialValue(item.value) : item.value)}
