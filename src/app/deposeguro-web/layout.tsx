@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Descubre nuestro caso de éxito para Deposeguro que permitió alcanzar sus objetivos con una estrategia digital sólo con foco en resultados.",
   openGraph: {
-    images: [{ url: "/images/casos-de-exito/deposeguro.png" }],
+    images: [{ url: "/images/opengraph/Casos_de_exito_-_Deposeguro_web.webp" }],
   },
 };
 

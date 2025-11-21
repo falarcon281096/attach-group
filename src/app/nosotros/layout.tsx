@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Descubre quiénes somos, nuestra misión y visión. Conoce al equipo detrás de nuestros proyectos y cómo podemos ayudarte a alcanzar tus metas.",
   openGraph: {
-    images: [{ url: "/images/nosotros/AttachGroup.webp" }],
+    images: [{ url: "/images/opengraph/Nosotros.webp" }],
   },
 };
 

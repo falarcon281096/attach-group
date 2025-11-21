@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Conoce nuestro caso de éxito con Apuesta Total. Descubre este caso de estudio y conoce cómo optimizamos los resultados publicitarios desde Attach Group.",
   openGraph: {
-    images: [{ url: "/images/casos-de-exito/Apuestathenads1.webp" }],
+    images: [{ url: "/images/opengraph/Casos_de_exito_-apuesta-total-publicidad-programatica.webp" }],
   },
 };
 

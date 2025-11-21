@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Descubre GalileoIA, la solución de Attach Group para transformar tu negocio con IA, Cloud y Martech. Comienza tu evolución hoy con nuestros servicios.",
   openGraph: {
-    images: [{ url: "/images/galileo/galileo.png" }],
+    images: [{ url: "/images/opengraph/Galileo_IA.webp" }],
   },
 };
 

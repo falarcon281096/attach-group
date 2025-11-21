@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Conoce cómo Attach Group logró un caso de éxito con Apuesta Total en el 2025. Descubre nuestra estrategia digital para llegar a los objetivos propuestos.",
   openGraph: {
-    images: [{ url: "/images/casos-de-exito/APUESTA-TOTAL-Paid-2.webp" }],
+    images: [{ url: "/images/opengraph/Casos_de_exito_-apuesta-total-catalogo-dinamico.webp" }],
   },
 };
 

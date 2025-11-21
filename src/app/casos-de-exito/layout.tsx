@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Descubre los casos de éxito de Attach Group. Conoce cómo ayudamos a nuestros clientes a alcanzar sus objetivos con soluciones innovadoras en estrategia digital.",
   openGraph: {
-    images: [{ url: "/images/general/attach_cross_blue_to_purple.png" }],
+    images: [{ url: "/images/opengraph/Casos_de_exito.webp" }],
   },
 };
 

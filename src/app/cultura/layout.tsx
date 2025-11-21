@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Descubre la cultura de Attach Group: innovación, colaboración y crecimiento. Conoce nuestros valores, equipo y cómo transformamos la industria.",
   openGraph: {
-    images: [{ url: "/images/cultura/culturaAttach.jpg" }],
+    images: [{ url: "/images/opengraph/Home.webp" }],
   },
 };
 

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Contáctanos hoy para hablar de tu proyecto y descubrir cómo las soluciones digitales de Attach Group puede ayudarte a alcanzar tus objetivos digitales.",
   openGraph: {
-    images: [{ url: "/images/general/attach_cross_blue_to_purple.png" }],
+    images: [{ url: "/images/opengraph/Contactanos.webp" }],
   },
 };
 
