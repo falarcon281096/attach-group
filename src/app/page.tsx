@@ -141,7 +141,7 @@ export default function Home() {
                   <Image
                     className={`block lg:hidden w-full h-auto rounded-tl-[40px] rounded-bl-[40px] relative z-0 transition-opacity duration-700 ${heroMobileLoaded ? 'opacity-100' : 'opacity-0'}`}
                     src="/images/home/portada_movil.png"
-                    alt="Home caminando hacia un portal con el logo de Attach"
+                    alt="cliente buscando la consultoría digital de attach group"
                     width={1200}
                     height={1000}
                     sizes="100vw"
@@ -152,7 +152,7 @@ export default function Home() {
                   <Image
                     className={`hidden lg:block w-full h-auto lg:h-[85%] lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:object-cover lg:object-center lg:scale-125 relative z-0 transition-opacity duration-700 ${heroDesktopLoaded ? 'opacity-100' : 'opacity-0'}`}
                     src="/images/home/portada.png"
-                    alt="Home caminando hacia un portal con el logo de Attach"
+                    alt="cliente buscando la consultoría digital de attach group"
                     width={1200}
                     height={1000}
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -277,7 +277,7 @@ export default function Home() {
                 className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
                 style={{ background: 'linear-gradient(317.2deg, #FFC351 0%, #FF3F73 100%)' }}
               >
-                <Image className="w-65" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} sizes="(max-width: 768px) 200px, 260px" loading="lazy" />
+                <Image className="w-65" src="/images/general/galileoia_logo.png" alt="galileo ia servicio de inteligencia artificial de attach group" width={200} height={100} sizes="(max-width: 768px) 200px, 260px" loading="lazy" />
               </div>
 
               {/* Content Section */}
@@ -307,7 +307,7 @@ export default function Home() {
                 className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
                 style={{ background: 'linear-gradient(320.61deg, #22D1C4 0%, #E2E830 100%)' }}
               >
-                <Image className="w-65" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} sizes="(max-width: 768px) 200px, 260px" loading="lazy" />
+                <Image className="w-65" src="/images/general/athenaads_logo.png" alt="athena ads servicio de publicidad programática de attach group" width={200} height={100} sizes="(max-width: 768px) 200px, 260px" loading="lazy" />
               </div>
 
               {/* Content Section */}
@@ -337,7 +337,7 @@ export default function Home() {
                 className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
                 style={{ background: 'linear-gradient(272.19deg, #22D1C4 0%, #2F7DE0 100%)' }}
               >
-                <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} sizes="(max-width: 768px) 200px, 220px" loading="lazy" />
+                <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="attach media servicio de medios on y off de attach group" width={200} height={100} sizes="(max-width: 768px) 200px, 220px" loading="lazy" />
               </div>
 
               {/* Content Section */}
@@ -414,7 +414,7 @@ export default function Home() {
                       
                         <ImageWithPlus
                           src="/images/casos-de-exito/eluniversal.webp"
-                          alt="El Universal"
+                          alt="ia instaurada en el diseño web de el universal desarrollado por attach group"
                           width={1800}
                           height={1800}
                           position="LEFT_DOWN"
@@ -454,7 +454,7 @@ export default function Home() {
                     Transformamos el sitio web en un canal estratégico de generación de leads. El desarrollo web, optimizado en UX/UI y rendimiento técnico, resultó en un +45% en la tasa de conversión web (YoY) y un +89% en la contactabilidad de anuncios digitales.
                     <br />
                     <Link
-                      href="/deposeguro-web/"
+                      href="/casos-de-exito/deposeguro-web/"
                       aria-label="Ver caso Deposeguro"
                       className="inline-flex items-center font-semibold text-[#1840e2] hover:text-[#58308c] underline underline-offset-4 decoration-2 transition-colors"
                     >
@@ -469,7 +469,7 @@ export default function Home() {
                       
                         <ImageWithPlus
                           src="/images/casos-de-exito/deposeguro.webp"
-                          alt="Deposeguro"
+                          alt="deposeguro cliente de attach group"
                           width={1800}
                           height={1800}
                           position="LEFT_DOWN"
@@ -524,7 +524,7 @@ export default function Home() {
                       
                         <ImageWithPlus
                           src="/images/casos-de-exito/apuestatotal.png"
-                          alt="Apuesta Total"
+                          alt="apuesta total cliente y caso de éxito de attach group"
                           width={1800}
                           height={1800}
                           position="LEFT_DOWN"
@@ -624,11 +624,11 @@ export default function Home() {
 
                   {/* Right Content - Awards Logos */}
                   <div className="flex flex-col lg:flex-row justify-evenly items-center gap-8 w-full">
-                      <Image className="w-100 h-auto lg:w-[30%] lg:h-[10%] object-cover" src="/images/home/peru-service.png" alt="Logo Attach" width={160} height={32} sizes="(max-width: 1024px) 100px, 30vw" loading="lazy"/>
+                      <Image className="w-100 h-auto lg:w-[30%] lg:h-[10%] object-cover" src="/images/home/peru-service.png" alt="premio peru service otorgado a attach group" width={160} height={32} sizes="(max-width: 1024px) 100px, 30vw" loading="lazy"/>
 
-                      <Image className="w-[50%] h-auto lg:w-[10%] lg-h-[10%] object-cover" src="/images/home/ecommerce-award.png" alt="Logo Attach" width={160} height={32} sizes="(max-width: 1024px) 50vw, 10vw" loading="lazy"/>
+                      <Image className="w-[50%] h-auto lg:w-[10%] lg-h-[10%] object-cover" src="/images/home/ecommerce-award.png" alt="premio ecommerce award otorgado a attach group" width={160} height={32} sizes="(max-width: 1024px) 50vw, 10vw" loading="lazy"/>
 
-                      <Image className="w-[70%] h-auto lg:w-[17%] lg:h-[10%] object-cover" src="/images/home/iabperu.png" alt="Logo Attach" width={160} height={32} sizes="(max-width: 1024px) 70vw, 17vw" loading="lazy"/>
+                      <Image className="w-[70%] h-auto lg:w-[17%] lg:h-[10%] object-cover" src="/images/home/iabperu.png" alt="membresía de attach group en iab perú" width={160} height={32} sizes="(max-width: 1024px) 70vw, 17vw" loading="lazy"/>
                   </div>
                 </div>
               </div>

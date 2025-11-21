@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: "Attach Group",
     url: process.env.NEXT_PUBLIC_SITE_URL || "https://attach-group.vercel.app",
     locale: "es",
-    images: [{ url: "/images/general/attach_cross_blue_to_purple.png" }],
+    images: [{ url: "/images/opengraph/Home.webp" }],
   },
   twitter: {
     card: "summary_large_image",

@@ -608,7 +608,7 @@ export default function AthenaAds() {
               <Link href="/casos-de-exito/apuesta-total-programatica" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
                 <Image
                   src="/images/casos-de-exito/Apuestathenads1.webp"
-                  alt="Caso de éxito"
+                  alt="caso de éxito de athena ads de attach group"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading="lazy"

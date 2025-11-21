@@ -78,7 +78,7 @@ export default function Home() {
                                 <Image
                                     className="mb-6 w-[220px] sm:w-[260px] md:w-[300px] lg:w-[393px] h-auto transform transition-all duration-700 hover:scale-105"
                                     src="/images/galileo/galileo.png"
-                                    alt="Logo Galileo"
+                                    alt="galileo ia servicio de inteligencia artificial de attach group"
                                     width={393}
                                     height={105}
                                     sizes="(max-width: 640px) 220px, (max-width: 768px) 260px, (max-width: 1024px) 300px, 393px"

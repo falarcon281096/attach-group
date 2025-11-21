@@ -258,7 +258,7 @@ import { useEffect, useRef, useState } from "react";
             className={`relative bg-white rounded-2xl md:rounded-3xl  border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
               isVisible["equipo-hibrido"] ? " translate-y-0" : "translate-y-10"
             }`}
-            style={{ transitionDelay: "0.3s",  border: '1px solid #1E120D33;' }}
+            style={{ transitionDelay: "0.3s" }}
           >
             {/* Imagen de fondo */}
             <div className="relative h-48 md:h-58 lg:h-64 overflow-hidden rounded-t-2xl md:rounded-t-3xl">
@@ -353,7 +353,7 @@ import { useEffect, useRef, useState } from "react";
             className={`relative bg-white rounded-2xl md:rounded-3xl  border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
               isVisible["estructura"] ? "translate-y-0" : "translate-y-10"
             }`}
-             style={{ transitionDelay: "0.4s",  border: '1px solid #1E120D33;' }}
+            style={{ transitionDelay: "0.4s" }}
           >
             {/* Imagen de fondo */}
             <div className="relative h-48 md:h-64 lg:h-80 overflow-hidden rounded-t-2xl md:rounded-t-3xl">
@@ -752,7 +752,7 @@ import { useEffect, useRef, useState } from "react";
               <Link href="/casos-de-exito/cayetano-full-funnel" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
                 <Image
                   src="/images/casos-de-exito/cayetano.webp"
-                  alt="Caso de éxito"
+                  alt="universidad cayetano caso de éxito de attach media"
                   fill
                   className="object-cover transform transition-all duration-700 group-hover:scale-110"
                 />
@@ -779,10 +779,10 @@ import { useEffect, useRef, useState } from "react";
                 }`}
                 style={{ transitionDelay: "0.4s" }}
               >
-                <Link href="/deposeguro-web" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
+                <Link href="/casos-de-exito/deposeguro-web/" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
                   <Image
                     src="/images/casos-de-exito/deposeguro.webp"
-                    alt="Caso de éxito"
+                    alt="deposeguro caso de éxito de attach media"
                     fill
                     className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />
@@ -811,7 +811,7 @@ import { useEffect, useRef, useState } from "react";
                 <Link href="/casos-de-exito/apuesta-total-catalogo-dinamico" className="relative rounded-2xl md:rounded-3xl overflow-hidden h-[400px] md:h-[500px] lg:h-[550px] cursor-pointer transform transition-all duration-700 hover:scale-105  hover:-translate-y-2 group block">
                   <Image
                     src="/images/casos-de-exito/apuestatotal.webp"
-                    alt="Caso de éxito"
+                    alt="apuesta total caso de éxito de attach media"
                     fill
                     className="object-cover transform transition-all duration-700 group-hover:scale-110"
                   />

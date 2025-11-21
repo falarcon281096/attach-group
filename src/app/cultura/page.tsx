@@ -38,7 +38,7 @@ export default function Home() {
             <div className="rounded-l-3xl rounded-r-none">
               <ImageWithPlus
                 src='/images/cultura/culturaAttach.jpg'
-                alt='cultura-banner'
+                alt='consultores y analistas de attach group'
                 width={500}
                 height={600}
                 position="LEFT_DOWN"
@@ -64,7 +64,7 @@ export default function Home() {
             <div className="relative pr-15 md:pr-0 w-full max-w-md lg:max-w-2xl rounded-r-3xl rounded-l-none h-[260px] md:aspect-[3/4] md:h-[628px] lg:h-[628px]">
               <ImageWithPlus
                 src='/images/cultura/cultura-inspira.jpg'
-                alt='cultura-inspira'
+                alt='consultores y analistas de attach group observando resultados'
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 position="RIGHT_DOWN"
@@ -103,7 +103,7 @@ export default function Home() {
             <div className='relative lg:block w-full h-auto hidden image-light-soft'>
               <Image
                 src='/images/cultura/vida-en-attach-group.png'
-                alt='cultura-vida-attach'
+                alt='actividades de integración y voluntariado de attach group'
                 width={1200}
                 height={400}
                 sizes="(max-width: 1024px) 100vw, 100vw"
@@ -115,7 +115,7 @@ export default function Home() {
           <div className='relative lg:hidden w-full h-auto block image-light-soft'>
             <Image
               src='/images/cultura/vida-en-attach-group-movil.png'
-              alt='cultura-vida-attach-movil'
+              alt='actividades de integración y voluntariado de attach group'
               width={600}
               height={800}
               sizes="100vw"
@@ -175,7 +175,7 @@ export default function Home() {
                 
                 <ImageWithPlus
                           src='/images/cultura/cultura-innovar.webp'
-                          alt='cultura-innovar' 
+                          alt='analistas de attach group gestionando clientes' 
                           position="LEFT_DOWN"
                           width={308}
                           height={320}
@@ -199,7 +199,7 @@ export default function Home() {
           <div className='relative order-2 lg:order-1 pr-10 lg:pr-0 scroll-reveal'>
             <ImageWithPlus
                 src='/images/cultura/nuestro-proposito.webp'
-                alt='cultura-proposito'
+                alt='consultores de attach group analizando data'
                 width={600}
                 height={400}
                 position="RIGHT_DOWN"
@@ -232,7 +232,7 @@ export default function Home() {
             <div className='rounded-3xl from-red-400 pb-1 relative overflow-hidden'>
               <Image
                 src='/images/cultura/programa-1.png'
-                alt='programa-1'
+                alt='programa be my mentor de attach group'
                 width={400}
                 height={600}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -258,7 +258,7 @@ export default function Home() {
             <div className='rounded-3xl from-red-400 pb-1 relative overflow-hidden'>
               <Image
                 src='/images/cultura/programa-2.png'
-                alt='programa-2'
+                alt='programa inside out de attach group'
                 width={400}
                 height={600}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -284,7 +284,7 @@ export default function Home() {
             <div className='rounded-3xl from-red-400 pb-1 relative overflow-hidden'>
               <Image
                 src='/images/cultura/programa-3.png'
-                alt='programa-3'
+                alt='programa leadership academy de attach group'
                 width={400}
                 height={600}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

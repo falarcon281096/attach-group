@@ -8,7 +8,7 @@ export interface Case {
 
 export const casesData: Case[] = [
   {
-    link: '/deposeguro-web',
+  link: '/casos-de-exito/deposeguro-web/',
     id: 'deposeguro',
     title: 'Deposeguro',
     tag: 'Sitio web',

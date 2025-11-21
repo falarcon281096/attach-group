@@ -154,7 +154,7 @@ export default function Home() {
                   <Image 
                     className="w-full h-auto relative z-0 rounded-[1.25rem] lg:rounded-l-[4rem] lg:rounded-r-none transform transition-all duration-700 " 
                     src="/images/casos-de-exito/eluniversal.png" 
-                    alt="Home caminando hacia un portal con el logo de Attach" 
+                    alt="el universal cliente y caso de éxito de attach group" 
                     width={800} 
                     height={1000}
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -242,7 +242,7 @@ export default function Home() {
           >
             <ImageWithCrossIcon
               src="/images/casos-de-exito/universal-2/EL-UNIVERSAL-2.webp"
-              alt="Home caminando hacia un portal con el logo de Attach"
+              alt="interface nueva de el universal desarrollado por attach group"
               position="right-bottom"
               width={1200}
               height={1000}
@@ -264,7 +264,7 @@ export default function Home() {
           >
             <ImageWithCrossIcon
               src="/images/casos-de-exito/eluniversal.webp"
-              alt="Home caminando hacia un portal con el logo de Attach"
+              alt="ia instaurada en el diseño web de el universal desarrollado por attach group"
               position="left-bottom"
               width={1200}
               height={1000}

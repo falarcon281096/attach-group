@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import ResultsSection from "../../components/ResultsSection";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import ImageWithCrossIcon from "../../components/ImageWithCrossIcon";
-import CaseNavigation from "../../components/CaseNavigation";
+import ResultsSection from "../../../components/ResultsSection";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import ImageWithCrossIcon from "../../../components/ImageWithCrossIcon";
+import CaseNavigation from "../../../components/CaseNavigation";
 import { casesData } from "@/data/casesData";
  
 import { useEffect, useRef, useState } from "react";
@@ -243,7 +243,7 @@ export default function Home() {
                   <Image 
                     className="w-full rounded-l-[4rem] transform transition-all duration-700 " 
                     src="/images/casos-de-exito/deposeguro.png" 
-                    alt="Sede Deposeguro" 
+                    alt="deposeguro cliente y caso de éxito de attach group" 
                     width={1200} 
                     height={1000}
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -350,7 +350,7 @@ export default function Home() {
             >
             <ImageWithCrossIcon
               src="/images/casos-de-exito/deposeguro/Depo1.webp"
-              alt="Home caminando hacia un portal con el logo de Attach"
+              alt="página del sitio web de deposeguro gestionado por attach group"
               position="right-bottom"
               width={1200}
               height={1000}
@@ -377,7 +377,7 @@ export default function Home() {
           >
             <ImageWithCrossIcon
               src="/images/casos-de-exito/deposeguro/Depo2.webp"
-              alt="Home caminando hacia un portal con el logo de Attach"
+              alt="página del sitio web de deposeguro gestionado por attach group"
               position="left-bottom"
               width={1200}
               height={1000}

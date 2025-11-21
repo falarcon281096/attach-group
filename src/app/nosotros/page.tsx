@@ -103,7 +103,7 @@ export default function Home() {
               <div className="relative overflow-visible order-2 lg:order-2 lg:col-start-2 pl-8 lg:pl-8 pr-0 ">
                   <ImageWithPlus
                                             src="/images/nosotros/AttachGroup.webp"
-                                            alt="Attach Group"
+                                            alt="Nosotros líderes y equipo de trabajo de attach group"
                                             width={400}
                 height={600}
                 position="LEFT_DOWN"
@@ -214,7 +214,7 @@ export default function Home() {
                 <div className="bg-linear-to-br rounded-2xl from-red-400 to-orange-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-2 md:px-4 lg:px-10 py-6 lg:py-8 transform transition-all duration-500 group-hover:scale-[1.03]">
                   <Image
                     src="/images/general/GalileoIALogo.svg"
-                    alt="icon Galileo IA"
+                    alt="galileo ia servicio de inteligencia artificial de attach group"
                     width={279}
                     height={74}
                     sizes="(max-width: 768px) 65vw, (max-width: 1024px) 90vw, 279px"
@@ -237,7 +237,7 @@ export default function Home() {
                 <div className="bg-linear-to-br rounded-2xl from-lime-400 to-green-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-2 md:px-4 lg:px-10 py-6 lg:py-8 transform transition-all duration-500 group-hover:scale-[1.03]">
                   <Image
                     src="/images/general/AthenaAdsLogo.svg"
-                    alt="icon AthenaAds"
+                    alt="athena ads servicio de publicidad programática de attach group"
                     width={300}
                     height={83}
                     sizes="(max-width: 768px) 70vw, (max-width: 1024px) 90vw, 300px"
@@ -260,7 +260,7 @@ export default function Home() {
                 <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8 transform transition-all duration-500 group-hover:scale-[1.03]">
                   <Image
                     src="/images/general/AttachMediaLogo.png"
-                    alt="icon Attach Media"
+                    alt="attach media servicio de medios on y off de attach group"
                     width={239}
                     height={96}
                     sizes="(max-width: 768px) 65vw, (max-width: 1024px) 75vw, 239px"
@@ -292,7 +292,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-10">
                 {/* Carlo R.*/}
                 <div className="relative scroll-reveal">
-                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/carlo-rodriguez-foto.webp" alt="Carlo Rodriguez" width={361} height={423} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 361px" loading="lazy" />
+                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/carlo-rodriguez-foto.webp" alt="carlo rodríguez ceo de attach group" width={361} height={423} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 361px" loading="lazy" />
                   <span className="image-light-soft" aria-hidden="true"></span>
                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Carlo Rodriguez</p>
@@ -303,7 +303,7 @@ export default function Home() {
 
                 {/*Fernando S.*/}
                 <div className="relative scroll-reveal scroll-reveal-delay-1">
-                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/fernando-salazar-foto.webp" alt="Fernando Salazar" width={361} height={423} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 361px" loading="lazy" />
+                  <Image className="rounded-tr-2xl rounded-bl-2xl" src="/images/nosotros/fernando-salazar-foto.webp" alt="fernando salazar coo de attach group" width={361} height={423} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 361px" loading="lazy" />
                   <span className="image-light-soft" aria-hidden="true"></span>
                   <div className={`absolute -bottom-6 left-4 bg-white rounded-2xl shadow-md px-5 py-5 ${styles["card-lideres__content"]}`}>
                     <p className="text-lg font-semibold text-gray-500">Fernando Salazar</p>
@@ -340,7 +340,7 @@ export default function Home() {
                   <Image 
                     className="w-full transform transition-all duration-700 group-hover:scale-100 relative z-0" 
                     src="/images/nosotros/clientes-desktop.jpg" 
-                    alt="clientes" 
+                    alt="clientes de attach group" 
                     width={1296} 
                     height={747}
                     sizes="(max-width: 768px) 100vw, 100vw"
@@ -396,7 +396,7 @@ export default function Home() {
             <div className="relative mx-30 md:mx-0 mx-auto">
               <Image 
                 src="/images/nosotros/mapa-atatch.webp" 
-                alt="Mapa Attach" 
+                alt="países donde attach group ofrece servicios de consultoría" 
                 className="mx-30 md:mx-0 mx-auto scroll-reveal relative z-40 transform transition-all duration-500" 
                 width={486} 
                 height={550}

@@ -520,7 +520,7 @@ export default function Home() {
                      
                     <ImageWithPlus
                       src='/images/nosotros/contactanos.webp'
-                      alt='Contáctanos' 
+                      alt='consultora experta de attach group' 
                       position="LEFT_DOWN"
                       paddingMobile="2rem"
                       paddingDesktop="1rem" 

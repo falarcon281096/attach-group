@@ -139,7 +139,7 @@ export default function Home() {
                     lg:before:top-100
                     before:top-45 transform transition-all duration-1000 ${isVisible["hero-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}>
                 <div className="pt-0 md:pt-15 relative z-0 overflow-hidden rounded-l-[4rem] group">
-                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 " src="/images/casos-de-exito/eluniversal.png" alt="Home caminando hacia un portal con el logo de Attach" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
+                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 " src="/images/casos-de-exito/eluniversal.png" alt="el universal cliente y caso de éxito de attach group" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
                 </div>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function Home() {
           >
             <ImageWithCrossIcon
               src="/images/casos-de-exito/universal/universal_elreto.png"
-              alt="Home caminando hacia un portal con el logo de Attach"
+              alt="ejecutivos de attach group desarrollando estrategias con ia para el universal"
               position="right-bottom"
               width={1200}
               height={1000}
@@ -207,7 +207,7 @@ export default function Home() {
           >
             <ImageWithCrossIcon
               src="/images/casos-de-exito/universal/universal_estrategia.png"
-              alt="Home caminando hacia un portal con el logo de Attach"
+              alt="contenido desarrollado con ia generativa gestionado por attach group"
               position="left-bottom"
               width={1200}
               height={1000}
