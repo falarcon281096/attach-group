@@ -39,13 +39,15 @@ export default function Home() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "success">("idle");
   const [submitError, setSubmitError] = useState<string | null>(null);
   const submissionAbortRef = useRef<AbortController | null>(null);
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [captchaVerifying, setCaptchaVerifying] = useState<boolean>(false);
   const captchaWidgetRef = useRef<HTMLDivElement | null>(null);
   const [v2WidgetId, setV2WidgetId] = useState<number | null>(null);
   const [captchaWidgetId, setCaptchaWidgetId] = useState<number | null>(null);
 const [captchaMode, setCaptchaMode] = useState<'enterprise' | 'v2_invisible' | 'v2_checkbox'>(() => {
+    // Por defecto, intentar Enterprise primero (no requiere secret key de v2)
     const mode = (process.env.NEXT_PUBLIC_RECAPTCHA_MODE || 'enterprise').toLowerCase();
+    // Solo usar v2 si explícitamente se configura como 'v2'
     return mode === 'v2' ? 'v2_invisible' : 'enterprise';
   });
   const [captchaRequireCheckbox, setCaptchaRequireCheckbox] = useState<boolean>(false);
@@ -53,12 +55,21 @@ const debugCaptcha = String(process.env.NEXT_PUBLIC_DEBUG_CAPTCHA || '').toLower
 const v2SiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY;
 const missingV2SiteKey = !v2SiteKey;
   const [grePresent, setGrePresent] = useState<boolean>(false);
-  const [greEnterprisePresent, setGreEnterprisePresent] = useState<boolean>(false);
+const [greEnterprisePresent, setGreEnterprisePresent] = useState<boolean>(false);
   const [lastToken, setLastToken] = useState<{ obtained: boolean; mode: string; length: number }>({ obtained: false, mode: '', length: 0 });
   const [v2AnchorPresent, setV2AnchorPresent] = useState<boolean>(false);
-  const [recaptchaScriptLoaded, setRecaptchaScriptLoaded] = useState<boolean>(false);
-  const [recaptchaScriptError, setRecaptchaScriptError] = useState<boolean>(false);
-  const [recaptchaFallbackTried, setRecaptchaFallbackTried] = useState<boolean>(false);
+  const [v2HasIframe, setV2HasIframe] = useState<boolean>(false);
+  const [v2ChildrenCount, setV2ChildrenCount] = useState<number>(0);
+  const [v2HasRcAnchor, setV2HasRcAnchor] = useState<boolean>(false);
+  const [v2MarkupFallbackTried, setV2MarkupFallbackTried] = useState<boolean>(false);
+const [captchaFallbackToEnterprise, setCaptchaFallbackToEnterprise] = useState<boolean>(false);
+const [recaptchaScriptLoaded, setRecaptchaScriptLoaded] = useState<boolean>(false);
+const [recaptchaScriptError, setRecaptchaScriptError] = useState<boolean>(false);
+const [recaptchaFallbackTried, setRecaptchaFallbackTried] = useState<boolean>(false);
+// Host dinámico: por defecto usamos www.google.com y cambiamos a www.recaptcha.net si hay error de carga
+const [recaptchaHostCurrent, setRecaptchaHostCurrent] = useState<string>('www.google.com');
+// Control para evitar cambiar host múltiples veces de forma proactiva
+const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(false);
 
   // Lista de dominios de email personal comunes a rechazar
   const personalEmailDomains = [
@@ -408,7 +419,7 @@ const missingV2SiteKey = !v2SiteKey;
 
     setErrors({});
     setSubmitError(null);
-    setSubmitStatus("sending");
+    // No marcamos "sending" hasta tener token; así el botón no queda bloqueado si el usuario aún debe marcar el checkbox
 
     if (submissionAbortRef.current) {
       submissionAbortRef.current.abort();
@@ -420,7 +431,17 @@ const missingV2SiteKey = !v2SiteKey;
     // Obtener token de reCAPTCHA justo antes de enviar
     setCaptchaVerifying(true);
     let tokenToUse: string | null = null;
-    const useV2 = captchaMode.startsWith('v2');
+    // Verificar el modo ACTUAL (puede haber cambiado)
+    const currentMode = captchaMode;
+    const useV2 = currentMode.startsWith('v2');
+    
+    // Si estamos en modo enterprise, limpiar cualquier token de v2 que pueda estar guardado
+    if (!useV2) {
+      if (lastToken.mode && lastToken.mode.startsWith('v2')) {
+        setLastToken({ obtained: false, mode: 'enterprise', length: 0 });
+      }
+    }
+    
     try { 
       const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
       setGrePresent(!!gre);
@@ -519,7 +540,28 @@ const missingV2SiteKey = !v2SiteKey;
       } else {
         const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
         const action = 'CONTACT';
-        if (gre && gre.enterprise) {
+        
+        // Esperar a que grecaptcha.enterprise esté disponible (con timeout)
+        let enterpriseReady = false;
+        let attempts = 0;
+        const maxAttempts = 30; // 3 segundos máximo
+        
+        while (!enterpriseReady && attempts < maxAttempts) {
+          try {
+            const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+            if (gre && (gre as any).enterprise) {
+              enterpriseReady = true;
+              setGreEnterprisePresent(true);
+              break;
+            }
+          } catch (_) {}
+          attempts++;
+          if (attempts < maxAttempts) {
+            await new Promise(resolve => setTimeout(resolve, 100));
+          }
+        }
+        
+        if (enterpriseReady && gre && gre.enterprise) {
           // Intentar obtener token del widget visible
           if (captchaWidgetId !== null) {
             try { 
@@ -536,22 +578,62 @@ const missingV2SiteKey = !v2SiteKey;
               
               tokenToUse = await gre.enterprise.execute(siteKey, { action });
               setLastToken({ obtained: !!tokenToUse, mode: 'enterprise', length: tokenToUse ? tokenToUse.length : 0 });
-            } catch (_) {}
+            } catch (err) {
+              // Si falla execute, intentar cambiar a v2
+              console.error('Error ejecutando enterprise execute:', err);
+            }
           }
         } else {
-          tokenToUse = recaptchaToken;
-          setLastToken({ obtained: !!tokenToUse, mode: 'enterprise', length: tokenToUse ? tokenToUse.length : 0 });
+          // Si enterprise no está disponible después de esperar, NO usar tokens de v2
+          // Cambiar a v2_invisible para que se obtenga un token de v2 correcto
+          setGreEnterprisePresent(false);
+          setCaptchaMode('v2_invisible');
+          setRecaptchaScriptLoaded(false);
+          setRecaptchaScriptError(false);
+          try {
+            if (captchaWidgetRef.current) {
+              captchaWidgetRef.current.innerHTML = '';
+            }
+          } catch (_) {}
+          setCaptchaWidgetId(null);
+          // No usar tokenToUse, forzar que se obtenga uno nuevo de v2
+          tokenToUse = null;
+          setLastToken({ obtained: false, mode: 'enterprise', length: 0 });
         }
       }
     } catch (e) {
-      tokenToUse = recaptchaToken;
-      setLastToken({ obtained: !!tokenToUse, mode: useV2 ? captchaMode : 'enterprise', length: tokenToUse ? tokenToUse.length : 0 });
+      // Si estamos en modo enterprise y hay error, NO usar tokens de v2
+      if (captchaMode === 'enterprise') {
+        tokenToUse = null;
+        setLastToken({ obtained: false, mode: 'enterprise', length: 0 });
+      } else {
+        // Solo usar recaptchaToken si estamos en modo v2
+        tokenToUse = recaptchaToken;
+        setLastToken({ obtained: !!tokenToUse, mode: captchaMode, length: tokenToUse ? tokenToUse.length : 0 });
+      }
     }
 
     if (!tokenToUse) {
       setSubmitError("No se pudo validar el captcha. Intenta de nuevo.");
       setSubmitStatus("idle");
       setCaptchaVerifying(false);
+      
+      // Si estamos en enterprise y no se pudo obtener token, cambiar a v2_invisible
+      if (captchaMode === 'enterprise') {
+        setGreEnterprisePresent(false);
+        setCaptchaMode('v2_invisible');
+        // Resetear estado del script para que se cargue el de v2
+        setRecaptchaScriptLoaded(false);
+        setRecaptchaScriptError(false);
+        try {
+          if (captchaWidgetRef.current) {
+            captchaWidgetRef.current.innerHTML = '';
+          }
+        } catch (_) {}
+        setCaptchaWidgetId(null);
+        return;
+      }
+      
       // Si estamos en v2 y falló la obtención del token invisible, forzar checkbox
       if (useV2 && captchaMode === 'v2_invisible') {
         setCaptchaMode('v2_checkbox');
@@ -565,6 +647,21 @@ const missingV2SiteKey = !v2SiteKey;
       return;
     }
     setCaptchaVerifying(false);
+    // A partir de aquí sí estamos enviando el formulario
+    setSubmitStatus("sending");
+
+    // Verificar el modo ACTUAL antes de enviar (puede haber cambiado)
+    // Usar la variable currentMode que ya fue definida al inicio de la función
+    const isV2Mode = currentMode.startsWith('v2');
+    
+    // Si estamos en modo enterprise pero tenemos un token de v2, NO enviarlo
+    // Esto previene el error de "Configuración reCAPTCHA v2 faltante: secret"
+    if (!isV2Mode && lastToken.mode && lastToken.mode.startsWith('v2')) {
+      setSubmitError("Error: Se detectó un token de v2 en modo enterprise. Recarga la página e intenta de nuevo.");
+      setSubmitStatus("idle");
+      setCaptchaVerifying(false);
+      return;
+    }
 
     const payload = new FormData();
     payload.append("fullName", formData.fullName.trim());
@@ -572,7 +669,7 @@ const missingV2SiteKey = !v2SiteKey;
     payload.append("email", formData.email.trim());
     payload.append("phone", formData.phone.trim());
     payload.append("message", formData.message.trim());
-    if (captchaMode.startsWith('v2')) {
+    if (isV2Mode) {
       // Backend espera g-recaptcha-response para v2 invisible
       payload.append('g-recaptcha-response', tokenToUse);
     } else {
@@ -691,6 +788,116 @@ const missingV2SiteKey = !v2SiteKey;
   // Activar animaciones de aparición al hacer scroll
   useScrollReveal();
 
+  // Efecto para forzar recarga del script cuando cambia el modo
+  useEffect(() => {
+    // Si cambiamos a modo v2, asegurarse de que el script de v2 se carga
+    if (captchaMode.startsWith('v2')) {
+      // Limpiar cualquier script existente de enterprise
+      const existingEnterpriseScripts = Array.from(document.scripts || []).filter(
+        (s) => s.src?.includes('/recaptcha/enterprise.js')
+      );
+      existingEnterpriseScripts.forEach((s) => s.remove());
+      
+      // Verificar si el script de v2 ya está cargado
+      const v2ScriptExists = Array.from(document.scripts || []).some(
+        (s) => s.src?.includes('/recaptcha/api.js') && !s.src?.includes('enterprise')
+      );
+      
+      // Si el script de v2 no está cargado y no está en proceso de carga, forzar carga
+      if (!recaptchaScriptLoaded && !v2ScriptExists) {
+        // Inyectar script de v2 manualmente si Next.js Script no lo hace
+        const script = document.createElement('script');
+        script.src = `https://${recaptchaHostCurrent}/recaptcha/api.js?render=explicit&hl=es`;
+        script.async = true;
+        script.defer = true;
+        script.onload = () => {
+          setRecaptchaScriptLoaded(true);
+          setRecaptchaScriptError(false);
+          // Verificar que grecaptcha esté disponible (sin enterprise)
+          setTimeout(() => {
+            try {
+              const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+              // Verificar que NO tenga enterprise (es el script de v2)
+              const isV2Script = gre && !(gre as any).enterprise;
+              setGrePresent(!!gre && isV2Script);
+            } catch (_) {}
+          }, 100);
+        };
+        script.onerror = () => {
+          setRecaptchaScriptError(true);
+          setRecaptchaScriptLoaded(false);
+          if (recaptchaHostCurrent === 'www.google.com') {
+            setRecaptchaHostCurrent('www.recaptcha.net');
+          }
+        };
+        document.head.appendChild(script);
+      }
+    }
+  }, [captchaMode, recaptchaScriptLoaded, recaptchaHostCurrent]);
+
+  // Limpiar tokens de v2 cuando cambia a modo enterprise
+  useEffect(() => {
+    if (captchaMode === 'enterprise') {
+      // Si hay un token de v2 guardado, limpiarlo
+      if (lastToken.mode && lastToken.mode.startsWith('v2')) {
+        setLastToken({ obtained: false, mode: 'enterprise', length: 0 });
+      }
+      // Limpiar cualquier widget de v2
+      if (v2WidgetId !== null) {
+        setV2WidgetId(null);
+      }
+    }
+  }, [captchaMode]);
+
+  // Polling para verificar cuando grecaptcha.enterprise esté disponible
+  useEffect(() => {
+    if (captchaMode !== 'enterprise' || !recaptchaScriptLoaded) return;
+    
+    let attempts = 0;
+    const maxAttempts = 20; // 2 segundos máximo (20 * 100ms)
+    
+    const checkEnterprise = () => {
+      try {
+        const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+        const hasEnterprise = !!(gre && (gre as any).enterprise);
+        
+        if (hasEnterprise) {
+          setGreEnterprisePresent(true);
+          return;
+        }
+        
+        attempts++;
+        if (attempts < maxAttempts) {
+          setTimeout(checkEnterprise, 100);
+        } else {
+          // Si después de 2 segundos no está disponible, cambiar a v2
+          setGreEnterprisePresent(false);
+          setCaptchaMode('v2_invisible');
+          // Resetear estado del script para que se cargue el de v2
+          setRecaptchaScriptLoaded(false);
+          setRecaptchaScriptError(false);
+          try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+          setCaptchaWidgetId(null);
+        }
+      } catch (_) {
+        attempts++;
+        if (attempts < maxAttempts) {
+          setTimeout(checkEnterprise, 100);
+        } else {
+          setGreEnterprisePresent(false);
+          setCaptchaMode('v2_invisible');
+          setRecaptchaScriptLoaded(false);
+          setRecaptchaScriptError(false);
+          try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+          setCaptchaWidgetId(null);
+        }
+      }
+    };
+    
+    const timeoutId = setTimeout(checkEnterprise, 100);
+    return () => clearTimeout(timeoutId);
+  }, [captchaMode, recaptchaScriptLoaded]);
+
   // Render de captcha según modo, con fallback dinámico a checkbox en v2
   useEffect(() => {
     // Actualizar estado de grecaptcha
@@ -712,26 +919,69 @@ const missingV2SiteKey = !v2SiteKey;
 
     if (captchaMode === 'enterprise') {
       const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY; 
-      if (typeof grecaptcha !== 'undefined' && grecaptcha?.enterprise && captchaWidgetRef.current) {
-         
-        grecaptcha.enterprise.ready(() => {
-          try { 
-            const id = grecaptcha.enterprise.render(captchaWidgetRef.current!, {
-              sitekey: siteKey,
-              theme: 'light',
-              size: 'normal',
-            });
-            if (typeof id === 'number') {
-              setCaptchaWidgetId(id);
-            }
-          } catch (_) {
-            // Falla render; el envío intentará con execute
-          }
-        });
+      // Si no hay site key de Enterprise, conmutar inmediatamente a v2 invisible
+      if (!siteKey) {
+        setCaptchaMode('v2_invisible');
+        try { if (captchaWidgetRef.current) { captchaWidgetRef.current.innerHTML = ''; } } catch (_) {}
+        setCaptchaWidgetId(null);
+        return;
       }
-    } else if (captchaMode === 'v2_invisible') {
+      
+      // Esperar a que grecaptcha.enterprise esté disponible
+      const tryRenderEnterprise = () => {
+        try {
+          const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+          if (gre && (gre as any).enterprise && captchaWidgetRef.current) {
+            gre.enterprise.ready(() => {
+              try { 
+                const id = gre.enterprise.render(captchaWidgetRef.current!, {
+                  sitekey: siteKey,
+                  theme: 'light',
+                  size: 'normal',
+                });
+                if (typeof id === 'number') {
+                  setCaptchaWidgetId(id);
+                }
+              } catch (_) {
+                // Falla render; el envío intentará con execute
+              }
+            });
+          } else if (captchaWidgetRef.current) {
+            // Si enterprise no está disponible aún, intentar de nuevo en 200ms
+            setTimeout(tryRenderEnterprise, 200);
+          }
+        } catch (_) {
+          // Si hay error, intentar de nuevo
+          if (captchaWidgetRef.current) {
+            setTimeout(tryRenderEnterprise, 200);
+          }
+        }
+      };
+      
+      // Esperar un poco para que el script se inicialice
+      const timeoutId = setTimeout(tryRenderEnterprise, 300);
+      return () => clearTimeout(timeoutId);
+    } else if (captchaMode === 'v2_invisible' || captchaMode === 'v2_checkbox') {
+      // v2 invisible o checkbox: esperar a que el script de v2 esté cargado
+      if (!recaptchaScriptLoaded) {
+        // Esperar a que el script se cargue
+        return;
+      }
+      
+      // Verificar que grecaptcha esté disponible y NO sea enterprise
+      const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+      const isV2Script = gre && !(gre as any).enterprise;
+      
+      if (!isV2Script) {
+        // Si todavía es enterprise, esperar un poco más
+        const timeoutId = setTimeout(() => {
+          // Re-ejecutar este efecto
+        }, 200);
+        return () => clearTimeout(timeoutId);
+      }
+      
       // v2 invisible: renderizar widget invisible 
-      if (typeof grecaptcha !== 'undefined' && captchaWidgetRef.current) {
+      if (captchaMode === 'v2_invisible' && captchaWidgetRef.current) {
         try {
           if (missingV2SiteKey) {
             // No intentamos render sin site key
@@ -755,10 +1005,8 @@ const missingV2SiteKey = !v2SiteKey;
             doRender();
           }
         } catch (_) {}
-      }
-    } else if (captchaMode === 'v2_checkbox') {
-      // v2 checkbox visible 
-      if (typeof grecaptcha !== 'undefined' && captchaWidgetRef.current) {
+      } else if (captchaMode === 'v2_checkbox' && captchaWidgetRef.current) {
+        // v2 checkbox visible
         try {
           if (missingV2SiteKey) {
             // No intentamos render sin site key
@@ -773,61 +1021,98 @@ const missingV2SiteKey = !v2SiteKey;
               });
               if (typeof id === 'number') {
                 setV2WidgetId(id);
-                // Comprobar si el anchor del captcha está presente y visible
-                setTimeout(() => {
+                // Comprobar si el anchor del captcha está presente y visible (polling progresivo)
+                const checkAnchor = () => {
                   try {
-                    const el = captchaWidgetRef.current?.querySelector('.rc-anchor')
-                      || captchaWidgetRef.current?.querySelector('iframe[src*="recaptcha"]');
-                    const visible = !!(el && (el as HTMLElement).offsetHeight > 0);
-                    setV2AnchorPresent(!!el && visible);
-                  } catch (_) {}
-                }, 200);
-                // Fallback: reintentar si el anchor no aparece
+                    const rc = captchaWidgetRef.current?.querySelector('.rc-anchor') as HTMLElement | null;
+                    const iframe = captchaWidgetRef.current?.querySelector('iframe[src*="recaptcha"]') as HTMLElement | null;
+                    const childrenCount = captchaWidgetRef.current?.childElementCount ?? 0;
+                    const visibleIframe = !!(iframe && iframe.offsetHeight > 0);
+                    const visibleRc = !!(rc && rc.offsetHeight > 0);
+                    const present = !!rc || !!iframe;
+                    const visible = visibleRc || visibleIframe;
+                    setV2HasRcAnchor(!!rc);
+                    setV2HasIframe(!!iframe);
+                    setV2ChildrenCount(childrenCount);
+                    if (present && visible) {
+                      setV2AnchorPresent(true);
+                      return true;
+                    }
+                    setV2AnchorPresent(false);
+                    return false;
+                  } catch (_) { return false; }
+                };
+                // Primer chequeo rápido
+                setTimeout(checkAnchor, 200);
+                // Segundo chequeo más tarde (por si tarda en cargar)
                 setTimeout(() => {
-                  try {
-                    const anchor = captchaWidgetRef.current?.querySelector('.rc-anchor')
-                      || captchaWidgetRef.current?.querySelector('iframe[src*="recaptcha"]');
-                    if (!anchor) {
-                      try { grecaptcha.reset(id); } catch (_) {}
-                      if (captchaWidgetRef.current) {
+                  const ok = checkAnchor();
+                  if (!ok) {
+                    // Reintento de render si no aparece nada
+                    try { grecaptcha.reset(id); } catch (_) {}
+                    if (captchaWidgetRef.current) {
+                      captchaWidgetRef.current.innerHTML = '';
+                    }
+                    try { grecaptcha.ready(() => doRender()); } catch (_) { doRender(); }
+                  }
+                }, 700);
+                // Tercer chequeo final
+                setTimeout(() => {
+                  const ok = checkAnchor();
+                  if (!ok) {
+                    // Fallback 1: inyectar marcado auto-render si el programático no insertó nada
+                    if (captchaWidgetRef.current && !v2MarkupFallbackTried) {
+                      setV2MarkupFallbackTried(true);
+                      try {
                         captchaWidgetRef.current.innerHTML = '';
-                      }
-                      try { grecaptcha.ready(() => doRender()); } catch (_) { doRender(); }
-                      // Comprobar estado tras reintento
-                      setTimeout(() => {
+                        const autoDiv = document.createElement('div');
+                        autoDiv.className = 'g-recaptcha';
+                        autoDiv.setAttribute('data-sitekey', v2SiteKey || '');
+                        autoDiv.setAttribute('data-theme', 'light');
+                        captchaWidgetRef.current.appendChild(autoDiv);
                         try {
-                          const el2 = captchaWidgetRef.current?.querySelector('.rc-anchor')
-                            || captchaWidgetRef.current?.querySelector('iframe[src*="recaptcha"]');
-                          const visible2 = !!(el2 && (el2 as HTMLElement).offsetHeight > 0);
-                          setV2AnchorPresent(!!el2 && visible2);
-                        } catch (_) {}
-                      }, 250);
-                      // Si sigue sin anchor y detectamos error de script, intentar fallback recaptcha.net
-                      setTimeout(() => {
-                        try {
-                          const stillNoAnchor = !(
-                            captchaWidgetRef.current?.querySelector('.rc-anchor')
-                            || captchaWidgetRef.current?.querySelector('iframe[src*="recaptcha"]')
-                          );
-                          if (stillNoAnchor && recaptchaScriptError && !recaptchaFallbackTried) {
-                            setRecaptchaFallbackTried(true);
-                            const s = document.createElement('script');
-                            s.src = 'https://www.recaptcha.net/recaptcha/api.js?render=explicit&hl=es';
-                            s.async = true;
-                            s.defer = true;
-                            s.onload = () => {
-                              try { doRender(); } catch (_) {}
-                            };
-                            s.onerror = () => {
-                              // si falla también, dejamos estados para debug
-                            };
-                            document.head.appendChild(s);
+                          if (typeof grecaptcha.ready === 'function') {
+                            grecaptcha.ready(() => {
+                              try {
+                                const newId = grecaptcha.render(autoDiv);
+                                if (typeof newId === 'number') setV2WidgetId(newId);
+                              } catch (_) {}
+                            });
+                          } else {
+                            const newId = grecaptcha.render(autoDiv);
+                            if (typeof newId === 'number') setV2WidgetId(newId);
                           }
                         } catch (_) {}
-                      }, 500);
+                      } catch (_) {}
+                      setTimeout(() => { checkAnchor(); }, 600);
                     }
-                  } catch (_) {}
-                }, 400);
+                    // Si el script cargó pero no hay iframe, suele ser bloqueo de gstatic
+                    if (recaptchaScriptError && !recaptchaFallbackTried) {
+                      setRecaptchaFallbackTried(true);
+                      const s = document.createElement('script');
+                      s.src = `https://${recaptchaHostCurrent}/recaptcha/api.js?render=explicit&hl=es`;
+                      s.async = true;
+                      s.defer = true;
+                      s.onload = () => { try { doRender(); } catch (_) {} };
+                      s.onerror = () => setRecaptchaScriptError(true);
+                      document.head.appendChild(s);
+                    }
+                    // Fallback 2: cambiar a modo enterprise si aún no aparece el checkbox
+                    setTimeout(() => {
+                      const stillMissing = !checkAnchor();
+                      if (stillMissing) {
+                        setCaptchaFallbackToEnterprise(true);
+                        setCaptchaMode('enterprise');
+                        try {
+                          if (captchaWidgetRef.current) {
+                            captchaWidgetRef.current.innerHTML = '';
+                          }
+                        } catch (_) {}
+                        setV2WidgetId(null);
+                      }
+                    }, 800);
+                  }
+                }, 1500);
               }
             } catch (_) {}
           };
@@ -839,23 +1124,191 @@ const missingV2SiteKey = !v2SiteKey;
         } catch (_) {}
       }
     }
-  }, [captchaMode]);
+  }, [captchaMode, recaptchaScriptLoaded]);
+
+  // Fallback adicional: si en modo v2_checkbox el anchor no aparece tras un tiempo, conmuta a enterprise
+  useEffect(() => {
+    if (captchaMode !== 'v2_checkbox') return;
+    // Esperar a que el script esté cargado y dar tiempo al DOM para insertar el iframe/anchor
+    const t = setTimeout(() => {
+      try {
+        const missing = !v2AnchorPresent && (v2ChildrenCount === 0);
+        if (recaptchaScriptLoaded && missing) {
+          setCaptchaFallbackToEnterprise(true);
+          setCaptchaMode('enterprise');
+          try {
+            if (captchaWidgetRef.current) {
+              captchaWidgetRef.current.innerHTML = '';
+            }
+          } catch (_) {}
+          setV2WidgetId(null);
+        }
+      } catch (_) {}
+    }, 2500);
+    return () => clearTimeout(t);
+  }, [captchaMode, recaptchaScriptLoaded, v2AnchorPresent, v2ChildrenCount]);
+
+  // Fallback enterprise: si el script cargó pero grecaptcha.enterprise no está disponible, cambiar host y/o conmutar a v2 invisible
+  useEffect(() => {
+    if (captchaMode !== 'enterprise') return;
+    // Solo actuamos cuando el script reportó carga
+    if (!recaptchaScriptLoaded) return;
+    
+    let attempts = 0;
+    const maxAttempts = 25; // 2.5 segundos máximo
+    
+    const checkAndFallback = () => {
+      try {
+        const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+        const hasEnterprise = !!(gre && (gre as any).enterprise);
+        
+        if (hasEnterprise) {
+          setGreEnterprisePresent(true);
+          return;
+        }
+        
+        attempts++;
+        
+        // 1) Proactive host switch: si estamos en google, cambiamos a recaptcha.net una sola vez
+        if (attempts === 1 && !hostProactiveSwitched && recaptchaHostCurrent === 'www.google.com') {
+          setHostProactiveSwitched(true);
+          setRecaptchaHostCurrent('www.recaptcha.net');
+          // Forzar recarga del script
+          setRecaptchaScriptLoaded(false);
+          setRecaptchaScriptError(false);
+          return; // Salir, el script se recargará
+        }
+        
+        // 2) Si después de varios intentos enterprise sigue ausente, conmutar a v2 invisible
+        if (attempts >= maxAttempts) {
+          setGreEnterprisePresent(false);
+          setCaptchaMode('v2_invisible');
+          // Resetear estado del script para que se cargue el de v2
+          setRecaptchaScriptLoaded(false);
+          setRecaptchaScriptError(false);
+          try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+          setCaptchaWidgetId(null);
+          return;
+        }
+        
+        // Continuar verificando
+        setTimeout(checkAndFallback, 100);
+      } catch (_) {
+        attempts++;
+        if (attempts < maxAttempts) {
+          setTimeout(checkAndFallback, 100);
+        } else {
+          setGreEnterprisePresent(false);
+          setCaptchaMode('v2_invisible');
+          // Resetear estado del script para que se cargue el de v2
+          setRecaptchaScriptLoaded(false);
+          setRecaptchaScriptError(false);
+          try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+          setCaptchaWidgetId(null);
+        }
+      }
+    };
+    
+    const timeoutId = setTimeout(checkAndFallback, 200);
+    return () => clearTimeout(timeoutId);
+  }, [captchaMode, recaptchaScriptLoaded, recaptchaHostCurrent, hostProactiveSwitched]);
+
+  // Fallback de carga para enterprise: si el script no carga tras un breve tiempo,
+  // intentamos inyectarlo manualmente y, si sigue sin enterprise, conmutamos a v2 invisible.
+  useEffect(() => {
+    if (captchaMode !== 'enterprise') return;
+    const initialWait = setTimeout(() => {
+      if (!recaptchaScriptLoaded) {
+        try {
+          const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
+          const already = Array.from(document.scripts || []).some((s) => s.src?.includes('/recaptcha/enterprise.js'));
+          if (!already) {
+            const s = document.createElement('script');
+            s.src = `https://${recaptchaHostCurrent}/recaptcha/enterprise.js?render=${siteKey}`;
+            s.async = true;
+            s.defer = true;
+            s.onload = () => { setRecaptchaScriptLoaded(true); setRecaptchaScriptError(false); };
+            s.onerror = () => {
+              setRecaptchaScriptError(true);
+              setRecaptchaHostCurrent((prev) => prev === 'www.google.com' ? 'www.recaptcha.net' : 'www.google.com');
+            };
+            document.head.appendChild(s);
+          }
+        } catch (_) {}
+        const fallbackWait = setTimeout(() => {
+          const enterpriseReady = !!(typeof grecaptcha !== 'undefined' && (grecaptcha as any).enterprise);
+          if (!enterpriseReady) {
+            setCaptchaMode('v2_invisible');
+            // Resetear estado del script para que se cargue el de v2
+            setRecaptchaScriptLoaded(false);
+            setRecaptchaScriptError(false);
+            try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+            setCaptchaWidgetId(null);
+          }
+        }, 1800);
+        return () => clearTimeout(fallbackWait);
+      }
+    }, 900);
+    return () => clearTimeout(initialWait);
+  }, [captchaMode, recaptchaScriptLoaded, recaptchaHostCurrent]);
 
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden animate-gradient" style={{ backgroundSize: '200% 200%' }}>
       {captchaMode === 'enterprise' ? (
         <Script 
-          src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          key={`enterprise-${recaptchaHostCurrent}`}
+          src={`https://${recaptchaHostCurrent}/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
           strategy="afterInteractive"
-          onLoad={() => { setRecaptchaScriptLoaded(true); setRecaptchaScriptError(false); }}
-          onError={() => { setRecaptchaScriptError(true); setRecaptchaScriptLoaded(false); }}
+          onLoad={() => { 
+            setRecaptchaScriptLoaded(true); 
+            setRecaptchaScriptError(false);
+            // Verificar enterprise después de cargar
+            setTimeout(() => {
+              try {
+                const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+                setGreEnterprisePresent(!!(gre && (gre as any).enterprise));
+              } catch (_) {}
+            }, 100);
+          }}
+          onError={() => { 
+            setRecaptchaScriptError(true); 
+            setRecaptchaScriptLoaded(false); 
+            setRecaptchaFallbackTried(true);
+            if (recaptchaHostCurrent === 'www.google.com') {
+              setRecaptchaHostCurrent('www.recaptcha.net');
+            } else {
+              // Si ambos hosts fallan, cambiar a v2
+              setCaptchaMode('v2_invisible');
+              // Resetear estado del script para que se cargue el de v2
+              setRecaptchaScriptLoaded(false);
+              setRecaptchaScriptError(false);
+            }
+          }}
         />
       ) : (
         <Script 
-          src="https://www.google.com/recaptcha/api.js?render=explicit&hl=es"
+          key={`v2-${captchaMode}-${recaptchaHostCurrent}`}
+          src={`https://${recaptchaHostCurrent}/recaptcha/api.js?render=explicit&hl=es`}
           strategy="afterInteractive"
-          onLoad={() => { setRecaptchaScriptLoaded(true); setRecaptchaScriptError(false); }}
-          onError={() => { setRecaptchaScriptError(true); setRecaptchaScriptLoaded(false); }}
+          onLoad={() => { 
+            setRecaptchaScriptLoaded(true); 
+            setRecaptchaScriptError(false);
+            // Verificar que grecaptcha esté disponible
+            setTimeout(() => {
+              try {
+                const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+                setGrePresent(!!gre);
+              } catch (_) {}
+            }, 100);
+          }}
+          onError={() => { 
+            setRecaptchaScriptError(true); 
+            setRecaptchaScriptLoaded(false); 
+            setRecaptchaFallbackTried(true);
+            if (recaptchaHostCurrent === 'www.google.com') {
+              setRecaptchaHostCurrent('www.recaptcha.net');
+            }
+          }}
         />
       )}
       <div className="atm-initial bg-white">
@@ -1104,6 +1557,21 @@ const missingV2SiteKey = !v2SiteKey;
                         Falta site key de reCAPTCHA v2. Configura `NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY` y reinicia el servidor.
                       </p>
                     )}
+                    {captchaMode.startsWith('v2') && !recaptchaScriptLoaded && (
+                      <p className="text-amber-200 text-xs mb-2">
+                        Cargando script de reCAPTCHA v2... Si no carga, verifica que no haya bloqueadores activos.
+                      </p>
+                    )}
+                    {captchaMode.startsWith('v2') && (
+                      <p className="text-white/60 text-xs mb-2">
+                        <strong>Importante:</strong> Si usas reCAPTCHA v2, el backend requiere `RECAPTCHA_V2_SECRET` en las variables de entorno o `recaptchaV2SecretKey` en attach-group-contact-form.json. Si usas Enterprise, NO necesitas el secret key de v2.
+                      </p>
+                    )}
+                    {captchaMode === 'enterprise' && (
+                      <p className="text-white/60 text-xs mb-2">
+                        Usando reCAPTCHA Enterprise. No se requiere secret key de v2 cuando Enterprise está activo.
+                      </p>
+                    )}
                     {debugCaptcha && (
                       <div className="mt-2 mb-4 rounded-md bg-white/15 border border-white/30 p-3 text-xs text-white/90">
                         <div><span className="font-semibold">Debug Captcha</span></div>
@@ -1111,9 +1579,16 @@ const missingV2SiteKey = !v2SiteKey;
                         <div>v2WidgetId: <span className="font-mono">{typeof v2WidgetId === 'number' ? v2WidgetId : 'null'}</span></div>
                         <div>sitekey_v2: <span className="font-mono">{v2SiteKey ? 'present' : 'missing'}</span></div>
                         <div>anchor_present: <span className="font-mono">{v2AnchorPresent ? 'yes' : 'no'}</span></div>
+                        <div>has_iframe: <span className="font-mono">{v2HasIframe ? 'yes' : 'no'}</span></div>
+                        <div>has_rc_anchor: <span className="font-mono">{v2HasRcAnchor ? 'yes' : 'no'}</span></div>
+                        <div>container_children: <span className="font-mono">{v2ChildrenCount}</span></div>
                         <div>api_loaded: <span className="font-mono">{recaptchaScriptLoaded ? 'yes' : 'no'}</span></div>
                         <div>api_error: <span className="font-mono">{recaptchaScriptError ? 'yes' : 'no'}</span></div>
                         <div>api_fallback: <span className="font-mono">{recaptchaFallbackTried ? 'yes' : 'no'}</span></div>
+                        <div>markup_fallback: <span className="font-mono">{v2MarkupFallbackTried ? 'yes' : 'no'}</span></div>
+                <div>api_host: <span className="font-mono">{recaptchaHostCurrent}</span></div>
+                        <div>asset_hint: <span className="font-mono">{recaptchaScriptLoaded && !v2AnchorPresent ? 'maybe_blocked_gstatic' : 'none'}</span></div>
+                        <div>mode_fallback_enterprise: <span className="font-mono">{captchaFallbackToEnterprise ? 'yes' : 'no'}</span></div>
                         <div>enterpriseWidgetId: <span className="font-mono">{typeof captchaWidgetId === 'number' ? captchaWidgetId : 'null'}</span></div>
                         <div>requireCheckbox: <span className="font-mono">{String(captchaRequireCheckbox)}</span></div>
                         <div>grecaptcha: <span className="font-mono">{String(grePresent)}</span></div>

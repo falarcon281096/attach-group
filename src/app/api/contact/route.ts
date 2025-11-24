@@ -109,11 +109,21 @@ export async function POST(request: Request) {
           config.recaptchaSecretKey ||
           "";
         if (!secret) {
-          return NextResponse.json(
-            { success: false, error: "Configuración reCAPTCHA v2 faltante: secret." },
-            { status: 500 }
-          );
-        }
+          // En desarrollo, permitir continuar sin validación (solo si está en modo desarrollo)
+          const isDevelopment = process.env.NODE_ENV === 'development';
+          if (isDevelopment && process.env.SKIP_RECAPTCHA_VALIDATION === 'true') {
+            // Continuar sin validar (solo para desarrollo)
+            console.warn('⚠️ ADVERTENCIA: reCAPTCHA v2 no validado - modo desarrollo con SKIP_RECAPTCHA_VALIDATION=true');
+          } else {
+            return NextResponse.json(
+              { 
+                success: false, 
+                error: "Configuración reCAPTCHA v2 faltante: secret. Configura RECAPTCHA_V2_SECRET en las variables de entorno o recaptchaV2SecretKey en attach-group-contact-form.json" 
+              },
+              { status: 500 }
+            );
+          }
+        } else {
 
         try {
           const params = new URLSearchParams({
@@ -146,6 +156,7 @@ export async function POST(request: Request) {
             { success: false, error: `Error verificación reCAPTCHA v2: ${msg}` },
             { status: 500 }
           );
+        }
         }
       } else {
         // Validar con Enterprise si no hay g-recaptcha-response
