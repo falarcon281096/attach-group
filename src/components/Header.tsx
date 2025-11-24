@@ -56,22 +56,20 @@ export default function Header({ variant = 'default', showBorder = true, isFixed
         {/* Logo - Izquierda */}
         <Link href="/" className="ml-0 lg:ml-15">
           {isWhiteBg ? (
-            <Image
+            <img
               className="w-[120px] lg:w-[160px]"
               src="/images/general/attachGroupLogo.svg"
               alt="Logo Attach"
               width={120}
               height={24}
-              unoptimized
             />
           ) : (
-            <Image
+            <img
               className="w-[120px] lg:w-[160px]"
               src="/images/general/LogoAttachGroupWhite.svg"
               alt="Logo Attach"
               width={120}
               height={24}
-              unoptimized
             />
           )}
         </Link>
