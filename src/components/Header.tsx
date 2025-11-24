@@ -62,6 +62,7 @@ export default function Header({ variant = 'default', showBorder = true, isFixed
               alt="Logo Attach"
               width={120}
               height={24}
+              unoptimized
             />
           ) : (
             <Image
@@ -70,6 +71,7 @@ export default function Header({ variant = 'default', showBorder = true, isFixed
               alt="Logo Attach"
               width={120}
               height={24}
+              unoptimized
             />
           )}
         </Link>

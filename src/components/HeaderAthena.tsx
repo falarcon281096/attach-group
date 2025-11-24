@@ -36,6 +36,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
             alt="Logo Attach"
             width={120}
             height={24}
+            unoptimized
           />
         </Link>
 
