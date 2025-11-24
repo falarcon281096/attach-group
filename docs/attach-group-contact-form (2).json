@@ -1,0 +1,58 @@
+{
+	"recipientEmails": [
+		"lgarcia@attachconsultores.com",
+		"fcerna@attachconsultores.com",
+		"malban@attachconsultores.com"
+	],
+	"emailSubject": "Nuevo contacto recibido",
+	"jsonSchema": {
+		"type": "object",
+		"required": [
+			"fullName",
+			"company",
+			"email",
+			"phone",
+			"message"
+		],
+		"properties": {
+			"fullName": {
+				"type": "string",
+				"minLength": 2,
+				"maxLength": 120
+			},
+			"company": {
+				"type": "string",
+				"minLength": 2,
+				"maxLength": 120
+			},
+			"email": {
+				"type": "string",
+				"format": "email",
+				"maxLength": 160
+			},
+			"phone": {
+				"type": "string",
+				"pattern": "^[0-9+\\-\\s]{6,20}$"
+			},
+			"message": {
+				"type": "string",
+				"minLength": 6,
+				"maxLength": 1500
+			},
+			"g-recaptcha-response": {
+				"type": "string",
+				"minLength": 20
+			}
+		},
+		"additionalProperties": false
+	},
+	"allowFileUploads": false,
+	"maxFileSizeBytes": 10485760,
+	"allowedOrigins": [
+		"http://localhost",
+		"https://attach.group",
+		"https://www.attach.group"
+	],
+	"requireRecaptcha": true,
+	"recaptchaSecretKey": "XXXX"
+}

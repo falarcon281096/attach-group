@@ -390,7 +390,7 @@ export default function Home() {
           </h2>
 
           <a 
-            href="/contacto" 
+            href="/contacto/" 
             className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-110 group transform"
             style={{ transitionDelay: "0.2s" }}
           >

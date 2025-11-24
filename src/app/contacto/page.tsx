@@ -6,6 +6,7 @@ import { useScrollReveal } from "@/components/useScrollReveal";
 import ImageWithPlus from "@/components/ImageWithPlus";
 import Image from "next/image";
 import { FormEvent, ChangeEvent, useState, useRef, useEffect } from "react";
+import Script from "next/script";
 
  
 
@@ -34,6 +35,12 @@ export default function Home() {
   const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "success">("idle");
   const [submitError, setSubmitError] = useState<string | null>(null);
   const submissionAbortRef = useRef<AbortController | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [captchaVerifying, setCaptchaVerifying] = useState<boolean>(false);
+  const captchaWidgetRef = useRef<HTMLDivElement | null>(null);
+  const [captchaWidgetId, setCaptchaWidgetId] = useState<number | null>(null);
+  const [v2WidgetId, setV2WidgetId] = useState<number | null>(null);
+  const captchaMode = (process.env.NEXT_PUBLIC_RECAPTCHA_MODE || 'enterprise').toLowerCase();
 
   // Lista de dominios de email personal comunes a rechazar
   const personalEmailDomains = [
@@ -392,12 +399,108 @@ export default function Home() {
     const controller = new AbortController();
     submissionAbortRef.current = controller;
 
+    // Obtener token de reCAPTCHA justo antes de enviar
+    setCaptchaVerifying(true);
+    let tokenToUse: string | null = null;
+    let useV2 = captchaMode === 'v2';
+    try {
+      // @ts-expect-error grecaptcha global
+      const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+      if (useV2) {
+        const v2SiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY;
+        if (!gre) throw new Error('grecaptcha no disponible');
+        // Renderizar widget invisible si aún no existe
+        if (v2WidgetId === null && captchaWidgetRef.current) {
+          try {
+            const id = gre.render(captchaWidgetRef.current!, {
+              sitekey: v2SiteKey,
+              size: 'invisible',
+              badge: 'inline'
+            });
+            if (typeof id === 'number') {
+              setV2WidgetId(id);
+            }
+          } catch (_) {}
+        }
+        const widgetId = v2WidgetId;
+        if (typeof widgetId === 'number') {
+          try {
+            gre.execute(widgetId);
+          } catch (_) {}
+          // Esperar token disponible via getResponse
+          const waitForV2Token = async (wid: number, timeoutMs = 7000): Promise<string> => {
+            return new Promise((resolve, reject) => {
+              const start = Date.now();
+              const tick = () => {
+                try {
+                  const t = gre.getResponse(wid);
+                  if (t && typeof t === 'string' && t.length > 0) {
+                    resolve(t);
+                    return;
+                  }
+                } catch (_) {}
+                if (Date.now() - start > timeoutMs) {
+                  reject(new Error('Tiempo agotado esperando verificación reCAPTCHA'));
+                } else {
+                  setTimeout(tick, 150);
+                }
+              };
+              tick();
+            });
+          };
+          tokenToUse = await waitForV2Token(widgetId);
+        }
+      } else {
+        const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+        const action = 'CONTACT';
+        if (gre && gre.enterprise) {
+          // Intentar obtener token del widget visible
+          if (captchaWidgetId !== null) {
+            try {
+              // @ts-expect-error enterprise.getResponse
+              const resp = gre.enterprise.getResponse(captchaWidgetId);
+              if (resp && typeof resp === 'string' && resp.length > 0) {
+                tokenToUse = resp;
+              }
+            } catch (_) {}
+          }
+          if (!tokenToUse) {
+            try {
+              // @ts-expect-error enterprise.ready
+              await new Promise<void>((resolve) => gre.enterprise.ready(resolve));
+              // @ts-expect-error enterprise.execute
+              tokenToUse = await gre.enterprise.execute(siteKey, { action });
+            } catch (_) {}
+          }
+        } else {
+          tokenToUse = recaptchaToken;
+        }
+      }
+    } catch (e) {
+      tokenToUse = recaptchaToken;
+    }
+
+    if (!tokenToUse) {
+      setSubmitError("No se pudo validar el captcha. Intenta de nuevo.");
+      setSubmitStatus("idle");
+      setCaptchaVerifying(false);
+      return;
+    }
+    setCaptchaVerifying(false);
+
     const payload = new FormData();
     payload.append("fullName", formData.fullName.trim());
     payload.append("company", formData.company.trim());
     payload.append("email", formData.email.trim());
     payload.append("phone", formData.phone.trim());
     payload.append("message", formData.message.trim());
+    if (captchaMode === 'v2') {
+      // Backend espera g-recaptcha-response para v2 invisible
+      payload.append('g-recaptcha-response', tokenToUse);
+    } else {
+      payload.append('recaptchaToken', tokenToUse);
+      payload.append('recaptchaAction', 'CONTACT');
+    }
 
     try {
       const response = await fetch(
@@ -409,11 +512,16 @@ export default function Home() {
         }
       );
 
+      // Intentar leer el cuerpo de respuesta para obtener mensajes de error
+      const responseBody: unknown = await response.json().catch(() => null);
       if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
+        const backendMsg = (responseBody && typeof responseBody === 'object' && responseBody !== null && 'error' in (responseBody as Record<string, unknown>))
+          ? String((responseBody as { error?: unknown }).error)
+          : `Request failed with status ${response.status}`;
+        throw new Error(backendMsg);
       }
 
-      const result: unknown = await response.json();
+      const result: unknown = responseBody;
       const isSuccess =
         typeof result === "object" &&
         result !== null &&
@@ -434,7 +542,8 @@ export default function Home() {
         return;
       }
       setSubmitStatus("idle");
-      setSubmitError("Ocurrió un problema al enviar tu mensaje. Inténtalo nuevamente.");
+      const msg = error instanceof Error ? error.message : "Ocurrió un problema al enviar tu mensaje. Inténtalo nuevamente.";
+      setSubmitError(msg);
     } finally {
       if (submissionAbortRef.current === controller) {
         submissionAbortRef.current = null;
@@ -453,8 +562,54 @@ export default function Home() {
   // Activar animaciones de aparición al hacer scroll
   useScrollReveal();
 
+  // Render de captcha según modo
+  useEffect(() => {
+    if (captchaMode === 'enterprise') {
+      const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+      // @ts-expect-error grecaptcha global
+      if (typeof grecaptcha !== 'undefined' && grecaptcha?.enterprise && captchaWidgetRef.current) {
+        // @ts-expect-error enterprise.ready
+        grecaptcha.enterprise.ready(() => {
+          try {
+            // @ts-expect-error enterprise.render
+            const id = grecaptcha.enterprise.render(captchaWidgetRef.current!, {
+              sitekey: siteKey,
+              theme: 'light',
+              size: 'normal',
+            });
+            if (typeof id === 'number') {
+              setCaptchaWidgetId(id);
+            }
+          } catch (_) {
+            // Falla render; el envío intentará con execute
+          }
+        });
+      }
+    } else {
+      // v2 invisible: renderizar widget invisible
+      // @ts-expect-error grecaptcha global
+      if (typeof grecaptcha !== 'undefined' && captchaWidgetRef.current) {
+        try {
+          const id = grecaptcha.render(captchaWidgetRef.current!, {
+            sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY,
+            size: 'invisible',
+            badge: 'inline',
+          });
+          if (typeof id === 'number') {
+            setV2WidgetId(id);
+          }
+        } catch (_) {}
+      }
+    }
+  }, [captchaMode]);
+
   return (
     <div className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden animate-gradient" style={{ backgroundSize: '200% 200%' }}>
+      {captchaMode === 'enterprise' ? (
+        <Script src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`} strategy="afterInteractive" />
+      ) : (
+        <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
+      )}
       <div className="atm-initial bg-white">
         {/* Header */}
         <Header showBorder={false} variant='white-bg' isFixed={true} />
@@ -674,13 +829,27 @@ export default function Home() {
                       Gracias por contactarnos. Te responderemos pronto.
                     </p>
                   )}
+                  <div className="col-span-1 lg:col-span-2">
+                    <div ref={captchaWidgetRef} className="mb-2"></div>
+                    {captchaMode === 'v2' ? (
+                      <p className="text-white/80 text-xs mb-4">
+                        Este sitio usa reCAPTCHA invisible; la verificación ocurre automáticamente al enviar.
+                      </p>
+                    ) : (
+                      captchaWidgetId === null && (
+                        <p className="text-white/80 text-xs mb-4">
+                          Si no ves el captcha, la verificación se realiza automáticamente al enviar.
+                        </p>
+                      )
+                    )}
+                  </div>
                   <div className="col-span-1 lg:col-span-2 flex">
                     <button
                       type="submit"
                       className="rounded-lg bg-white px-8 py-4 font-semibold text-[#1c3fde] transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60 glow-button scroll-reveal scroll-reveal-delay-6"
-                      disabled={submitStatus === "sending"}
+                      disabled={captchaVerifying || submitStatus === "sending"}
                     >
-                      {submitStatus === "sending" ? "Enviando..." : "Enviar"}
+                      {captchaVerifying ? "Verificando captcha..." : (submitStatus === "sending" ? "Enviando..." : "Enviar")}
                     </button>
                   </div>
                 </form>

@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { RecaptchaEnterpriseServiceClient } from "@google-cloud/recaptcha-enterprise";
+import fs from "fs";
+import path from "path";
 
 export const runtime = "nodejs";
 
@@ -12,6 +15,24 @@ type MailEnv = {
   from?: string;
   to?: string;
 };
+
+type ContactFormConfig = {
+  recipientEmail?: string;
+  emailSubject?: string;
+  allowedOrigins?: string[];
+  requireRecaptcha?: boolean;
+};
+
+function loadContactConfig(): ContactFormConfig {
+  try {
+    const cfgPath = path.join(process.cwd(), "attach-group-contact-form.json");
+    const raw = fs.readFileSync(cfgPath, "utf-8");
+    const parsed = JSON.parse(raw) as ContactFormConfig;
+    return parsed;
+  } catch (_) {
+    return {};
+  }
+}
 
 function loadMailEnv(): MailEnv {
   const port = Number(process.env.SMTP_PORT ?? 587);
@@ -33,6 +54,20 @@ function isValidEmail(email: string): boolean {
 
 export async function POST(request: Request) {
   try {
+    const config = loadContactConfig();
+
+    // Validar origen permitido si hay configuración (permitir si no hay header origin en same-origin)
+    const origin = request.headers.get("origin") ?? "";
+    if (config.allowedOrigins && config.allowedOrigins.length > 0) {
+      const isAllowed = origin === "" || config.allowedOrigins.includes(origin);
+      if (!isAllowed) {
+        return NextResponse.json(
+          { success: false, error: "Origen no permitido." },
+          { status: 403 }
+        );
+      }
+    }
+
     const formData = await request.formData();
 
     const fullName = (formData.get("fullName")?.toString() ?? "").trim();
@@ -40,6 +75,9 @@ export async function POST(request: Request) {
     const email = (formData.get("email")?.toString() ?? "").trim().toLowerCase();
     const phone = (formData.get("phone")?.toString() ?? "").trim();
     const message = (formData.get("message")?.toString() ?? "").trim();
+    const gRecaptchaResponse = (formData.get("g-recaptcha-response")?.toString() ?? "").trim();
+    const recaptchaToken = (formData.get("recaptchaToken")?.toString() ?? "").trim();
+    const recaptchaAction = (formData.get("recaptchaAction")?.toString() ?? "CONTACT").trim();
 
     // Basic server-side validation
     if (!fullName || !company || !email || !phone || !message) {
@@ -54,6 +92,121 @@ export async function POST(request: Request) {
         { success: false, error: "Correo inválido." },
         { status: 400 }
       );
+    }
+
+    // Verificación de reCAPTCHA (v2 invisible o Enterprise) según datos presentes y config
+    if (config.requireRecaptcha !== false) {
+      // Si el formulario envió g-recaptcha-response, validar como v2 invisible
+      if (gRecaptchaResponse) {
+        const secret = process.env.RECAPTCHA_V2_SECRET || (config as any).recaptchaV2SecretKey || "";
+        if (!secret) {
+          return NextResponse.json(
+            { success: false, error: "Configuración reCAPTCHA v2 faltante: secret." },
+            { status: 500 }
+          );
+        }
+
+        try {
+          const params = new URLSearchParams({
+            secret,
+            response: gRecaptchaResponse,
+            remoteip: request.headers.get("x-forwarded-for") ?? "",
+          });
+          const verifyResp = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: params.toString(),
+          });
+          const verifyData = (await verifyResp.json()) as {
+            success: boolean;
+            challenge_ts?: string;
+            hostname?: string;
+            "error-codes"?: string[];
+          };
+          if (!verifyData.success) {
+            const codes = verifyData["error-codes"]?.join(", ") || "unknown";
+            return NextResponse.json(
+              { success: false, error: `reCAPTCHA v2 inválido: ${codes}` },
+              { status: 400 }
+            );
+          }
+          // v2 invisible validado, continuar
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          return NextResponse.json(
+            { success: false, error: `Error verificación reCAPTCHA v2: ${msg}` },
+            { status: 500 }
+          );
+        }
+      } else {
+        // Validar con Enterprise si no hay g-recaptcha-response
+        const projectID = process.env.GOOGLE_CLOUD_PROJECT || process.env.GCLOUD_PROJECT_ID || process.env.RECAPTCHA_PROJECT_ID || "";
+        const siteKey = process.env.RECAPTCHA_SITE_KEY || process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
+
+        if (!recaptchaToken) {
+          return NextResponse.json(
+            { success: false, error: "Validación reCAPTCHA requerida." },
+            { status: 400 }
+          );
+        }
+
+        if (!projectID || !siteKey) {
+          return NextResponse.json(
+            { success: false, error: "Configuración reCAPTCHA faltante: projectID o siteKey." },
+            { status: 500 }
+          );
+        }
+
+        let assessment;
+        try {
+          const client = new RecaptchaEnterpriseServiceClient();
+          const projectPath = client.projectPath(projectID);
+          const [resp] = await client.createAssessment({
+            parent: projectPath,
+            assessment: {
+              event: {
+                token: recaptchaToken,
+                siteKey,
+              },
+            },
+          });
+          assessment = resp;
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          return NextResponse.json(
+            { success: false, error: `Error verificación reCAPTCHA: ${msg}` },
+            { status: 500 }
+          );
+        }
+
+        if (!assessment?.tokenProperties?.valid) {
+          const reason = assessment?.tokenProperties?.invalidReason ?? "invalid-token";
+          return NextResponse.json(
+            { success: false, error: `Token reCAPTCHA inválido: ${reason}` },
+            { status: 400 }
+          );
+        }
+
+        // Validar acción esperada y umbral de score
+        const expectedAction = recaptchaAction;
+        const actualAction = assessment?.tokenProperties?.action;
+        const score = assessment?.riskAnalysis?.score ?? 0;
+        const threshold = Number(process.env.RECAPTCHA_THRESHOLD ?? 0.5);
+
+        if (expectedAction && actualAction && expectedAction !== actualAction) {
+          return NextResponse.json(
+            { success: false, error: `Acción reCAPTCHA inesperada: ${actualAction}` },
+            { status: 400 }
+          );
+        }
+
+        if (score < threshold) {
+          return NextResponse.json(
+            { success: false, error: `Score reCAPTCHA bajo (${score}).` },
+            { status: 400 }
+          );
+        }
+      }
     }
 
     const env = loadMailEnv();
@@ -78,7 +231,8 @@ export async function POST(request: Request) {
       },
     });
 
-    const subject = `Nuevo contacto web — ${fullName} / ${company}`;
+    const subjectBase = config.emailSubject || "Nuevo contacto web";
+    const subject = `${subjectBase} — ${fullName} / ${company}`;
 
     const html = `
       <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #111;">
@@ -96,9 +250,10 @@ export async function POST(request: Request) {
 
     const text = `Nuevo contacto web\n\nNombre: ${fullName}\nCompañía: ${company}\nEmail: ${email}\nTeléfono: ${phone}\n\nMensaje:\n${message}`;
 
+    const toAddress = config.recipientEmail || env.to;
     await transporter.sendMail({
       from: env.from,
-      to: env.to,
+      to: toAddress,
       replyTo: email,
       subject,
       text,

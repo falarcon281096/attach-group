@@ -539,7 +539,7 @@ export default function Home() {
             increíble juntos.
           </h2>
 
-          <a href="/contacto" className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-105">
+          <a href="/contacto/" className="self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-500 hover:scale-105">
             Conversemos <span className="ml-2">➜</span>
           </a>
         </div>
