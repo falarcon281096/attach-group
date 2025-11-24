@@ -662,19 +662,19 @@ export default function Home() {
                 <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_2.png" alt="Google Cloud" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.svg" alt="Google Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
+                <img className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_3.svg" alt="Google Partner" width={160} height={32} loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.svg" alt="Meta Business Partner" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
+                <img className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_4.svg" alt="Meta Business Partner" width={160} height={32} loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
                 <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_5.png" alt="VWO" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.svg" alt="Convert" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
+                <img className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_6.svg" alt="Convert" width={160} height={32} loading="lazy"/>
               </div>
               <div className="block w-[10rem] md:w-[15rem] flex justify-center">
-                <Image className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.svg" alt="DV360" width={160} height={32} sizes="(max-width: 768px) 128px, 192px" loading="lazy"/>
+                <img className="w-[8rem] md:w-[12rem]" src="/images/home/attach_partner_7.svg" alt="DV360" width={160} height={32} loading="lazy"/>
               </div>
 
               {/* Set 2 (duplicate for seamless loop) */}

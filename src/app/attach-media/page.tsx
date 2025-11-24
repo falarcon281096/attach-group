@@ -159,7 +159,7 @@ import { useEffect, useRef, useState } from "react";
                     // filter: "drop-shadow(0 0 10px rgba(47,125,224,0.5))",
                     // animation: "float 3s ease-in-out infinite"
                   }}>
-                    <Image 
+                    <img 
                       src="/images/general/attach_cross_blue.svg" 
                       alt="Plus" 
                       width={56} 
@@ -183,7 +183,7 @@ import { useEffect, useRef, useState } from "react";
                     // animation: "float 3s ease-in-out infinite",
                     // animationDelay: "1s"
                   }}>
-                    <Image 
+                    <img 
                       src="/images/general/attach_cross_blue.svg" 
                       alt="Plus" 
                       width={56} 
@@ -481,7 +481,7 @@ import { useEffect, useRef, useState } from "react";
                   // filter: "drop-shadow(0 0 10px rgba(47,125,224,0.5))",
                   // animation: "float 3s ease-in-out infinite"
                 }}>
-                  <Image 
+                  <img 
                     src="/images/general/attach_cross_blue.svg" 
                     alt="Plus" 
                     width={32} 
