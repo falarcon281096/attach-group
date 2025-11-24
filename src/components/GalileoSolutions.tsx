@@ -53,8 +53,8 @@ export default function GalileoSolutions() {
                 <div
                     className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center overflow-hidden transition-all duration-700 ease-in-out ${
                         openSection === "ia" 
-                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-2" 
-                            : "opacity-0 -translate-y-1 max-h-0"
+                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-2 pointer-events-auto" 
+                            : "opacity-0 -translate-y-1 max-h-0 pointer-events-none"
                     }`}
                 >
                     <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500">
@@ -107,10 +107,10 @@ export default function GalileoSolutions() {
 
                 {/* Grid de tarjetas SAAS */}
                 <div
-                    className={`grid md:grid-cols-2 gap-10 mb-10 overflow-visible transition-all duration-700 ease-in-out ${
+                    className={`grid md:grid-cols-2 gap-10 mb-10 overflow-hidden transition-all duration-700 ease-in-out ${
                         openSection === "saas" 
-                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4" 
-                            : "opacity-0 -translate-y-1 max-h-0"
+                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4 pointer-events-auto" 
+                            : "opacity-0 -translate-y-1 max-h-0 pointer-events-none"
                     }`}
                 >
                     {/* Tarjeta 1 */}
@@ -189,8 +189,8 @@ export default function GalileoSolutions() {
                 <div
                     className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center overflow-hidden transition-all duration-700 ease-in-out ${
                         openSection === "cloud" 
-                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4" 
-                            : "opacity-0 -translate-y-1 max-h-0"
+                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4 pointer-events-auto" 
+                            : "opacity-0 -translate-y-1 max-h-0 pointer-events-none"
                     }`}
                 >
                     <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[16pxpx] md:leading-[20px] pl-0 pr-4 md:pl-12 md:pr-8 text-justify transition-all duration-500 ">
@@ -247,8 +247,8 @@ export default function GalileoSolutions() {
                 <div
                     className={`grid grid-cols-1 md:grid-cols-[60%_40%] gap-10 mb-10 items-center overflow-hidden transition-all duration-700 ease-in-out ${
                         openSection === "martech" 
-                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4" 
-                            : "opacity-0 -translate-y-1 max-h-0"
+                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4 pointer-events-auto" 
+                            : "opacity-0 -translate-y-1 max-h-0 pointer-events-none"
                     }`}
                 >
                     <div className="font-['graphik'] font-normal text-[#666666] text-[14px] md:text-[20px] leading-[20px] md:leading-[28px] pl-0 md:pl-12 pr-8 text-justify transition-all duration-500   ">

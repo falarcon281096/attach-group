@@ -54,8 +54,14 @@ const [captchaMode, setCaptchaMode] = useState<'enterprise' | 'v2_invisible' | '
 const debugCaptcha = String(process.env.NEXT_PUBLIC_DEBUG_CAPTCHA || '').toLowerCase() === 'true';
 const v2SiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY;
 const missingV2SiteKey = !v2SiteKey;
+  // Control centralizado para evitar cambiar a reCAPTCHA v2 cuando el objetivo es Enterprise
+  // Por defecto, deshabilitamos el fallback a v2 para no requerir el secret de v2.
+  const disableV2Fallback = String(process.env.NEXT_PUBLIC_DISABLE_V2_FALLBACK || 'true').toLowerCase() === 'true';
   const [grePresent, setGrePresent] = useState<boolean>(false);
-const [greEnterprisePresent, setGreEnterprisePresent] = useState<boolean>(false);
+  const [greEnterprisePresent, setGreEnterprisePresent] = useState<boolean>(false);
+  const [captchaNotice, setCaptchaNotice] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const autoSubmitOnCaptcha = true;
   const [lastToken, setLastToken] = useState<{ obtained: boolean; mode: string; length: number }>({ obtained: false, mode: '', length: 0 });
   const [v2AnchorPresent, setV2AnchorPresent] = useState<boolean>(false);
   const [v2HasIframe, setV2HasIframe] = useState<boolean>(false);
@@ -67,7 +73,7 @@ const [recaptchaScriptLoaded, setRecaptchaScriptLoaded] = useState<boolean>(fals
 const [recaptchaScriptError, setRecaptchaScriptError] = useState<boolean>(false);
 const [recaptchaFallbackTried, setRecaptchaFallbackTried] = useState<boolean>(false);
 // Host dinámico: por defecto usamos www.google.com y cambiamos a www.recaptcha.net si hay error de carga
-const [recaptchaHostCurrent, setRecaptchaHostCurrent] = useState<string>('www.google.com');
+const [recaptchaHostCurrent, setRecaptchaHostCurrent] = useState<string>('www.recaptcha.net');
 // Control para evitar cambiar host múltiples veces de forma proactiva
 const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(false);
 
@@ -418,6 +424,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
     }
 
     setErrors({});
+    setCaptchaNotice(null);
     setSubmitError(null);
     // No marcamos "sending" hasta tener token; así el botón no queda bloqueado si el usuario aún debe marcar el checkbox
 
@@ -471,7 +478,25 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                   size,
                   badge: size === 'invisible' ? 'inline' : undefined,
                   theme: 'light',
-                });
+                  // Callbacks para feedback en checkbox
+                  callback: (token: string) => {
+                    try {
+                      if (token && typeof token === 'string' && token.length > 0) {
+                        setLastToken({ obtained: true, mode: 'v2_checkbox', length: token.length });
+                        setCaptchaNotice('Captcha verificado. Ahora puedes enviar.');
+                        if (autoSubmitOnCaptcha && formRef.current) {
+                          try { formRef.current.requestSubmit(); } catch (_) {}
+                        }
+                      }
+                    } catch (_) {}
+                  },
+                  'expired-callback': () => {
+                    setCaptchaNotice('El captcha expiró. Marca nuevamente el checkbox.');
+                  },
+                  'error-callback': () => {
+                    setCaptchaNotice('Error de captcha. Intenta nuevamente.');
+                  },
+                } as any);
                 if (typeof id === 'number') {
                   setV2WidgetId(id);
                 }
@@ -560,12 +585,14 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
             await new Promise(resolve => setTimeout(resolve, 100));
           }
         }
+        // Re-evaluar el objeto grecaptcha después del polling para evitar usar una referencia obsoleta
+        const greNow = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
         
-        if (enterpriseReady && gre && gre.enterprise) {
+        if (enterpriseReady && greNow && (greNow as any).enterprise) {
           // Intentar obtener token del widget visible
           if (captchaWidgetId !== null) {
             try { 
-              const resp = gre.enterprise.getResponse(captchaWidgetId);
+              const resp = (greNow as any).enterprise.getResponse(captchaWidgetId);
               if (resp && typeof resp === 'string' && resp.length > 0) {
                 tokenToUse = resp;
                 setLastToken({ obtained: !!tokenToUse, mode: 'enterprise', length: tokenToUse ? tokenToUse.length : 0 });
@@ -574,9 +601,19 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
           }
           if (!tokenToUse) {
             try { 
-              await new Promise<void>((resolve) => gre.enterprise.ready(resolve));
-              
-              tokenToUse = await gre.enterprise.execute(siteKey, { action });
+              // Helper: timeout para evitar congelamiento si ready/execute no resuelven
+              const withTimeout = <T,>(p: Promise<T>, ms: number, label: string): Promise<T> => {
+                return Promise.race([
+                  p,
+                  new Promise<T>((_, reject) => setTimeout(() => reject(new Error(label)), ms)),
+                ]);
+              };
+
+              // Esperar a que Enterprise esté listo con timeout
+              await withTimeout(new Promise<void>((resolve) => (greNow as any).enterprise.ready(resolve)), 5000, 'Timeout esperando reCAPTCHA Enterprise (ready)');
+
+              // Ejecutar generación de token con timeout
+              tokenToUse = await withTimeout((greNow as any).enterprise.execute(siteKey, { action }), 10000, 'Timeout ejecutando reCAPTCHA Enterprise');
               setLastToken({ obtained: !!tokenToUse, mode: 'enterprise', length: tokenToUse ? tokenToUse.length : 0 });
             } catch (err) {
               // Si falla execute, intentar cambiar a v2
@@ -585,18 +622,22 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
           }
         } else {
           // Si enterprise no está disponible después de esperar, NO usar tokens de v2
-          // Cambiar a v2_invisible para que se obtenga un token de v2 correcto
           setGreEnterprisePresent(false);
-          setCaptchaMode('v2_invisible');
-          setRecaptchaScriptLoaded(false);
-          setRecaptchaScriptError(false);
-          try {
-            if (captchaWidgetRef.current) {
-              captchaWidgetRef.current.innerHTML = '';
-            }
-          } catch (_) {}
-          setCaptchaWidgetId(null);
-          // No usar tokenToUse, forzar que se obtenga uno nuevo de v2
+          if (!disableV2Fallback) {
+            // Cambiar a v2_invisible para que se obtenga un token de v2 correcto
+            setCaptchaMode('v2_invisible');
+            setRecaptchaScriptLoaded(false);
+            setRecaptchaScriptError(false);
+            try {
+              if (captchaWidgetRef.current) {
+                captchaWidgetRef.current.innerHTML = '';
+              }
+            } catch (_) {}
+            setCaptchaWidgetId(null);
+          } else {
+            setSubmitError('No se pudo generar el token de reCAPTCHA Enterprise. Verifica bloqueadores (gstatic) y recarga.');
+          }
+          // No usar tokenToUse
           tokenToUse = null;
           setLastToken({ obtained: false, mode: 'enterprise', length: 0 });
         }
@@ -619,9 +660,9 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
       setCaptchaVerifying(false);
 
       if (!useV2) {
-        // Enterprise: si hay widget y no hay respuesta, pedir marcar checkbox
-        setSubmitError("Por favor marca el checkbox para verificar el captcha.");
-        setCaptchaRequireCheckbox(true);
+        // Enterprise: si no se generó token, mostrar mensaje general (sin exigir checkbox)
+        setSubmitError("No se pudo generar el token de reCAPTCHA Enterprise. Verifica bloqueadores (gstatic) y recarga.");
+        setCaptchaRequireCheckbox(false);
         // Mantener modo enterprise y el widget; no cambiar script ni modo
         return;
       }
@@ -643,8 +684,8 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
     // A partir de aquí sí estamos enviando el formulario
     setSubmitStatus("sending");
 
-    // Verificar el modo ACTUAL antes de enviar (puede haber cambiado)
-    // Usar la variable currentMode que ya fue definida al inicio de la función
+    // Verificar el modo ACTUAL antes de enviar (puede haber cambiado en efectos/fallbacks)
+    // Usar el estado más reciente para decidir el payload correcto
     const isV2Mode = currentMode.startsWith('v2');
     
     // Si estamos en modo enterprise pero tenemos un token de v2, NO enviarlo
@@ -665,14 +706,17 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
     if (isV2Mode) {
       // Backend espera g-recaptcha-response para v2 invisible
       payload.append('g-recaptcha-response', tokenToUse);
+      //payload.append('captchaMode', currentMode);
     } else {
-      payload.append('recaptchaToken', tokenToUse);
-      payload.append('recaptchaAction', 'CONTACT');
+      //payload.append('recaptchaToken', tokenToUse);
+        //payload.append('recaptchaAction', 'CONTACT');
+        // Enviar el modo de captcha activo para que el backend decida el fallback correctamente
+        //payload.append('captchaMode', currentMode);
     }
 
     try {
       const response = await fetch(
-        "/api/contact",
+        "https://us-central1-attach-group-web.cloudfunctions.net/attach-group-formhub-fn/attach-group-contact-form",
         {
           method: "POST",
           body: payload,
@@ -831,6 +875,8 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
   // Limpiar tokens de v2 cuando cambia a modo enterprise
   useEffect(() => {
     if (captchaMode === 'enterprise') {
+      // Asegurar que no se muestre el requerimiento de checkbox en modo Enterprise
+      setCaptchaRequireCheckbox(false);
       // Si hay un token de v2 guardado, limpiarlo
       if (lastToken.mode && lastToken.mode.startsWith('v2')) {
         setLastToken({ obtained: false, mode: 'enterprise', length: 0 });
@@ -863,14 +909,16 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
         if (attempts < maxAttempts) {
           setTimeout(checkEnterprise, 100);
         } else {
-          // Si después de 2 segundos no está disponible, cambiar a v2
+          // Si después de 2 segundos no está disponible, evitar conmutar a v2 si está deshabilitado
           setGreEnterprisePresent(false);
-          setCaptchaMode('v2_invisible');
-          // Resetear estado del script para que se cargue el de v2
-          setRecaptchaScriptLoaded(false);
-          setRecaptchaScriptError(false);
-          try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
-          setCaptchaWidgetId(null);
+          if (!disableV2Fallback) {
+            setCaptchaMode('v2_invisible');
+            // Resetear estado del script para que se cargue el de v2
+            setRecaptchaScriptLoaded(false);
+            setRecaptchaScriptError(false);
+            try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+            setCaptchaWidgetId(null);
+          }
         }
       } catch (_) {
         attempts++;
@@ -878,11 +926,13 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
           setTimeout(checkEnterprise, 100);
         } else {
           setGreEnterprisePresent(false);
-          setCaptchaMode('v2_invisible');
-          setRecaptchaScriptLoaded(false);
-          setRecaptchaScriptError(false);
-          try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
-          setCaptchaWidgetId(null);
+          if (!disableV2Fallback) {
+            setCaptchaMode('v2_invisible');
+            setRecaptchaScriptLoaded(false);
+            setRecaptchaScriptError(false);
+            try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+            setCaptchaWidgetId(null);
+          }
         }
       }
     };
@@ -915,11 +965,9 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
 
     if (captchaMode === 'enterprise') {
       const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY; 
-      // Si no hay site key de Enterprise, conmutar inmediatamente a v2 invisible
+      // Si no hay site key de Enterprise, NO conmutar a v2; mostrar aviso y mantener Enterprise
       if (!siteKey) {
-        setCaptchaMode('v2_invisible');
-        try { if (captchaWidgetRef.current) { captchaWidgetRef.current.innerHTML = ''; } } catch (_) {}
-        setCaptchaWidgetId(null);
+        setCaptchaNotice('Usando reCAPTCHA Enterprise. No se requiere secret key de v2 cuando Enterprise está activo.');
         return;
       }
       
@@ -954,7 +1002,25 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                   sitekey: siteKey,
                   theme: 'light',
                   size: 'normal',
-                });
+                  // Callbacks para feedback en Enterprise checkbox
+                  callback: (token: string) => {
+                    try {
+                      if (token && typeof token === 'string' && token.length > 0) {
+                        setLastToken({ obtained: true, mode: 'enterprise', length: token.length });
+                        setCaptchaNotice('Captcha verificado. Ahora puedes enviar.');
+                        if (autoSubmitOnCaptcha && formRef.current) {
+                          try { formRef.current.requestSubmit(); } catch (_) {}
+                        }
+                      }
+                    } catch (_) {}
+                  },
+                  'expired-callback': () => {
+                    setCaptchaNotice('El captcha expiró. Verifica nuevamente.');
+                  },
+                  'error-callback': () => {
+                    setCaptchaNotice('Error de captcha. Intenta nuevamente.');
+                  },
+                } as any);
                 if (typeof id === 'number') {
                   setCaptchaWidgetId(id);
                   return; // Éxito
@@ -972,7 +1038,24 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                         sitekey: siteKey,
                         theme: 'light',
                         size: 'normal',
-                      });
+                        callback: (token: string) => {
+                          try {
+                            if (token && typeof token === 'string' && token.length > 0) {
+                              setLastToken({ obtained: true, mode: 'enterprise', length: token.length });
+                              setCaptchaNotice('Captcha verificado. Ahora puedes enviar.');
+                              if (autoSubmitOnCaptcha && formRef.current) {
+                                try { formRef.current.requestSubmit(); } catch (_) {}
+                              }
+                            }
+                          } catch (_) {}
+                        },
+                        'expired-callback': () => {
+                          setCaptchaNotice('El captcha expiró. Verifica nuevamente.');
+                        },
+                        'error-callback': () => {
+                          setCaptchaNotice('Error de captcha. Intenta nuevamente.');
+                        },
+                      } as any);
                       if (typeof id === 'number') {
                         setCaptchaWidgetId(id);
                       }
@@ -1003,9 +1086,17 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
             // Intentar de nuevo en 200ms
             setTimeout(tryRenderEnterprise, 200);
           } else if (renderAttempts >= maxRenderAttempts) {
-            // Después de varios intentos, el widget no se renderizó
-            // Esto está bien, el envío usará execute() en su lugar
-            console.warn('Enterprise widget no se pudo renderizar, se usará execute() al enviar');
+            // Después de varios intentos, el widget no se renderizó: intentar cambiar de host y recargar script
+            console.warn('Enterprise widget no se pudo renderizar. Cambiando host y reintentando carga del script.');
+            try {
+              setRecaptchaHostCurrent((prev) => prev === 'www.google.com' ? 'www.recaptcha.net' : 'www.google.com');
+              // Forzar recarga del script de enterprise
+              setRecaptchaScriptLoaded(false);
+              setRecaptchaScriptError(false);
+              try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+              setCaptchaWidgetId(null);
+            } catch (_) {}
+            // El envío usará execute() en su lugar si no hay widget visible
           }
         } catch (err) {
           console.error('Error en tryRenderEnterprise:', err);
@@ -1207,7 +1298,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
     return () => clearTimeout(t);
   }, [captchaMode, recaptchaScriptLoaded, v2AnchorPresent, v2ChildrenCount]);
 
-  // Fallback enterprise: si el script cargó pero grecaptcha.enterprise no está disponible, cambiar host y/o conmutar a v2 invisible
+  // Fallback enterprise: si el script cargó pero grecaptcha.enterprise no está disponible, cambiar host y/o evitar conmutar a v2 si está deshabilitado
   useEffect(() => {
     if (captchaMode !== 'enterprise') return;
     // Solo actuamos cuando el script reportó carga
@@ -1238,15 +1329,17 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
           return; // Salir, el script se recargará
         }
         
-        // 2) Si después de varios intentos enterprise sigue ausente, conmutar a v2 invisible
+        // 2) Si después de varios intentos enterprise sigue ausente, conmutar a v2 invisible (si está permitido)
         if (attempts >= maxAttempts) {
           setGreEnterprisePresent(false);
-          setCaptchaMode('v2_invisible');
-          // Resetear estado del script para que se cargue el de v2
-          setRecaptchaScriptLoaded(false);
-          setRecaptchaScriptError(false);
-          try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
-          setCaptchaWidgetId(null);
+          if (!disableV2Fallback) {
+            setCaptchaMode('v2_invisible');
+            // Resetear estado del script para que se cargue el de v2
+            setRecaptchaScriptLoaded(false);
+            setRecaptchaScriptError(false);
+            try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+            setCaptchaWidgetId(null);
+          }
           return;
         }
         
@@ -1258,12 +1351,14 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
           setTimeout(checkAndFallback, 100);
         } else {
           setGreEnterprisePresent(false);
-          setCaptchaMode('v2_invisible');
-          // Resetear estado del script para que se cargue el de v2
-          setRecaptchaScriptLoaded(false);
-          setRecaptchaScriptError(false);
-          try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
-          setCaptchaWidgetId(null);
+          if (!disableV2Fallback) {
+            setCaptchaMode('v2_invisible');
+            // Resetear estado del script para que se cargue el de v2
+            setRecaptchaScriptLoaded(false);
+            setRecaptchaScriptError(false);
+            try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+            setCaptchaWidgetId(null);
+          }
         }
       }
     };
@@ -1273,7 +1368,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
   }, [captchaMode, recaptchaScriptLoaded, recaptchaHostCurrent, hostProactiveSwitched]);
 
   // Fallback de carga para enterprise: si el script no carga tras un breve tiempo,
-  // intentamos inyectarlo manualmente y, si sigue sin enterprise, conmutamos a v2 invisible.
+  // intentamos inyectarlo manualmente y, si sigue sin enterprise, evitar conmutar a v2 si está deshabilitado.
   useEffect(() => {
     if (captchaMode !== 'enterprise') return;
     const initialWait = setTimeout(() => {
@@ -1297,12 +1392,14 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
         const fallbackWait = setTimeout(() => {
           const enterpriseReady = !!(typeof grecaptcha !== 'undefined' && (grecaptcha as any).enterprise);
           if (!enterpriseReady) {
-            setCaptchaMode('v2_invisible');
-            // Resetear estado del script para que se cargue el de v2
-            setRecaptchaScriptLoaded(false);
-            setRecaptchaScriptError(false);
-            try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
-            setCaptchaWidgetId(null);
+            if (!disableV2Fallback) {
+              setCaptchaMode('v2_invisible');
+              // Resetear estado del script para que se cargue el de v2
+              setRecaptchaScriptLoaded(false);
+              setRecaptchaScriptError(false);
+              try { if (captchaWidgetRef.current) captchaWidgetRef.current.innerHTML = ''; } catch (_) {}
+              setCaptchaWidgetId(null);
+            }
           }
         }, 1800);
         return () => clearTimeout(fallbackWait);
@@ -1336,11 +1433,15 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
             if (recaptchaHostCurrent === 'www.google.com') {
               setRecaptchaHostCurrent('www.recaptcha.net');
             } else {
-              // Si ambos hosts fallan, cambiar a v2
-              setCaptchaMode('v2_invisible');
-              // Resetear estado del script para que se cargue el de v2
-              setRecaptchaScriptLoaded(false);
-              setRecaptchaScriptError(false);
+              // Si ambos hosts fallan y el fallback a v2 está permitido, conmutar
+              if (!disableV2Fallback) {
+                setCaptchaMode('v2_invisible');
+                // Resetear estado del script para que se cargue el de v2
+                setRecaptchaScriptLoaded(false);
+                setRecaptchaScriptError(false);
+              } else {
+                setCaptchaNotice('No se pudo cargar reCAPTCHA Enterprise. Verifica tu conexión o bloqueadores (gstatic) y recarga.');
+              }
             }
           }}
         />
@@ -1472,6 +1573,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                 <form
                   className="grid grid-cols-1 gap-5 lg:grid-cols-2 scroll-reveal"
                   onSubmit={handleSubmit}
+                  ref={formRef}
                   encType="multipart/form-data"
                   noValidate
                 >
@@ -1592,7 +1694,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                   <div className="col-span-1 lg:col-span-2">
                     <div ref={captchaWidgetRef} className="mb-2" style={captchaMode === 'v2_checkbox' ? { minHeight: 86 } : undefined}></div>
                     {captchaMode === 'v2_invisible' && (
-                      <p className="text-white/80 text-xs mb-4">
+                      <p className="text-white/80 text-xs mb-4 hidden">
                         Usamos reCAPTCHA invisible; la verificación ocurre automáticamente al enviar.
                       </p>
                     )}
@@ -1611,6 +1713,11 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                         Si no ves el captcha, la verificación se realiza automáticamente al enviar.
                       </p>
                     )}
+                    {captchaNotice && (
+                      <p className="text-white text-xs mb-4 font-semibold">
+                        {captchaNotice}
+                      </p>
+                    )}
                     {missingV2SiteKey && (
                       <p className="text-red-100 text-sm font-semibold mb-2">
                         Falta site key de reCAPTCHA v2. Configura `NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY` y reinicia el servidor.
@@ -1622,7 +1729,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                       </p>
                     )}
                     {captchaMode.startsWith('v2') && (
-                      <p className="text-white/60 text-xs mb-2">
+                      <p className="text-white/60 text-xs mb-2 hidden">
                         <strong>Importante:</strong> Si usas reCAPTCHA v2, el backend requiere `RECAPTCHA_V2_SECRET` en las variables de entorno o `recaptchaV2SecretKey` en attach-group-contact-form.json. Si usas Enterprise, NO necesitas el secret key de v2.
                       </p>
                     )}
