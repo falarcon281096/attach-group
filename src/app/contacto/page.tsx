@@ -402,7 +402,7 @@ export default function Home() {
     // Obtener token de reCAPTCHA justo antes de enviar
     setCaptchaVerifying(true);
     let tokenToUse: string | null = null;
-    let useV2 = captchaMode === 'v2';
+    const useV2 = captchaMode === 'v2';
     try {
       // @ts-expect-error grecaptcha global
       const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
@@ -456,8 +456,7 @@ export default function Home() {
         if (gre && gre.enterprise) {
           // Intentar obtener token del widget visible
           if (captchaWidgetId !== null) {
-            try {
-              // @ts-expect-error enterprise.getResponse
+            try { 
               const resp = gre.enterprise.getResponse(captchaWidgetId);
               if (resp && typeof resp === 'string' && resp.length > 0) {
                 tokenToUse = resp;
@@ -465,10 +464,9 @@ export default function Home() {
             } catch (_) {}
           }
           if (!tokenToUse) {
-            try {
-              // @ts-expect-error enterprise.ready
+            try { 
               await new Promise<void>((resolve) => gre.enterprise.ready(resolve));
-              // @ts-expect-error enterprise.execute
+              
               tokenToUse = await gre.enterprise.execute(siteKey, { action });
             } catch (_) {}
           }
@@ -590,6 +588,7 @@ export default function Home() {
       // @ts-expect-error grecaptcha global
       if (typeof grecaptcha !== 'undefined' && captchaWidgetRef.current) {
         try {
+          // @ts-expect-error grecaptcha global
           const id = grecaptcha.render(captchaWidgetRef.current!, {
             sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY,
             size: 'invisible',

@@ -1,5 +1,5 @@
 {
-	"recipientEmail": "fcerna@attachconsultores.com",
+	"recipientEmail": ["fcerna@attachconsultores.com"],
 	"emailSubject": "Formulario de contacto",
 	"jsonSchema": {
 		"type": "object",

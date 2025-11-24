@@ -98,7 +98,7 @@ export async function POST(request: Request) {
     if (config.requireRecaptcha !== false) {
       // Si el formulario envió g-recaptcha-response, validar como v2 invisible
       if (gRecaptchaResponse) {
-        const secret = process.env.RECAPTCHA_V2_SECRET || (config as any).recaptchaV2SecretKey || "";
+        const secret = process.env.RECAPTCHA_V2_SECRET || (config as ContactFormConfig & { recaptchaV2SecretKey?: string }).recaptchaV2SecretKey || "";
         if (!secret) {
           return NextResponse.json(
             { success: false, error: "Configuración reCAPTCHA v2 faltante: secret." },
