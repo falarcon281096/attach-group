@@ -26,7 +26,7 @@ export default function Home() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-7xl mx-auto">
                         {/* === Bloque Izquierdo === */}
                         <div className="text-white flex flex-col justify-center relative">
-                            <Image
+                            <img
                                 className="mb-6 w-[220px] sm:w-[260px] md:w-[300px] lg:w-[393px] h-auto"
                                 src="/images/prisma/logoPrisma.svg"
                                 alt="Logo Prisma"

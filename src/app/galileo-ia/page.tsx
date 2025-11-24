@@ -217,12 +217,11 @@ export default function Home() {
                         }}
                     >
                         <div className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                            <Image
+                            <img
                                 src="/images/galileo/svg_1_galileo.svg"
                                 alt="Identificación de problemas y objetivos"
                                 width={80}
                                 height={80}
-                                sizes="80px"
                                 loading="lazy"
                                 className="object-contain filter drop-shadow-lg "
                             />
@@ -246,12 +245,11 @@ export default function Home() {
                         }}
                     >
                         <div className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                            <Image
+                            <img
                                 src="/images/galileo/svg_2_galileo.svg"
                                 alt="Propuesta de soluciones"
                                 width={80}
                                 height={80}
-                                sizes="80px"
                                 loading="lazy"
                                 className="object-contain filter drop-shadow-lg "
                             />
@@ -275,12 +273,11 @@ export default function Home() {
                         }}
                     >
                         <div className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                            <Image
+                            <img
                                 src="/images/galileo/svg_3_galileo.svg"
                                 alt="Diseño del prototipo"
                                 width={80}
                                 height={80}
-                                sizes="80px"
                                 loading="lazy"
                                 className="object-contain filter drop-shadow-lg "
                             />
@@ -304,12 +301,11 @@ export default function Home() {
                         }}
                     >
                         <div className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                            <Image
+                            <img
                                 src="/images/galileo/svg_4_galileo.svg"
                                 alt="Entrenamiento y optimización"
                                 width={80}
                                 height={80}
-                                sizes="80px"
                                 loading="lazy"
                                 className="object-contain filter drop-shadow-lg "
                             />
@@ -333,12 +329,11 @@ export default function Home() {
                         }}
                     >
                         <div className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                            <Image
+                            <img
                                 src="/images/galileo/svg_5_galileo.svg"
                                 alt="Implementación"
                                 width={80}
                                 height={80}
-                                sizes="80px"
                                 loading="lazy"
                                 className="object-contain filter drop-shadow-lg "
                             />
@@ -362,12 +357,11 @@ export default function Home() {
                         }}
                     >
                         <div className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                            <Image
+                            <img
                                 src="/images/galileo/svg_6_galileo.svg"
                                 alt="Medición de impacto y escalamiento"
                                 width={80}
                                 height={80}
-                                sizes="80px"
                                 loading="lazy"
                                 className="object-contain filter drop-shadow-lg "
                             />

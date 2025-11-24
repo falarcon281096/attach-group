@@ -66,15 +66,13 @@ export default function AnimatedGradient() {
                     <div className="mt-0 md:mt-0 text-white space-y-4 md:space-y-6 px-4 md:px-0">
                         <div className="inline-block overflow-hidden">
                             <div className="ml-0 md:ml-20 mb-6 md:mb-8 mt-5 md:mt-0">
-                                <Image
+                                <img
                                     src="/images/athena-ads/AthenaAdsLogo.svg"
                                     alt="Athena Ads Logo"
                                     width={695}
                                     height={319}
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 695px"
                                     className="w-full max-w-md md:max-w-2xl align-top"
                                     style={{ display: 'block' }}
-                                    priority
                                 />
                             </div>
                         </div>

@@ -49,7 +49,7 @@ export default function Footer() {
         {/* Logo y Social Links */}
         <div className="text-gray-500 grid grid-cols-2 gap-5 mt-5 lg:mt-0 py-5 px-7 lg:gap-12">
           <Link href="/" className="mt-1 px-0 md:py-8 w-30 lg:w-auto">
-            <Image 
+            <img 
               src="/images/general/attachGroupLogo.svg" 
               alt="Logo Attach" 
               width={180} 
@@ -59,7 +59,7 @@ export default function Footer() {
           <div className="lg:p-8"> 
             <div className="flex justify-end gap-2 lg:gap-4">
               <a href="https://www.instagram.com/attach.group/" target="blank" className="w-1/3 lg:w-1/11">
-                <Image 
+                <img 
                   src="/images/general/Instagram.svg" 
                   alt="LinkedIn" 
                   width={180} 
@@ -67,7 +67,7 @@ export default function Footer() {
                 />
               </a>
               <a href="https://www.linkedin.com/company/attachgroup/" target="blank" className="w-1/3 lg:w-1/11">
-                <Image 
+                <img 
                   src="/images/general/Linkedin.svg" 
                   alt="Instagram" 
                   width={180} 
@@ -75,8 +75,7 @@ export default function Footer() {
                 />
               </a>
               <a href="https://www.youtube.com/@attach-group/" target="blank" className="w-1/3 lg:w-1/11">
-                <Image 
-                  
+                <img 
                   src="/images/general/Youtube.svg" 
                   alt="YouTube" 
                   width={180} 

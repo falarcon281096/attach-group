@@ -212,12 +212,11 @@ export default function Home() {
               <Link href="/galileo-ia/" className="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:-translate-y-2 group scroll-reveal block cursor-pointer">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-2xl from-red-400 to-orange-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-2 md:px-4 lg:px-10 py-6 lg:py-8 transform transition-all duration-500 group-hover:scale-[1.03]">
-                  <Image
+                  <img
                     src="/images/general/GalileoIALogo.svg"
                     alt="galileo ia servicio de inteligencia artificial de attach group"
                     width={279}
                     height={74}
-                    sizes="(max-width: 768px) 65vw, (max-width: 1024px) 90vw, 279px"
                     loading="lazy"
                     className="w-[65%] md:w-[90%] lg:w-full lg:max-w-[279px] h-auto transform transition-all duration-500 group-hover:scale-[1.03]"
                   />
@@ -235,12 +234,11 @@ export default function Home() {
               <Link href="/athena-ads/" className="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:-translate-y-2 group scroll-reveal scroll-reveal-delay-1 block cursor-pointer">
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-2xl from-lime-400 to-green-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-2 md:px-4 lg:px-10 py-6 lg:py-8 transform transition-all duration-500 group-hover:scale-[1.03]">
-                  <Image
+                  <img
                     src="/images/general/AthenaAdsLogo.svg"
                     alt="athena ads servicio de publicidad programática de attach group"
                     width={300}
                     height={83}
-                    sizes="(max-width: 768px) 70vw, (max-width: 1024px) 90vw, 300px"
                     loading="lazy"
                     className="w-[70%] md:w-[90%] lg:w-full lg:max-w-[300px] h-auto transform transition-all duration-500 group-hover:scale-[1.03]"
                   />

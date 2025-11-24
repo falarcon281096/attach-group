@@ -30,13 +30,12 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
         }`}>
         {/* Logo - Izquierda */}
         <Link href="/" className="ml-0 lg:ml-15">
-          <Image
+          <img
             className="w-[120px] lg:w-[160px]"
             src="/images/general/LogoAttachGroupWhite.svg"
             alt="Logo Attach"
             width={120}
             height={24}
-            unoptimized
           />
         </Link>
 
