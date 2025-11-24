@@ -17,10 +17,15 @@ type MailEnv = {
 };
 
 type ContactFormConfig = {
-  recipientEmail?: string;
+  // Puede ser string o array por compatibilidad con JSON de ejemplo
+  recipientEmail?: string | string[];
+  recipientEmails?: string[];
   emailSubject?: string;
   allowedOrigins?: string[];
   requireRecaptcha?: boolean;
+  // Claves para reCAPTCHA v2 (alias compatibles)
+  recaptchaV2SecretKey?: string;
+  recaptchaSecretKey?: string;
 };
 
 function loadContactConfig(): ContactFormConfig {
@@ -98,7 +103,11 @@ export async function POST(request: Request) {
     if (config.requireRecaptcha !== false) {
       // Si el formulario envió g-recaptcha-response, validar como v2 invisible
       if (gRecaptchaResponse) {
-        const secret = process.env.RECAPTCHA_V2_SECRET || (config as ContactFormConfig & { recaptchaV2SecretKey?: string }).recaptchaV2SecretKey || "";
+        const secret =
+          process.env.RECAPTCHA_V2_SECRET ||
+          config.recaptchaV2SecretKey ||
+          config.recaptchaSecretKey ||
+          "";
         if (!secret) {
           return NextResponse.json(
             { success: false, error: "Configuración reCAPTCHA v2 faltante: secret." },
@@ -250,7 +259,15 @@ export async function POST(request: Request) {
 
     const text = `Nuevo contacto web\n\nNombre: ${fullName}\nCompañía: ${company}\nEmail: ${email}\nTeléfono: ${phone}\n\nMensaje:\n${message}`;
 
-    const toAddress = config.recipientEmail || env.to;
+    // Resolver destinatarios soportando tanto recipientEmail (string o array) como recipientEmails
+    let toAddress: string = env.to ?? "";
+    if (Array.isArray(config.recipientEmail)) {
+      toAddress = config.recipientEmail.join(", ");
+    } else if (typeof config.recipientEmail === "string" && config.recipientEmail.trim().length > 0) {
+      toAddress = config.recipientEmail;
+    } else if (Array.isArray(config.recipientEmails) && config.recipientEmails.length > 0) {
+      toAddress = config.recipientEmails.join(", ");
+    }
     await transporter.sendMail({
       from: env.from,
       to: toAddress,

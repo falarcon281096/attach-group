@@ -35,6 +35,11 @@
 				"minLength": 10,
 				"maxLength": 1500
 			}
+			,
+			"g-recaptcha-response": {
+				"type": "string",
+				"minLength": 20
+			}
 		},
 		"additionalProperties": false
 	},
@@ -48,5 +53,7 @@
     "https://www.attach.group"
   ],
   "requireRecaptcha": true,
-  "recaptchaV2SecretKey": ""
+  "recaptchaV2SecretKey": "",
+  "recaptchaSecretKey": "",
+  "recipientEmails": []
 }

@@ -29,6 +29,13 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
+  env: {
+    NEXT_PUBLIC_RECAPTCHA_MODE: 'v2',
+    // Clave pública del sitio v2 invisible (se inyecta desde el entorno si está definida)
+    NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY,
+    // Mantener pass-through para Enterprise por compatibilidad
+    NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+  },
 };
 
 export default nextConfig;
