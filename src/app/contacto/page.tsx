@@ -614,28 +614,21 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
     }
 
     if (!tokenToUse) {
-      setSubmitError("No se pudo validar el captcha. Intenta de nuevo.");
+      // No se obtuvo token. Manejar por modo sin forzar fallback a v2 cuando Enterprise está activo.
       setSubmitStatus("idle");
       setCaptchaVerifying(false);
-      
-      // Si estamos en enterprise y no se pudo obtener token, cambiar a v2_invisible
-      if (captchaMode === 'enterprise') {
-        setGreEnterprisePresent(false);
-        setCaptchaMode('v2_invisible');
-        // Resetear estado del script para que se cargue el de v2
-        setRecaptchaScriptLoaded(false);
-        setRecaptchaScriptError(false);
-        try {
-          if (captchaWidgetRef.current) {
-            captchaWidgetRef.current.innerHTML = '';
-          }
-        } catch (_) {}
-        setCaptchaWidgetId(null);
+
+      if (!useV2) {
+        // Enterprise: si hay widget y no hay respuesta, pedir marcar checkbox
+        setSubmitError("Por favor marca el checkbox para verificar el captcha.");
+        setCaptchaRequireCheckbox(true);
+        // Mantener modo enterprise y el widget; no cambiar script ni modo
         return;
       }
-      
-      // Si estamos en v2 y falló la obtención del token invisible, forzar checkbox
-      if (useV2 && captchaMode === 'v2_invisible') {
+
+      // v2: si falló invisible, forzar checkbox
+      setSubmitError("No se pudo validar el captcha. Intenta de nuevo.");
+      if (captchaMode === 'v2_invisible') {
         setCaptchaMode('v2_checkbox');
         try {
           if (captchaWidgetRef.current) {
@@ -916,6 +909,9 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
     setV2WidgetId(null);
     setCaptchaWidgetId(null);
     setV2AnchorPresent(false);
+    
+    // Early return si no hay modo definido
+    if (!captchaMode) return;
 
     if (captchaMode === 'enterprise') {
       const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY; 
@@ -927,39 +923,101 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
         return;
       }
       
+      // Esperar a que el script esté cargado antes de intentar renderizar
+      if (!recaptchaScriptLoaded) {
+        return;
+      }
+      
       // Esperar a que grecaptcha.enterprise esté disponible
+      let renderAttempts = 0;
+      const maxRenderAttempts = 15; // 3 segundos máximo
+      
       const tryRenderEnterprise = () => {
         try {
           const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
-          if (gre && (gre as any).enterprise && captchaWidgetRef.current) {
-            gre.enterprise.ready(() => {
-              try { 
-                const id = gre.enterprise.render(captchaWidgetRef.current!, {
+          const hasEnterprise = gre && (gre as any).enterprise;
+          
+          if (hasEnterprise && captchaWidgetRef.current) {
+            // Si ya tenemos un widget ID, no intentar render de nuevo
+            if (typeof captchaWidgetId === 'number') {
+              return;
+            }
+            // Verificar que el contenedor no esté vacío por alguna razón
+            if (captchaWidgetRef.current.innerHTML.trim() === '') {
+              try {
+                // Usar un elemento hijo nuevo para evitar el error de "already been rendered in this element"
+                const target = document.createElement('div');
+                target.className = 'recaptcha-enterprise-container';
+                captchaWidgetRef.current.appendChild(target);
+                // Intentar renderizar directamente sin ready (puede funcionar)
+                const id = gre.enterprise.render(target, {
                   sitekey: siteKey,
                   theme: 'light',
                   size: 'normal',
                 });
                 if (typeof id === 'number') {
                   setCaptchaWidgetId(id);
+                  return; // Éxito
                 }
-              } catch (_) {
-                // Falla render; el envío intentará con execute
+              } catch (renderErr) {
+                // Si falla render directo, intentar con ready
+                try {
+                  gre.enterprise.ready(() => {
+                    try { 
+                      // Crear un elemento hijo nuevo para el render en ready
+                      const target2 = document.createElement('div');
+                      target2.className = 'recaptcha-enterprise-container';
+                      captchaWidgetRef.current!.appendChild(target2);
+                      const id = gre.enterprise.render(target2, {
+                        sitekey: siteKey,
+                        theme: 'light',
+                        size: 'normal',
+                      });
+                      if (typeof id === 'number') {
+                        setCaptchaWidgetId(id);
+                      }
+                    } catch (err2) {
+                      console.error('Error renderizando Enterprise widget:', err2);
+                      // Falla render; el envío intentará con execute
+                    }
+                  });
+                  return; // Intentamos con ready
+                } catch (readyErr) {
+                  console.error('Error con enterprise.ready:', readyErr);
+                }
               }
-            });
-          } else if (captchaWidgetRef.current) {
-            // Si enterprise no está disponible aún, intentar de nuevo en 200ms
-            setTimeout(tryRenderEnterprise, 200);
+            } else {
+              // Si el contenedor ya tiene contenido, verificar si hay un widget
+              const existingIframe = captchaWidgetRef.current.querySelector('iframe[src*="recaptcha"]');
+              const existingBadge = captchaWidgetRef.current.querySelector('.grecaptcha-badge');
+              const existingWidget = existingIframe || existingBadge;
+              if (existingWidget) {
+                // Ya hay un widget, no hacer nada
+                return;
+              }
+            }
           }
-        } catch (_) {
-          // Si hay error, intentar de nuevo
-          if (captchaWidgetRef.current) {
+          
+          renderAttempts++;
+          if (renderAttempts < maxRenderAttempts && captchaWidgetRef.current) {
+            // Intentar de nuevo en 200ms
+            setTimeout(tryRenderEnterprise, 200);
+          } else if (renderAttempts >= maxRenderAttempts) {
+            // Después de varios intentos, el widget no se renderizó
+            // Esto está bien, el envío usará execute() en su lugar
+            console.warn('Enterprise widget no se pudo renderizar, se usará execute() al enviar');
+          }
+        } catch (err) {
+          console.error('Error en tryRenderEnterprise:', err);
+          renderAttempts++;
+          if (renderAttempts < maxRenderAttempts && captchaWidgetRef.current) {
             setTimeout(tryRenderEnterprise, 200);
           }
         }
       };
       
-      // Esperar un poco para que el script se inicialice
-      const timeoutId = setTimeout(tryRenderEnterprise, 300);
+      // Esperar un poco para que el script se inicialice completamente
+      const timeoutId = setTimeout(tryRenderEnterprise, 100);
       return () => clearTimeout(timeoutId);
     } else if (captchaMode === 'v2_invisible' || captchaMode === 'v2_checkbox') {
       // v2 invisible o checkbox: esperar a que el script de v2 esté cargado
@@ -1124,6 +1182,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
         } catch (_) {}
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [captchaMode, recaptchaScriptLoaded]);
 
   // Fallback adicional: si en modo v2_checkbox el anchor no aparece tras un tiempo, conmuta a enterprise
