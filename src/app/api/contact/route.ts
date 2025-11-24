@@ -39,6 +39,31 @@ function loadContactConfig(): ContactFormConfig {
   }
 }
 
+// Resolver Project ID de reCAPTCHA Enterprise desde varias fuentes.
+function resolveRecaptchaProjectId(): string {
+  const candidates = [
+    process.env.RECAPTCHA_ENTERPRISE_PROJECT_ID,
+    process.env.GOOGLE_CLOUD_PROJECT,
+    process.env.GCLOUD_PROJECT_ID,
+    process.env.RECAPTCHA_PROJECT_ID,
+  ];
+  for (const v of candidates) {
+    const id = (v ?? "").trim();
+    if (id) return id;
+  }
+  // Intentar leer del JSON de credenciales del service account
+  try {
+    const credPath = (process.env.GOOGLE_APPLICATION_CREDENTIALS ?? '').trim();
+    if (credPath && fs.existsSync(credPath)) {
+      const raw = fs.readFileSync(credPath, 'utf-8');
+      const json = JSON.parse(raw) as { project_id?: string; quota_project_id?: string };
+      const pid = (json.project_id ?? json.quota_project_id ?? '').trim();
+      if (pid) return pid;
+    }
+  } catch (_) {}
+  return "";
+}
+
 function loadMailEnv(): MailEnv {
   const port = Number(process.env.SMTP_PORT ?? 587);
   const secure = (process.env.SMTP_SECURE ?? "false").toLowerCase() === "true" || port === 465;
@@ -57,12 +82,36 @@ function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+// Heurística para determinar si un g-recaptcha-response de v2 luce válido
+function isProbablyValidV2Response(resp: string): boolean {
+  const s = (resp || "").trim();
+  if (!s) return false;
+  const lowered = s.toLowerCase();
+  if (lowered === "null" || lowered === "undefined" || lowered === "false") return false;
+  return s.length > 10; // tokens reales suelen ser largos
+}
+
 export async function POST(request: Request) {
   try {
     const config = loadContactConfig();
 
     // Validar origen permitido si hay configuración (permitir si no hay header origin en same-origin)
     const origin = request.headers.get("origin") ?? "";
+    // Instrumentación de cabeceras para diagnóstico (solo en desarrollo o si DEBUG_HEADERS=true)
+    try {
+      const shouldDebugHeaders = process.env.NODE_ENV === 'development' || (process.env.DEBUG_HEADERS ?? '').toLowerCase() === 'true';
+      if (shouldDebugHeaders) {
+        const hdr = {
+          origin,
+          referer: request.headers.get('referer') ?? '',
+          host: request.headers.get('host') ?? '',
+          userAgent: request.headers.get('user-agent') ?? '',
+          contentType: request.headers.get('content-type') ?? '',
+          xForwardedFor: request.headers.get('x-forwarded-for') ?? '',
+        };
+        console.log('[Contact API] Headers recibidos:', hdr);
+      }
+    } catch (_) {}
     if (config.allowedOrigins && config.allowedOrigins.length > 0) {
       const isAllowed = origin === "" || config.allowedOrigins.includes(origin);
       if (!isAllowed) {
@@ -83,6 +132,22 @@ export async function POST(request: Request) {
     const gRecaptchaResponse = (formData.get("g-recaptcha-response")?.toString() ?? "").trim();
     const recaptchaToken = (formData.get("recaptchaToken")?.toString() ?? "").trim();
     const recaptchaAction = (formData.get("recaptchaAction")?.toString() ?? "CONTACT").trim();
+    const captchaMode = (formData.get("captchaMode")?.toString() ?? "").trim();
+
+    // Log de payload de captcha para diagnóstico (modo y presencia de tokens)
+    try {
+      const shouldDebug = process.env.NODE_ENV === 'development' || (process.env.DEBUG_HEADERS ?? '').toLowerCase() === 'true';
+      if (shouldDebug) {
+        console.log('[Contact API] Captcha payload:', {
+          captchaMode,
+          hasEnterpriseToken: !!recaptchaToken,
+          enterpriseTokenLen: recaptchaToken.length,
+          hasV2Response: isProbablyValidV2Response(gRecaptchaResponse),
+          v2ResponseLen: gRecaptchaResponse.length,
+          recaptchaAction,
+        });
+      }
+    } catch (_) {}
 
     // Basic server-side validation
     if (!fullName || !company || !email || !phone || !message) {
@@ -99,10 +164,149 @@ export async function POST(request: Request) {
       );
     }
 
-    // Verificación de reCAPTCHA (v2 invisible o Enterprise) según datos presentes y config
+    // Verificación de reCAPTCHA (priorizar Enterprise si el token está presente)
     if (config.requireRecaptcha !== false) {
-      // Si el formulario envió g-recaptcha-response, validar como v2 invisible
-      if (gRecaptchaResponse) {
+      // 1) Priorizar Enterprise si el cliente envió recaptchaToken
+      if (recaptchaToken) {
+        const projectID = resolveRecaptchaProjectId();
+        const siteKey = process.env.RECAPTCHA_SITE_KEY || process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
+        if (!projectID || !siteKey) {
+          const isDevelopment = process.env.NODE_ENV === 'development';
+          const skip = (process.env.SKIP_RECAPTCHA_VALIDATION ?? '').toLowerCase() === 'true';
+          if (isDevelopment && skip) {
+            console.warn('⚠️ ADVERTENCIA: Falta configuración reCAPTCHA Enterprise (projectID/siteKey). Bypass habilitado en desarrollo con SKIP_RECAPTCHA_VALIDATION=true');
+          } else {
+            return NextResponse.json(
+              { success: false, error: "Configuración reCAPTCHA faltante: projectID o siteKey." },
+              { status: 500 }
+            );
+          }
+        }
+
+        let assessment;
+        try {
+          if (projectID && siteKey) {
+            const client = new RecaptchaEnterpriseServiceClient();
+            const projectPath = client.projectPath(projectID);
+            const [resp] = await client.createAssessment({
+              parent: projectPath,
+              assessment: {
+                event: {
+                  token: recaptchaToken,
+                  siteKey,
+                },
+              },
+            });
+            assessment = resp;
+          } else {
+            // Bypass en desarrollo: simular assessment válido para continuar flujo
+            assessment = {
+              tokenProperties: { valid: true, action: recaptchaAction },
+              riskAnalysis: { score: 1.0 },
+            } as any;
+          }
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          const isPermissionDenied = msg.includes("PERMISSION_DENIED") || msg.includes("permission") || msg.includes("assessments.create");
+          // Si falla por permisos y el cliente está en modo v2 con token v2 válido, intentar validación v2 como fallback
+          if (isPermissionDenied && captchaMode.startsWith('v2') && isProbablyValidV2Response(gRecaptchaResponse)) {
+            try {
+              const secret =
+                process.env.RECAPTCHA_V2_SECRET ||
+                config.recaptchaV2SecretKey ||
+                config.recaptchaSecretKey ||
+                "";
+              if (!secret) {
+                return NextResponse.json(
+                  {
+                    success: false,
+                    error:
+                      "reCAPTCHA Enterprise PERMISSION_DENIED y falta configurar secreto v2 para fallback. Define RECAPTCHA_V2_SECRET o recaptchaV2SecretKey.",
+                  },
+                  { status: 500 }
+                );
+              }
+
+              const params = new URLSearchParams({
+                secret,
+                response: gRecaptchaResponse,
+                remoteip: request.headers.get("x-forwarded-for") ?? "",
+              });
+              const verifyResp = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: params.toString(),
+              });
+              const verifyData = (await verifyResp.json()) as {
+                success: boolean;
+                challenge_ts?: string;
+                hostname?: string;
+                "error-codes"?: string[];
+              };
+              if (!verifyData.success) {
+                const codes = verifyData["error-codes"]?.join(", ") || "unknown";
+                return NextResponse.json(
+                  { success: false, error: `reCAPTCHA v2 inválido (fallback): ${codes}` },
+                  { status: 400 }
+                );
+              }
+              // Fallback v2 validado: simular assessment válido para continuar flujo
+              assessment = {
+                tokenProperties: { valid: true, action: recaptchaAction },
+                riskAnalysis: { score: 1.0 },
+              } as any;
+              console.warn(
+                "reCAPTCHA Enterprise PERMISSION_DENIED: se usó fallback a v2 exitosamente. Revisa IAM/credenciales para Enterprise."
+              );
+            } catch (v2err) {
+              const v2msg = v2err instanceof Error ? v2err.message : String(v2err);
+              return NextResponse.json(
+                { success: false, error: `Error verificación reCAPTCHA v2 (fallback): ${v2msg}` },
+                { status: 500 }
+              );
+            }
+          } else {
+            // Error Enterprise sin posibilidad de fallback
+            return NextResponse.json(
+              {
+                success: false,
+                error:
+                  `Error verificación reCAPTCHA Enterprise: ${msg}. Verifica que:\n- La API reCAPTCHA Enterprise esté habilitada en el proyecto\n- El service account tenga rol 'reCAPTCHA Enterprise Agent' (roles/recaptchaenterprise.agent)\n- GOOGLE_APPLICATION_CREDENTIALS apunte al JSON de ese service account\n- El projectID usado coincida con el del siteKey`,
+              },
+              { status: 500 }
+            );
+          }
+        }
+
+        if (!assessment?.tokenProperties?.valid) {
+          const reason = assessment?.tokenProperties?.invalidReason ?? "invalid-token";
+          return NextResponse.json(
+            { success: false, error: `Token reCAPTCHA inválido: ${reason}` },
+            { status: 400 }
+          );
+        }
+
+        // Validar acción esperada y umbral de score
+        const expectedAction = recaptchaAction;
+        const actualAction = assessment?.tokenProperties?.action;
+        const score = assessment?.riskAnalysis?.score ?? 0;
+        const threshold = Number(process.env.RECAPTCHA_THRESHOLD ?? 0.5);
+
+        if (expectedAction && actualAction && expectedAction !== actualAction) {
+          return NextResponse.json(
+            { success: false, error: `Acción reCAPTCHA inesperada: ${actualAction}` },
+            { status: 400 }
+          );
+        }
+
+        if (score < threshold) {
+          return NextResponse.json(
+            { success: false, error: `Score reCAPTCHA bajo (${score}).` },
+            { status: 400 }
+          );
+        }
+      // 2) Si no hay token de Enterprise, validar v2 si el cliente envió g-recaptcha-response
+      } else if (captchaMode.startsWith('v2') && isProbablyValidV2Response(gRecaptchaResponse)) {
         const secret =
           process.env.RECAPTCHA_V2_SECRET ||
           config.recaptchaV2SecretKey ||
@@ -159,73 +363,11 @@ export async function POST(request: Request) {
         }
         }
       } else {
-        // Validar con Enterprise si no hay g-recaptcha-response
-        const projectID = process.env.GOOGLE_CLOUD_PROJECT || process.env.GCLOUD_PROJECT_ID || process.env.RECAPTCHA_PROJECT_ID || "";
-        const siteKey = process.env.RECAPTCHA_SITE_KEY || process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
-
-        if (!recaptchaToken) {
-          return NextResponse.json(
-            { success: false, error: "Validación reCAPTCHA requerida." },
-            { status: 400 }
-          );
-        }
-
-        if (!projectID || !siteKey) {
-          return NextResponse.json(
-            { success: false, error: "Configuración reCAPTCHA faltante: projectID o siteKey." },
-            { status: 500 }
-          );
-        }
-
-        let assessment;
-        try {
-          const client = new RecaptchaEnterpriseServiceClient();
-          const projectPath = client.projectPath(projectID);
-          const [resp] = await client.createAssessment({
-            parent: projectPath,
-            assessment: {
-              event: {
-                token: recaptchaToken,
-                siteKey,
-              },
-            },
-          });
-          assessment = resp;
-        } catch (err) {
-          const msg = err instanceof Error ? err.message : String(err);
-          return NextResponse.json(
-            { success: false, error: `Error verificación reCAPTCHA: ${msg}` },
-            { status: 500 }
-          );
-        }
-
-        if (!assessment?.tokenProperties?.valid) {
-          const reason = assessment?.tokenProperties?.invalidReason ?? "invalid-token";
-          return NextResponse.json(
-            { success: false, error: `Token reCAPTCHA inválido: ${reason}` },
-            { status: 400 }
-          );
-        }
-
-        // Validar acción esperada y umbral de score
-        const expectedAction = recaptchaAction;
-        const actualAction = assessment?.tokenProperties?.action;
-        const score = assessment?.riskAnalysis?.score ?? 0;
-        const threshold = Number(process.env.RECAPTCHA_THRESHOLD ?? 0.5);
-
-        if (expectedAction && actualAction && expectedAction !== actualAction) {
-          return NextResponse.json(
-            { success: false, error: `Acción reCAPTCHA inesperada: ${actualAction}` },
-            { status: 400 }
-          );
-        }
-
-        if (score < threshold) {
-          return NextResponse.json(
-            { success: false, error: `Score reCAPTCHA bajo (${score}).` },
-            { status: 400 }
-          );
-        }
+        // 3) Ningún token proporcionado
+        return NextResponse.json(
+          { success: false, error: "Validación reCAPTCHA requerida." },
+          { status: 400 }
+        );
       }
     }
 
