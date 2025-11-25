@@ -93,7 +93,7 @@ import { useEffect, useRef, useState } from "react";
         {/* Efecto de luz brillante que se mueve */}
         
         
-        <div className="px-6 md:px-30 pt-4 md:pt-20 pb-10 md:pb-16 relative z-10">
+        <div className="px-6 md:px-30 pt-10 md:pt-20 pb-10 md:pb-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-0 md:gap-12 items-center">
             {/* Left Content */}
             <div 
@@ -111,7 +111,7 @@ import { useEffect, useRef, useState } from "react";
                     alt="Attach Media" 
                     width={380} 
                     height={90} 
-                    className="w-[280px] md:w-auto transform transition-all duration-700 hover:scale-105"
+                    className="w-[260px] md:w-auto transform transition-all duration-700 hover:scale-105"
                     style={{
                       // filter: "drop-shadow(0 0 20px rgba(255,255,255,0.5))"
                     }}
@@ -275,9 +275,9 @@ import { useEffect, useRef, useState } from "react";
             <div  
             className="p-6 pt-6 md:pt-6 pb-6 md:pb-2"
              >
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-6 md:mb-10 text-center">
+              <div className="text-['Graphik'] text-[16px] md:text-[16px]f ont-semibold bg-linear-to-r from-[#2f7de1] to-[#25bbcd] bg-clip-text text-transparent mb-6 md:mb-10 text-center">
                 Equipo híbrido: Personas + IA, la combinación que potencia resultados
-              </h3>
+              </div>
               
               <div className="space-y-4 mb-7 md:mb-9"
               >
