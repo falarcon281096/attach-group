@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
+import GAAnalytics from "@/components/GAAnalytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -64,6 +65,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
+        {/* Google Analytics 4 (habilitar cuando NEXT_PUBLIC_GA_ID esté definido) */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);} 
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { page_path: window.location.pathname });
+              `}
+            </Script>
+            <GAAnalytics />
+          </>
+        )}
         {/* Google Tag Manager (habilitar sólo cuando NEXT_PUBLIC_ENABLE_GTM === 'true') */}
         {process.env.NEXT_PUBLIC_ENABLE_GTM === 'true' && (
           <>
@@ -72,12 +91,12 @@ export default function RootLayout({
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T5JRQCJ');`}
+})(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID || 'GTM-T5JRQCJ'}');`}
             </Script>
             {/* Google Tag Manager (noscript) */}
             <noscript>
               <iframe 
-                src="https://www.googletagmanager.com/ns.html?id=GTM-T5JRQCJ"
+                src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID || 'GTM-T5JRQCJ'}`}
                 height="0" 
                 width="0" 
                 style={{display:'none',visibility:'hidden'}}
