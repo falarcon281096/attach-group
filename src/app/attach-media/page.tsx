@@ -414,7 +414,7 @@ import { useEffect, useRef, useState } from "react";
             {/* Botón Ver más - centrado en el borde inferior del card cuando está cerrado */}
             <div
               className={`absolute left-1/2 -translate-x-1/2 z-10 transition-all duration-500 ${
-                isEstructuraOpen ? 'bottom-0 md:-bottom-4 translate-y-0' : 'bottom-0 translate-y-1/2'
+                isEstructuraOpen ? 'bottom-0 md:-bottom-4 translate-y-10 md:translate-y-0' : 'bottom-0 translate-y-1/2'
               }`}
             >
               <button

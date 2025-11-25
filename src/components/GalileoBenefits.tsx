@@ -95,7 +95,7 @@ export default function GalileoBenefits() {
                             <div className="absolute inset-0 rounded-2xl opacity-0 "></div>
                             
                             <span
-                                className=" absolute left-3 top-[69%] md:top-2/4 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center transform transition-all duration-500 group-hover:scale-125 group-hover:rotate-360"
+                                className=" absolute left-3 top-1/2 md:top-2/4 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center transform transition-all duration-500 group-hover:scale-125 group-hover:rotate-360"
                                 style={{
                                     background:
                                         "linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)",

@@ -210,7 +210,7 @@ export default function Home() {
       <section className="pb-17 px-5 lg:pr-30 relative overflow-hidden">
         {/* Partículas de fondo */}
         {/* Hydration-safe particles: render only after mount to avoid SSR randomness */}
-        <ParticlesBackground />
+        {/* <ParticlesBackground /> */}
         
         <div 
           ref={(el) => setElementRef("cta-section", el)}
