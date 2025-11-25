@@ -60,7 +60,7 @@ export default function AnimatedGradient() {
             className="flex items-center pt-0 md:pt-5 pb-8 md:py-5 lg:py-0 relative overflow-hidden"
         >
 
-            <div className="container mx-auto px-6 md:px-8 lg:px-16 relative z-10 pt-[40px] lg:pt-0">
+            <div className="container mx-auto px-6 md:px-8 lg:px-16 relative z-10 pt-[5px] md:pt-[40px] lg:pt-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 md:gap-6 lg:gap-16 items-center">
                     {/* Left Side - Logo and Text */}
                     <div className="mt-0 md:mt-0 text-white space-y-4 md:space-y-6 px-4 md:px-0">
