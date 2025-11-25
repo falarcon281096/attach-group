@@ -559,7 +559,7 @@ export default function AthenaAds() {
                   </div> */}
                 </div>
                 <div className="p-4 md:p-6">
-                  <div className="text-[14px] md:text-[20px] text-xl font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
+                  <div className="text-[14px] md:text-[20px] font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
                     <b>Tap to Map</b>
                   </div>
                   <div className="text-[14px] md:text-[20px]   px-3 md:px-0" style={{ color: 'rgba(129, 129, 129, 1)' }}>
