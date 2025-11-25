@@ -321,7 +321,7 @@ import { useEffect, useRef, useState } from "react";
             {/* Botón Ver más - centrado en el borde inferior del card cuando está cerrado */}
             <div
               className={`absolute left-1/2 -translate-x-1/2 z-10 transition-all duration-500 ${
-                isEquipoOpen ? 'bottom-0 md:-bottom-4 translate-y-0' : 'bottom-0 translate-y-1/2'
+                isEquipoOpen ? 'bottom-0 translate-y-1/2 md:-bottom-4 md:translate-y-0' : 'bottom-0 translate-y-1/2'
               }`}
             >
               <button
@@ -402,7 +402,7 @@ import { useEffect, useRef, useState } from "react";
                   </div>
 
                   {/* Columna 2 */}
-                  <div className="rounded-xl p-4 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
+                  <div className="rounded-xl p-4 mb-10 md:mb-0 md:p-6 bg-[linear-gradient(109.97deg,rgba(47,125,225,0.08)_1.8%,rgba(34,211,197,0.08)_99.93%)]">
                     <h4 className="font-semibold text-[#00B0C8] text-lg md:text-xl leading-[28px] md:leading-7 mb-2">3P Performance Framework</h4>
                     <p className="text-[#818181] text-sm md:text-base leading-5 md:leading-6">
                       Nuestra herramienta se conecta directamente con la data del cliente para guiar a nuestros analistas y consultores en la ruta de optimización. Basada en nuestro expertise y aprendizaje continuo de más de 20 años, convierte la información en acción y asegura decisiones consistentes que no dependen solo del criterio individual. 3P Performance Framework se basa en 3 pilares: <span className="text-cyan-500 font-semibold">presencia, persuasión y performance</span>, utilizando árboles de decisión en cada etapa para impulsar resultados predecibles y escalables.
@@ -414,7 +414,7 @@ import { useEffect, useRef, useState } from "react";
             {/* Botón Ver más - centrado en el borde inferior del card cuando está cerrado */}
             <div
               className={`absolute left-1/2 -translate-x-1/2 z-10 transition-all duration-500 ${
-                isEstructuraOpen ? 'bottom-0 md:-bottom-4 translate-y-10 md:translate-y-0' : 'bottom-0 translate-y-1/2'
+                isEstructuraOpen ? 'bottom-0 translate-y-1/2 md:-bottom-4 md:translate-y-0' : 'bottom-0 translate-y-1/2'
               }`}
             >
               <button

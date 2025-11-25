@@ -459,7 +459,7 @@ export default function AthenaAds() {
               >
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[30px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
                   <div className="flex-1 relative h-80 md:h-68 md:h-74 overflow-hidden rounded flex items-center justify-center">
-                    <Image
+                    <img
                       src="/images/athena-ads/Cayetano-Social-Extender.gif"
                       alt="Social Extender 1"
                       width={800}
