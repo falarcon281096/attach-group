@@ -39,3 +39,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Firebase auto-generated build artifacts
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+# Auto-generated frameworks backend (Next.js SSR)
+firebase-frameworks/
+functions/
+
+# Firebase emulators
+ui-debug.log
+firestore-debug.log
+database-debug.log
+auth-debug.log
+pubsub-debug.log
+storage-debug.log
+
+# Cloud Functions build
+.functions/
