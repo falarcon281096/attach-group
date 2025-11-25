@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+// Eliminado el uso de next/image para SVGs
 
 export default function AttachMediaProcessSection() {
   const [isVisible, setIsVisible] = useState<{ [key: string]: boolean }>({});
@@ -92,7 +92,7 @@ export default function AttachMediaProcessSection() {
                 <div className="flex justify-center mb-2 relative z-10">
                   <div className="inline-flex flex-col items-center gap-2 rounded-2xl px-4 py-3">
                     <div className="transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-5">
-                      <Image 
+                      <img 
                         src={step.icon} 
                         alt={step.name} 
                         width={80} 
