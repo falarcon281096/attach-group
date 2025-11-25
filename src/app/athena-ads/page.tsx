@@ -304,7 +304,7 @@ export default function AthenaAds() {
                 </div>
                 <div className="w-full md:w-3/4 lg:w-1/2 mx-auto text-center p-4 md:p-0">
                   <h6 className="text-[16px] md:text-xl font-bold mb-2 font-['Graphik'] gradient-text">
-                    Digital Out Of home by User Movility
+                    Digital Out Of Home by User Movility
                   </h6>
                   <div className="text-[14px] md:text-[20px] font-['Graphik'] leading-[20px] md:leading-[28px] font-normal text-gray-500 px-3 md:px-0">
                     Pantallas digitales que se activan cuando tu usuario está cerca.

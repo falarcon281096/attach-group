@@ -255,7 +255,7 @@ import { useEffect, useRef, useState } from "react";
           <div 
             ref={(el) => setElementRef("equipo-hibrido", el)}
             data-animate-id="equipo-hibrido"
-            className={`relative bg-white rounded-2xl md:rounded-3xl  border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
+            className={`relative bg-white rounded-2xl md:rounded-3xl  border border-gray-300 transform transition-all duration-700  hover:-translate-y-2 group ${
               isVisible["equipo-hibrido"] ? " translate-y-0" : "translate-y-10"
             }`}
             style={{ transitionDelay: "0.3s" }}
@@ -350,7 +350,7 @@ import { useEffect, useRef, useState } from "react";
           <div 
             ref={(el) => setElementRef("estructura", el)}
             data-animate-id="estructura"
-            className={`relative bg-white rounded-2xl md:rounded-3xl  border border-gray-100 transform transition-all duration-700  hover:-translate-y-2 group ${
+            className={`relative bg-white rounded-2xl md:rounded-3xl  border border-gray-300 transform transition-all duration-700  hover:-translate-y-2 group ${
               isVisible["estructura"] ? "translate-y-0" : "translate-y-10"
             }`}
             style={{ transitionDelay: "0.4s" }}
