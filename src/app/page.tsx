@@ -156,7 +156,6 @@ export default function Home() {
                     width={1200}
                     height={1000}
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
                     onLoadingComplete={() => setHeroDesktopLoaded(true)}
                   />
                   {/* Overlay de luz sutil (estático, sin animación para evitar saltos) */}
