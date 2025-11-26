@@ -41,6 +41,14 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/images/favicon-attachgroup.png",
+  },
   openGraph: {
     type: "website",
     siteName: "Attach Group",
@@ -62,6 +70,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        {/* Preconnect para orígenes críticos en Home (mejora LCP en móvil) */}
+        <link rel="preconnect" href="https://cdn.growthbook.io" crossOrigin="" />
+        <link rel="preconnect" href="https://sgtm.attachmedia.com" crossOrigin="" />
+        <link rel="preconnect" href="https://api_tracardi.expiera.com" crossOrigin="" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
@@ -86,7 +100,7 @@ export default function RootLayout({
         {/* Google Tag Manager (habilitar sólo cuando NEXT_PUBLIC_ENABLE_GTM === 'true') */}
         {process.env.NEXT_PUBLIC_ENABLE_GTM === 'true' && (
           <>
-            <Script id="gtm-script" strategy="beforeInteractive">
+            <Script id="gtm-script" strategy="afterInteractive">
               {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
