@@ -5,7 +5,6 @@ import "./globals.css";
 import { GoogleTagManager } from '@next/third-parties/google'
 
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
