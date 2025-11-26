@@ -8,6 +8,14 @@ export default function Head() {
       {/* Opcional: dns-prefetch de terceros comunes */}
       <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       <link rel="dns-prefetch" href="//connect.facebook.net" />
+      {/* Preload del font crítico para evitar FOIT */}
+      <link
+        rel="preload"
+        as="font"
+        href="/fonts/graphik-regular-webfont.woff2"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
     </>
   );
 }
