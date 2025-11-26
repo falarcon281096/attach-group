@@ -16,9 +16,7 @@ export default function Home() {
   const [activeCase, setActiveCase] = useState<cases>('caja-arequipa');
   // Estado para animaciones de las tarjetas de servicios
   const [isCardVisible, setIsCardVisible] = useState<{ [key: string]: boolean }>({});
-  // Estado para controlar el fade-in de las imágenes del hero
-  const [heroMobileLoaded, setHeroMobileLoaded] = useState(false);
-  const [heroDesktopLoaded, setHeroDesktopLoaded] = useState(false);
+  // Eliminado fade-in del hero para acelerar pintura inicial
   const cardsObserverRef = useRef<IntersectionObserver | null>(null);
   const cardsElementsRef = useRef<{ [key: string]: HTMLElement | null }>({});
 
@@ -137,30 +135,25 @@ export default function Home() {
                   lg:before:bg-[length:100%_100%] lg:before:w-30 lg:before:h-30 lg:before:-translate-x-1/2 lg:before:left-0"
               >
                 <div className="relative overflow-hidden rounded-tl-[40px] rounded-bl-[40px] lg:rounded-tl-[40px] lg:rounded-bl-[40px]">
-                  {/* Imagen móvil: sin bordes CSS y con archivo portada_movil.png */}
+                  {/* Imagen móvil: sin bordes CSS y con archivo portada_movil.jpg */}
                   <Image
-                    className={`block lg:hidden w-full h-auto rounded-tl-[40px] rounded-bl-[40px] relative z-0 transition-opacity duration-700 ${heroMobileLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    className="block lg:hidden w-full h-auto rounded-tl-[40px] rounded-bl-[40px] relative z-0 opacity-100"
                     src="/images/home/portada_movil.jpg"
                     alt="cliente buscando la consultoría digital de attach group"
                     width={1200}
                     height={1000}
                     sizes="100vw"
-                    priority
-                    onLoadingComplete={() => setHeroMobileLoaded(true)}
+                    loading="eager"
                   />
-                  {/* Imagen desktop: mantiene bordes y estilos actuales */}
+                  {/* Imagen desktop: mantiene bordes y estilos actuales sin transición */}
                   <Image
-                    className={`hidden lg:block w-full h-auto lg:h-[85%] lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:object-cover lg:object-center lg:scale-125 relative z-0 transition-opacity duration-700 ${heroDesktopLoaded ? 'opacity-100' : 'opacity-0'}`}
+                    className="hidden lg:block w-full h-auto lg:h-[85%] lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:object-cover lg:object-center lg:scale-125 relative z-0 opacity-100"
                     src="/images/home/portada.jpg"
                     alt="cliente buscando la consultoría digital de attach group"
                     width={1200}
                     height={1000}
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    onLoadingComplete={() => setHeroDesktopLoaded(true)}
                   />
-                  {/* Overlay de luz sutil (estático, sin animación para evitar saltos) */}
-                  <div className="image-light-static" aria-hidden="true" />
-                  <div className="image-light-v-static" aria-hidden="true" />
                 </div>
               </div>
               <div className="text-white lg:text-left px-6 lg:px-0 lg:hidden mt-0">

@@ -203,7 +203,7 @@ export async function POST(request: Request) {
             assessment = {
               tokenProperties: { valid: true, action: recaptchaAction },
               riskAnalysis: { score: 1.0 },
-            } as any;
+            } as never;
           }
         } catch (err) {
           const msg = err instanceof Error ? err.message : String(err);
@@ -254,7 +254,7 @@ export async function POST(request: Request) {
               assessment = {
                 tokenProperties: { valid: true, action: recaptchaAction },
                 riskAnalysis: { score: 1.0 },
-              } as any;
+              } as never;
               console.warn(
                 "reCAPTCHA Enterprise PERMISSION_DENIED: se usó fallback a v2 exitosamente. Revisa IAM/credenciales para Enterprise."
               );
