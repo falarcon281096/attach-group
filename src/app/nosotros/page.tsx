@@ -337,7 +337,7 @@ export default function Home() {
                  
                   <Image 
                     className="w-full transform transition-all duration-700 group-hover:scale-100 relative z-0" 
-                    src="/images/nosotros/clientes-desktop.jpg" 
+                    src="/images/nosotros/clientes-desktop.png" 
                     alt="clientes de attach group" 
                     width={1296} 
                     height={747}
