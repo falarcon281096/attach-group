@@ -140,7 +140,7 @@ export default function Home() {
                   {/* Imagen móvil: sin bordes CSS y con archivo portada_movil.png */}
                   <Image
                     className={`block lg:hidden w-full h-auto rounded-tl-[40px] rounded-bl-[40px] relative z-0 transition-opacity duration-700 ${heroMobileLoaded ? 'opacity-100' : 'opacity-0'}`}
-                    src="/images/home/portada_movil.png"
+                    src="/images/home/portada_movil.jpg"
                     alt="cliente buscando la consultoría digital de attach group"
                     width={1200}
                     height={1000}
@@ -151,7 +151,7 @@ export default function Home() {
                   {/* Imagen desktop: mantiene bordes y estilos actuales */}
                   <Image
                     className={`hidden lg:block w-full h-auto lg:h-[85%] lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:object-cover lg:object-center lg:scale-125 relative z-0 transition-opacity duration-700 ${heroDesktopLoaded ? 'opacity-100' : 'opacity-0'}`}
-                    src="/images/home/portada.png"
+                    src="/images/home/portada.jpg"
                     alt="cliente buscando la consultoría digital de attach group"
                     width={1200}
                     height={1000}
@@ -560,7 +560,7 @@ export default function Home() {
                   <ImageWithPlus
                       src={
                         activeCase === 'caja-arequipa' ? "/images/casos-de-exito/eluniversal.png" :
-                          activeCase === 'deposeguro' ? "/images/casos-de-exito/deposeguro.png" :
+                          activeCase === 'deposeguro' ? "/images/casos-de-exito/deposeguro.jpg" :
                             activeCase === 'apuesta-total' ? "/images/casos-de-exito/apuestatotal.png" :
                               "/images/casos-de-exito/eluniversal.webp"
                       }
