@@ -242,7 +242,7 @@ export default function Home() {
                 <div className="relative z-0 pt-10 md:pt-0 overflow-hidden rounded-l-[4rem] group">
                   <Image 
                     className="w-full rounded-l-[4rem] transform transition-all duration-700 " 
-                    src="/images/casos-de-exito/deposeguro.png" 
+                    src="/images/casos-de-exito/deposeguro.jpg" 
                     alt="deposeguro cliente y caso de éxito de attach group" 
                     width={1200} 
                     height={1000}
