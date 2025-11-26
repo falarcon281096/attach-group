@@ -70,12 +70,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <head>
-        {/* Preconnect para orígenes críticos en Home (mejora LCP en móvil) */}
-        <link rel="preconnect" href="https://cdn.growthbook.io" crossOrigin="" />
-        <link rel="preconnect" href="https://sgtm.attachmedia.com" crossOrigin="" />
-        <link rel="preconnect" href="https://api_tracardi.expiera.com" crossOrigin="" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
