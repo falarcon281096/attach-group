@@ -464,7 +464,7 @@ export default function Home() {
                                 El Universal
                             </h3>
                             <p className="text-[#FFFFFF] text-[20px] leading-[28px] font-semibold text-start transform transition-all duration-500 delay-100 group-hover:translate-x-0 translate-x-2">
-                                El Universal integra IA conversacional a su experiencia digital
+                                Clasificación inteligente de contenido
                             </p>
                         </div>
                         {/* Efecto de borde brillante en hover */}

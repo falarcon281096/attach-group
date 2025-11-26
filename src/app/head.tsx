@@ -16,6 +16,10 @@ export default function Head() {
         type="font/woff2"
         crossOrigin="anonymous"
       />
+      {/* Favicon e iconos (evita 404 y asegura compatibilidad) */}
+      <link rel="icon" href="/images/favicon.ico" sizes="any" />
+      <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+      <link rel="apple-touch-icon" href="/images/favicon-attachgroup.png" />
     </>
   );
 }
