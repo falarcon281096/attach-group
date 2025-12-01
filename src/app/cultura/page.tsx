@@ -345,7 +345,7 @@ export default function Home() {
           <h2 className='text-[24px] md:text-[48px] leadin-[20px] md:leadin-[44px] font-bold max-w-full md:max-w-7xl text-white w-150 scroll-reveal'>
             ¿Quieres marcar la diferencia con nosotros?
           </h2>
-          <p className='text-[14px] md:text-[22px] font-["Graphik"] text-white w-full md:w-[80%]'>Si compartes nuestra pasión por la innovación, mándanos tu CV a <a className='font-semibold' href='mailto:talento@attach.group'>talento@attach.group</a></p>
+          <p className='text-[14px] md:text-[22px] font-["Graphik"] text-white w-full md:w-[80%]'>Si compartes nuestra pasión por la innovación, mándanos tu CV a <a className='font-semibold' href='mailto:talento@attachconsultores.com'>talento@attachconsultores.com</a></p>
           {/* <Link href="/contacto" className='self-start bg-white text-[#1e3fda] font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition glow-button scroll-reveal scroll-reveal-delay-1'>
             Contáctanos <span className='ml-2 arrow-wiggle'>➜</span>
           </Link> */}
