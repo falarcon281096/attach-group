@@ -107,10 +107,10 @@ export default function GalileoSolutions() {
 
                 {/* Grid de tarjetas SAAS */}
                 <div
-                    className={`grid md:grid-cols-2 gap-10 mb-10 overflow-hidden transition-all duration-700 ease-in-out ${
+                    className={`grid md:grid-cols-2 gap-10 mb-10 transition-all duration-700 ease-in-out ${
                         openSection === "saas" 
-                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4 pointer-events-auto" 
-                            : "opacity-0 -translate-y-1 max-h-0 pointer-events-none"
+                            ? "opacity-100 translate-y-0 max-h-[1000px] mt-4 pointer-events-auto overflow-visible" 
+                            : "opacity-0 -translate-y-1 max-h-0 pointer-events-none overflow-hidden"
                     }`}
                 >
                     {/* Tarjeta 1 */}

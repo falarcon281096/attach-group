@@ -1522,7 +1522,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                       WebkitTextFillColor: 'transparent',
                     }}
                   >
-                    <a href="mailto:hola@attach.group">hola@attach.group</a>
+                    <a href="mailto:hola@attachconsultores.com">hola@attachconsultores.com</a>
                   </p>
                 </div>
               </div>

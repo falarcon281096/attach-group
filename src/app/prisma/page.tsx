@@ -34,7 +34,7 @@ export default function Home() {
                                 height={105}
                             />
 
-                            <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] text-white mb-8 max-w-lg leading-[150%]">
+                            <p className="font-[Graphik] pt-0 md:pt-5 text-semibold text-[16px] md:text-[24px] leading-[20px] md:leading-[28px] text-white mb-8 max-w-lg">
                                Prisma es el nuevo estándar para medir la reputación y visibilidad de tu marca en la era de la Inteligencia Artificial generativa.
                             </p>
                         </div>
@@ -42,10 +42,10 @@ export default function Home() {
                         {/* === Bloque Derecho === */}
                         <div className="flex flex-col gap-8 sm:gap-10 relative w-full">
                             {/* Card 1 con "+" amarillo */}
-                            <div className="text-center relative bg-white text-gray-700 text-[15px] sm:text-[17px] md:text-[18px] font-normal px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full font-['graphik']">
+                            <div className="text-center relative bg-white text-gray-700 font-[Graphik] text-semibold text-[16px] md:text-[20px] leading-[20px] md:leading-[28px] px-6 sm:px-8 md:px-10 py-6 sm:py-8 rounded-lg shadow-lg w-full">
                                 {/* + decorativo */}
                                 <span
-                                    className="absolute -left-6 -top-5 text-[48px] font-bold text-[#FFC351] select-none"
+                                    className="absolute -right-6 -top-5 text-[48px] font-bold text-[#FFC351] select-none"
                                     style={{
                                         lineHeight: "1",
                                     }}

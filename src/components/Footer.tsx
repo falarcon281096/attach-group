@@ -15,7 +15,7 @@ export default function Footer() {
             </p>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">E-mail:</span>{' '}
-              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">peru@attach.group</span>
+              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">peru@attachconsultores.com</span>
             </p>
           </div>
 
@@ -28,7 +28,7 @@ export default function Footer() {
             </p>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">E-mail:</span>{' '}
-              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">mexico@attach.group</span>
+              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">mexico@attachconsultores.com</span>
             </p>
           </div>
 
@@ -41,7 +41,7 @@ export default function Footer() {
             </p>
             <p className="text-[#818181]">
               <span className="font-bold text-[13px] md:text-[16px] leading-[18px] md:leading-[24px]">E-mail:</span>{' '}
-              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">usa@attach.group</span>
+              <span className="font-normal text-[12px] md:text-[16px] leading-[16px] md:leading-[24px]">usa@attachconsultores.com</span>
             </p>
           </div>
         </div>
