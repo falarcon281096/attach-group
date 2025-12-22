@@ -496,6 +496,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                   'error-callback': () => {
                     setCaptchaNotice('Error de captcha. Intenta nuevamente.');
                   },
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } as any);
                 if (typeof id === 'number') {
                   setV2WidgetId(id);
@@ -1310,6 +1311,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
     const checkAndFallback = () => {
       try {
         const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const hasEnterprise = !!(gre && (gre as any).enterprise);
         
         if (hasEnterprise) {
@@ -1390,6 +1392,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
           }
         } catch (_) {}
         const fallbackWait = setTimeout(() => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const enterpriseReady = !!(typeof grecaptcha !== 'undefined' && (grecaptcha as any).enterprise);
           if (!enterpriseReady) {
             if (!disableV2Fallback) {
@@ -1422,6 +1425,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
             setTimeout(() => {
               try {
                 const gre = typeof grecaptcha !== 'undefined' ? grecaptcha : undefined;
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 setGreEnterprisePresent(!!(gre && (gre as any).enterprise));
               } catch (_) {}
             }, 100);
