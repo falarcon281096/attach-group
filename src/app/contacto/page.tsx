@@ -1732,7 +1732,7 @@ const [hostProactiveSwitched, setHostProactiveSwitched] = useState<boolean>(fals
                         Cargando script de reCAPTCHA v2... Si no carga, verifica que no haya bloqueadores activos.
                       </p>
                     )}
-                    {captchaMode.startsWith('v2') && (
+                    {process.env.NODE_ENV !== 'production' && captchaMode.startsWith('v2') && (
                       <p className="text-white/60 text-xs mb-2 hidden">
                         <strong>Importante:</strong> Si usas reCAPTCHA v2, el backend requiere `RECAPTCHA_V2_SECRET` en las variables de entorno o `recaptchaV2SecretKey` en attach-group-contact-form.json. Si usas Enterprise, NO necesitas el secret key de v2.
                       </p>
