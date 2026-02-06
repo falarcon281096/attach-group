@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Caso de éxito: El Universal | Attach Group | UX",
+  title: "El Universal UX | Casos de Éxito | Attach Group",
   description:
-    "Descubre nuestro caso de éxito con El Universal. Conoce nuestra experiencia y resultados en la optimización de proyectos con IA.",
-  openGraph: {
-    images: [{ url: "/images/opengraph/Casos_de_exito_-_El_Universal_ux.webp" }],
-  },
+    "Descubre cómo El Universal mejoró su experiencia de usuario con una interfaz conversacional impulsada por LLM.",
 };
 
-export default function Layout({
+export default function ElUniversalUXLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

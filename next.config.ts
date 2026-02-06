@@ -1,5 +1,5 @@
 const nextConfig = {
-  trailingSlash: true,
+  trailingSlash: false,
   basePath: '',
   images: {
     domains: ['via.placeholder.com'],

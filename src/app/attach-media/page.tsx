@@ -833,6 +833,34 @@ import { useEffect, useRef, useState } from "react";
           </div>
         </section>
       <AttachBenefits />
+      
+      
+      {/* CTA Section */}
+      <section 
+        className="py-12 md:py-20 pr-6 pl-0 md:px-12 lg:px-24 text-left relative overflow-hidden"
+        style={{
+          background: "linear-gradient(90deg, #2F7DE1 0%, #22D3C5 100%)" 
+        }}
+      >
+        <div className="max-w-full ml-0 md:ml-12 lg:ml-24 mr-0">
+          <div className="pl-5 md:pl-0 flex flex-col items-start relative z-10">
+             <h2 className="text-[24px] md:text-[48px] font-semibold leading-[110%] text-white mb-8 max-w-3xl">
+              Conversemos sobre cómo podemos ayudarte
+            </h2>
+            
+            <Link 
+              href="/contacto" 
+              className="inline-flex items-center justify-center bg-white font-bold text-lg px-8 py-3 rounded-lg hover:shadow-lg transition-all transform hover:scale-105 group"
+              style={{ color: '#22D1C4' }}
+            >
+              Contáctanos
+              <svg className="ml-2 w-5 h-5 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
       {/* Footer */}
       <Footer />
       

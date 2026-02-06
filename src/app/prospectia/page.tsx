@@ -1,12 +1,12 @@
 "use client"
 
 import Link from "next/link"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 import ResponsiveHeading from "@/components/ResponsiveHeading"
 import TwoColumnGradientSection from "@/components/TwoColumnGradientSection"
 import TextImageSection from "@/components/TextImageSection"
-import styles from "./prospectia/prospectia.module.css"
+import styles from "./prospectia.module.css"
 import { useEffect, useRef, useState } from "react"
 
 export default function ProspectiaPage() {
@@ -53,14 +53,14 @@ export default function ProspectiaPage() {
 
   return (
     <div
-      className="min-h-screen bg-linear-to-r from-[#1e3fda] to-[#58308c] relative overflow-hidden"
+      className="min-h-screen bg-gradient-to-r from-[#FF3F73] to-[#FFC351] relative overflow-hidden"
       suppressHydrationWarning
     >
       <Header variant="prospectia" showBorder={false} />
 
       {/* Hero Section */}
-      <div className="relative z-10 bg-white">
-        <div className="border-0 rounded-bl-[40px] pt-12 pb-12 px-6 sm:px-10 md:px-16 lg:pt-20 lg:pb-16 bg-gradient-to-r from-[#FF3F73] to-[#FFC351]">
+      <div className="relative z-10">
+        <div className="pt-12 pb-12 px-6 sm:px-10 md:px-16 lg:pt-20 lg:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center max-w-7xl mx-auto">
             <div
               ref={(el) => setElementRef("hero-left", el)}
@@ -104,14 +104,13 @@ export default function ProspectiaPage() {
                   height={56}
                   className={styles.plusIcon}
                 />
-                Conecta la inteligencia artificial con tu estrategia comercial
-                para{" "}
                 <span
                   className={styles.highlightText}
                   style={{ fontWeight: "600" }}
                 >
-                  convertir cada interacción en una oportunidad real de venta.
-                </span>
+                  Conecta la inteligencia artificial con tu estrategia comercial
+                </span>{" "}
+                para convertir cada interacción en una oportunidad real de venta.
               </div>
             </div>
           </div>
@@ -132,31 +131,35 @@ export default function ProspectiaPage() {
             sectionClassName="bg-white py-14 text-gray-900"
             intro={
               <div className="text-[#818181] text-[16px] md:text-[20px]">
-                ProspectIA es el aliado de marketing y ventas potenciado por
-                inteligencia artificial que funciona como un centro de gestión
-                de contacto 24/7, diseñado para aumentar la eficiencia, mejorar
-                la conversión y maximizar el retorno de la inversión
-                publicitaria.
+                <span className="text-[#ff3f73] font-semibold">ProspectIA</span>{" "}
+                es el aliado de marketing y ventas potenciado por inteligencia
+                artificial que funciona como un centro de gestión de contacto
+                24/7, diseñado para aumentar la eficiencia, mejorar la
+                conversión y maximizar el retorno de la inversión publicitaria.
               </div>
             }
             left={
-              <div className="text-[#818181] text-[16px] md:text-[20px]">
-                ProspectIA integra agentes inteligentes, aprovechamiento de
-                datos y asistencia comercial en un solo ecosistema,
-                centralizando las conversaciones de todos tus canales (WhatsApp,
-                Instagram, Facebook o web) y conectando los esfuerzos de
-                marketing y ventas para transformar la gestión de leads en
+              <div className="text-[#818181] text-[16px] md:text-[20px] pr-10">
+                <span className="text-[#ff3f73] font-semibold">
+                  ProspectIA integra agentes inteligentes, aprovechamiento de
+                  datos y asistencia comercial en un solo ecosistema
+                </span>
+                , centralizando las conversaciones de todos tus canales
+                (WhatsApp, Instagram, Facebook o web) y conectando los esfuerzos
+                de marketing y ventas para transformar la gestión de leads en
                 resultados reales y medibles.
               </div>
             }
             right={
-              <div className="text-[#818181] text-[16px] md:text-[20px]">
-                ProspectIA capta y gestiona leads, predice su nivel de interés y
-                detecta oportunidades listas gracias a su modelo de aprendizaje
-                continuo, para cerrar enviándolas al equipo comercial, mientras
-                envía esta información a las plataformas publicitarias como
-                Google y Meta para darle más señales y mejorar sus ratios de
-                respuesta.
+              <div className="text-[#818181] text-[16px] md:text-[20px] pl-10">
+                <span className="text-[#ff3f73] font-semibold">
+                  ProspectIA capta y gestiona leads, predice su nivel de interés
+                  y detecta oportunidades listas
+                </span>{" "}
+                gracias a su modelo de aprendizaje continuo, para cerrar
+                enviándolas al equipo comercial, mientras envía esta información
+                a las plataformas publicitarias como Google y Meta para darle
+                más señales y mejorar sus ratios de respuesta.
               </div>
             }
             outro={
@@ -169,7 +172,7 @@ export default function ProspectiaPage() {
             showDivider={true}
             dividerGradient="linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)"
             dividerWidth="2px"
-            dividerPaddingX="12px"
+            dividerPaddingX="40px"
             dividerOffsetX="0.5rem"
             rightBoxWithGradientBorder={false}
             rightBoxGradient="linear-gradient(281.83deg, #FFC351 0%, #FF3F73 100%)"
@@ -229,7 +232,7 @@ export default function ProspectiaPage() {
             gridColsClassName="md:grid-cols-2"
             imageContainerClassName=""
             imageWrapperClassName="aspect-video"
-            imageSrc="/images/prospectia/imagen1.png"
+            imageSrc="/images/prospectia/imagen1.webp"
             imageAlt="Precalificación de leads con ProspectIA"
             imageWidth={1200}
             imageHeight={800}

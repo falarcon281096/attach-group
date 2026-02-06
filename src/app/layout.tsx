@@ -64,8 +64,9 @@ export default function RootLayout({
     <html lang="es">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+        suppressHydrationWarning
       >
-        <GoogleTagManager gtmId="GTM-T5JRQCJ" />
+        {/* <GoogleTagManager gtmId="GTM-T5JRQCJ" /> */}
         {children}
       </body>
     </html>

@@ -7,7 +7,6 @@ import Footer from "../../../components/Footer";
 import ImageWithCrossIcon from "../../../components/ImageWithCrossIcon";
 import CaseNavigation from "../../../components/CaseNavigation";
 import { casesData } from "@/data/casesData";
- 
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {

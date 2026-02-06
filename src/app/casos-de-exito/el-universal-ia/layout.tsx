@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Caso de éxito: Deposeguro | Attach Group",
+  title: "El Universal | Casos de Éxito | Attach Group",
   description:
-    "Descubre cómo Attach Group logró un caso de éxito con El Universal. Conoce nuestra experiencia y resultados en la optimización de proyectos con IA.",
-  openGraph: {
-    images: [{ url: "/images/opengraph/Casos_de_exito_-_El_Universal-ia.webp" }],
-  },
+    "Descubre cómo El Universal integró IA generativa con la ayuda de Attach Group para clasificar contenido automáticamente.",
 };
 
-export default function Layout({
+export default function ElUniversalLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }
