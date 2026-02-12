@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Conoce Attach Media | Attach Group",
+  title: "Conoce Attach Media",
   description:
     "Descubre Attach Media: la división de Attach Group especializada en maximizar el impacto de tu inversión en medios on y off.",
   openGraph: {
     images: [{ url: "/images/opengraph/Attach_media.webp" }],
+  },
+  alternates: {
+    canonical: "/attach-media",
   },
 };
 

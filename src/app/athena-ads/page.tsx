@@ -113,13 +113,15 @@ export default function AthenaAds() {
       <style jsx global>{`
         @font-face {
           font-family: 'Graphik';
-          src: url('/fonts/Graphik-Semibold-Trial.otf') format('opentype');
+          src: url('/fonts/graphik-semibold-webfont.woff2') format('woff2'),
+               url('/fonts/graphik-semibold-webfont.woff') format('woff');
           font-weight: 600;
           font-style: normal;
         }
         @font-face {
           font-family: 'Graphik';
-          src: url('/fonts/Graphik-Regular-Trial.otf') format('opentype');
+          src: url('/fonts/graphik-regular-webfont.woff2') format('woff2'),
+               url('/fonts/graphik-regular-webfont.woff') format('woff');
           font-weight: 400;
           font-style: normal;
         }
@@ -465,6 +467,7 @@ export default function AthenaAds() {
                       width={800}
                       height={600}
                       className="w-full h-full object-contain"
+                      loading="eager"
                     />
                   </div>
                   {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
@@ -505,6 +508,7 @@ export default function AthenaAds() {
                       width={800}
                       height={600}
                       className="w-full h-full object-contain"
+                      priority
                     />
                   </div>
                   {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
@@ -545,6 +549,7 @@ export default function AthenaAds() {
                       width={800}
                       height={600}
                       className="w-full h-full object-contain"
+                      priority
                     />
                   </div>
                   {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">

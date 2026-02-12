@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Nuestra cultura | Attach Group",
+  title: "Nuestra cultura",
   description:
     "Descubre la cultura de Attach Group: innovación, colaboración y crecimiento. Conoce nuestros valores, equipo y cómo transformamos la industria.",
   openGraph: {
     images: [{ url: "/images/opengraph/culturatest.webp" }],
+  },
+  alternates: {
+    canonical: "/cultura",
   },
 };
 

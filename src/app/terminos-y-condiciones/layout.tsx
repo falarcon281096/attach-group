@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   openGraph: {
     images: [{ url: "/images/opengraph/Home.webp" }],
   },
+  alternates: {
+    canonical: "/terminos-y-condiciones",
+  },
 };
 
 export default function Layout({

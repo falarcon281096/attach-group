@@ -46,6 +46,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "jsdom": "^27.1.0",
+    "sharp": "^0.34.5",
     "typescript": "^5",
     "vitest": "^4.0.8"
   },

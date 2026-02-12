@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useEffect, useRef, useState } from "react";
@@ -180,15 +181,14 @@ export default function Home() {
                 href={c.link}
               >
                 {/* Imagen con zoom en hover */}
-                <div 
-                  className="absolute inset-0 rounded-lg transition-transform duration-700 group-hover:scale-110"
-                  style={{
-                    backgroundImage: `url(${c.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    zIndex: 0
-                  }}
-                ></div>
+                <Image
+                  src={c.image}
+                  alt={c.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="absolute inset-0 rounded-lg transition-transform duration-700 group-hover:scale-110 object-cover"
+                  style={{ zIndex: 0 }}
+                />
                 {/* Overlay con animación */}
                 <div className="absolute rounded-[10px] inset-0 bg-gradient-to-t from-black/80 group-hover:from-black/90 to-transparent transition-all duration-500 z-10"></div>
                 

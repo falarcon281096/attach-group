@@ -44,9 +44,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Attach Group",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://attach-group.vercel.app",
+    url: "/",
     locale: "es",
     images: [{ url: "/images/opengraph/Home.webp" }],
+  },
+  alternates: {
+    canonical: "/",
   },
   twitter: {
     card: "summary_large_image",

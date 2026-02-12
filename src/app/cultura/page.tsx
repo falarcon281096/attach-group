@@ -149,6 +149,8 @@ export default function Home() {
                     <img
                       src="/images/cultura/check_circle.svg"
                       alt="check"
+                      width={24}
+                      height={24}
                       className="w-5 h-5"
                     />
                     Mindset innovador. Para generar impacto real y sostenible
@@ -165,6 +167,8 @@ export default function Home() {
                     <img
                       src="/images/cultura/check_circle.svg"
                       alt="check"
+                      width={24}
+                      height={24}
                       className="w-5 h-5"
                     />
                     Aprendizaje compartido. Talentos, ideas y experiencias
@@ -326,12 +330,16 @@ export default function Home() {
                 <img
                   src='/images/cultura/linkedin.png'
                   alt=''
+                  width={44}
+                  height={44}
                 />
               </a>
               <a href="https://www.instagram.com/attach.group/" target="blank">
                 <img
                   src='/images/cultura/instagram.png'
                   alt=''
+                  width={45}
+                  height={45}
                 />
               </a>
             </div>

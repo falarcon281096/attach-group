@@ -24,6 +24,7 @@ export default function AthenaPersonalization() {
                                     src="/images/athena-ads/05-06.jpg"
                                     alt="Audiencia"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-cover"
                                 />
                                 <div
@@ -48,6 +49,7 @@ export default function AthenaPersonalization() {
                                     src="/images/athena-ads/06.png"
                                     alt="Ecosistema de medios"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-cover"
                                 />
                                 <div className="text-[14px] md:text-[20px] relative z-10 text-white pb-6 md:pb-8 text-center px-4" style={{
@@ -68,6 +70,7 @@ export default function AthenaPersonalization() {
                                     src="/images/athena-ads/07.png"
                                     alt="Formato"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-cover"
                                 />
                                 <div className="text-[14px] md:text-[20px] relative z-10 text-white pb-6 md:pb-8" style={{
