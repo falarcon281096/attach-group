@@ -251,8 +251,8 @@ export default function Home() {
             textPosition="left"
             imagePadding="1rem"
             imageContainerClassName=""
-            imageSrc="/images/prisma/precalificacionLeads.webp"
-            imageAlt="Equipo híbrido trabajando con IA"
+            imageSrc="/images/prisma/comprende1.webp"
+            imageAlt="Vista de cómo la IA percibe tu marca"
             imageWidth={1400}
             imageHeight={800}
             imageClassName="w-full"
@@ -290,8 +290,8 @@ export default function Home() {
             textPosition="right"
             imagePadding="1rem"
             imageContainerClassName=""
-            imageSrc="/images/prisma/image 116.webp"
-            imageAlt="Análisis de prompts"
+            imageSrc="/images/prisma/prompt2.webp"
+            imageAlt="Panel de análisis de prompts y posicionamiento"
             imageWidth={1200}
             imageHeight={800}
             imageClassName="w-full"

@@ -232,7 +232,7 @@ export default function ProspectiaPage() {
             gridColsClassName="md:grid-cols-2"
             imageContainerClassName=""
             imageWrapperClassName="aspect-video"
-            imageSrc="/images/prospectia/imagen1.webp"
+            imageSrc="/images/prospectia/ima1.webp"
             imageAlt="Precalificación de leads con ProspectIA"
             imageWidth={1200}
             imageHeight={800}
@@ -270,7 +270,7 @@ export default function ProspectiaPage() {
             imagePadding="1rem"
             imageContainerClassName=""
             imageWrapperClassName="aspect-video"
-            imageSrc="/images/prospectia/imagen2.png"
+            imageSrc="/images/prospectia/ima2.webp"
             imageAlt="Sincronización con Google y Meta"
             imageWidth={1200}
             imageHeight={800}
@@ -310,7 +310,7 @@ export default function ProspectiaPage() {
             gridColsClassName="md:grid-cols-2"
             imageContainerClassName=""
             imageWrapperClassName="aspect-video"
-            imageSrc="/images/prospectia/imagen3.png"
+            imageSrc="/images/prospectia/ima3.webp"
             imageAlt="Asistencia conversacional con IA"
             imageWidth={1200}
             imageHeight={800}
@@ -347,7 +347,7 @@ export default function ProspectiaPage() {
             imagePadding="1rem"
             imageContainerClassName=""
             imageWrapperClassName="aspect-video"
-            imageSrc="/images/prospectia/imagen4.png"
+            imageSrc="/images/prospectia/ima4.webp"
             imageAlt="Dashboards ProspectIA"
             imageWidth={1200}
             imageHeight={800}
@@ -386,7 +386,7 @@ export default function ProspectiaPage() {
             gridColsClassName="md:grid-cols-2"
             imageContainerClassName=""
             imageWrapperClassName="aspect-video"
-            imageSrc="/images/prospectia/imagen5.png"
+            imageSrc="/images/prospectia/ima5.webp"
             imageAlt="Flujos conversacionales ProspectIA"
             imageWidth={1200}
             imageHeight={800}
