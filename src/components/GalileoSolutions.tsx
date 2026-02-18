@@ -73,7 +73,7 @@ export default function GalileoSolutions() {
                             
                             {/* Imagen IA Enterprise */}
                             <Image
-                                src="/images/galileo/IA-rnterprise.jpg"
+                                src="/images/galileo/IA-rnterprise.webp"
                                 alt="IA Enterprise"
                                 width={800}
                                 height={600}
@@ -125,7 +125,7 @@ export default function GalileoSolutions() {
                         <div className="p-6 text-center">
                             <div className="flex  justify-center items-center mb-6">
                                 <Image
-                                    src="/images/galileo/logo-prisma.png"
+                                    src="/images/galileo/logo-prisma.webp"
                                     alt="PROSPECTA"
                                     width={0}
                                     height={0}
@@ -144,7 +144,7 @@ export default function GalileoSolutions() {
                     {/* Tarjeta 2 */}
                     <article className="rounded-2xl bg-white ring-1 ring-gray-200 overflow-visible transition-all duration-300 hover:scale-[1.02] hover:ring-2 hover:ring-[#FF3F73]">
                         <Image
-                            src="/images/galileo/imagen-2-galileo.png"
+                            src="/images/galileo/imagen-2-galileo.webp"
                             alt="PROSPECTA"
                             width={900}
                             height={600}
@@ -153,7 +153,7 @@ export default function GalileoSolutions() {
                         <div className="p-6 text-center">
                             <div className="flex justify-center items-center mb-6">
                                 <Image
-                                    src="/images/galileo/logo-prospecta.png"
+                                    src="/images/galileo/logo-prospecta.webp"
                                     alt="PROSPECTA"
                                     width={0}
                                     height={0}
@@ -210,7 +210,7 @@ export default function GalileoSolutions() {
                             
                             {/* Imagen */}
                             <Image
-                                src="/images/galileo/infraestructura-cloud.jpg"
+                                src="/images/galileo/infraestructura-cloud.webp"
                                 alt="Infraestructura Cloud"
                                 width={800}
                                 height={600}
@@ -267,7 +267,7 @@ export default function GalileoSolutions() {
                              
                             {/* Imagen */}
                             <Image
-                                src="/images/galileo/martech.jpg"
+                                src="/images/galileo/martech.webp"
                                 alt="Martech + Advanced Analytics"
                                 width={800}
                                 height={600}

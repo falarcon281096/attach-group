@@ -21,7 +21,7 @@ export default function AthenaPersonalization() {
                             {/* Card 1 - Audiencia */}
                             <div className="relative rounded-2xl md:rounded-3xl overflow-hidden h-48 md:h-64 flex items-end justify-center transform transition-all duration-700  ">
                                 <Image
-                                    src="/images/athena-ads/05-06.jpg"
+                                    src="/images/athena-ads/05-06.webp"
                                     alt="Audiencia"
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -46,7 +46,7 @@ export default function AthenaPersonalization() {
                             {/* Card 2 - Ecosistema de medios */}
                             <div className="relative rounded-2xl md:rounded-3xl overflow-hidden h-48 md:h-64 flex items-end justify-center transform transition-all duration-700   scroll-reveal-right scroll-reveal-delay-1">
                                 <Image
-                                    src="/images/athena-ads/06.png"
+                                    src="/images/athena-ads/06.webp"
                                     alt="Ecosistema de medios"
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -67,7 +67,7 @@ export default function AthenaPersonalization() {
                             {/* Card 3 - Formato */}
                             <div className="relative rounded-2xl md:rounded-3xl overflow-hidden h-48 md:h-64 flex items-end justify-center sm:col-span-2 md:col-span-1 transform transition-all duration-700   scroll-reveal-right scroll-reveal-delay-2">
                                 <Image
-                                    src="/images/athena-ads/07.png"
+                                    src="/images/athena-ads/07.webp"
                                     alt="Formato"
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

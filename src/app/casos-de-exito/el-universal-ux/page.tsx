@@ -134,7 +134,7 @@ export default function Home() {
                 className={`relative mb-15 md:mb-0 w-full lg:w-auto max-w-md lg:max-w-2xl mx-auto lg:mx-0 mt-6 lg:mt-0 px-7 lg:px-0 lg:flex-1
                   before:absolute
                   before:z-10
-                  before:bg-[url('/images/general/attach_cross_white.png')]
+                  before:bg-[url('/images/general/attach_cross_white.webp')]
                   before:bg-no-repeat
                   before:bg-center
                   before:content-['']
@@ -152,7 +152,7 @@ export default function Home() {
                 <div className="pt-0 md:pt-5 relative w-full z-0 overflow-hidden rounded-[1.25rem] lg:rounded-l-[4rem] lg:rounded-r-none group">
                   <Image 
                     className="w-full h-auto relative z-0 rounded-[1.25rem] lg:rounded-l-[4rem] lg:rounded-r-none transform transition-all duration-700 " 
-                    src="/images/casos-de-exito/eluniversal.png" 
+                    src="/images/casos-de-exito/eluniversal.webp" 
                     alt="el universal cliente y caso de éxito de attach group" 
                     width={800} 
                     height={1000}

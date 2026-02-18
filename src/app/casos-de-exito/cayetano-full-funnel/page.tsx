@@ -255,7 +255,7 @@ export default function Home() {
                     lg:relative 
                     before:absolute before:inset-0 
                     before:z-10
-                    before:bg-[url('/images/general/attach_cross_white.png')]
+                    before:bg-[url('/images/general/attach_cross_white.webp')]
                     before:bg-no-repeat
                     before:bg-center
                     before:content-['']
@@ -269,7 +269,7 @@ export default function Home() {
                     lg:before:top-100
                     before:top-45 transform transition-all duration-1000 ${isVisible["hero-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}>
                 <div className="pt-0 md:pt-15 relative z-0 overflow-hidden rounded-l-[4rem] group">
-                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 " src="/images/casos-de-exito/cayetano.png" alt="universidad cayetano cliente y caso de éxito de attach group" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
+                  <Image className="w-full rounded-l-[4rem] transform transition-all duration-700 " src="/images/casos-de-exito/cayetano.webp" alt="universidad cayetano cliente y caso de éxito de attach group" width={1200} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" priority />
                 </div>
               </div>
             </div>
@@ -320,7 +320,7 @@ export default function Home() {
             className={`flex justify-end relative lg:w-[50%] transform transition-all duration-1000 ${isVisible["reto-image"] ? "opacity-100 translate-x-0" : "opacity-100 translate-x-10"}`}
           >
             <ImageWithCrossIcon
-              src="/images/casos-de-exito/cayetano/cayetano_elreto.png"
+              src="/images/casos-de-exito/cayetano/cayetano_elreto.webp"
               alt="estrategia de publicidad full funnel de cayetano gestionado por attach group"
               position="right-bottom"
               width={1200}
@@ -340,7 +340,7 @@ export default function Home() {
             style={{ transitionDelay: "0.3s" }}
           >
             <ImageWithCrossIcon
-              src="/images/casos-de-exito/cayetano/cayetano_estrategia.png"
+              src="/images/casos-de-exito/cayetano/cayetano_estrategia.webp"
               alt="ejemplo de anuncio de cayetano lanzado por attach group"
               position="left-bottom"
               width={1200}

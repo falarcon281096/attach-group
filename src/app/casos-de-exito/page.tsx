@@ -75,7 +75,7 @@ export default function Home() {
       id: 'universal',
       title: 'El Universal',
       tag: 'Inteligencia artificial',
-      image: '/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.jpg',
+      image: '/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.webp',
     },
     {
       link: '/casos-de-exito/el-universal-ux',

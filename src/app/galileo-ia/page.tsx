@@ -77,7 +77,7 @@ export default function Home() {
                             <div className="relative inline-block">
                                 <Image
                                     className="mb-6 w-[220px] sm:w-[260px] md:w-[300px] lg:w-[393px] h-auto transform transition-all duration-700 hover:scale-105"
-                                    src="/images/galileo/galileo.png"
+                                    src="/images/galileo/galileo.webp"
                                     alt="galileo ia servicio de inteligencia artificial de attach group"
                                     width={393}
                                     height={105}
@@ -450,7 +450,7 @@ export default function Home() {
                         className="relative rounded-[16px] overflow-hidden shadow-lg group h-[280px] md:h-[480px] sm:h-[460px] lg:h-[489px] block transform transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:-translate-y-2"
                     >
                         <Image
-                            src="/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.jpg"
+                            src="/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.webp"
                             alt="El Universal México"
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

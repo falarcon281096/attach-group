@@ -267,7 +267,7 @@ export default function AthenaAds() {
               >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-44 md:h-80 mb-3 md:mb-4 overflow-hidden">
                   <Image
-                    src="/images/athena-ads/01.jpg"
+                    src="/images/athena-ads/01.webp"
                     alt="Phone ID Audiences"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -296,7 +296,7 @@ export default function AthenaAds() {
               >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-44 md:h-80 mb-3 md:mb-4 overflow-hidden">
                   <Image
-                    src="/images/athena-ads/02.png"
+                    src="/images/athena-ads/02.webp"
                     alt="Digital out of home by User Movility"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -339,7 +339,7 @@ export default function AthenaAds() {
               >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-40 md:h-64 mb-3 md:mb-4 overflow-hidden">
                   <Image
-                    src="/images/athena-ads/03.png"
+                    src="/images/athena-ads/03.webp"
                     alt="Connected TV"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -368,7 +368,7 @@ export default function AthenaAds() {
               >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-40 md:h-64 mb-3 md:mb-4 overflow-hidden">
                   <Image
-                    src="/images/athena-ads/04.png"
+                    src="/images/athena-ads/04.webp"
                     alt="Digital Screens"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -397,7 +397,7 @@ export default function AthenaAds() {
               >
                 <div className="relative rounded-t-2xl md:rounded-t-3xl rounded-b-none h-40 md:h-64 mb-3 md:mb-4 overflow-hidden">
                   <Image
-                    src="/images/athena-ads/05.jpg"
+                    src="/images/athena-ads/05.webp"
                     alt="Gaming"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -431,7 +431,7 @@ export default function AthenaAds() {
             <h2 
               ref={(el) => setElementRef("innovacion-title", el)}
               data-animate-id="innovacion-title"
-              className={`text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center transform transition-all duration-700 transition-all duration-1000 ${
+              className={`text-[24px] md:text-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-clip-text text-transparent text-center transform transition-all duration-1000 ${
                 isVisible["innovacion-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
@@ -462,7 +462,7 @@ export default function AthenaAds() {
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[30px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
                   <div className="flex-1 relative h-80 md:h-68 md:h-74 overflow-hidden rounded flex items-center justify-center">
                     <img
-                      src="/images/athena-ads/Cayetano-Social-Extender.gif"
+                      src="/images/athena-ads/Cayetano-Social-Extender.webp"
                       alt="Social Extender 1"
                       width={800}
                       height={600}
@@ -470,16 +470,6 @@ export default function AthenaAds() {
                       loading="eager"
                     />
                   </div>
-                  {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
-                    <Image
-                      src="/images/athena-ads/09.jpg"
-                      alt="Social Extender 2"
-                      fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      loading="lazy"
-                      className="object-cover"
-                    />
-                  </div> */}
                 </div>
                 <div className="p-4 md:p-6">
                   <div className="text-[14px] md:text-[20px] font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
@@ -502,25 +492,16 @@ export default function AthenaAds() {
               >
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px] " style={{ padding:"10px 30px"}}>
                   <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded flex items-center justify-center">
-                    <Image
-                      src="/images/athena-ads/Ficohsa-Richmedia.gif"
-                      alt="Rich Media 1"
-                      width={800}
-                      height={600}
-                      className="w-full h-full object-contain"
-                      priority
-                    />
+                      <Image
+                        src="/images/athena-ads/Ficohsa-Richmedia.webp"
+                        alt="Rich Media 1"
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-contain"
+                        priority
+                        unoptimized
+                      />
                   </div>
-                  {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
-                    <Image
-                      src="/images/athena-ads/11.jpg"
-                      alt="Rich Media 2"
-                      fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      loading="lazy"
-                      className="object-cover"
-                    />
-                  </div> */}
                 </div>
                 <div className="p-4 md:p-6">
                   <div className="text-[14px] md:text-[20px]  font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
@@ -543,25 +524,16 @@ export default function AthenaAds() {
               >
                 <div className="bg-[#F7F7F7] p-3 md:p-4 flex gap-[10px] md:gap-[14px]" style={{ padding:"10px 30px"}}>
                   <div className="flex-1 relative h-62 md:h-74 overflow-hidden rounded flex items-center justify-center">
-                    <Image
-                      src="/images/athena-ads/SBD-Tap-to-Map.gif"
-                      alt="Tap to Map 1"
-                      width={800}
-                      height={600}
-                      className="w-full h-full object-contain"
-                      priority
-                    />
+                      <Image
+                        src="/images/athena-ads/SBD-Tap-to-Map.webp"
+                        alt="Tap to Map 1"
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-contain"
+                        priority
+                        unoptimized
+                      />
                   </div>
-                  {/* <div className="flex-1 relative h-50 md:h-58 overflow-hidden rounded">
-                    <Image
-                      src="/images/athena-ads/13.jpg"
-                      alt="Tap to Map 2"
-                      fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      loading="lazy"
-                      className="object-cover"
-                    />
-                  </div> */}
                 </div>
                 <div className="p-4 md:p-6">
                   <div className="text-[14px] md:text-[20px] font-bold mb-3" style={{ color: 'rgba(0, 206, 211, 1)' }}>
@@ -582,7 +554,7 @@ export default function AthenaAds() {
             <div 
               ref={(el) => setElementRef("historias-title", el)}
               data-animate-id="historias-title"
-              className={`text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%] transform transition-all duration-700 transition-all duration-1000 ${
+              className={`text-[24px] md:text-[48px] leading-[24px] md:leading-[48px] hero-title-override gradient-text font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#E2E830] via-[#A1E05E] via-[#2ED3B1] to-[#00CED3] bg-clip-text text-transparent text-center mx-auto w-full md:w-[80%] lg:w-[70%] transform transition-all duration-1000 ${
                 isVisible["historias-title"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >

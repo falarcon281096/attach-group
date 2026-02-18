@@ -257,7 +257,7 @@ export default function Home() {
                 {/* Logo Section */}
                 <div className="bg-linear-to-br rounded-2xl from-blue-400 to-cyan-400 h-35 md:h-55 lg:h-55 flex items-center justify-center px-4 lg:px-8 py-6 lg:py-8 transform transition-all duration-500 group-hover:scale-[1.03]">
                   <Image
-                    src="/images/general/AttachMediaLogo.png"
+                    src="/images/general/AttachMediaLogo.webp"
                     alt="attach media servicio de medios on y off de attach group"
                     width={239}
                     height={96}
@@ -337,7 +337,7 @@ export default function Home() {
                  
                   <Image 
                     className="w-full transform transition-all duration-700 group-hover:scale-100 relative z-0" 
-                    src="/images/nosotros/clientes-desktop.png" 
+                    src="/images/nosotros/clientes-desktop.webp" 
                     alt="clientes de attach group" 
                     width={1296} 
                     height={747}

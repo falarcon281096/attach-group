@@ -107,7 +107,7 @@ import { useEffect, useRef, useState } from "react";
               <div className="mb-10 md:mb-8">
                 <div className="relative inline-block">
                   <Image 
-                    src="/images/general/attachmedia_logo.png" 
+                    src="/images/general/attachmedia_logo.webp" 
                     alt="Attach Media" 
                     width={380} 
                     height={90} 
@@ -358,7 +358,7 @@ import { useEffect, useRef, useState } from "react";
             {/* Imagen de fondo */}
             <div className="relative h-48 md:h-64 lg:h-80 overflow-hidden rounded-t-2xl md:rounded-t-3xl">
               <Image 
-                src="/images/soluciones/attach-media/estructura-metodologias.png" 
+                src="/images/soluciones/attach-media/estructura-metodologias.webp" 
                 alt="Estructura y metodologías propias" 
                 width={1200} 
                 height={400}
@@ -469,7 +469,7 @@ import { useEffect, useRef, useState } from "react";
               >
                 <div className="relative overflow-hidden rounded-xl md:rounded-2xl group">
                   <Image 
-                    src="/images/soluciones/attach-media/ia-creativity.png" 
+                    src="/images/soluciones/attach-media/ia-creativity.webp" 
                     alt="IA Creativity - Mujer con proyecciones digitales" 
                     width={600} 
                     height={400}
@@ -562,7 +562,7 @@ import { useEffect, useRef, useState } from "react";
               >
                 <div className="relative overflow-hidden rounded-xl md:rounded-2xl group">
                   <Image 
-                    src="/images/soluciones/attach-media/influencer-marketing.png"
+                    src="/images/soluciones/attach-media/influencer-marketing.webp"
                     alt="Influencer Marketing"
                     width={600}
                     height={400}
@@ -592,7 +592,7 @@ import { useEffect, useRef, useState } from "react";
               >
                 <div className="relative overflow-hidden rounded-xl md:rounded-2xl group">
                   <Image 
-                    src="/images/soluciones/attach-media/seo-geo.png"
+                    src="/images/soluciones/attach-media/seo-geo.webp"
                     alt="SEO y GEO"
                     width={600}
                     height={400}
@@ -654,7 +654,7 @@ import { useEffect, useRef, useState } from "react";
               >
                 <div className="relative overflow-hidden rounded-xl md:rounded-2xl group">
                   <Image 
-                    src="/images/soluciones/attach-media/analytics-growth.png"
+                    src="/images/soluciones/attach-media/analytics-growth.webp"
                     alt="Analytics and Growth"
                     width={600}
                     height={400}
@@ -684,7 +684,7 @@ import { useEffect, useRef, useState } from "react";
               >
                 <div className="relative overflow-hidden rounded-xl md:rounded-2xl group">
                   <Image 
-                    src="/images/soluciones/attach-media/ui-ux.png"
+                    src="/images/soluciones/attach-media/ui-ux.webp"
                     alt="UX/UI and Development"
                     width={600}
                     height={400}

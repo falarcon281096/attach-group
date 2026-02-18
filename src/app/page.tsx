@@ -69,7 +69,7 @@ export default function Home() {
                 className="relative lg:mt-0 pl-12 sm:px-10 lg:px-0 lg:col-start-2 lg:row-start-1 
                   before:absolute
                   before:z-10
-                  before:bg-[url('/images/general/attach_cross_white.png')] 
+                  before:bg-[url('/images/general/attach_cross_white.webp')] 
                   before:bg-no-repeat before:bg-center before:content-['']
                   before:bg-[length:80%_80%] before:w-20 before:h-20 before:-translate-x-1/2 before:bottom-[10%] before:left-12
                   lg:before:bg-[length:100%_100%] lg:before:w-30 lg:before:h-30 lg:before:-translate-x-1/2 lg:before:left-0"
@@ -78,7 +78,7 @@ export default function Home() {
                   {/* Imagen móvil: sin bordes CSS y con archivo portada_movil.png */}
                   <Image
                     className="block lg:hidden w-full h-auto relative z-0"
-                    src="/images/home/portada_movil.png"
+                    src="/images/home/portada_movil.webp"
                     alt="Home caminando hacia un portal con el logo de Attach"
                     width={1200}
                     height={1000}
@@ -87,7 +87,7 @@ export default function Home() {
                   {/* Imagen desktop: mantiene bordes y estilos actuales */}
                   <Image
                     className="hidden lg:block w-full h-auto lg:rounded-tl-[40px] lg:rounded-bl-[40px] lg:h-[85%] lg:object-cover lg:object-center lg:scale-125 relative z-0"
-                    src="/images/home/portada.png"
+                    src="/images/home/portada.webp"
                     alt="Home caminando hacia un portal con el logo de Attach"
                     width={1200}
                     height={1000}
@@ -202,7 +202,7 @@ export default function Home() {
               className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
               style={{ background: 'linear-gradient(317.2deg, #FFC351 0%, #FF3F73 100%)' }}
             >
-                <Image className="w-65" src="/images/general/galileoia_logo.png" alt="Logo Galileo IA" width={200} height={100} style={{ width: 'auto', height: 'auto' }} />
+                <Image className="w-65" src="/images/general/galileoia_logo.webp" alt="Logo Galileo IA" width={200} height={100} style={{ width: 'auto', height: 'auto' }} />
               </div>
 
               {/* Content Section */}
@@ -226,7 +226,7 @@ export default function Home() {
               className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
               style={{ background: 'linear-gradient(320.61deg, #22D1C4 0%, #E2E830 100%)' }}
             >
-                <Image className="w-65" src="/images/general/athenaads_logo.png" alt="Logo Athena ADS" width={200} height={100} style={{ width: 'auto', height: 'auto' }} />
+                <Image className="w-65" src="/images/general/athenaads_logo.webp" alt="Logo Athena ADS" width={200} height={100} style={{ width: 'auto', height: 'auto' }} />
               </div>
 
               {/* Content Section */}
@@ -250,7 +250,7 @@ export default function Home() {
               className="rounded-2xl h-40 md:h-60 flex items-center justify-center p-8"
               style={{ background: 'linear-gradient(272.19deg, #22D1C4 0%, #2F7DE0 100%)' }}
             >
-                <Image className="w-55" src="/images/general/attachmedia_logo.png" alt="Logo AttachMedia" width={200} height={100} style={{ width: 'auto', height: 'auto' }} />
+                <Image className="w-55" src="/images/general/attachmedia_logo.webp" alt="Logo AttachMedia" width={200} height={100} style={{ width: 'auto', height: 'auto' }} />
               </div>
 
               {/* Content Section */}
@@ -409,7 +409,7 @@ export default function Home() {
                     {/* Imagen móvil para Apuesta Total (solo visible en móvil) */}
                     <div className="block lg:hidden my-8 ml-10 md:ml-0">
                       <ImageWithPlus
-                        src="/images/casos-de-exito/apuestatotal.png"
+                        src="/images/home/Athenads1.webp"
                         alt="Apuesta Total"
                         width={1800}
                         height={1800}
@@ -441,7 +441,7 @@ export default function Home() {
               <div className="hidden lg:flex justify-end relative transition-all duration-500 ease-in-out
                     relative 
                     before:absolute
-                    before:bg-[url('/images/general/attach_cross_blue_to_purple.png')] 
+                    before:bg-[url('/images/general/attach_cross_blue_to_purple.webp')] 
                     before:bg-no-repeat
                     before:bg-center
                     before:content-['']
@@ -457,9 +457,9 @@ export default function Home() {
                 {/* Image Placeholder */}
                 <ImageWithPlus
                       src={
-                        activeCase === 'caja-arequipa' ? "/images/casos-de-exito/eluniversal.png" :
-                          activeCase === 'deposeguro' ? "/images/casos-de-exito/deposeguro.png" :
-                            activeCase === 'apuesta-total' ? "/images/casos-de-exito/apuestatotal.png" :
+                        activeCase === 'caja-arequipa' ? "/images/casos-de-exito/eluniversal.webp" :
+                          activeCase === 'deposeguro' ? "/images/casos-de-exito/deposeguro.webp" :
+                            activeCase === 'apuesta-total' ? "/images/home/Athenads1.webp" :
                               "/images/casos-de-exito/eluniversal.webp"
                       }
                       alt={
@@ -489,7 +489,7 @@ export default function Home() {
             <div className="
               relative 
               before:absolute
-              before:bg-[url('/images/general/attach_cross_blue_to_purple.png')]
+              before:bg-[url('/images/general/attach_cross_blue_to_purple.webp')]
               before:bg-no-repeat
               before:bg-center
               before:content-['']
@@ -520,11 +520,11 @@ export default function Home() {
 
                   {/* Right Content - Awards Logos */}
                   <div className="flex flex-col lg:flex-row justify-evenly items-center gap-8 w-full">
-                      <Image className="w-100 h-auto lg:w-[30%] lg:h-[10%] object-cover" src="/images/home/peru-service.png" alt="Logo Attach" width={160} height={32}/>
+                      <Image className="w-100 h-auto lg:w-[30%] lg:h-[10%] object-cover" src="/images/home/peru-service.webp" alt="Logo Attach" width={160} height={32}/>
 
-                      <Image className="w-[50%] h-auto lg:w-[10%] lg-h-[10%] object-cover" src="/images/home/ecommerce-award.png" alt="Logo Attach" width={160} height={32}/>
+                      <Image className="w-[50%] h-auto lg:w-[10%] lg-h-[10%] object-cover" src="/images/home/ecommerce-award.webp" alt="Logo Attach" width={160} height={32}/>
 
-                      <Image className="w-[70%] h-auto lg:w-[17%] lg:h-[10%] object-cover" src="/images/home/iabperu.png" alt="Logo Attach" width={160} height={32}/>
+                      <Image className="w-[70%] h-auto lg:w-[17%] lg:h-[10%] object-cover" src="/images/home/iabperu.webp" alt="Logo Attach" width={160} height={32}/>
                   </div>
                 </div>
               </div>
@@ -551,36 +551,36 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center gap-10 lg:gap-x-10 lg:gap-y-20">
               {/* Google Marketing Platform */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-                <Image className="w-[12rem]" src="/images/home/attach_partner_1.png" alt="Logo Attach" width={160} height={32}/>
+                <Image className="w-[12rem]" src="/images/home/attach_partner_1.webp" alt="Logo Attach" width={160} height={32}/>
               </div>
               {/* Google Cloud */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[13rem]" src="/images/home/attach_partner_2.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[13rem]" src="/images/home/attach_partner_2.webp" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* Google Partner */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[9rem]" src="/images/home/attach_partner_3.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[9rem]" src="/images/home/attach_partner_3.webp" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* Meta Business Partner */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[7rem]" src="/images/home/attach_partner_4.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[7rem]" src="/images/home/attach_partner_4.webp" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* VWO */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[8rem]" src="/images/home/attach_partner_5.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[8rem]" src="/images/home/attach_partner_5.webp" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* Convert */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[11rem]" src="/images/home/attach_partner_6.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[11rem]" src="/images/home/attach_partner_6.webp" alt="Logo Attach" width={160} height={32}/>
               </div>
 
               {/* Google Display & Video 360 */}
               <div className="block w-auto lg:w-[15rem] flex justify-center">
-              <Image className="w-[12rem]" src="/images/home/attach_partner_7.png" alt="Logo Attach" width={160} height={32}/>
+              <Image className="w-[12rem]" src="/images/home/attach_partner_7.webp" alt="Logo Attach" width={160} height={32}/>
               </div>
             </div>
         </section>

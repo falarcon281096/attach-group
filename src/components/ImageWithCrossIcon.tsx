@@ -93,7 +93,7 @@ export default function ImageWithCrossIcon({
           style={{ zIndex: 9999 }}
         >
           <Image 
-            src="/images/general/attach_cross_blue_to_purple.png" 
+            src="/images/general/attach_cross_blue_to_purple.webp" 
             alt="" 
             width={60} 
             height={60} 

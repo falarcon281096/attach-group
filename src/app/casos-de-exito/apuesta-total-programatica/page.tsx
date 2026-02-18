@@ -224,7 +224,7 @@ export default function Home() {
                     lg:relative 
                     before:absolute before:inset-0 
                     before:z-10
-                    before:bg-[url('/images/general/attach_cross_white.png')]
+                    before:bg-[url('/images/general/attach_cross_white.webp')]
                     before:bg-no-repeat
                     before:bg-center
                     before:content-['']
@@ -244,7 +244,7 @@ export default function Home() {
                 <div className="pt-0 md:pt-15 relative z-0 overflow-hidden rounded-l-[4rem] group">
                   <Image 
                     className="w-full rounded-l-[4rem] transform transition-all duration-700" 
-                    src="/images/casos-de-exito/apuestatotal.png" 
+                    src="/images/casos-de-exito/apuestatotal.webp" 
                     alt="local de apuesta total cliente y caso de éxito de attach group" 
                     width={1200} 
                     height={1000}

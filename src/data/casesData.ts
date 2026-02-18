@@ -8,7 +8,7 @@ export interface Case {
 
 export const casesData: Case[] = [
   {
-  link: '/casos-de-exito/deposeguro-web/',
+    link: '/casos-de-exito/deposeguro-web/',
     id: 'deposeguro',
     title: 'Deposeguro',
     tag: 'Sitio web',
@@ -33,7 +33,7 @@ export const casesData: Case[] = [
     id: 'universal',
     title: 'El Universal',
     tag: 'IA',
-    image: '/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.jpg',
+    image: '/images/casos-de-exito/universal/5d8c3719-01ff-4feb-acb0-081d1d9644d0.webp',
   },
   {
     link: '/casos-de-exito/el-universal-ux',

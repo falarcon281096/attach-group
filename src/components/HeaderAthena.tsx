@@ -83,7 +83,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                           <div className="flex-1">
                             <div className="mb-2">
                               <Image
-                                src="/images/menu/GalileoIA Logo-color.png"
+                                src="/images/menu/GalileoIA Logo-color.webp"
                                 alt="Galileo IA"
                                 width={120}
                                 height={32}
@@ -94,7 +94,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                           </div>
                           <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
                             <Image
-                              src="/images/menu/arrow_right_alt.png"
+                              src="/images/menu/arrow_right_alt.webp"
                               alt="Arrow"
                               width={20}
                               height={20}
@@ -112,7 +112,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                           <div className="flex-1">
                             <div className="mb-2">
                               <Image
-                                src="/images/menu/AthenaAds Logo-color.png"
+                                src="/images/menu/AthenaAds Logo-color.webp"
                                 alt="AthenaAds"
                                 width={120}
                                 height={32}
@@ -123,7 +123,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                           </div>
                           <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
                             <Image
-                              src="/images/menu/arrow_right_alt.png"
+                              src="/images/menu/arrow_right_alt.webp"
                               alt="Arrow"
                               width={20}
                               height={20}
@@ -141,7 +141,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                           <div className="flex-1">
                             <div className="mb-2">
                               <Image
-                                src="/images/menu/Attach-Media-Logo-color.png"
+                                src="/images/menu/Attach-Media-Logo-color.webp"
                                 alt="Attach Media"
                                 width={140}
                                 height={32}
@@ -152,7 +152,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                           </div>
                           <div className="lg:flex transition-all duration-200 transform group-hover:translate-x-1 ml-4 mt-2">
                             <Image
-                              src="/images/menu/arrow_right_alt.png"
+                              src="/images/menu/arrow_right_alt.webp"
                               alt="Arrow"
                               width={20}
                               height={20}
@@ -177,7 +177,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                           <div className="flex-1 relative">
                             <div className="mb-2">
                               <Image
-                                src="/images/menu/Prisma-Logo-color.png"
+                                src="/images/menu/Prisma-Logo-color.webp"
                                 alt="PRISMA"
                                 width={100}
                                 height={32}
@@ -200,7 +200,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                           <div className="flex-1 relative">
                             <div className="mb-2">
                               <Image
-                                src="/images/menu/ProspectIA-Logo-color.png"
+                                src="/images/menu/ProspectIA-Logo-color.webp"
                                 alt="PROSPECT/A"
                                 width={120}
                                 height={32}
@@ -307,7 +307,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                         {/* Galileo IA */}
                         <Link href="/galileo-ia" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           <Image
-                            src="/images/menu/GalileoIA Logo-color.png"
+                            src="/images/menu/GalileoIA Logo-color.webp"
                             alt="Galileo IA"
                             width={80}
                             height={24}
@@ -320,7 +320,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                         {/* AthenaAds */}
                         <Link href="/athena-ads" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           <Image
-                            src="/images/menu/AthenaAds Logo-color.png"
+                            src="/images/menu/AthenaAds Logo-color.webp"
                             alt="AthenaAds"
                             width={80}
                             height={24}
@@ -333,7 +333,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                         {/* Attach Media */}
                         <Link href="/attach-media" className="block p-3 rounded-lg hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                           <Image
-                            src="/images/menu/Attach-Media-Logo-color.png"
+                            src="/images/menu/Attach-Media-Logo-color.webp"
                             alt="Attach Media"
                             width={90}
                             height={24}
@@ -351,7 +351,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                         {/* PRISMA */}
                         <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors relative">
                           <Image
-                            src="/images/menu/Prisma-Logo-color.png"
+                            src="/images/menu/Prisma-Logo-color.webp"
                             alt="PRISMA"
                             width={70}
                             height={24}
@@ -367,7 +367,7 @@ export default function HeaderAthena({ showBorder = false }: { showBorder?: bool
                         {/* PROSPECT/A */}
                         <div className="p-3 rounded-lg hover:bg-gray-50 transition-colors relative">
                           <Image
-                            src="/images/menu/ProspectIA-Logo-color.png"
+                            src="/images/menu/ProspectIA-Logo-color.webp"
                             alt="PROSPECT/A"
                             width={80}
                             height={24}

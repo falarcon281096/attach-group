@@ -37,7 +37,7 @@ export default function Home() {
           <div className='relative pl-10 md:pl-0 overflow-visible scroll-reveal scroll-reveal-delay-1'>
             <div className="rounded-l-3xl rounded-r-none">
               <ImageWithPlus
-                src='/images/cultura/culturaAttach.jpg'
+                src='/images/cultura/culturaAttach.webp'
                 alt='consultores y analistas de attach group'
                 width={500}
                 height={600}
@@ -63,7 +63,7 @@ export default function Home() {
           <div className='relative flex items-center justify-start pt-2 md:pt-10 pb-0 md:pb-0 order-2 lg:order-1 overflow-visible scroll-reveal'>
             <div className="relative pr-15 md:pr-0 w-full max-w-md lg:max-w-2xl rounded-r-3xl rounded-l-none h-[260px] md:aspect-[3/4] md:h-[628px] lg:h-[628px]">
               <ImageWithPlus
-                src='/images/cultura/cultura-inspira.jpg'
+                src='/images/cultura/cultura-inspira.webp'
                 alt='consultores y analistas de attach group observando resultados'
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -102,7 +102,7 @@ export default function Home() {
             
             <div className='relative lg:block w-full h-auto hidden image-light-soft'>
               <Image
-                src='/images/cultura/vida-en-attach-group.png'
+                src='/images/cultura/vida-en-attach-group.webp'
                 alt='actividades de integración y voluntariado de attach group'
                 width={1200}
                 height={400}
@@ -114,7 +114,7 @@ export default function Home() {
           
           <div className='relative lg:hidden w-full h-auto block image-light-soft'>
             <Image
-              src='/images/cultura/vida-en-attach-group-movil.png'
+              src='/images/cultura/vida-en-attach-group-movil.webp'
               alt='actividades de integración y voluntariado de attach group'
               width={600}
               height={800}
@@ -235,7 +235,7 @@ export default function Home() {
           <div className='group border-2 border-gray-200 rounded-3xl scroll-reveal transition-transform duration-700 ease-out'>
             <div className='rounded-3xl from-red-400 pb-1 relative overflow-hidden'>
               <Image
-                src='/images/cultura/programa-1.png'
+                src='/images/cultura/programa-1.webp'
                 alt='programa be my mentor de attach group'
                 width={400}
                 height={600}
@@ -261,7 +261,7 @@ export default function Home() {
           <div className='group border-2 border-gray-200 rounded-3xl scroll-reveal scroll-reveal-delay-1 transition-transform duration-700 ease-out'>
             <div className='rounded-3xl from-red-400 pb-1 relative overflow-hidden'>
               <Image
-                src='/images/cultura/programa-2.png'
+                src='/images/cultura/programa-2.webp'
                 alt='programa inside out de attach group'
                 width={400}
                 height={600}
@@ -287,7 +287,7 @@ export default function Home() {
           <div className='group border-2 border-gray-200 rounded-3xl scroll-reveal scroll-reveal-delay-2 transition-transform duration-700 ease-out'>
             <div className='rounded-3xl from-red-400 pb-1 relative overflow-hidden'>
               <Image
-                src='/images/cultura/programa-3.png'
+                src='/images/cultura/programa-3.webp'
                 alt='programa leadership academy de attach group'
                 width={400}
                 height={600}
@@ -328,7 +328,7 @@ export default function Home() {
             <div className='flex gap-5 lg:gap-10  justify-start  lg:justify-center scroll-reveal scroll-reveal-delay-1'>
               <a href="https://www.linkedin.com/company/attachgroup/" target="blank">
                 <img
-                  src='/images/cultura/linkedin.png'
+                  src='/images/cultura/linkedin.webp'
                   alt=''
                   width={44}
                   height={44}
@@ -336,7 +336,7 @@ export default function Home() {
               </a>
               <a href="https://www.instagram.com/attach.group/" target="blank">
                 <img
-                  src='/images/cultura/instagram.png'
+                  src='/images/cultura/instagram.webp'
                   alt=''
                   width={45}
                   height={45}
