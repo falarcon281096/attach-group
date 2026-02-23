@@ -27,7 +27,7 @@ const geistMono = Geist_Mono({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://attach-group.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://attach.group"),
   title: {
     default: "Attach Group | Grupo de empresas especializadas en resolver problemas de negocio",
     template: "%s | Attach Group",
