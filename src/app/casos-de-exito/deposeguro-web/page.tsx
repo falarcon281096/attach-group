@@ -253,6 +253,7 @@ export default function Home() {
                       alt="deposeguro cliente y caso de éxito de attach group"
                       width={1200}
                       height={1000}
+                      quality={100}
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority
                     />
@@ -318,6 +319,7 @@ export default function Home() {
                     alt="deposeguro cliente y caso de éxito de attach group"
                     width={1200}
                     height={1000}
+                    quality={100}
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
                   />
@@ -458,7 +460,8 @@ export default function Home() {
               position="right-bottom"
               width={1200}
               height={1000}
-              quality={75}
+              quality={100}
+              unoptimized
               hoverScale={false}
               containerClassName="w-full"
             />
@@ -488,7 +491,8 @@ export default function Home() {
               position="left-bottom"
               width={1200}
               height={1000}
-              quality={75}
+              quality={100}
+              unoptimized
               hoverScale={false}
               containerClassName="w-full"
               imageClassName="lg:h-150"
