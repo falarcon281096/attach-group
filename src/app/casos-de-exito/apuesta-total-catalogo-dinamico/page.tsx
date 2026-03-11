@@ -98,9 +98,10 @@ export default function Home() {
     return { prefix, suffix, final };
   };
 
+  // Usar formato fijo para evitar hydration mismatch (toLocaleString difiere servidor/cliente)
   const formatValue = (n: number, suffix: string): string => {
     if (suffix.includes("%")) return `${n}${suffix}`;
-    if (suffix.toLowerCase().includes("apuestas")) return `${n.toLocaleString('en-US')}${suffix}`;
+    if (suffix.toLowerCase().includes("apuestas")) return `${n.toLocaleString("en-US")}${suffix}`;
     return `${n}${suffix}`;
   };
 
@@ -219,22 +220,22 @@ export default function Home() {
             <div className="mx-7 text-white lg:mx-30 pt-0 pb-15 lg:py-16 grid grid-cols-2 lg:grid-cols-4 lg:gap-2 gap-y-10">
               {/* Indicador 1 */}
               <div ref={(el) => setElementRef("indicator-1", el)} data-animate-id="indicator-1" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-1"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">{countValues[0]}</p>
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500" suppressHydrationWarning>{countValues[0]}</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100">menos Costo por Recarga</p>
               </div>
               {/* Indicador 2 */}
               <div ref={(el) => setElementRef("indicator-2", el)} data-animate-id="indicator-2" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-2"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">{countValues[1]}</p>
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500" suppressHydrationWarning>{countValues[1]}</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100">menos Costo por Apuesta</p>
               </div>
               {/* Indicador 3 */}
               <div ref={(el) => setElementRef("indicator-3", el)} data-animate-id="indicator-3" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-3"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">{countValues[2]}</p>
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500" suppressHydrationWarning>{countValues[2]}</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100">de ahorro en CPM y CPC</p>
               </div>
               {/* Indicador 4 */}
               <div ref={(el) => setElementRef("indicator-4", el)} data-animate-id="indicator-4" className={`relative px-4 lg:px-7 border-l border-gray-200/60 before:content-[''] before:absolute before:left-0 before:top-[45%] before:-translate-y-[60%] before:w-[2px] before:h-17 before:bg-white transform transition-all duration-700 hover:scale-105 ${isVisible["indicator-4"] ? "opacity-100 translate-y-0" : "opacity-100 translate-y-10"}`}>
-                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500">{countValues[3]}</p>
+                <p className="font-bold text-3xl lg:text-5xl transform transition-all duration-500" suppressHydrationWarning>{countValues[3]}</p>
                 <p className="mt-2 lg:text-xl text-l transform transition-all duration-500 delay-100">y 95,000 recargas impulsadas con anuncios dinámicos y cuotas en tiempo real.</p>
               </div>
             </div>
