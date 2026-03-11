@@ -458,7 +458,7 @@ export default function Home() {
               position="right-bottom"
               width={1200}
               height={1000}
-              quality={100}
+              quality={75}
               hoverScale={false}
               containerClassName="w-full"
             />
@@ -488,7 +488,7 @@ export default function Home() {
               position="left-bottom"
               width={1200}
               height={1000}
-              quality={100}
+              quality={75}
               hoverScale={false}
               containerClassName="w-full"
               imageClassName="lg:h-150"
