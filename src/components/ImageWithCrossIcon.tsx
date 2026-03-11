@@ -77,28 +77,17 @@ export default function ImageWithCrossIcon({
       >
         {/* Imagen con overflow-hidden solo en la imagen */}
         <div className={`relative overflow-hidden w-full h-full ${getRoundedClasses()}`}>
-          {unoptimized ? (
-            <img
-              src={src}
-              alt={alt}
-              width={width}
-              height={height}
-              loading="lazy"
-              className={`w-full ${getRoundedClasses()} object-cover transform transition-all duration-700 ${hoverScale ? 'group-hover:scale-110' : ''} ${imageClassName}`}
-              decoding="async"
-            />
-          ) : (
-            <Image 
-              className={`w-full ${getRoundedClasses()} object-cover transform transition-all duration-700 ${hoverScale ? 'group-hover:scale-110' : ''} ${imageClassName}`}
-              src={src}
-              alt={alt}
-              width={width}
-              height={height}
-              quality={quality}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              loading="lazy"
-            />
-          )}
+          <Image
+            className={`w-full ${getRoundedClasses()} object-cover transform transition-all duration-700 ${hoverScale ? 'group-hover:scale-110' : ''} ${imageClassName}`}
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            quality={quality}
+            unoptimized={unoptimized}
+            sizes={unoptimized ? undefined : "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"}
+            loading="lazy"
+          />
         </div>
         
         {/* Icono attach_cross_blue_to_purple.png dentro del contenedor de la imagen */}

@@ -254,6 +254,7 @@ export default function Home() {
                       width={1200}
                       height={1000}
                       quality={100}
+                      unoptimized
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority
                     />
@@ -320,6 +321,7 @@ export default function Home() {
                     width={1200}
                     height={1000}
                     quality={100}
+                    unoptimized
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
                   />

@@ -26,9 +26,14 @@ export default function CountUp({
 }: CountUpProps) {
   const [value, setValue] = useState(start);
   const [started, setStarted] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const rafRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
   const elRef = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const node = elRef.current;
@@ -75,10 +80,13 @@ export default function CountUp({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [started, duration, start, end]);
 
+  // Evitar mismatch: toLocaleString puede diferir entre servidor y cliente
+  const displayValue = mounted ? value.toLocaleString("es-PE") : String(start);
+
   return (
-    <span ref={elRef} className={className}>
+    <span ref={elRef} className={className} suppressHydrationWarning>
       {prefix}
-      {value.toLocaleString("es-PE")}
+      {displayValue}
       {suffix}
     </span>
   );
