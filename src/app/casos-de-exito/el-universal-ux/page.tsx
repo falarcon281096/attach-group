@@ -246,6 +246,7 @@ export default function Home() {
               width={1200}
               height={1000}
               quality={100}
+              unoptimized
               containerClassName="w-full"
             />
           </div>
@@ -268,6 +269,7 @@ export default function Home() {
               width={1200}
               height={1000}
               quality={100}
+              unoptimized
               containerClassName="w-full"
               imageClassName="lg:h-150"
             />

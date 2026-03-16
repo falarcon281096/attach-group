@@ -342,6 +342,7 @@ export default function Home() {
               width={1200}
               height={1000}
               quality={100}
+              unoptimized
               hoverScale={false}
               containerClassName="w-full"
             />
@@ -363,6 +364,7 @@ export default function Home() {
               width={1200}
               height={1000}
               quality={100}
+              unoptimized
               hoverScale={false}
               containerClassName="w-full"
               imageClassName="lg:h-150"
